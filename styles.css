@@ -224,9 +224,11 @@ ul {
 }
 
 .logo-icon {
-    font-size: 1.75rem;
-    color: var(--primary);
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
     filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+    border-radius: 50%;
 }
 
 .logo-text {
@@ -3922,8 +3924,8 @@ ul {
 }
 
 .workflow-logo .logo-icon {
-    font-size: 1.2rem;
-    color: var(--accent);
+    width: 28px;
+    height: 28px;
 }
 
 .workflow-logo .logo-text {
@@ -4330,7 +4332,8 @@ ul {
     }
     
     .workflow-logo .logo-icon {
-        font-size: 1rem;
+        width: 24px;
+        height: 24px;
     }
     
     .workflow-logo .logo-text {
@@ -4410,7 +4413,8 @@ ul {
     }
     
     .workflow-logo .logo-icon {
-        font-size: 0.9rem;
+        width: 20px;
+        height: 20px;
     }
     
     .workflow-logo .logo-text {

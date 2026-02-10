@@ -355,6 +355,6 @@ document.querySelectorAll('.workflow-stage').forEach(stage => {
 // ═══════════════════════════════════════════
 // CONSOLE BRANDING
 // ═══════════════════════════════════════════
-console.log('%c⬡ Vigilense AI', 'font-size: 24px; font-weight: bold; color: #3b82f6;');
+console.log('%c🛡️ Vigilense AI', 'font-size: 24px; font-weight: bold; color: #3b82f6;');
 console.log('%cAutonomous AI-Powered SIEM', 'font-size: 14px; color: #60a5fa;');
 console.log('%cFrom Signal to Resolution — Fully Automated', 'font-size: 12px; color: #94a3b8;');
