@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bring Your Own LLM Guide - Vigilense AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#platform">Platform</a></li>
+                <li><a href="../index.html#integrations">Integrations</a></li>
+                <li><a href="../index.html#contact" class="btn-primary btn-nav">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Resource Content -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-header">
+                <span class="section-tag">🤖 Technical</span>
+                <h1>Bring Your Own LLM Guide</h1>
+                <p class="legal-updated">How to connect Azure OpenAI, AWS Bedrock, or self-hosted models to Vigilense AI</p>
+            </div>
+            <div class="legal-content">
+                <h2>Overview</h2>
+                <p><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>'s Bring Your Own LLM (BYO-LLM) capability lets you use your preferred AI provider for all AI-powered features. This ensures your security data never leaves your control and helps meet data sovereignty requirements.</p>
+
+                <h2>Why Bring Your Own LLM?</h2>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>🔒 Data Sovereignty</h3>
+                        <p>Keep AI processing within your approved cloud environment. Meet regulatory requirements for data residency.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>💰 Cost Control</h3>
+                        <p>Use your existing AI contracts and commitments. Leverage enterprise pricing and reserved capacity.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🎯 Model Selection</h3>
+                        <p>Choose the model that best fits your needs — optimize for speed, accuracy, or cost.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🏠 Self-Hosted Option</h3>
+                        <p>Run models on your own infrastructure for complete control. Air-gapped deployment supported.</p>
+                    </div>
+                </div>
+
+                <h2>Supported Providers</h2>
+                
+                <h3>☁️ Azure OpenAI</h3>
+                <p>Enterprise-grade OpenAI models with Azure's security and compliance.</p>
+                <ul>
+                    <li><strong>Models:</strong> GPT-4, GPT-4 Turbo, GPT-4o, GPT-3.5 Turbo</li>
+                    <li><strong>Authentication:</strong> Azure AD / API Key</li>
+                    <li><strong>Regions:</strong> All Azure OpenAI regions supported</li>
+                    <li><strong>Features:</strong> Content filtering, private endpoints</li>
+                </ul>
+
+                <h4>Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "azure_openai",
+  "endpoint": "https://your-resource.openai.azure.com/",
+  "deployment_name": "gpt-4",
+  "api_version": "2024-02-15-preview",
+  "authentication": {
+    "type": "azure_ad" | "api_key",
+    "tenant_id": "your-tenant-id",  // for Azure AD
+    "client_id": "your-client-id"   // for Azure AD
+  }
+}
+                </pre>
+
+                <h3>🟠 AWS Bedrock</h3>
+                <p>Access to multiple foundation models through AWS.</p>
+                <ul>
+                    <li><strong>Models:</strong> Claude 3 (Opus, Sonnet, Haiku), Llama 3, Mistral, Titan</li>
+                    <li><strong>Authentication:</strong> IAM Role / Access Keys</li>
+                    <li><strong>Regions:</strong> All Bedrock-enabled regions</li>
+                    <li><strong>Features:</strong> VPC endpoints, CloudWatch integration</li>
+                </ul>
+
+                <h4>Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "aws_bedrock",
+  "region": "us-east-1",
+  "model_id": "anthropic.claude-3-sonnet-20240229-v1:0",
+  "authentication": {
+    "type": "iam_role" | "access_key",
+    "role_arn": "arn:aws:iam::123456789:role/bedrock-access"
+  }
+}
+                </pre>
+
+                <h3>🔷 Google Vertex AI</h3>
+                <p>Google's enterprise AI platform with Gemini models.</p>
+                <ul>
+                    <li><strong>Models:</strong> Gemini Pro, Gemini Pro Vision, PaLM 2</li>
+                    <li><strong>Authentication:</strong> Service Account</li>
+                    <li><strong>Regions:</strong> All Vertex AI regions</li>
+                    <li><strong>Features:</strong> VPC-SC, CMEK encryption</li>
+                </ul>
+
+                <h4>Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "google_vertex",
+  "project_id": "your-gcp-project",
+  "location": "us-central1",
+  "model": "gemini-1.5-pro",
+  "authentication": {
+    "type": "service_account",
+    "key_file": "/path/to/service-account.json"
+  }
+}
+                </pre>
+
+                <h3>🌐 OpenAI API (Direct)</h3>
+                <p>Direct connection to OpenAI's API.</p>
+                <ul>
+                    <li><strong>Models:</strong> GPT-4, GPT-4 Turbo, GPT-4o, GPT-3.5 Turbo</li>
+                    <li><strong>Authentication:</strong> API Key</li>
+                    <li><strong>Features:</strong> Organization ID support</li>
+                </ul>
+
+                <h4>Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "openai",
+  "model": "gpt-4-turbo",
+  "organization_id": "org-xxxxx"  // optional
+}
+                </pre>
+
+                <h3>🏠 Self-Hosted Models</h3>
+                <p>Run models on your own infrastructure for complete control.</p>
+                <ul>
+                    <li><strong>Supported Runtimes:</strong> Ollama, vLLM, text-generation-inference, LocalAI</li>
+                    <li><strong>Models:</strong> Llama 3, Mistral, Mixtral, CodeLlama, and more</li>
+                    <li><strong>Authentication:</strong> API Key / mTLS</li>
+                    <li><strong>Features:</strong> Air-gap support, custom models</li>
+                </ul>
+
+                <h4>Ollama Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "ollama",
+  "endpoint": "http://ollama.internal:11434",
+  "model": "llama3:70b",
+  "authentication": {
+    "type": "api_key",  // optional
+    "header": "Authorization"
+  }
+}
+                </pre>
+
+                <h4>vLLM Configuration</h4>
+                <pre style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+{
+  "provider": "vllm",
+  "endpoint": "https://vllm.internal:8000/v1",
+  "model": "meta-llama/Meta-Llama-3-70B-Instruct",
+  "authentication": {
+    "type": "mtls",
+    "client_cert": "/path/to/cert.pem",
+    "client_key": "/path/to/key.pem"
+  }
+}
+                </pre>
+
+                <h2>Model Requirements</h2>
+                <p>For optimal performance with <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>, your LLM should support:</p>
+                <ul>
+                    <li><strong>Context Length:</strong> Minimum 8K tokens (32K+ recommended)</li>
+                    <li><strong>Structured Output:</strong> JSON mode or function calling</li>
+                    <li><strong>Latency:</strong> &lt; 5 seconds for typical queries</li>
+                    <li><strong>Reliability:</strong> 99.9%+ uptime for production use</li>
+                </ul>
+
+                <h3>Model Comparison</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background: rgba(0,212,255,0.1);">
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Model</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Speed</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Accuracy</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Cost</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">GPT-4o</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⚡⚡⚡</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⭐⭐⭐</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">$$$</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Claude 3 Sonnet</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⚡⚡⚡</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⭐⭐⭐</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">$$</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Gemini Pro</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⚡⚡</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⭐⭐⭐</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">$$</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Llama 3 70B (self-hosted)</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⚡⚡</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">⭐⭐</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">$ (infra only)</td>
+                    </tr>
+                </table>
+
+                <h2>Security Considerations</h2>
+                <h3>Credential Management</h3>
+                <ul>
+                    <li>API keys encrypted at rest using per-tenant encryption keys</li>
+                    <li>Optional integration with your secrets manager</li>
+                    <li>Credentials never logged or exposed in error messages</li>
+                    <li>Support for credential rotation without downtime</li>
+                </ul>
+
+                <h3>Data Flow</h3>
+                <p>When using BYO-LLM, data flows directly between your <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> instance and your AI provider:</p>
+                <ul>
+                    <li>We never see or store prompts or responses</li>
+                    <li>No data sent to third parties</li>
+                    <li>All communication over TLS 1.3</li>
+                    <li>Private endpoints supported for cloud providers</li>
+                </ul>
+
+                <h2>Setup Guide</h2>
+                <h3>Step 1: Choose Your Provider</h3>
+                <p>Select the AI provider that best meets your requirements for data residency, compliance, and performance.</p>
+
+                <h3>Step 2: Create Credentials</h3>
+                <p>Create API credentials with minimal required permissions:</p>
+                <ul>
+                    <li><strong>Azure OpenAI:</strong> Cognitive Services User role</li>
+                    <li><strong>AWS Bedrock:</strong> bedrock:InvokeModel permission</li>
+                    <li><strong>Google Vertex:</strong> aiplatform.endpoints.predict permission</li>
+                </ul>
+
+                <h3>Step 3: Configure in Vigilense AI</h3>
+                <p>Navigate to Settings → AI Configuration and enter your provider details.</p>
+
+                <h3>Step 4: Test Connection</h3>
+                <p>Use the built-in connection test to verify everything is working.</p>
+
+                <h3>Step 5: Go Live</h3>
+                <p>Enable your BYO-LLM configuration for production use.</p>
+
+                <h2>Troubleshooting</h2>
+                <h3>Common Issues</h3>
+                <ul>
+                    <li><strong>Connection Timeout:</strong> Check network connectivity and firewall rules</li>
+                    <li><strong>Authentication Error:</strong> Verify credentials and permissions</li>
+                    <li><strong>Rate Limiting:</strong> Increase quotas or enable retry logic</li>
+                    <li><strong>Model Not Found:</strong> Verify model name/ID and region availability</li>
+                </ul>
+
+                <h2>Get Help</h2>
+                <p>Need assistance configuring BYO-LLM? <a href="../index.html#contact">Contact our team</a> for implementation support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 DCE Infosec LLC. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy</a>
+                        <a href="../terms.html">Terms</a>
+                        <a href="../disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

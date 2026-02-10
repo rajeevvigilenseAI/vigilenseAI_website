@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare SIEM Transformation - Case Study - Vigilense AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#platform">Platform</a></li>
+                <li><a href="../index.html#integrations">Integrations</a></li>
+                <li><a href="../index.html#contact" class="btn-primary btn-nav">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Resource Content -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-header">
+                <span class="section-tag">📈 Case Study</span>
+                <h1>Healthcare SIEM Transformation</h1>
+                <p class="legal-updated">How a healthcare system achieved HIPAA compliance while reducing investigation time by 90%</p>
+            </div>
+            <div class="legal-content">
+                <h2>Executive Summary</h2>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>🏥 Organization</h3>
+                        <p>Regional Healthcare System<br>15 hospitals, 200+ clinics<br>50,000+ endpoints</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>⏱️ Investigation Time</h3>
+                        <p><strong>Before:</strong> 45 minutes avg<br><strong>After:</strong> 4 minutes avg<br><strong>Reduction:</strong> 91%</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🚨 Alert Volume</h3>
+                        <p><strong>Before:</strong> 15,000/day<br><strong>After:</strong> 150 actionable/day<br><strong>Reduction:</strong> 99%</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>💰 Cost Savings</h3>
+                        <p><strong>Annual:</strong> $2.1M<br><strong>ROI:</strong> 340%<br><strong>Payback:</strong> 4 months</p>
+                    </div>
+                </div>
+
+                <h2>The Challenge</h2>
+                <p>This regional healthcare system faced a perfect storm of security challenges common in healthcare:</p>
+
+                <h3>Alert Fatigue Crisis</h3>
+                <ul>
+                    <li>15,000+ alerts per day across their environment</li>
+                    <li>SOC team of 8 analysts completely overwhelmed</li>
+                    <li>Average 45 minutes to investigate a single alert</li>
+                    <li>Many alerts simply went uninvestigated</li>
+                    <li>Morale was low, turnover was high</li>
+                </ul>
+
+                <h3>Compliance Pressure</h3>
+                <ul>
+                    <li>HIPAA requirements for audit trails and incident response</li>
+                    <li>Regular audits requiring detailed documentation</li>
+                    <li>PHI data handling restrictions limited tool choices</li>
+                    <li>Data residency requirements kept data on-premise</li>
+                </ul>
+
+                <h3>Legacy Infrastructure</h3>
+                <ul>
+                    <li>Existing SIEM was 8 years old</li>
+                    <li>Cost $1.8M annually in licensing and infrastructure</li>
+                    <li>Required 3 full-time staff just for maintenance</li>
+                    <li>Detection rules were years out of date</li>
+                </ul>
+
+                <h2>Why Vigilense AI</h2>
+                <p>After evaluating multiple vendors, the healthcare system chose <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> for several key reasons:</p>
+
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>🔒 BYODb for HIPAA</h3>
+                        <p>PHI-containing logs could stay in their existing on-premise data lake. No data needed to leave their environment.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🤖 True Automation</h3>
+                        <p>Not just alerting, but actual autonomous investigation and response. The promise of meaningful workload reduction.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>💵 Risk-Free Trial</h3>
+                        <p>Deploy-first, pay-later model meant they could prove value before any financial commitment.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🧠 BYO-LLM</h3>
+                        <p>Could use Azure OpenAI in their own tenant, ensuring AI processing met data sovereignty requirements.</p>
+                    </div>
+                </div>
+
+                <h2>Implementation</h2>
+                <h3>Phase 1: Connection (Week 1)</h3>
+                <ul>
+                    <li>Connected to existing OpenSearch cluster containing security logs</li>
+                    <li>Integrated with CrowdStrike EDR</li>
+                    <li>Connected to Azure AD for identity context</li>
+                    <li>Configured Azure OpenAI in their tenant for AI processing</li>
+                </ul>
+
+                <h3>Phase 2: Learning (Weeks 2-3)</h3>
+                <ul>
+                    <li>AI models learned normal behavior patterns</li>
+                    <li>Custom playbooks created for healthcare-specific scenarios</li>
+                    <li>Integration with Epic EHR for context on clinical systems</li>
+                    <li>HIPAA-compliant response actions configured</li>
+                </ul>
+
+                <h3>Phase 3: Autonomous Mode (Week 4+)</h3>
+                <ul>
+                    <li>Gradual enablement of autonomous investigation</li>
+                    <li>Automated response for low-risk scenarios</li>
+                    <li>Human-in-the-loop for high-impact decisions</li>
+                    <li>Continuous tuning and optimization</li>
+                </ul>
+
+                <h2>Results</h2>
+                <h3>Operational Impact</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background: rgba(0,212,255,0.1);">
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Metric</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Before</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">After</th>
+                        <th style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);">Change</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Daily Alerts Requiring Human Review</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">15,000</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">150</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">-99%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Mean Time to Investigate</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">45 min</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">4 min</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">-91%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Mean Time to Respond</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">4 hours</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">12 min</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">-95%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">False Positive Rate</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">85%</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">8%</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">-91%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Analyst Capacity for Proactive Work</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">5%</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">70%</td>
+                        <td style="padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">+1300%</td>
+                    </tr>
+                </table>
+
+                <h3>Financial Impact</h3>
+                <ul>
+                    <li><strong>Legacy SIEM Retirement:</strong> $1.8M annual savings</li>
+                    <li><strong>Analyst Efficiency:</strong> Equivalent of 4 additional FTEs without hiring</li>
+                    <li><strong>Avoided Incidents:</strong> Estimated $500K in prevented breach costs</li>
+                    <li><strong>Total First-Year Savings:</strong> $2.1M</li>
+                </ul>
+
+                <h3>Compliance Benefits</h3>
+                <ul>
+                    <li>Automated audit trails for all security events</li>
+                    <li>HIPAA-compliant investigation documentation</li>
+                    <li>Reduced audit preparation time by 75%</li>
+                    <li>Zero compliance findings related to incident response</li>
+                </ul>
+
+                <h2>Key Use Cases</h2>
+                <h3>PHI Access Monitoring</h3>
+                <p>Challenge: Detecting unauthorized access to patient records across 200+ clinics.</p>
+                <p>Solution: AI correlates EHR access logs with work schedules, patient assignments, and behavioral baselines. Anomalous access patterns are automatically investigated and escalated.</p>
+                <p>Result: 15 insider threat cases identified in first 90 days that would have gone undetected.</p>
+
+                <h3>Medical Device Security</h3>
+                <p>Challenge: Thousands of IoMT devices with limited security controls.</p>
+                <p>Solution: Behavioral analysis of medical device network traffic. Automatic isolation of compromised devices without disrupting patient care.</p>
+                <p>Result: Contained a medical imaging system compromise within 3 minutes, preventing lateral movement.</p>
+
+                <h3>Ransomware Prevention</h3>
+                <p>Challenge: Healthcare is the #1 target for ransomware.</p>
+                <p>Solution: AI detects early indicators of ransomware (reconnaissance, credential access, lateral movement) and automatically contains threats before encryption begins.</p>
+                <p>Result: Blocked 3 ransomware attempts in first 6 months with zero patient care impact.</p>
+
+                <h2>Testimonial</h2>
+                <blockquote style="border-left: 3px solid var(--accent); padding-left: 20px; margin: 30px 0; font-style: italic;">
+                    "We went from drowning in alerts to actually being proactive about security. Our analysts used to spend all day triaging false positives. Now they're doing threat hunting and security architecture work. The transformation has been remarkable — and we did it while strengthening our HIPAA compliance posture."
+                    <br><br>
+                    <strong>— Chief Information Security Officer</strong>
+                </blockquote>
+
+                <h2>Lessons Learned</h2>
+                <ul>
+                    <li><strong>Start with BYODb:</strong> Data residency concerns were solved immediately</li>
+                    <li><strong>Phase the rollout:</strong> Gradual automation built trust with the SOC team</li>
+                    <li><strong>Customize for healthcare:</strong> Clinical context made all the difference</li>
+                    <li><strong>Measure everything:</strong> Quantified results made the business case clear</li>
+                </ul>
+
+                <h2>Ready to Transform Your SOC?</h2>
+                <p>See how <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> can deliver similar results for your organization. <a href="../index.html#contact">Request a demo</a> and let us show you what autonomous security operations looks like.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 DCE Infosec LLC. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy</a>
+                        <a href="../terms.html">Terms</a>
+                        <a href="../disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

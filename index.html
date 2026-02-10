@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigilense AI - Autonomous AI-Powered SIEM</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="nav-brand">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="trust.html">Trust Center</a></li>
+                <li><a href="#contact" class="btn-primary btn-nav">Get Started</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <!-- Hero Chips -->
+                <div class="hero-chips">
+                    <span class="hero-chip">
+                        <span class="chip-icon">🤖</span>
+                        <span>Autonomous SIEM</span>
+                    </span>
+                    <span class="hero-chip">
+                        <span class="chip-icon">🗄️</span>
+                        <span>BYODb</span>
+                    </span>
+                    <span class="hero-chip highlight">
+                        <span class="chip-icon">⚡</span>
+                        <span>AI-Native</span>
+                    </span>
+                </div>
+                
+                <!-- Main Title -->
+                <h1 class="hero-title-new">
+                    <span class="title-small">AI Powered NextGen SIEM</span>
+                    <span class="title-big">
+                        <span class="word-fully">Fully Automated <span class="word-soc">SOC</span><span class="cursor-blink">_</span></span>
+                    </span>
+                </h1>
+                
+                <!-- Get Demo Button -->
+                <div class="hero-demo-button">
+                    <a href="#contact" class="btn btn-primary btn-demo">Get Demo</a>
+                </div>
+                
+                <!-- Animated Stats Bar -->
+                <div class="hero-stats-mini">
+                    <div class="stat-mini">
+                        <span class="stat-value">90%</span>
+                        <span class="stat-label">Less Manual Work</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-mini">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Autonomous Ops</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-mini">
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Data Lock-in</span>
+                    </div>
+                </div>
+
+            <!-- Hero Workflow - Flow Diagram with Branches -->
+            <div id="how-it-works" class="hero-workflow-flow">
+                <div class="workflow-flow-container">
+                    <!-- Logo at top left -->
+                    <div class="workflow-logo">
+                        <span class="logo-icon">⬡</span>
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </div>
+                    
+                    <!-- Engine 1: Detection with Database Branches -->
+                    <div class="engine-row">
+                        <div class="branch-group left">
+                            <div class="branch-item in" style="--delay: 0s"><span>🗄️ OpenSearch</span></div>
+                            <div class="branch-item in" style="--delay: 0.1s"><span>🗄️ Elasticsearch</span></div>
+                            <div class="branch-item in" style="--delay: 0.2s"><span>🗄️ Snowflake</span></div>
+                            <div class="branch-item in" style="--delay: 0.3s"><span>🗄️ PostgreSQL</span></div>
+                        </div>
+                        <div class="connector-lines left neural">
+                            <svg viewBox="0 0 60 120" preserveAspectRatio="none">
+                                <!-- Neural paths with nodes -->
+                                <path class="connector-path" d="M0,15 Q30,15 55,60" />
+                                <path class="connector-path" d="M0,45 Q30,45 55,60" />
+                                <path class="connector-path" d="M0,75 Q30,75 55,60" />
+                                <path class="connector-path" d="M0,105 Q30,105 55,60" />
+                                <!-- Start nodes -->
+                                <circle class="neural-node start" cx="0" cy="15" r="3" style="--delay: 0s" />
+                                <circle class="neural-node start" cx="0" cy="45" r="3" style="--delay: 0.2s" />
+                                <circle class="neural-node start" cx="0" cy="75" r="3" style="--delay: 0.4s" />
+                                <circle class="neural-node start" cx="0" cy="105" r="3" style="--delay: 0.6s" />
+                                <!-- End node (center) -->
+                                <circle class="neural-node end gold" cx="55" cy="60" r="5" />
+                                <!-- Animated pulses -->
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0s"><mpath href="#det-path-l1"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s"><mpath href="#det-path-l2"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.6s"><mpath href="#det-path-l3"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.9s"><mpath href="#det-path-l4"/></animateMotion></circle>
+                                <!-- Hidden paths for animation -->
+                                <path id="det-path-l1" d="M0,15 Q30,15 55,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-l2" d="M0,45 Q30,45 55,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-l3" d="M0,75 Q30,75 55,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-l4" d="M0,105 Q30,105 55,60" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="engine-core detection">
+                            <div class="engine-num">1</div>
+                            <div class="engine-icon-main">🔍</div>
+                            <h4>DETECTION ENGINE</h4>
+                            <p>AI-Powered Risk Scoring & Consolidation</p>
+                        </div>
+                        <div class="connector-lines right neural">
+                            <svg viewBox="0 0 60 120" preserveAspectRatio="none">
+                                <!-- Neural paths with nodes -->
+                                <path class="connector-path" d="M5,60 Q30,15 60,15" />
+                                <path class="connector-path" d="M5,60 Q30,45 60,45" />
+                                <path class="connector-path" d="M5,60 Q30,75 60,75" />
+                                <path class="connector-path" d="M5,60 Q30,105 60,105" />
+                                <!-- Start node (center) -->
+                                <circle class="neural-node end gold" cx="5" cy="60" r="5" />
+                                <!-- End nodes -->
+                                <circle class="neural-node start" cx="60" cy="15" r="3" style="--delay: 0.1s" />
+                                <circle class="neural-node start" cx="60" cy="45" r="3" style="--delay: 0.3s" />
+                                <circle class="neural-node start" cx="60" cy="75" r="3" style="--delay: 0.5s" />
+                                <circle class="neural-node start" cx="60" cy="105" r="3" style="--delay: 0.7s" />
+                                <!-- Animated pulses (reverse direction) -->
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.1s"><mpath href="#det-path-r1"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.4s"><mpath href="#det-path-r2"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="0.7s"><mpath href="#det-path-r3"/></animateMotion></circle>
+                                <circle class="neural-pulse gold" r="2"><animateMotion dur="1.5s" repeatCount="indefinite" begin="1.0s"><mpath href="#det-path-r4"/></animateMotion></circle>
+                                <!-- Hidden paths for animation (reversed) -->
+                                <path id="det-path-r1" d="M60,15 Q30,15 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-r2" d="M60,45 Q30,45 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-r3" d="M60,75 Q30,75 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="det-path-r4" d="M60,105 Q30,105 5,60" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="branch-group right">
+                            <div class="branch-item in" style="--delay: 0.15s"><span>BigQuery 🗄️</span></div>
+                            <div class="branch-item in" style="--delay: 0.25s"><span>Splunk 🗄️</span></div>
+                            <div class="branch-item in" style="--delay: 0.35s"><span>Azure ADX 🗄️</span></div>
+                            <div class="branch-item in" style="--delay: 0.45s"><span>S3 🗄️</span></div>
+                        </div>
+                    </div>
+
+                    <div class="flow-connector-vertical">
+                        <div class="flow-line-v"></div>
+                        <span class="flow-arrow-v">▼</span>
+                    </div>
+
+                    <!-- Engine 2: Investigation with API Branches -->
+                    <div class="engine-row">
+                        <div class="branch-group left">
+                            <!-- IP/Domain Rep Category -->
+                            <div class="branch-category">
+                                <div class="category-label">IP/Domain Rep</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 0s"><span>🌐 AbuseIPDB</span></div>
+                                    <div class="branch-item api" style="--delay: 0.1s"><span>🌐 GreyNoise</span></div>
+                                    <div class="branch-item api" style="--delay: 0.2s"><span>🌐 DomainTools</span></div>
+                                </div>
+                            </div>
+                            <!-- Threat Intel Category -->
+                            <div class="branch-category">
+                                <div class="category-label">Threat Intel</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 0.3s"><span>🛡️ Mandiant</span></div>
+                                    <div class="branch-item api" style="--delay: 0.4s"><span>🛡️ Recorded Future</span></div>
+                                    <div class="branch-item api" style="--delay: 0.5s"><span>🛡️ MISP</span></div>
+                                    <div class="branch-item api" style="--delay: 0.6s"><span>🛡️ AlienVault OTX</span></div>
+                                </div>
+                            </div>
+                            <!-- Recon Category -->
+                            <div class="branch-category">
+                                <div class="category-label">Recon</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 0.7s"><span>🔎 Shodan</span></div>
+                                    <div class="branch-item api" style="--delay: 0.8s"><span>🔎 Censys</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector-lines left neural">
+                            <svg viewBox="0 0 60 90" preserveAspectRatio="none">
+                                <!-- 3 paths for 3 categories -->
+                                <path class="connector-path cyan" d="M0,15 Q30,15 55,45" />
+                                <path class="connector-path cyan" d="M0,45 Q30,45 55,45" />
+                                <path class="connector-path cyan" d="M0,75 Q30,75 55,45" />
+                                <!-- Start nodes -->
+                                <circle class="neural-node start cyan" cx="0" cy="15" r="3" />
+                                <circle class="neural-node start cyan" cx="0" cy="45" r="3" />
+                                <circle class="neural-node start cyan" cx="0" cy="75" r="3" />
+                                <!-- End node -->
+                                <circle class="neural-node end cyan" cx="55" cy="45" r="5" />
+                                <!-- Animated pulses -->
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath href="#inv-path-l1"/></animateMotion></circle>
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.4s"><mpath href="#inv-path-l2"/></animateMotion></circle>
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.8s"><mpath href="#inv-path-l3"/></animateMotion></circle>
+                                <!-- Hidden paths -->
+                                <path id="inv-path-l1" d="M0,15 Q30,15 55,45" fill="none" style="visibility:hidden"/>
+                                <path id="inv-path-l2" d="M0,45 Q30,45 55,45" fill="none" style="visibility:hidden"/>
+                                <path id="inv-path-l3" d="M0,75 Q30,75 55,45" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="engine-core investigation">
+                            <div class="engine-num">2</div>
+                            <div class="engine-icon-main">🤖</div>
+                            <h4>INVESTIGATION ENGINE</h4>
+                            <p>AI-Powered Agentic Analysis</p>
+                        </div>
+                        <div class="connector-lines right neural">
+                            <svg viewBox="0 0 60 120" preserveAspectRatio="none">
+                                <!-- 4 paths for 4 categories -->
+                                <path class="connector-path cyan" d="M5,60 Q30,15 60,15" />
+                                <path class="connector-path cyan" d="M5,60 Q30,45 60,45" />
+                                <path class="connector-path cyan" d="M5,60 Q30,75 60,75" />
+                                <path class="connector-path cyan" d="M5,60 Q30,105 60,105" />
+                                <!-- Start node -->
+                                <circle class="neural-node end cyan" cx="5" cy="60" r="5" />
+                                <!-- End nodes -->
+                                <circle class="neural-node start cyan" cx="60" cy="15" r="3" />
+                                <circle class="neural-node start cyan" cx="60" cy="45" r="3" />
+                                <circle class="neural-node start cyan" cx="60" cy="75" r="3" />
+                                <circle class="neural-node start cyan" cx="60" cy="105" r="3" />
+                                <!-- Animated pulses (reverse) -->
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.1s"><mpath href="#inv-path-r1"/></animateMotion></circle>
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.4s"><mpath href="#inv-path-r2"/></animateMotion></circle>
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.7s"><mpath href="#inv-path-r3"/></animateMotion></circle>
+                                <circle class="neural-pulse cyan" r="2"><animateMotion dur="1.2s" repeatCount="indefinite" begin="1.0s"><mpath href="#inv-path-r4"/></animateMotion></circle>
+                                <!-- Hidden paths (reversed) -->
+                                <path id="inv-path-r1" d="M60,15 Q30,15 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="inv-path-r2" d="M60,45 Q30,45 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="inv-path-r3" d="M60,75 Q30,75 5,60" fill="none" style="visibility:hidden"/>
+                                <path id="inv-path-r4" d="M60,105 Q30,105 5,60" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="branch-group right">
+                            <!-- EDR/XDR Category -->
+                            <div class="branch-category">
+                                <div class="category-label">EDR/XDR</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 0.9s"><span>🔐 CrowdStrike</span></div>
+                                    <div class="branch-item api" style="--delay: 1.0s"><span>🔐 SentinelOne</span></div>
+                                    <div class="branch-item api" style="--delay: 1.1s"><span>🔐 Microsoft Defender</span></div>
+                                    <div class="branch-item api" style="--delay: 1.2s"><span>🔐 Cortex XDR</span></div>
+                                </div>
+                            </div>
+                            <!-- Malware Category -->
+                            <div class="branch-category">
+                                <div class="category-label">Malware</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 1.3s"><span>🦠 VirusTotal</span></div>
+                                    <div class="branch-item api" style="--delay: 1.4s"><span>🦠 Hybrid Analysis</span></div>
+                                    <div class="branch-item api" style="--delay: 1.5s"><span>🦠 Any.Run</span></div>
+                                </div>
+                            </div>
+                            <!-- Identity Category -->
+                            <div class="branch-category">
+                                <div class="category-label">Identity</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 1.6s"><span>👤 Microsoft Entra ID</span></div>
+                                    <div class="branch-item api" style="--delay: 1.7s"><span>👤 Okta</span></div>
+                                    <div class="branch-item api" style="--delay: 1.8s"><span>👤 CyberArk</span></div>
+                                </div>
+                            </div>
+                            <!-- Network Category -->
+                            <div class="branch-category">
+                                <div class="category-label">Network</div>
+                                <div class="category-items">
+                                    <div class="branch-item api" style="--delay: 1.9s"><span>📊 Palo Alto</span></div>
+                                    <div class="branch-item api" style="--delay: 2.0s"><span>📊 Cisco</span></div>
+                                    <div class="branch-item api" style="--delay: 2.1s"><span>📊 Zscaler</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flow-connector-vertical">
+                        <div class="flow-line-v"></div>
+                        <span class="flow-arrow-v">▼</span>
+                    </div>
+
+                    <!-- Engine 3: Resolution with Action Branches -->
+                    <div class="engine-row">
+                        <div class="branch-group left">
+                            <!-- Network Actions -->
+                            <div class="branch-category">
+                                <div class="category-label">Network Actions</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 0s"><span>🚫 Block IP via Firewall</span></div>
+                                    <div class="branch-item action" style="--delay: 0.1s"><span>🌐 Block Domain via DNS</span></div>
+                                    <div class="branch-item action" style="--delay: 0.2s"><span>🔥 Push Firewall Rule</span></div>
+                                </div>
+                            </div>
+                            <!-- Endpoint Actions -->
+                            <div class="branch-category">
+                                <div class="category-label">Endpoint Actions</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 0.3s"><span>🔒 Isolate Host via EDR</span></div>
+                                    <div class="branch-item action" style="--delay: 0.4s"><span>📦 Quarantine via XDR</span></div>
+                                    <div class="branch-item action" style="--delay: 0.5s"><span>🗑️ Remove Malware via AV</span></div>
+                                    <div class="branch-item action" style="--delay: 0.6s"><span>⚡ Kill Process via Agent</span></div>
+                                </div>
+                            </div>
+                            <!-- Identity Actions -->
+                            <div class="branch-category">
+                                <div class="category-label">Identity Actions</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 0.7s"><span>👤 Disable User via IAM</span></div>
+                                    <div class="branch-item action" style="--delay: 0.8s"><span>🔑 Force Password Reset</span></div>
+                                    <div class="branch-item action" style="--delay: 0.9s"><span>🚪 Revoke All Sessions</span></div>
+                                    <div class="branch-item action" style="--delay: 1.0s"><span>🛡️ Enforce MFA via IdP</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="connector-lines left out neural">
+                            <svg viewBox="0 0 60 90" preserveAspectRatio="none">
+                                <!-- 3 paths for 3 categories (outgoing) -->
+                                <path class="connector-path green" d="M60,45 Q30,15 0,15" />
+                                <path class="connector-path green" d="M60,45 Q30,45 0,45" />
+                                <path class="connector-path green" d="M60,45 Q30,75 0,75" />
+                                <!-- Start node (center) -->
+                                <circle class="neural-node end green" cx="60" cy="45" r="5" />
+                                <!-- End nodes -->
+                                <circle class="neural-node start green" cx="0" cy="15" r="3" />
+                                <circle class="neural-node start green" cx="0" cy="45" r="3" />
+                                <circle class="neural-node start green" cx="0" cy="75" r="3" />
+                                <!-- Animated pulses (outgoing) -->
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0s"><mpath href="#res-path-l1"/></animateMotion></circle>
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0.3s"><mpath href="#res-path-l2"/></animateMotion></circle>
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0.6s"><mpath href="#res-path-l3"/></animateMotion></circle>
+                                <!-- Hidden paths -->
+                                <path id="res-path-l1" d="M60,45 Q30,15 0,15" fill="none" style="visibility:hidden"/>
+                                <path id="res-path-l2" d="M60,45 Q30,45 0,45" fill="none" style="visibility:hidden"/>
+                                <path id="res-path-l3" d="M60,45 Q30,75 0,75" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="engine-core resolution">
+                            <div class="engine-num">3</div>
+                            <div class="engine-icon-main">⚡</div>
+                            <h4>RESOLUTION</h4>
+                            <p>Agentic AI Remediation</p>
+                            <div class="engine-separator">────────────────────────────────────────────────</div>
+                            <div class="engine-description">"From insight to action — with or without approval."</div>
+                        </div>
+                        <div class="connector-lines right out neural">
+                            <svg viewBox="0 0 60 90" preserveAspectRatio="none">
+                                <!-- 3 paths for 3 categories (outgoing) -->
+                                <path class="connector-path green" d="M0,45 Q30,15 60,15" />
+                                <path class="connector-path green" d="M0,45 Q30,45 60,45" />
+                                <path class="connector-path green" d="M0,45 Q30,75 60,75" />
+                                <!-- Start node (center) -->
+                                <circle class="neural-node end green" cx="0" cy="45" r="5" />
+                                <!-- End nodes -->
+                                <circle class="neural-node start green" cx="60" cy="15" r="3" />
+                                <circle class="neural-node start green" cx="60" cy="45" r="3" />
+                                <circle class="neural-node start green" cx="60" cy="75" r="3" />
+                                <!-- Animated pulses (outgoing) -->
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0.1s"><mpath href="#res-path-r1"/></animateMotion></circle>
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0.4s"><mpath href="#res-path-r2"/></animateMotion></circle>
+                                <circle class="neural-pulse green" r="2"><animateMotion dur="1s" repeatCount="indefinite" begin="0.7s"><mpath href="#res-path-r3"/></animateMotion></circle>
+                                <!-- Hidden paths -->
+                                <path id="res-path-r1" d="M0,45 Q30,15 60,15" fill="none" style="visibility:hidden"/>
+                                <path id="res-path-r2" d="M0,45 Q30,45 60,45" fill="none" style="visibility:hidden"/>
+                                <path id="res-path-r3" d="M0,45 Q30,75 60,75" fill="none" style="visibility:hidden"/>
+                            </svg>
+                        </div>
+                        <div class="branch-group right">
+                            <!-- Email Actions -->
+                            <div class="branch-category">
+                                <div class="category-label">Email Actions</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 1.1s"><span>📧 Delete Phishing Email</span></div>
+                                    <div class="branch-item action" style="--delay: 1.2s"><span>🚫 Block Sender Domain</span></div>
+                                    <div class="branch-item action" style="--delay: 1.3s"><span>🗑️ Purge from Mailboxes</span></div>
+                                </div>
+                            </div>
+                            <!-- Cloud Actions -->
+                            <div class="branch-category">
+                                <div class="category-label">Cloud Actions</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 1.4s"><span>🔑 Revoke Access Keys</span></div>
+                                    <div class="branch-item action" style="--delay: 1.5s"><span>👤 Disable Service Account</span></div>
+                                    <div class="branch-item action" style="--delay: 1.6s"><span>📸 Snapshot for Forensics</span></div>
+                                </div>
+                            </div>
+                            <!-- Ticketing & Comms -->
+                            <div class="branch-category">
+                                <div class="category-label">Ticketing & Comms</div>
+                                <div class="category-items">
+                                    <div class="branch-item action" style="--delay: 1.7s"><span>🎫 Auto-Create Ticket</span></div>
+                                    <div class="branch-item action" style="--delay: 1.8s"><span>📝 Update Case Notes</span></div>
+                                    <div class="branch-item action" style="--delay: 1.9s"><span>📢 Alert SOC via Slack</span></div>
+                                    <div class="branch-item action" style="--delay: 2.0s"><span>✅ Auto-Close Incident</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+                <p class="hero-subtitle">
+                    The AI-powered SIEM that doesn't just detect threats - it investigates, decides, and acts. Own your data. Save 90% of SOC effort.
+                </p>
+                <p class="hero-subtitle" style="margin-top: 16px;">
+                    Bring your own database. Own your data. Or get up and running fast with ours.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary btn-large">Start Free</a>
+                    <a href="#how-it-works" class="btn btn-ghost btn-large">See How It Works</a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number">90%</span>
+                        <span class="metric-label">Less Manual Work</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-number">BYODb</span>
+                        <span class="metric-label">No Vendor Lock-In</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-number">100%</span>
+                        <span class="metric-label">End-to-End Automation</span>
+                    </div>
+                </div>
+                <!-- Trust Bar -->
+                <div class="hero-trust-bar">
+                    <div class="trust-item-small">
+                        <span class="trust-icon-small">🌍</span>
+                        <span>Trusted by security teams worldwide</span>
+                    </div>
+                    <div class="trust-item-small">
+                        <span class="trust-icon-small">🏢</span>
+                        <span>Enterprise-grade security</span>
+                    </div>
+                    <div class="trust-item-small">
+                        <span class="trust-icon-small">🛡️</span>
+                        <span>SOC 2 Type II</span>
+                        <span class="trust-badge-small">Compliant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-section">
+        <div class="container">
+            <p class="trusted-label">Trusted by forward-thinking security teams</p>
+            <div class="trusted-logos">
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">🏢</span>
+                    <span class="placeholder-text">Enterprise Co.</span>
+                </div>
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">🏥</span>
+                    <span class="placeholder-text">Healthcare Inc.</span>
+                </div>
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">🏦</span>
+                    <span class="placeholder-text">FinServ Corp.</span>
+                </div>
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">🛡️</span>
+                    <span class="placeholder-text">SecureOps LLC</span>
+                </div>
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">☁️</span>
+                    <span class="placeholder-text">CloudTech</span>
+                </div>
+                <div class="trusted-logo-placeholder">
+                    <span class="placeholder-icon">🏛️</span>
+                    <span class="placeholder-text">GovSec Agency</span>
+                </div>
+            </div>
+            <p class="trusted-note">And dozens more security-conscious organizations</p>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="logos-section">
+        <div class="container">
+            <p class="logos-label">Works with your existing stack</p>
+            <div class="logos-grid">
+                <div class="logo-item">OpenSearch</div>
+                <div class="logo-item">Elasticsearch</div>
+                <div class="logo-item">Snowflake</div>
+                <div class="logo-item">BigQuery</div>
+                <div class="logo-item">PostgreSQL</div>
+                <div class="logo-item">MongoDB</div>
+                <div class="logo-item">Splunk</div>
+                <div class="logo-item">AWS S3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges We Solve Section -->
+    <section class="challenges-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Problem</span>
+                <h2 class="section-title">Traditional SIEMs Are Broken</h2>
+                <p class="section-subtitle">Security teams are drowning. Here's how <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> changes the game.</p>
+            </div>
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">😫</div>
+                    <h3>Alert Fatigue</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Analysts drown in thousands of alerts daily. 90% are false positives. Real threats get buried in the noise.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>Dynamic risk consolidation reduces alerts by 90%. AI surfaces only what matters — real threats, not noise.</p>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">🔒</div>
+                    <h3>Vendor Lock-In</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Your data is trapped in proprietary formats. Per-GB licensing costs explode. Leaving means losing everything.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>BYODb means your data stays in YOUR infrastructure. No forced migrations. No data hostage situations.</p>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">⏱️</div>
+                    <h3>Manual Investigation</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Each alert takes 30+ minutes to investigate. Analysts spend hours on repetitive enrichment and correlation.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>AI-powered agentic investigation does it in seconds. Automatic enrichment, correlation, and context — no manual work.</p>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">🐢</div>
+                    <h3>Slow Response</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Mean time to respond (MTTR) measured in hours or days. Threats have time to spread and escalate.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>Autonomous resolution executes remediation instantly. Block, quarantine, and contain — in seconds, not hours.</p>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">👥</div>
+                    <h3>Talent Shortage</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Security talent is scarce and expensive. Small teams can't keep up with alert volume. Burnout is rampant.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>AI multiplies your team's capacity by 10x. One analyst with <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> outperforms a team of five without it.</p>
+                    </div>
+                </div>
+                <div class="challenge-card">
+                    <div class="challenge-icon problem">🤷</div>
+                    <h3>AI Black Box</h3>
+                    <div class="challenge-problem">
+                        <span class="problem-label">The Problem</span>
+                        <p>Other AI SIEMs lock you into their models. No transparency. No control over how decisions are made.</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <span class="solution-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> Solution</span>
+                        <p>Bring your own LLM. Use Azure OpenAI, AWS Bedrock, or self-hosted models. Full control, full transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section class="integrations-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">50+ Integrations</span>
+                <h2 class="section-title">Connect Your Entire Stack</h2>
+                <p class="section-subtitle">Out-of-the-box integrations with your security tools, databases, and workflows</p>
+            </div>
+
+            <div class="integrations-grid">
+                <!-- Data Sources -->
+                <div class="integration-category">
+                    <h4 class="category-label">📊 Data Sources</h4>
+                    <div class="integration-items">
+                        <span class="integration-chip">OpenSearch</span>
+                        <span class="integration-chip">Elasticsearch</span>
+                        <span class="integration-chip">Snowflake</span>
+                        <span class="integration-chip">PostgreSQL</span>
+                        <span class="integration-chip">AWS S3</span>
+                        <span class="integration-chip">Databricks</span>
+                        <span class="integration-chip">BigQuery</span>
+                        <span class="integration-chip">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Security Tools -->
+                <div class="integration-category">
+                    <h4 class="category-label">🛡️ Security Tools</h4>
+                    <div class="integration-items">
+                        <span class="integration-chip">CrowdStrike</span>
+                        <span class="integration-chip">Microsoft Defender</span>
+                        <span class="integration-chip">SentinelOne</span>
+                        <span class="integration-chip">Okta</span>
+                        <span class="integration-chip">Azure AD</span>
+                        <span class="integration-chip">Palo Alto</span>
+                        <span class="integration-chip">Cisco</span>
+                        <span class="integration-chip">Zscaler</span>
+                    </div>
+                </div>
+
+                <!-- Threat Intel -->
+                <div class="integration-category">
+                    <h4 class="category-label">🔍 Threat Intelligence</h4>
+                    <div class="integration-items">
+                        <span class="integration-chip">VirusTotal</span>
+                        <span class="integration-chip">AbuseIPDB</span>
+                        <span class="integration-chip">Shodan</span>
+                        <span class="integration-chip">MISP</span>
+                        <span class="integration-chip">AlienVault OTX</span>
+                        <span class="integration-chip">Recorded Future</span>
+                    </div>
+                </div>
+
+                <!-- Workflows -->
+                <div class="integration-category">
+                    <h4 class="category-label">⚡ Workflows</h4>
+                    <div class="integration-items">
+                        <span class="integration-chip">ServiceNow</span>
+                        <span class="integration-chip">Jira</span>
+                        <span class="integration-chip">Slack</span>
+                        <span class="integration-chip">Teams</span>
+                        <span class="integration-chip">PagerDuty</span>
+                        <span class="integration-chip">Webhooks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section id="platform" class="platform-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Platform</span>
+                <h2 class="section-title">Built Different</h2>
+                <p class="section-subtitle">Everything you need for autonomous security operations</p>
+            </div>
+
+            <div class="platform-grid">
+                <div class="platform-card main-card">
+                    <div class="card-badge">Core Advantage</div>
+                    <div class="card-icon">🔓</div>
+                    <h3>BYODb — Bring Your Own Database</h3>
+                    <p>Connect to your existing infrastructure. No forced migrations. No per-GB licensing. Full control over retention, cold storage, and scale. Whether SaaS or self-hosted, you choose where your data lives.</p>
+                    <div class="card-tags">
+                        <span>OpenSearch</span>
+                        <span>Elasticsearch</span>
+                        <span>Snowflake</span>
+                        <span>BigQuery</span>
+                        <span>PostgreSQL</span>
+                        <span>+More</span>
+                    </div>
+                </div>
+
+                <div class="platform-card">
+                    <div class="card-icon">🤖</div>
+                    <h3>AI Query Generation</h3>
+                    <p>Natural language to database queries. Ask questions in plain English — get optimized queries across any connected data source.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Real-Time Dashboards</h3>
+                    <p>Live visibility into your security posture. Executive summaries, analyst workbenches, and compliance views — all customizable.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Smart Consolidation</h3>
+                    <p>Dynamic risk scoring that's smarter than traditional alerting. Correlates signals, reduces noise, and surfaces what matters.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="card-icon">📋</div>
+                    <h3>Investigation Reports</h3>
+                    <p>AI-generated investigation reports ready for action. Complete context, evidence chain, and recommended next steps.</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="card-icon">🔄</div>
+                    <h3>Workflow Orchestration</h3>
+                    <p>Complex multi-step responses executed automatically. Playbooks that adapt to context and scale with your operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Flexibility Section -->
+    <section class="ai-flexibility-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI Flexibility</span>
+                <h2 class="section-title">Your AI, Your Rules</h2>
+                <p class="section-subtitle">Unlike other SIEMs locked to proprietary AI, <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> gives you complete control</p>
+            </div>
+
+            <div class="ai-options-grid">
+                <div class="ai-option-card">
+                    <div class="option-header">
+                        <div class="option-icon">🚀</div>
+                        <h3>Use Our AI</h3>
+                        <span class="option-badge">Quick Start</span>
+                    </div>
+                    <p>Enterprise-grade AI models optimized for security operations. Ready to use out of the box.</p>
+                    <ul class="option-features">
+                        <li><span class="check">✓</span> Pre-trained for security use cases</li>
+                        <li><span class="check">✓</span> Continuously updated</li>
+                        <li><span class="check">✓</span> No setup required</li>
+                        <li><span class="check">✓</span> Optimized for speed</li>
+                    </ul>
+                </div>
+
+                <div class="ai-option-card highlight">
+                    <div class="option-header">
+                        <div class="option-icon">🔧</div>
+                        <h3>Bring Your Own LLM</h3>
+                        <span class="option-badge featured">Full Control</span>
+                    </div>
+                    <p>Connect your own AI models for complete data privacy and customization.</p>
+                    <ul class="option-features">
+                        <li><span class="check">✓</span> Azure OpenAI</li>
+                        <li><span class="check">✓</span> AWS Bedrock</li>
+                        <li><span class="check">✓</span> Google Vertex AI</li>
+                        <li><span class="check">✓</span> OpenAI API</li>
+                        <li><span class="check">✓</span> Self-hosted (Ollama, vLLM)</li>
+                        <li><span class="check">✓</span> Any OpenAI-compatible API</li>
+                    </ul>
+                </div>
+
+                <div class="ai-option-card">
+                    <div class="option-header">
+                        <div class="option-icon">🏠</div>
+                        <h3>100% On-Premise AI</h3>
+                        <span class="option-badge">Air-Gapped</span>
+                    </div>
+                    <p>For maximum security, run AI entirely within your infrastructure.</p>
+                    <ul class="option-features">
+                        <li><span class="check">✓</span> No external AI calls</li>
+                        <li><span class="check">✓</span> Deploy open-source models</li>
+                        <li><span class="check">✓</span> Air-gapped environments</li>
+                        <li><span class="check">✓</span> Full audit control</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ai-privacy-note">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-content">
+                    <h4>Your Data, Your Model — We Never See It</h4>
+                    <p>When you bring your own LLM, all prompts and responses flow directly between <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> and your AI service. We have zero visibility into your queries or the AI's responses. Your security data never touches our infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Options Section -->
+    <section id="deployment" class="deployment-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Deployment</span>
+                <h2 class="section-title">Your Infrastructure, Your Rules</h2>
+                <p class="section-subtitle">Flexible deployment options to match your security and compliance requirements</p>
+            </div>
+
+            <div class="deployment-grid">
+                <div class="deployment-card">
+                    <div class="deployment-icon">☁️</div>
+                    <div class="deployment-badge saas">SaaS</div>
+                    <h3>Cloud-Hosted</h3>
+                    <p>Get started in minutes with our fully managed cloud platform. We handle the infrastructure while you focus on security.</p>
+                    <ul class="deployment-features">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Instant deployment — no infrastructure to manage</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Tenant-separated architecture — your data is isolated</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Connect to your databases — data stays with you</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Use your own AI/LLM models if preferred</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>SOC 2 Type II compliant infrastructure</span>
+                        </li>
+                    </ul>
+                    <div class="deployment-note">
+                        <span class="note-icon">💡</span>
+                        <span>Even in SaaS mode, you can connect your own databases for full data ownership</span>
+                    </div>
+                </div>
+
+                <div class="deployment-card highlight">
+                    <div class="deployment-icon">🏢</div>
+                    <div class="deployment-badge self-hosted">Self-Hosted</div>
+                    <h3>On-Premise / Private Cloud</h3>
+                    <p>Deploy <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> entirely within your environment for maximum control and compliance.</p>
+                    <ul class="deployment-features">
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>100% of data stays in your environment</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Deploy on your infrastructure (AWS, Azure, GCP, on-prem)</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Use your own AI/LLM models for complete control</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Air-gapped deployment available</span>
+                        </li>
+                        <li>
+                            <span class="feature-check">✓</span>
+                            <span>Meet strict regulatory requirements (HIPAA, FedRAMP, etc.)</span>
+                        </li>
+                    </ul>
+                    <div class="deployment-note">
+                        <span class="note-icon">🔒</span>
+                        <span>Perfect for organizations with strict data residency or compliance requirements</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deployment-flexibility">
+                <h4>Maximum Flexibility</h4>
+                <p>Both deployment options support the same powerful features. Switch between them — connect multiple data sources across environments while maintaining complete control.</p>
+                <div class="flexibility-badges">
+                    <span class="flex-badge">🔗 Connect Any Database</span>
+                    <span class="flex-badge">🤖 Bring Your Own LLM</span>
+                    <span class="flex-badge">🏠 Tenant-Separated</span>
+                    <span class="flex-badge">🔐 Your Data, Your Control</span>
+                </div>
+            </div>
+
+            <!-- Feature Comparison Matrix -->
+            <div class="deployment-matrix-container">
+                <h3 class="matrix-title">Feature Comparison: SaaS vs Self-Hosted</h3>
+                <div class="deployment-matrix">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Capability</th>
+                                <th><span class="th-badge saas">☁️ SaaS</span></th>
+                                <th><span class="th-badge self-hosted">🏢 Self-Hosted</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Deployment Time</td>
+                                <td><span class="matrix-check">✓</span> Minutes</td>
+                                <td><span class="matrix-check">✓</span> Hours-Days</td>
+                            </tr>
+                            <tr>
+                                <td>Tenant Separation</td>
+                                <td><span class="matrix-check">✓</span> Logical + Cryptographic</td>
+                                <td><span class="matrix-check">✓</span> Dedicated Instance</td>
+                            </tr>
+                            <tr>
+                                <td>Bring Your Own Database</td>
+                                <td><span class="matrix-check">✓</span> Connect to your DBs</td>
+                                <td><span class="matrix-check">✓</span> Full Control</td>
+                            </tr>
+                            <tr>
+                                <td>Bring Your Own LLM</td>
+                                <td><span class="matrix-check">✓</span> Azure/AWS/OpenAI</td>
+                                <td><span class="matrix-check">✓</span> Any Model (Ollama, vLLM)</td>
+                            </tr>
+                            <tr>
+                                <td>Air-Gapped Deployment</td>
+                                <td><span class="matrix-no">—</span></td>
+                                <td><span class="matrix-check">✓</span> Available</td>
+                            </tr>
+                            <tr>
+                                <td>Data Residency Control</td>
+                                <td><span class="matrix-check">✓</span> Region Selection</td>
+                                <td><span class="matrix-check">✓</span> 100% Your Choice</td>
+                            </tr>
+                            <tr>
+                                <td>Maintenance & Updates</td>
+                                <td><span class="matrix-check">✓</span> We Manage</td>
+                                <td><span class="matrix-note">You Manage</span></td>
+                            </tr>
+                            <tr>
+                                <td>SOC 2 / Compliance</td>
+                                <td><span class="matrix-check">✓</span> Certified</td>
+                                <td><span class="matrix-check">✓</span> Your Controls</td>
+                            </tr>
+                            <tr>
+                                <td>FedRAMP / HIPAA Ready</td>
+                                <td><span class="matrix-check">✓</span> In Progress</td>
+                                <td><span class="matrix-check">✓</span> Full Support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Diagram Section -->
+    <section class="architecture-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Architecture</span>
+                <h2 class="section-title">How Your Data Stays Yours</h2>
+                <p class="section-subtitle">Visual overview of our BYODb and tenant separation architecture</p>
+            </div>
+
+            <div class="architecture-grid">
+                <!-- BYODb Architecture -->
+                <div class="arch-card">
+                    <h3>🔗 BYODb Data Flow</h3>
+                    <p class="arch-description">Your security data never leaves your infrastructure</p>
+                    <div class="arch-diagram">
+                        <div class="arch-layer your-infra">
+                            <span class="layer-label">Your Infrastructure</span>
+                            <div class="arch-nodes">
+                                <div class="arch-node db">
+                                    <span class="node-icon">🗄️</span>
+                                    <span>Your Database</span>
+                                </div>
+                                <div class="arch-node db">
+                                    <span class="node-icon">☁️</span>
+                                    <span>Your Cloud</span>
+                                </div>
+                                <div class="arch-node db">
+                                    <span class="node-icon">🔐</span>
+                                    <span>Your Security Tools</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arch-flow-lines">
+                            <div class="flow-arrow query">
+                                <span>Query</span>
+                                <div class="arrow-line down"></div>
+                            </div>
+                            <div class="flow-arrow results">
+                                <span>Results</span>
+                                <div class="arrow-line up"></div>
+                            </div>
+                        </div>
+                        <div class="arch-layer vigilense">
+                            <span class="layer-label"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span></span>
+                            <div class="arch-nodes">
+                                <div class="arch-node ha">
+                                    <span class="node-icon">🤖</span>
+                                    <span>AI Engine</span>
+                                </div>
+                            </div>
+                            <div class="arch-note">
+                                <span class="note-icon">⚡</span>
+                                <span>Process in memory • No data stored • Real-time queries</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tenant Separation -->
+                <div class="arch-card">
+                    <h3>🏠 Tenant Separation (SaaS)</h3>
+                    <p class="arch-description">Complete isolation between customers</p>
+                    <div class="arch-diagram tenant">
+                        <div class="tenant-visual">
+                            <div class="tenant-box tenant-a">
+                                <span class="tenant-label">Tenant A</span>
+                                <div class="tenant-components">
+                                    <div class="tenant-item">🔐 Dedicated Keys</div>
+                                    <div class="tenant-item">🗄️ Isolated Data</div>
+                                    <div class="tenant-item">⚙️ Separate Config</div>
+                                </div>
+                            </div>
+                            <div class="tenant-wall">
+                                <span>🛡️</span>
+                                <span class="wall-label">Cryptographic Isolation</span>
+                            </div>
+                            <div class="tenant-box tenant-b">
+                                <span class="tenant-label">Tenant B</span>
+                                <div class="tenant-components">
+                                    <div class="tenant-item">🔐 Dedicated Keys</div>
+                                    <div class="tenant-item">🗄️ Isolated Data</div>
+                                    <div class="tenant-item">⚙️ Separate Config</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arch-guarantees">
+                            <span class="guarantee-item">✓ No cross-tenant access</span>
+                            <span class="guarantee-item">✓ Per-tenant encryption</span>
+                            <span class="guarantee-item">✓ Isolated processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section id="integrations" class="integrations-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Integrations</span>
+                <h2 class="section-title">Connects to Everything</h2>
+                <p class="section-subtitle">Deep integrations with your security stack</p>
+            </div>
+
+            <div class="integrations-grid">
+                <div class="integration-category">
+                    <h4>Databases</h4>
+                    <div class="integration-items">
+                        <span>OpenSearch</span>
+                        <span>Elasticsearch</span>
+                        <span>Snowflake</span>
+                        <span>BigQuery</span>
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>Splunk</span>
+                        <span>Databricks</span>
+                    </div>
+                </div>
+                <div class="integration-category">
+                    <h4>Security Tools</h4>
+                    <div class="integration-items">
+                        <span>CrowdStrike</span>
+                        <span>SentinelOne</span>
+                        <span>Microsoft Defender</span>
+                        <span>Palo Alto</span>
+                        <span>Okta</span>
+                        <span>Azure AD</span>
+                    </div>
+                </div>
+                <div class="integration-category">
+                    <h4>Threat Intelligence</h4>
+                    <div class="integration-items">
+                        <span>VirusTotal</span>
+                        <span>AlienVault OTX</span>
+                        <span>Recorded Future</span>
+                        <span>MISP</span>
+                        <span>AbuseIPDB</span>
+                    </div>
+                </div>
+                <div class="integration-category">
+                    <h4>Ticketing & Comms</h4>
+                    <div class="integration-items">
+                        <span>Jira</span>
+                        <span>ServiceNow</span>
+                        <span>Slack</span>
+                        <span>Teams</span>
+                        <span>PagerDuty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <div class="results-content">
+                <div class="results-text">
+                    <span class="section-tag">The Impact</span>
+                    <h2 class="section-title">Real Results for Real SOCs</h2>
+                    <p><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> transforms how security teams operate — from alert fatigue to automated resolution.</p>
+                </div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-number">90%</div>
+                        <div class="result-label">Reduction in manual SOC effort</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">95%+</div>
+                        <div class="result-label">Investigation accuracy</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">Minutes</div>
+                        <div class="result-label">Not hours — to resolution</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-number">$0</div>
+                        <div class="result-label">Data licensing fees</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Promise / Guarantee Section -->
+    <section class="promise-section">
+        <div class="container">
+            <div class="promise-card">
+                <div class="promise-badge">🛡️ Our Promise</div>
+                <h2 class="promise-title">We Deploy. You Don't Pay Until We Deliver.</h2>
+                <p class="promise-subtitle">That's how confident we are in <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</p>
+                <div class="promise-details">
+                    <div class="promise-item">
+                        <div class="promise-icon">🚀</div>
+                        <h3>Deployment On Us</h3>
+                        <p>We handle the entire deployment — integration with your databases, security tools, and workflows. Zero setup burden on your team.</p>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-icon">💰</div>
+                        <h3>No Charge Until We Save You Hours</h3>
+                        <p>You only pay when <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> proves its value. If we don't reduce your SOC effort, you don't pay. Simple as that.</p>
+                    </div>
+                    <div class="promise-item">
+                        <div class="promise-icon">📊</div>
+                        <h3>Measurable Results</h3>
+                        <p>We'll show you exactly how many hours we've saved, how many incidents we've automated, and the ROI you're getting — with full transparency.</p>
+                    </div>
+                </div>
+                <div class="promise-cta">
+                    <a href="#contact" class="btn btn-primary btn-large">Claim Your Risk-Free Trial</a>
+                    <span class="promise-note">No credit card · No commitment · Results guaranteed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Compliance Section -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Security & Compliance</span>
+                <h2 class="section-title">Enterprise-Grade Security</h2>
+                <p class="section-subtitle">Built for organizations that take security seriously</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <h4>Data Never Leaves Your Environment</h4>
+                    <p>BYODb architecture means your data stays in your infrastructure. We query — we don't store.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡️</div>
+                    <h4>SOC 2 Type II Compliant</h4>
+                    <p>Our platform and processes are audited and certified for enterprise security standards.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📜</div>
+                    <h4>GDPR & CCPA Ready</h4>
+                    <p>Full compliance with global data protection regulations. Your data, your control.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔐</div>
+                    <h4>End-to-End Encryption</h4>
+                    <p>All communications encrypted in transit and at rest. Zero-trust architecture throughout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number-large" data-count="10000">10,000+</span>
+                    <span class="stat-text">Alerts processed daily</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large" data-count="50">50+</span>
+                    <span class="stat-text">Integrations</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large">99.9%</span>
+                    <span class="stat-text">Uptime SLA</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number-large">24/7</span>
+                    <span class="stat-text">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Verticals Section -->
+    <section class="verticals-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Industries</span>
+                <h2 class="section-title">Built for Your Industry</h2>
+                <p class="section-subtitle">Specialized capabilities for organizations with unique security requirements</p>
+            </div>
+
+            <div class="verticals-grid">
+                <div class="vertical-card">
+                    <div class="vertical-icon">🏥</div>
+                    <h3>Healthcare</h3>
+                    <p>HIPAA-compliant security operations with complete data control.</p>
+                    <ul class="vertical-features">
+                        <li>Self-hosted for PHI protection</li>
+                        <li>HIPAA-ready configurations</li>
+                        <li>Patient data never leaves your environment</li>
+                        <li>Audit trails for compliance</li>
+                    </ul>
+                    <div class="vertical-tag">HIPAA Ready</div>
+                </div>
+
+                <div class="vertical-card">
+                    <div class="vertical-icon">🏦</div>
+                    <h3>Financial Services</h3>
+                    <p>Meet strict regulatory requirements with tenant separation and data residency controls.</p>
+                    <ul class="vertical-features">
+                        <li>PCI-DSS aligned controls</li>
+                        <li>SOC 2 Type II certified</li>
+                        <li>Regional data residency</li>
+                        <li>Complete audit logging</li>
+                    </ul>
+                    <div class="vertical-tag">SOC 2 Certified</div>
+                </div>
+
+                <div class="vertical-card">
+                    <div class="vertical-icon">🏛️</div>
+                    <h3>Government</h3>
+                    <p>Air-gapped deployments for classified environments.</p>
+                    <ul class="vertical-features">
+                        <li>On-premise only deployment</li>
+                        <li>Air-gapped environment support</li>
+                        <li>FedRAMP aligned</li>
+                        <li>Full source code review available</li>
+                    </ul>
+                    <div class="vertical-tag">Air-Gapped</div>
+                </div>
+
+                <div class="vertical-card">
+                    <div class="vertical-icon">🛡️</div>
+                    <h3>MSSPs & MDRs</h3>
+                    <p>Multi-tenant architecture designed for service providers.</p>
+                    <ul class="vertical-features">
+                        <li>Multi-tenant by design</li>
+                        <li>Per-customer isolation</li>
+                        <li>White-label options</li>
+                        <li>Scalable pricing</li>
+                    </ul>
+                    <div class="vertical-tag">Multi-Tenant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitor Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Comparison</span>
+                <h2 class="section-title"><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> vs. The Rest</h2>
+                <p class="section-subtitle">See how we stack up against traditional and next-gen SIEMs</p>
+            </div>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Capability</th>
+                            <th class="ha-col">
+                                <span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span>
+                            </th>
+                            <th>Traditional SIEMs</th>
+                            <th>Other AI SIEMs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Bring Your Own Database</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Full Support</td>
+                            <td><span class="comp-no">✗</span> Proprietary Only</td>
+                            <td><span class="comp-partial">~</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Bring Your Own LLM</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Any Model</td>
+                            <td><span class="comp-no">✗</span> N/A</td>
+                            <td><span class="comp-no">✗</span> Locked</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Autonomous Investigation</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Agentic AI</td>
+                            <td><span class="comp-no">✗</span> Manual</td>
+                            <td><span class="comp-partial">~</span> Assisted</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Automated Response</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> End-to-End</td>
+                            <td><span class="comp-partial">~</span> Playbooks</td>
+                            <td><span class="comp-partial">~</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Data Lock-In</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Zero Lock-In</td>
+                            <td><span class="comp-no">✗</span> High</td>
+                            <td><span class="comp-partial">~</span> Moderate</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Tenant Separation</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Cryptographic</td>
+                            <td><span class="comp-partial">~</span> Logical Only</td>
+                            <td><span class="comp-partial">~</span> Varies</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Self-Hosted Option</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Full Support</td>
+                            <td><span class="comp-yes">✓</span> Yes</td>
+                            <td><span class="comp-partial">~</span> Limited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Air-Gapped Deployment</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Available</td>
+                            <td><span class="comp-partial">~</span> Some</td>
+                            <td><span class="comp-no">✗</span> No</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Per-GB Pricing</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> No</td>
+                            <td><span class="comp-no">✗</span> Yes</td>
+                            <td><span class="comp-partial">~</span> Varies</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Risk-Free Trial</td>
+                            <td class="ha-cell"><span class="comp-yes">✓</span> Pay After Value</td>
+                            <td><span class="comp-no">✗</span> No</td>
+                            <td><span class="comp-partial">~</span> Time-Limited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="comparison-cta">
+                <p>Not sure which SIEM is right for you?</p>
+                <a href="#contact" class="btn btn-primary">Get a Personalized Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Stories Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Customer Stories</span>
+                <h2 class="section-title">Real Results from Real Teams</h2>
+                <p class="section-subtitle">See how security teams are transforming their operations with <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span></p>
+            </div>
+
+            <!-- Featured Testimonials -->
+            <div class="featured-testimonials-grid">
+                <div class="featured-testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <div class="testimonial-quote">"<span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> cut our investigation time from 45 minutes to under 2 minutes. That's not an exaggeration — we measured it."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JF</div>
+                        <div class="author-info">
+                            <span class="author-name">Security Operations Lead</span>
+                            <span class="author-company">Fortune 500 Retailer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <span class="metric"><strong>95%</strong> faster investigations</span>
+                        <span class="metric"><strong>80%</strong> fewer alerts</span>
+                    </div>
+                </div>
+
+                <div class="featured-testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <div class="testimonial-quote">"The BYODb model was the clincher. We kept our Snowflake investment and added AI capabilities without moving a single byte of data."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CT</div>
+                        <div class="author-info">
+                            <span class="author-name">CISO</span>
+                            <span class="author-company">Healthcare Technology</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <span class="metric"><strong>$0</strong> data migration</span>
+                        <span class="metric"><strong>100%</strong> data ownership</span>
+                    </div>
+                </div>
+
+                <div class="featured-testimonial-card">
+                    <div class="quote-icon">❝</div>
+                    <div class="testimonial-quote">"We use our own Azure OpenAI instance. All our queries stay in our Azure tenant. For a financial institution, that level of control is non-negotiable."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <span class="author-name">VP of Security</span>
+                            <span class="author-company">Regional Bank</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-metrics">
+                        <span class="metric"><strong>100%</strong> AI data control</span>
+                        <span class="metric"><strong>SOC 2</strong> compliant</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Testimonials -->
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Reduced our alert fatigue by 80%. Our analysts finally have time to focus on real threats instead of chasing false positives."</div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-title">Security Operations Lead</span>
+                            <span class="author-company">Fortune 500 Retailer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Finally, a SIEM that doesn't lock us into their data model. We kept our existing infrastructure and gained AI superpowers."</div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-title">CISO</span>
+                            <span class="author-company">Healthcare Technology</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Our team went from reactive to proactive in weeks. The autonomous investigation alone saves us 20+ hours per week."</div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <span class="author-title">SOC Manager</span>
+                            <span class="author-company">Financial Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Resources</span>
+                <h2 class="section-title">Learn More</h2>
+                <p class="section-subtitle">Guides, documentation, and best practices for autonomous security operations</p>
+            </div>
+
+            <div class="resources-grid">
+                <a href="resources/siem-buyers-guide.html" class="resource-card">
+                    <div class="resource-type">📘 Guide</div>
+                    <h3>SIEM Buyer's Guide 2026</h3>
+                    <p>Everything you need to know about evaluating and selecting a modern SIEM for your organization.</p>
+                    <span class="resource-cta">Read Guide →</span>
+                </a>
+
+                <a href="resources/byodb-architecture.html" class="resource-card">
+                    <div class="resource-type">📋 Whitepaper</div>
+                    <h3>BYODb Architecture Deep Dive</h3>
+                    <p>Technical overview of how Bring Your Own Database works and why it changes everything.</p>
+                    <span class="resource-cta">Read Now →</span>
+                </a>
+
+                <a href="resources/deployment-comparison.html" class="resource-card">
+                    <div class="resource-type">📊 Datasheet</div>
+                    <h3>Deployment Options Compared</h3>
+                    <p>SaaS vs Self-Hosted: feature comparison, security considerations, and decision framework.</p>
+                    <span class="resource-cta">View Comparison →</span>
+                </a>
+
+                <a href="resources/tenant-separation.html" class="resource-card">
+                    <div class="resource-type">🔒 Security</div>
+                    <h3>Tenant Separation Technical Brief</h3>
+                    <p>How <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> implements cryptographic tenant isolation in multi-tenant deployments.</p>
+                    <span class="resource-cta">Read Now →</span>
+                </a>
+
+                <a href="resources/byollm-guide.html" class="resource-card">
+                    <div class="resource-type">🤖 Technical</div>
+                    <h3>Bring Your Own LLM Guide</h3>
+                    <p>How to connect Azure OpenAI, AWS Bedrock, or self-hosted models to <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</p>
+                    <span class="resource-cta">View Docs →</span>
+                </a>
+
+                <a href="resources/healthcare-case-study.html" class="resource-card">
+                    <div class="resource-type">📈 Case Study</div>
+                    <h3>Healthcare SIEM Transformation</h3>
+                    <p>How a healthcare system achieved HIPAA compliance while saving 90% investigation time.</p>
+                    <span class="resource-cta">Read Story →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>What databases do you support?</h4>
+                    <p>We support virtually any database — OpenSearch, Elasticsearch, Snowflake, BigQuery, PostgreSQL, MongoDB, Splunk, Databricks, AWS S3, and many more. If you can query it, we can connect to it.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How long does deployment take?</h4>
+                    <p>Most deployments are completed within days, not weeks. Our team handles the integration work, so your team can focus on what matters.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you store our security data?</h4>
+                    <p>No. With BYODb, your data stays in your infrastructure. We query and analyze — we never store your security data on our servers.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if it doesn't work for us?</h4>
+                    <p>That's the point of our guarantee. We deploy for free and you don't pay until we prove value. If it doesn't work, you walk away with zero obligation.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can the AI make mistakes?</h4>
+                    <p>Our AI is designed for high accuracy (95%+) and includes human-in-the-loop options. You control which actions are automated vs. require approval.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do you integrate with our existing tools?</h4>
+                    <p>We have native integrations with CrowdStrike, SentinelOne, Okta, Jira, ServiceNow, Slack, and 50+ other security and productivity tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <span class="section-tag">Get Started</span>
+                    <h2 class="section-title">Let's Talk Security</h2>
+                    <p>Ready to transform your SOC? Have questions? We're here to help.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:hello@vigilense.ai">hello@vigilense.ai</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💬</span>
+                            <div>
+                                <strong>Sales</strong>
+                                <a href="mailto:sales@vigilense.ai">sales@vigilense.ai</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🛟</span>
+                            <div>
+                                <strong>Support</strong>
+                                <a href="mailto:support@vigilense.ai">support@vigilense.ai</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzeroez" method="POST">
+                        <h3>Request a Demo</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Work Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title</label>
+                            <input type="text" id="jobTitle" name="jobTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="teamSize">SOC Team Size</label>
+                            <select id="teamSize" name="teamSize">
+                                <option value="">Select...</option>
+                                <option value="1-5">1-5 analysts</option>
+                                <option value="6-15">6-15 analysts</option>
+                                <option value="16-50">16-50 analysts</option>
+                                <option value="50+">50+ analysts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can we help?</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your current challenges..."></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I agree to the <a href="privacy.html">Privacy Policy</a> and consent to being contacted about <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-full">Request Demo</button>
+                        <p class="form-note">We'll respond within 24 hours</p>
+                        <!-- Trust Badges -->
+                        <div class="form-trust-badges">
+                            <div class="form-badge">
+                                <span class="badge-icon">💳</span>
+                                <span>No credit card required</span>
+                            </div>
+                            <div class="form-badge">
+                                <span class="badge-icon">📅</span>
+                                <span>14-day free trial</span>
+                            </div>
+                            <div class="form-badge">
+                                <span class="badge-icon">✓</span>
+                                <span>Cancel anytime</span>
+                            </div>
+                        </div>
+                        <div class="form-security-badges">
+                            <div class="security-badge">
+                                <span class="shield-icon">🛡️</span>
+                                <span>SOC 2</span>
+                            </div>
+                            <div class="security-badge">
+                                <span class="shield-icon">🔒</span>
+                                <span>Encrypted</span>
+                            </div>
+                            <div class="security-badge">
+                                <span class="shield-icon">✓</span>
+                                <span>GDPR</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-trust-message">
+                <span class="footer-trust-icon">🔒</span>
+                <span>Your data never leaves your infrastructure</span>
+            </div>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-brand">
+                        <span class="logo-icon">⬡</span>
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>Autonomous AI-Powered SIEM</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#platform">Platform</a></li>
+                            <li><a href="#deployment">Deployment</a></li>
+                            <li><a href="#integrations">Integrations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="security.html">About & Security</a></li>
+                            <li><a href="trust.html">Trust Center</a></li>
+                            <li><a href="#contact">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="resources/byollm-guide.html">Documentation</a></li>
+                            <li><a href="resources/byodb-architecture.html">BYODb Guide</a></li>
+                            <li><a href="resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
+                            <li><a href="resources/healthcare-case-study.html">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="trust.html">Trust Center</a></li>
+                            <li><a href="security.html">Security</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="disclaimer.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYODb Architecture Deep Dive - Vigilense AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../index.html#platform">Platform</a></li>
+                <li><a href="../index.html#integrations">Integrations</a></li>
+                <li><a href="../index.html#contact" class="btn-primary btn-nav">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Resource Content -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-header">
+                <span class="section-tag">📋 Whitepaper</span>
+                <h1>BYODb Architecture Deep Dive</h1>
+                <p class="legal-updated">How Bring Your Own Database works and why it changes everything</p>
+            </div>
+            <div class="legal-content">
+                <h2>Introduction</h2>
+                <p>Traditional SIEMs require you to ship all your security data to their infrastructure. This creates data lock-in, escalating costs, and compliance headaches. <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>'s BYODb (Bring Your Own Database) architecture flips this model — your data stays where it is, and we bring the intelligence to you.</p>
+
+                <h2>The Problem with Traditional SIEM Data Architecture</h2>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>💰 Cost Explosion</h3>
+                        <p>Volume-based pricing means costs grow exponentially as your environment scales. Organizations often reduce visibility to control costs.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🔒 Vendor Lock-in</h3>
+                        <p>Once your data is in their format and infrastructure, migration becomes a multi-year project. You're trapped.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🌍 Data Sovereignty</h3>
+                        <p>Shipping data across borders creates compliance issues for GDPR, data residency requirements, and industry regulations.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>⏱️ Latency</h3>
+                        <p>Moving petabytes of data introduces delay. Real-time detection requires data to travel to and from vendor infrastructure.</p>
+                    </div>
+                </div>
+
+                <h2>How BYODb Works</h2>
+                <h3>Architecture Overview</h3>
+                <p>BYODb is built on a simple principle: <strong>move compute to data, not data to compute.</strong></p>
+                
+                <ol>
+                    <li><strong>Connection:</strong> You provide secure, read-only access to your existing data stores</li>
+                    <li><strong>Schema Discovery:</strong> Our system automatically maps your data schema and normalizes field names</li>
+                    <li><strong>Query Federation:</strong> Queries are translated to your database's native format and executed locally</li>
+                    <li><strong>In-Memory Processing:</strong> Results are processed in memory — nothing is stored</li>
+                    <li><strong>Intelligence Delivery:</strong> Alerts, insights, and recommendations are delivered to you</li>
+                </ol>
+
+                <h3>Supported Databases</h3>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>🔍 Search & Analytics</h3>
+                        <ul>
+                            <li>OpenSearch / Elasticsearch</li>
+                            <li>Splunk</li>
+                            <li>Sumo Logic</li>
+                            <li>Datadog</li>
+                        </ul>
+                    </div>
+                    <div class="security-item">
+                        <h3>☁️ Cloud Data Warehouses</h3>
+                        <ul>
+                            <li>Snowflake</li>
+                            <li>BigQuery</li>
+                            <li>Databricks</li>
+                            <li>Amazon Redshift</li>
+                        </ul>
+                    </div>
+                    <div class="security-item">
+                        <h3>🗄️ Object Storage</h3>
+                        <ul>
+                            <li>AWS S3</li>
+                            <li>Azure Blob Storage</li>
+                            <li>Google Cloud Storage</li>
+                            <li>MinIO</li>
+                        </ul>
+                    </div>
+                    <div class="security-item">
+                        <h3>🛢️ Databases</h3>
+                        <ul>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                            <li>ClickHouse</li>
+                            <li>TimescaleDB</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Security Model</h2>
+                <h3>Credential Management</h3>
+                <ul>
+                    <li><strong>Encryption:</strong> All credentials encrypted at rest using HSM-backed keys</li>
+                    <li><strong>Secrets Manager Integration:</strong> Optional integration with HashiCorp Vault, AWS Secrets Manager, Azure Key Vault</li>
+                    <li><strong>Rotation:</strong> Support for automatic credential rotation</li>
+                    <li><strong>Audit:</strong> All credential access is logged</li>
+                </ul>
+
+                <h3>Access Controls</h3>
+                <ul>
+                    <li><strong>Read-Only:</strong> We only require read access — no write operations</li>
+                    <li><strong>Least Privilege:</strong> Access scoped to specific tables/indices needed</li>
+                    <li><strong>IP Whitelisting:</strong> Connections originate from known IP ranges</li>
+                    <li><strong>Private Connectivity:</strong> VPC peering, PrivateLink, and VPN options available</li>
+                </ul>
+
+                <h3>Data Handling</h3>
+                <ul>
+                    <li><strong>No Storage:</strong> Query results processed in memory only</li>
+                    <li><strong>No Persistence:</strong> Raw data never written to disk</li>
+                    <li><strong>No Export:</strong> Data cannot be bulk exported or downloaded</li>
+                    <li><strong>Audit Trail:</strong> All queries logged for compliance</li>
+                </ul>
+
+                <h2>Performance Optimization</h2>
+                <h3>Query Optimization</h3>
+                <p>Our query engine is optimized for each database type:</p>
+                <ul>
+                    <li>Native query translation (SQL, DSL, etc.)</li>
+                    <li>Query plan optimization</li>
+                    <li>Parallel query execution</li>
+                    <li>Result streaming for large datasets</li>
+                    <li>Intelligent caching of metadata (not data)</li>
+                </ul>
+
+                <h3>Performance Benchmarks</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background: rgba(0,212,255,0.1);">
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Database</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Avg Query Time</th>
+                        <th style="padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1);">Data Volume</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">OpenSearch</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">&lt; 500ms</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">10TB+</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">Snowflake</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">&lt; 2s</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">100TB+</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">S3 + Athena</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">&lt; 5s</td>
+                        <td style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05);">1PB+</td>
+                    </tr>
+                </table>
+
+                <h2>Implementation Guide</h2>
+                <h3>Step 1: Inventory Your Data</h3>
+                <p>Document your current security data sources and where they're stored. Common sources include:</p>
+                <ul>
+                    <li>Firewall and network logs</li>
+                    <li>Endpoint detection data</li>
+                    <li>Cloud audit trails (CloudTrail, Azure Activity Log)</li>
+                    <li>Identity and access logs</li>
+                    <li>Application security logs</li>
+                </ul>
+
+                <h3>Step 2: Create Service Account</h3>
+                <p>Create a dedicated service account with read-only access to your security data. We provide database-specific guides for each supported platform.</p>
+
+                <h3>Step 3: Configure Connection</h3>
+                <p>Provide connection details through our secure onboarding wizard. Credentials are encrypted before transmission and stored in our HSM-backed vault.</p>
+
+                <h3>Step 4: Schema Mapping</h3>
+                <p>Our system automatically discovers your schema. You can customize field mappings to align with your naming conventions.</p>
+
+                <h3>Step 5: Validate & Go Live</h3>
+                <p>Run validation queries to ensure connectivity and permissions. Once validated, enable real-time monitoring.</p>
+
+                <h2>Case Study: Financial Services</h2>
+                <p>A Fortune 500 financial services company implemented BYODb to address strict data residency requirements:</p>
+                <ul>
+                    <li><strong>Challenge:</strong> Could not move security data outside their private cloud due to regulations</li>
+                    <li><strong>Solution:</strong> BYODb connected to their existing Snowflake deployment</li>
+                    <li><strong>Result:</strong> Full SIEM capabilities without any data leaving their environment</li>
+                    <li><strong>Savings:</strong> $2.3M annually vs. traditional SIEM data ingestion costs</li>
+                </ul>
+
+                <h2>Get Started</h2>
+                <p>Ready to keep your data where it belongs? <a href="../index.html#contact">Contact us</a> for a technical deep dive on implementing BYODb in your environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 DCE Infosec LLC. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy</a>
+                        <a href="../terms.html">Terms</a>
+                        <a href="../disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
