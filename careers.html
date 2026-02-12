@@ -49,15 +49,21 @@
         .roles-badge {
             display: inline-block;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            color: #0A1628;
-            background: rgba(10, 22, 40, 0.06);
-            border: 1px solid #E2E8F0;
-            padding: 4px 14px;
+            color: #FFFFFF;
+            background: #00D4AA;
+            border: none;
+            padding: 7px 20px;
             border-radius: 20px;
             margin-top: 20px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
+            box-shadow: 0 0 16px rgba(0, 212, 170, 0.35);
+            animation: badge-pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes badge-pulse {
+            0%, 100% { box-shadow: 0 0 16px rgba(0, 212, 170, 0.35); }
+            50% { box-shadow: 0 0 28px rgba(0, 212, 170, 0.55); }
         }
 
         /* ============================
@@ -353,6 +359,7 @@
             <h1>Build the SOC That<br>Replaces SIEMs</h1>
             <p>We're assembling a team of engineers, operators, and closers who believe security data shouldn't come with an ingestion tax.</p>
             <div class="roles-badge">8 open roles</div>
+            <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: #0A1628; margin-top: 24px; letter-spacing: 0.01em;">Competitive salary + meaningful equity. Early team, outsized ownership.</p>
         </div>
     </section>
 
@@ -524,7 +531,6 @@
             <p>We're always looking for exceptional people. Reach out.</p>
             <div class="careers-cta-links">
                 <a href="mailto:careers@vigilense.ai">careers@vigilense.ai</a>
-                <a href="https://www.linkedin.com/company/vigilense-ai" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </div>
     </section>
