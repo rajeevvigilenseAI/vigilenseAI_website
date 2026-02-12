@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYODb Architecture: How We Query Your Data Without Moving It - Vigilense AI Blog</title>
+    <meta name="description" content="A technical deep-dive into BYODb architecture: how Vigilense AI connects to your existing databases, runs detection queries in place, and never moves or stores your data.">
+    <meta property="og:title" content="BYODb Architecture: How We Query Your Data Without Moving It">
+    <meta property="og:description" content="Move compute to data, not data to compute. A technical deep-dive into BYODb.">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           BLOG POST LAYOUT
+           ============================ */
+        .blog-post {
+            padding: 140px 0 100px;
+        }
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #0A1628;
+        }
+        .post-category {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00D4AA;
+            border: 1px solid #00D4AA;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+            background: rgba(0, 212, 170, 0.06);
+        }
+        .post-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        .post-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+        .post-meta span {
+            margin: 0 8px;
+        }
+        .post-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* ============================
+           POST BODY TYPOGRAPHY
+           ============================ */
+        .post-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .post-body p {
+            margin-bottom: 24px;
+        }
+        .post-body h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+        .post-body h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 36px;
+            margin-bottom: 20px;
+        }
+        .post-body ul,
+        .post-body ol {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+        .post-body li {
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        .post-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: #F2F5F7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0A1628;
+        }
+        .post-body pre {
+            background: #F2F5F7;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+        .post-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #0A1628;
+            font-size: 0.9rem;
+        }
+        .post-body blockquote {
+            border-left: 3px solid #0A1628;
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #475569;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 32px 0;
+            border: 1px solid #E2E8F0;
+        }
+        .post-body a {
+            color: #00B892;
+            text-decoration: underline;
+        }
+        .post-body a:hover {
+            color: #00D4AA;
+        }
+        .post-body strong {
+            color: #0A1628;
+        }
+
+        /* ============================
+           POST CTA
+           ============================ */
+        .post-cta {
+            margin-top: 64px;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .post-cta .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #0A1628;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .post-cta .btn:hover {
+            background: #0F1E36;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        /* ============================
+           AUTHOR CARD
+           ============================ */
+        .author-card {
+            margin-top: 48px;
+            padding: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #0A1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .author-info .author-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+        .author-info .author-bio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .blog-post { padding: 120px 0 60px; }
+            .post-content { max-width: 100%; }
+            .post-body { font-size: 1rem; }
+            .post-body h2 { font-size: 1.5rem; }
+            .post-body h3 { font-size: 1.2rem; }
+            .author-card { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .post-cta { padding: 24px 16px; }
+            .author-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="Vigilense Logo.png" alt="Vigilense AI" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#pillars">Platform</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="trust.html">Trust Center</a></li>
+                <li><a href="demo.html" class="btn-nav">Talk to a Human Vigilant</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BLOG POST CONTENT
+         ======================================== -->
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="blog.html" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>BYODb Architecture: How We Query Your Data Without Moving It</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-02-05">Feb 5, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By Raj Choudhary</span>
+                    </div>
+                </header>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+                    <p>Every traditional SIEM works the same way: ship your data to us, we will index it, and then you can search it. The entire model assumes that security telemetry needs to be centralized before it can be useful. We disagree.</p>
+
+                    <p>BYODb (Bring Your Own Database) is the architecture at the core of Vigilense AI. The principle is simple: move compute to data, not data to compute. Your logs stay in your infrastructure. We bring the detection engine to them.</p>
+
+                    <p>This post walks through how that actually works under the hood, the security model that makes it safe, and the performance numbers we are seeing in production.</p>
+
+                    <h2>The Five-Stage Pipeline</h2>
+
+                    <p>When a customer connects Vigilense AI to their existing data infrastructure, the system executes a five-stage pipeline. No data is copied, replicated, or shipped anywhere during this process.</p>
+
+                    <h3>Stage 1: Connection</h3>
+
+                    <p>We establish a read-only connection to your database. Read-only is non-negotiable. We will never request write access to your data stores. The connection uses your existing authentication infrastructure, whether that is service accounts, IAM roles, OAuth tokens, or certificate-based auth.</p>
+
+                    <p>Supported backends today include:</p>
+
+                    <ul>
+                        <li><strong>Search engines:</strong> OpenSearch, Elasticsearch</li>
+                        <li><strong>Cloud warehouses:</strong> Snowflake, BigQuery, Databricks, Redshift</li>
+                        <li><strong>Object storage:</strong> S3 (via Athena), Azure Blob Storage</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MongoDB, ClickHouse</li>
+                    </ul>
+
+                    <p>If you are running a database we do not support yet, reach out. Our connector framework is designed to be extensible, and we add new backends based on customer demand.</p>
+
+                    <h3>Stage 2: Schema Discovery</h3>
+
+                    <p>Once connected, the system runs an automated schema discovery process. It maps your tables, indices, and field structures, then normalizes them against our internal detection schema. This step is critical because no two organizations store their security telemetry the same way.</p>
+
+                    <p>One customer might log authentication events in a field called <code>event.action</code>. Another uses <code>auth_type</code>. A third has it nested inside <code>metadata.authentication.method</code>. Schema discovery handles all of this without requiring you to reformat anything.</p>
+
+                    <p>The normalization layer maps your fields to a common schema so our detection rules work across any backend. You do not rewrite your data. We adapt to it.</p>
+
+                    <h3>Stage 3: Query Federation</h3>
+
+                    <p>This is where the real engineering lives. Our detection rules are written in an abstract query language that gets translated at runtime into the native query format of whatever database you are running.</p>
+
+                    <p>A single detection rule for "impossible travel" might execute as:</p>
+
+                    <ul>
+                        <li>An Elasticsearch DSL query against an OpenSearch cluster</li>
+                        <li>A SQL query against a Snowflake warehouse</li>
+                        <li>An Athena query against Parquet files in S3</li>
+                    </ul>
+
+                    <p>Same logic, different execution paths. The federation layer handles query optimization for each backend, including partition pruning, predicate pushdown, and result set limiting. We do not just translate syntax. We optimize for the specific performance characteristics of each engine.</p>
+
+                    <h3>Stage 4: In-Memory Processing</h3>
+
+                    <p>Query results come back to the Vigilense AI processing layer, where correlation, enrichment, and scoring happen entirely in memory. This is a critical design decision: <strong>nothing is written to disk</strong>.</p>
+
+                    <p>The data enters our processing pipeline as a stream, gets analyzed, gets scored, and the results (alerts, context, recommended actions) are delivered to your SOC team. The raw data itself is never persisted on our side. It cannot be bulk exported, cannot be queried after the fact, and cannot be accessed by anyone outside of the active processing window.</p>
+
+                    <p>Once processing completes, the data is gone from our systems. Period.</p>
+
+                    <h3>Stage 5: Intelligence Delivery</h3>
+
+                    <p>The output of the pipeline is actionable intelligence: scored alerts with full context, recommended response actions, and correlation across data sources. This gets delivered through your existing workflows, whether that is a SOAR platform, Slack, PagerDuty, or our own console.</p>
+
+                    <p>The key distinction is that we deliver intelligence, not raw data. Your security team gets the answers they need without us ever storing the underlying telemetry.</p>
+
+                    <h2>The Security Model</h2>
+
+                    <p>Connecting a third-party system to your security data stores requires serious trust. We built the security model to hold up under the most demanding enterprise and regulatory requirements.</p>
+
+                    <h3>Credential Management</h3>
+
+                    <p>All database credentials are encrypted using HSM-backed encryption. For customers with existing secrets management infrastructure, we support integration with HashiCorp Vault, AWS KMS, Azure Key Vault, and GCP KMS. Credentials are automatically rotated on a configurable schedule.</p>
+
+                    <p>No human at Vigilense AI can view, export, or access your database credentials. They are sealed at rest, decrypted only in an isolated execution environment at query time, and never logged.</p>
+
+                    <h3>Network Security</h3>
+
+                    <p>Connections support IP whitelisting so you can restrict access to specific source addresses. For customers who require private connectivity, we support VPC peering and AWS PrivateLink, meaning traffic between your infrastructure and ours never traverses the public internet.</p>
+
+                    <h3>Access Controls</h3>
+
+                    <p>Read-only access is enforced at the connection level. We request the minimum permissions necessary to execute detection queries. For most backends, this means <code>SELECT</code> access on specific tables or indices, nothing more.</p>
+
+                    <p>We cannot create tables, modify data, drop indices, or execute administrative commands on your infrastructure. If a connector is somehow misconfigured to have broader permissions, our query engine will reject write operations at the application layer as a secondary safeguard.</p>
+
+                    <h3>Data Handling Guarantees</h3>
+
+                    <ul>
+                        <li>All data is processed in memory only</li>
+                        <li>Nothing is written to disk at any stage</li>
+                        <li>Data cannot be bulk exported from the processing pipeline</li>
+                        <li>No Vigilense AI employee has access to customer data streams</li>
+                        <li>All processing is tenant-isolated with dedicated execution contexts</li>
+                    </ul>
+
+                    <h2>Performance Benchmarks</h2>
+
+                    <p>One of the first questions we get from engineering teams is: "How fast is this compared to having the data locally?" Fair question. Here are the numbers from production workloads.</p>
+
+                    <h3>OpenSearch / Elasticsearch</h3>
+
+                    <p>Sub-500ms query latency at 10TB+ data volumes. This is on par with native Kibana queries because we are using the same underlying search engine. The difference is that we are executing detection logic, not ad-hoc searches.</p>
+
+                    <h3>Snowflake</h3>
+
+                    <p>Under 2 seconds at 100TB+ data volumes, using medium warehouse compute. Snowflake's architecture handles the heavy lifting here, and our query optimizer takes advantage of clustering keys and micro-partitions to minimize scan volume.</p>
+
+                    <h3>S3 + Athena</h3>
+
+                    <p>Under 5 seconds at petabyte-scale data volumes. This is the slowest backend in our lineup, but also the cheapest. For organizations that store historical telemetry in S3 Parquet format, this is a massive cost win compared to ingesting that same data into a traditional SIEM.</p>
+
+                    <p>These are real production numbers, not synthetic benchmarks. Your mileage will vary depending on cluster sizing, network latency, and query complexity, but they represent what we see in typical deployments.</p>
+
+                    <h2>Real-World Impact</h2>
+
+                    <p>A Fortune 500 financial services company came to us after their SIEM renewal hit $3.1M annually. They were generating roughly 2TB of security telemetry per day across Elasticsearch, Snowflake, and S3.</p>
+
+                    <p>After deploying BYODb, they retired their SIEM ingestion pipeline entirely. Their telemetry stayed in the same data stores it was already flowing into for business analytics and compliance. Vigilense AI queried it in place.</p>
+
+                    <p>The result: <strong>$2.3M in annual savings</strong> compared to their previous SIEM contract, with faster detection times and no loss of visibility.</p>
+
+                    <p>The savings came from three places: eliminated ingestion costs, eliminated SIEM-specific storage infrastructure, and reduced the administrative overhead of maintaining a separate data pipeline for security.</p>
+
+                    <h2>Why This Matters</h2>
+
+                    <p>BYODb is not a feature. It is a fundamental architectural decision that changes the economics, security posture, and operational independence of your SOC.</p>
+
+                    <p>When your data stays in your infrastructure:</p>
+
+                    <ul>
+                        <li>You control retention, access, and compliance</li>
+                        <li>You eliminate vendor lock-in at the data layer</li>
+                        <li>You stop paying an ingestion tax that grows with your business</li>
+                        <li>You keep your existing data engineering investments intact</li>
+                    </ul>
+
+                    <p>That is the bet we made when we built Vigilense AI: that the best security platform is one that works with your infrastructure, not one that replaces it.</p>
+
+                    <p>If you want to see BYODb running against your own data, <a href="demo.html">book a demo</a> and we will connect to your environment live.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See BYODb running against your data.</h3>
+                    <a href="demo.html" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4>Raj Choudhary</h4>
+                        <div class="author-title">Co-founder & CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand">
+                        <img src="Vigilense Logo.png" alt="Vigilense AI" class="logo-icon">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#pillars">Platform</a></li>
+                            <li><a href="demo.html">Deployment</a></li>
+                            <li><a href="demo.html">Integrations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="security.html">About & Security</a></li>
+                            <li><a href="trust.html">Trust Center</a></li>
+                            <li><a href="demo.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="blog.html">Blog & News</a></li>
+                            <li><a href="resources/byodb-architecture.html">Documentation</a></li>
+                            <li><a href="resources/byodb-architecture.html">BYODb Guide</a></li>
+                            <li><a href="resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
+                            <li><a href="resources/healthcare-case-study.html">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="trust.html">Trust Center</a></li>
+                            <li><a href="security.html">Security</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                            <li><a href="disclaimer.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var hamburger = document.querySelector('.hamburger');
+            var navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
