@@ -311,10 +311,24 @@ code, pre {
         top: 64px;
         left: 0;
         right: 0;
-        background: var(--navy);
+        background: var(--navy, #0A1628);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 24px;
         gap: 16px;
+        z-index: 999;
+    }
+    .nav-menu.active .dropdown-menu {
+        position: static;
+        display: block;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 4px 0 4px 16px;
+        min-width: auto;
+    }
+    .nav-menu.active .dropdown-menu a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
     }
     .footer-content { grid-template-columns: 1fr; gap: 24px; }
     .footer-links { grid-template-columns: 1fr 1fr; }
