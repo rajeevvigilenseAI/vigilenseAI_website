@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered attackers have changed the rules. Legacy SIEMs can't keep up. Learn why autonomous security operations are no longer optional - from Vigilense AI.">
+    <meta name="keywords" content="AI SOC, why autonomous SOC, AI threat landscape, legacy SIEM problems, SIEM cost, SOC automation, Vigilense AI">
+    <link rel="canonical" href="https://vigilense.ai/why-now/">
+    <meta property="og:title" content="Why Now - The AI Threat Has Changed Everything | Vigilense AI">
+    <meta property="og:description" content="AI-powered attackers have rewritten the rules. Legacy SIEMs can't keep up. Learn why autonomous security operations are no longer optional.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vigilense.ai/why-now/">
+    <meta property="og:image" content="https://vigilense.ai/og-image.png">
+    <meta property="og:site_name" content="Vigilense AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Now - The AI Threat Has Changed Everything | Vigilense AI">
+    <meta name="twitter:description" content="AI-powered attackers have rewritten the rules. Legacy SIEMs can't keep up.">
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Why Now - The AI Threat Has Changed Everything | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --wn-bg: #060B18; --wn-surface: #0C1424; --wn-border: rgba(255,255,255,0.06); --wn-accent: #00D4AA; --wn-red: #FF6B6B; }
+        body { background: var(--wn-bg) !important; color: #fff; }
+
+        /* ── GLOBAL ── */
+        .wn-section { padding: 100px 0; background: var(--wn-bg); position: relative; overflow: hidden; }
+        .wn-section + .wn-section { border-top: 1px solid var(--wn-border); }
+        .wn-narrow { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+        .wn-wide { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+        .wn-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--wn-red); margin-bottom: 20px; }
+        .wn-h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 600; color: #fff; margin-bottom: 28px; letter-spacing: -0.3px; line-height: 1.25; }
+        .wn-p { font-size: 1.1rem; line-height: 1.85; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+        .wn-p strong { color: #fff; }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+
+        /* ── HERO ── */
+        .wn-hero { padding: 180px 0 120px; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,170,0.06) 0%, transparent 70%), var(--wn-bg); text-align: center; }
+        .wn-hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 600; color: #fff; margin-bottom: 24px; letter-spacing: -0.5px; line-height: 1.25; }
+        .wn-hero h1 .accent { color: var(--wn-accent); }
+        .wn-hero-sub { font-size: 1.2rem; line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto 40px; }
+        .wn-hero-scroll { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; animation: wn-bounce 2s infinite; }
+        @keyframes wn-bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+        /* ── THREAT SECTION (merged) ── */
+        .threat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+        .threat-card { background: var(--wn-surface); border: 1px solid var(--wn-border); border-radius: 10px; padding: 36px 28px; position: relative; }
+        .threat-card::before { content: ''; position: absolute; top: 0; left: 24px; right: 24px; height: 1px; background: linear-gradient(90deg, transparent, var(--wn-accent), transparent); opacity: 0.3; }
+        .threat-card h3 { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 14px; }
+        .threat-card p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.5); margin: 0; }
+
+        /* ── CALLOUT ── */
+        .wn-callout { text-align: center; padding: 56px 24px; margin: 64px 0; position: relative; }
+        .wn-callout::before, .wn-callout::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 120px; height: 1px; background: var(--wn-accent); opacity: 0.4; }
+        .wn-callout::before { top: 0; }
+        .wn-callout::after { bottom: 0; }
+        .wn-callout p { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 600; color: #fff; margin: 0; line-height: 1.35; letter-spacing: -0.3px; }
+
+        /* ── SCALE COMPARISON ── */
+        .scale-grid { display: grid; grid-template-columns: 1fr 60px 1fr; align-items: center; gap: 0; margin-top: 48px; }
+        .scale-box { background: var(--wn-surface); border: 1px solid var(--wn-border); border-radius: 12px; padding: 40px 24px; text-align: center; }
+        .scale-box.accent-box { border-color: rgba(0,212,170,0.3); background: rgba(0,212,170,0.03); }
+        .scale-vs { text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 0.1em; }
+        .scale-num { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: #fff; line-height: 1; margin-bottom: 8px; }
+        .scale-box.accent-box .scale-num { color: var(--wn-accent); }
+        .scale-lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.35); display: block; margin-bottom: 16px; }
+        .scale-sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+
+        /* ── COST ANIMATION ── */
+        .cost-anim-wrap { margin-top: 56px; }
+        /* ── COST SIMULATION (3-column) ── */
+        .cost-sim-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+        .cost-sim-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; background: #0A1120; }
+        .cost-sim-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015); }
+        .cost-sim-title { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); }
+        .cost-sim-status { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--wn-accent); display: flex; align-items: center; gap: 8px; }
+        .cost-sim-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--wn-accent); animation: wn-pulse 1.5s infinite; }
+        .cost-sim-status .dot.red { background: var(--wn-red); }
+        @keyframes wn-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* 3-column body: Legacy | Center (metrics+canvas) | Vigilense */
+        .sim-body-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr; }
+
+        /* Center column: metrics + canvas */
+        .sim-center { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
+        .sim-shared-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+        .sim-shared-metric { text-align: center; padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.06); }
+        .sim-shared-metric:last-child { border-right: none; }
+        .sim-shared-metric-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); display: block; margin-bottom: 3px; }
+        .sim-shared-metric-val { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 700; color: #fff; display: block; transition: color 0.3s; }
+        .sim-shared-metric-val.danger { color: var(--wn-red); }
+
+        .agent-arena-row { flex: 1; background: rgba(0,0,0,0.3); position: relative; display: flex; flex-direction: column; }
+        .agent-arena-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 16px 0; }
+        .agent-arena-label { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--wn-accent); }
+        .agent-arena-count { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--wn-accent); font-weight: 600; }
+        .agent-canvas { width: 100%; flex: 1; min-height: 190px; display: block; }
+
+        /* Side panels (Legacy & Vigilense) */
+        .sim-panel { padding: 16px 18px; display: flex; flex-direction: column; align-items: center; }
+        .sim-panel-legacy { background: rgba(255,60,60,0.03); }
+        .sim-panel-vig { background: rgba(0,212,170,0.03); }
+
+        .sim-panel-title { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        .sim-panel-legacy .sim-panel-title { color: var(--wn-red); }
+        .sim-panel-vig .sim-panel-title { color: #fff; text-transform: none; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+
+        .sim-panel-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-bottom: 10px; text-align: center; }
+
+        .panel-cost { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 4px; transition: color 0.4s; }
+        .sim-panel-legacy .panel-cost { color: #fff; }
+        .sim-panel-legacy .panel-cost.danger { color: var(--wn-red); }
+        .sim-panel-vig .panel-cost { color: var(--wn-accent); }
+        .panel-cost-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-bottom: 8px; }
+        @keyframes cost-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-3px)} 40%{transform:translateX(3px)} 60%{transform:translateX(-2px)} 80%{transform:translateX(2px)} }
+        .panel-cost.shake { animation: cost-shake 0.4s ease; }
+
+        .panel-bar-wrap { width: 100%; height: 100px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 8px; }
+        .panel-bar { width: 60%; max-width: 100px; border-radius: 5px 5px 0 0; transition: height 0.8s cubic-bezier(0.25,0.46,0.45,0.94); min-height: 0; }
+        .sim-panel-legacy .panel-bar { background: linear-gradient(180deg, var(--wn-red) 0%, #8B0000 100%); }
+        .sim-panel-vig .panel-bar { background: linear-gradient(180deg, var(--wn-accent) 0%, #007755 100%); }
+
+        .panel-budget { width: 100%; margin-top: 2px; }
+        .panel-budget-head { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+        .panel-budget-track { width: 100%; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+        .panel-budget-fill { height: 100%; width: 0; border-radius: 3px; transition: width 0.8s cubic-bezier(0.25,0.46,0.45,0.94), background 0.5s; }
+        .sim-panel-legacy .panel-budget-fill { background: var(--wn-red); }
+        .sim-panel-vig .panel-budget-fill { background: var(--wn-accent); }
+        .panel-budget-alert { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; margin-top: 6px; text-align: center; opacity: 0; transition: opacity 0.5s; min-height: 16px; }
+        .panel-budget-alert.visible { opacity: 1; }
+        .sim-panel-legacy .panel-budget-alert { color: var(--wn-red); }
+        .sim-panel-vig .panel-budget-alert { color: var(--wn-accent); }
+
+        /* Vigilense logo in sim panel - responsive */
+        .sim-panel-vig .sim-panel-title img { height: 36px; width: 36px; object-fit: contain; vertical-align: middle; margin-right: 8px; opacity: 0.9; filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5)); }
+
+        /* Verdict */
+        .sim-verdict { text-align: center; padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
+        .sim-verdict p { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: rgba(255,255,255,0.45); margin: 0; line-height: 1.6; }
+        .sim-verdict .red { color: var(--wn-red); font-weight: 700; }
+        .sim-verdict .green { color: var(--wn-accent); font-weight: 700; }
+
+        /* ── IMPOSSIBLE CHOICE ── */
+        .impossible-choice { text-align: center; padding: 72px 24px; }
+        .impossible-choice p { font-family: 'Outfit', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 600; color: #fff; line-height: 1.45; margin: 0; }
+        .impossible-choice .dim { color: rgba(255,255,255,0.25); }
+        .impossible-choice .strike { text-decoration: line-through; text-decoration-color: var(--wn-red); text-decoration-thickness: 2px; }
+
+        /* ── EXTORTION CALLOUT ── */
+        .extortion-callout { max-width: 700px; margin: 0 auto; padding: 24px 28px; border-left: 3px solid var(--wn-red); background: rgba(255,107,107,0.04); border-radius: 0 8px 8px 0; }
+        .extortion-callout p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.65); margin: 0; }
+        .extortion-callout strong { color: var(--wn-red); }
+
+        /* ── RECEIPT ── */
+        .receipt-card { max-width: 640px; margin: 48px auto 0; background: #0C1424; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 36px 32px; }
+        .receipt-card-title { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--wn-accent); margin-bottom: 24px; }
+        .rcpt-line { display: flex; justify-content: space-between; padding: 10px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.06); opacity: 0; transform: translateX(-20px); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .rcpt-line.visible { opacity: 1; transform: translateX(0); }
+        .rcpt-line.total { color: #fff; font-weight: 700; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: none; padding-top: 16px; margin-top: 8px; }
+        .rcpt-punchline { text-align: center; margin-top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; color: var(--wn-red); font-weight: 600; opacity: 0; transition: opacity 0.6s ease 0.5s; }
+        .rcpt-punchline.visible { opacity: 1; }
+
+        /* ── COMPARISON TABLE ── */
+        .compare-wrap { margin-top: 48px; border-radius: 12px; overflow: hidden; border: 1px solid var(--wn-border); }
+        .compare-wrap table { width: 100%; border-collapse: collapse; }
+        .compare-wrap th { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); padding: 16px 20px; text-align: left; background: rgba(255,255,255,0.03); }
+        .compare-wrap th:last-child { color: var(--wn-accent); }
+        .compare-wrap td { font-size: 0.9rem; color: rgba(255,255,255,0.55); padding: 16px 20px; border-top: 1px solid var(--wn-border); }
+        .compare-wrap td:last-child { color: var(--wn-accent); font-weight: 600; }
+        .compare-wrap td.legacy-cell { color: rgba(255,255,255,0.35); }
+
+        /* ── PILLARS ── */
+        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
+        .pillar { background: var(--wn-surface); border: 1px solid var(--wn-border); border-radius: 10px; padding: 32px 24px; transition: border-color 0.3s; }
+        .pillar:hover { border-color: rgba(0,212,170,0.25); }
+        .pillar-icon { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--wn-accent); padding: 5px 12px; border: 1px solid rgba(0,212,170,0.2); border-radius: 4px; display: inline-block; margin-bottom: 18px; background: rgba(0,212,170,0.05); }
+        .pillar h3 { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 12px; }
+        .pillar p { font-size: 0.9rem; line-height: 1.65; color: rgba(255,255,255,0.5); margin: 0; }
+
+        /* ── BLAST RADIUS DETAIL ── */
+        .blast-radius-detail { max-width: 760px; margin: 40px auto 0; padding: 28px 32px; border-left: 3px solid var(--wn-accent); background: rgba(0,212,170,0.04); border-radius: 0 8px 8px 0; }
+
+        /* ── VENDOR QUESTIONS ── */
+        .vq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+        .vq-card { background: var(--wn-surface); border: 1px solid var(--wn-border); border-radius: 10px; padding: 32px 24px; transition: border-color 0.3s; }
+        .vq-card:hover { border-color: rgba(0,212,170,0.2); }
+        .vq-num { font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 800; color: rgba(0,212,170,0.15); line-height: 1; margin-bottom: 16px; }
+        .vq-card h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 12px; line-height: 1.35; }
+        .vq-card p { font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.45); margin: 0; }
+
+        /* ── CTA ── */
+        .wn-cta { padding: 120px 0; text-align: center; background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,212,170,0.05) 0%, transparent 70%), var(--wn-bg); }
+        .wn-cta h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 600; color: #fff; margin-bottom: 16px; }
+        .wn-cta .wn-p { max-width: 520px; margin: 0 auto 12px; text-align: center; }
+        .wn-cta-proof { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-bottom: 36px; }
+        .wn-cta-btn { display: inline-block; padding: 18px 48px; background: var(--wn-accent); color: var(--wn-bg); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700; text-decoration: none; border-radius: 6px; transition: transform 0.2s, box-shadow 0.2s; }
+        .wn-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,170,0.2); }
+        .wn-cta-sub { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+
+        /* ── RESPONSIVE: TABLET (769px - 1024px) ── */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .wn-hero { padding: 160px 0 100px; }
+            .wn-section { padding: 80px 0; }
+            .wn-narrow, .wn-wide { padding: 0 28px; }
+
+            /* Cost simulator: 2-row layout on tablets */
+            .sim-body-grid { grid-template-columns: 1fr 1fr; }
+            .sim-center { grid-column: 1 / -1; order: -1; border-left: none; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+            /* Threat cards: 2 cols still but tighter */
+            .threat-grid { gap: 20px; }
+            .threat-card { padding: 28px 22px; }
+
+            /* Scale comparison */
+            .scale-box { padding: 32px 20px; }
+
+            /* Pillars: 3 cols still, tighter padding */
+            .pillars { gap: 16px; }
+            .pillar { padding: 24px 18px; }
+
+            /* Vendor questions */
+            .vq-card { padding: 24px 20px; }
+
+            /* Cost sim */
+            .cost-sim-wrap { padding: 0 20px; }
+            .sim-panel { padding: 14px 14px; }
+            .panel-bar-wrap { height: 90px; }
+
+            /* Receipt */
+            .receipt-card { padding: 32px 28px; }
+
+            /* Callout */
+            .wn-callout { padding: 48px 20px; margin: 48px 0; }
+
+            /* Impossible choice */
+            .impossible-choice { padding: 56px 20px; }
+
+            /* Extortion callout */
+            .extortion-callout { padding: 20px 24px; }
+
+            /* CTA */
+            .wn-cta { padding: 100px 0; }
+            .wn-cta-btn { padding: 16px 40px; }
+        }
+
+        /* ── RESPONSIVE: MOBILE (768px and below) ── */
+        @media (max-width: 768px) {
+            .wn-hero { padding: 110px 0 60px; }
+            .wn-section { padding: 60px 0; }
+            .wn-narrow, .wn-wide { padding: 0 20px; }
+            .wn-hero-sub { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
+            /* Grids to single column */
+            .threat-grid, .vq-grid { grid-template-columns: 1fr; }
+            .scale-grid { grid-template-columns: 1fr; gap: 16px; }
+            .scale-vs { padding: 8px 0; }
+            .pillars { grid-template-columns: 1fr; }
+
+            /* Cost simulator stacks vertically */
+            .sim-body-grid { grid-template-columns: 1fr; }
+            .sim-center { border-left: none; border-right: none; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .sim-shared-metrics { grid-template-columns: repeat(3, 1fr); }
+            .sim-shared-metric { border-right: 1px solid rgba(255,255,255,0.06); }
+            .sim-shared-metric:last-child { border-right: none; }
+            .agent-canvas { min-height: 120px; }
+            .panel-bar-wrap { height: 70px; }
+            .sim-panel { padding: 14px 12px; }
+            .cost-sim-wrap { padding: 0 16px; }
+
+            /* Cost sim header stacks */
+            .cost-sim-header { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 16px; }
+
+            /* Agent arena head stacks */
+            .agent-arena-head { flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 12px 0; }
+            .agent-arena-label { font-size: 0.85rem; }
+
+            /* Panel budget head */
+            .panel-budget-head { font-size: 0.6rem; }
+
+            /* Font size minimums for readability */
+            .sim-shared-metric-label { font-size: 0.6rem; }
+            .sim-panel-sub { font-size: 0.6rem; }
+            .panel-cost-label { font-size: 0.6rem; }
+            .panel-budget-alert { font-size: 0.6rem; }
+
+            /* Card padding reductions */
+            .threat-card { padding: 24px 20px; }
+            .scale-box { padding: 28px 20px; }
+            .pillar { padding: 24px 20px; }
+            .vq-card { padding: 24px 20px; }
+
+            /* Callout padding */
+            .wn-callout { padding: 40px 20px; margin: 48px 0; }
+            .impossible-choice { padding: 48px 20px; }
+
+            /* Extortion callout */
+            .extortion-callout { padding: 20px 16px; }
+
+            /* Receipt card */
+            .receipt-card { padding: 24px 20px; }
+            .rcpt-line { font-size: 0.75rem; flex-wrap: wrap; gap: 4px; }
+
+            /* Comparison table: horizontal scroll */
+            .compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .compare-wrap table { min-width: 500px; }
+            .compare-wrap th, .compare-wrap td { padding: 12px 14px; font-size: 0.8rem; }
+
+            /* CTA */
+            .wn-cta { padding: 80px 0; }
+            .wn-cta-btn { padding: 16px 32px; font-size: 0.85rem; }
+
+            /* Panel verdict tag */
+            .panel-verdict-tag { font-size: 0.75rem !important; padding: 4px 12px !important; }
+
+            /* Sim panel title */
+            .sim-panel-title { font-size: 1rem; }
+        }
+
+        /* ── RESPONSIVE: SMALL MOBILE (480px and below) ── */
+        @media (max-width: 480px) {
+            .wn-hero { padding: 100px 0 50px; }
+            .wn-section { padding: 48px 0; }
+            .wn-narrow, .wn-wide { padding: 0 16px; }
+            .wn-hero h1 { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+            .wn-hero-sub { font-size: 0.95rem; }
+            .wn-h2 { font-size: clamp(1.2rem, 5vw, 1.5rem); }
+            .wn-p { font-size: 1rem; }
+            .wn-tag { font-size: 0.78rem; }
+
+            /* Shared metrics stack */
+            .sim-shared-metrics { grid-template-columns: 1fr; }
+            .sim-shared-metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .sim-shared-metric:last-child { border-bottom: none; }
+
+            /* Agent canvas smaller */
+            .agent-canvas { min-height: 100px; }
+            .panel-bar-wrap { height: 60px; }
+
+            /* Reduce cost font */
+            .panel-cost { font-size: clamp(1.4rem, 6vw, 2rem); }
+            .sim-panel-title { font-size: 0.9rem; }
+
+            /* Scale numbers */
+            .scale-num { font-size: clamp(2rem, 8vw, 3rem); }
+
+            /* CTA */
+            .wn-cta-btn { padding: 14px 28px; font-size: 0.82rem; width: 100%; text-align: center; }
+
+            /* Callout */
+            .wn-callout p { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+
+            /* Impossible choice */
+            .impossible-choice p { font-size: clamp(1.1rem, 4vw, 1.3rem); }
+
+            /* Receipt */
+            .receipt-card { padding: 20px 16px; }
+            .rcpt-line { font-size: 0.7rem; }
+
+            /* Verdict */
+            .sim-verdict p { font-size: 0.72rem; }
+
+            /* Blast radius detail (inline style override) */
+            .blast-radius-detail { padding: 20px 16px !important; }
+
+            /* Compare wrap */
+            .compare-wrap { margin-left: -16px !important; margin-right: -16px !important; border-radius: 0; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"Vigilense AI","alternateName":["Vigilance AI","Vigilense","Vigilance"],"url":"https://vigilense.ai","logo":"https://vigilense.ai/vigilense-logo.png","description":"The Sovereign SOC - BYODb SIEM + Autonomous AI SOC Analyst. Query your databases in place, zero ingestion fees, AI-powered investigation and resolution.","email":"sales@vigilense.ai","sameAs":["https://www.linkedin.com/company/vigilense-ai"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":1,"maxValue":50},"industry":"Cybersecurity","knowsAbout":["SIEM","SOC Automation","AI Security Operations","BYODb","Threat Detection","Incident Response"]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vigilense.ai/"},{"@type":"ListItem","position":2,"name":"Why Now"}]}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/why-now/" style="color: var(--wn-red); font-weight: 700;">Why Now</a></li>
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                        <li><a href="/platform/integrations/">Integrations</a></li>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="/security/">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                        <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                        <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        <li><a href="/resources/healthcare-case-study/">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team/">Team</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cost-section" style="color: var(--wn-accent); font-weight: 700;">Cost Simulator</a></li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="wn-hero">
+        <div class="wn-narrow">
+            <span class="wn-tag">The Threat Has Changed</span>
+            <h1>Your SOC Was Built<br>for a World That<br><span style="color: var(--wn-red);">No Longer Exists</span></h1>
+            <p class="wn-hero-sub">AI-powered adversaries move at machine speed. Your legacy SIEM charges you per gigabyte to watch. Something has to give.</p>
+        </div>
+    </section>
+
+    <!-- ═══ THE AI ARMS RACE ═══ -->
+    <section class="wn-section">
+        <div class="wn-wide">
+            <div class="wn-narrow" style="margin-bottom: 48px;">
+                <span class="wn-tag reveal">The AI Arms Race</span>
+                <h2 class="wn-h2 reveal">Attackers Have AI Too.<br>Yours Needs to Be Better.</h2>
+                <p class="wn-p reveal">Adversaries have weaponized AI to automate campaign planning, credential churning, and lateral movement at machine speed. They don't care about your office hours, your staffing shortages, or your budget cycles.</p>
+            </div>
+            <div class="threat-grid">
+                <div class="threat-card reveal">
+                    <h3>The Invisible Breach</h3>
+                    <p>AI enables attackers to mimic legitimate behavior so well that high-severity alerts lose their meaning. The breach hides in the low-severity noise your team ignores.</p>
+                </div>
+                <div class="threat-card reveal reveal-delay-1">
+                    <h3>The Speed Gap</h3>
+                    <p>You don't get to choose the pace of the race. An AI attacker finds your blind spots in seconds. Your analyst opens the ticket next morning.</p>
+                </div>
+                <div class="threat-card reveal reveal-delay-2">
+                    <h3>The Precision Problem</h3>
+                    <p>AI-powered adversaries use automated precision to find the one low-severity alert your team chose to deprioritize. That's their entry point.</p>
+                </div>
+                <div class="threat-card reveal reveal-delay-3">
+                    <h3>The Coverage Gap</h3>
+                    <p>If you don't investigate every alert, you're letting an AI-enabled agent sit in your network for free. Manual triage can't cover the volume.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CASE STUDY ═══ -->
+    <section class="wn-section">
+        <div class="wn-narrow">
+            <span class="wn-tag reveal">It Already Happened</span>
+            <h2 class="wn-h2 reveal">North Korean Hackers Used AI to Get Hired at Fortune 500 Companies</h2>
+            <p class="wn-p reveal">In 2024-2025, North Korean groups used LLMs to build flawless fake identities and get hired as remote IT workers. They delivered professional-grade code, maintained cover for months, and funneled billions back to North Korea.</p>
+            <div class="wn-callout reveal">
+                <p>They didn't break in.<br>They were <span style="color: var(--wn-accent);">onboarded</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE SCALE REQUIRED ═══ -->
+    <section class="wn-section">
+        <div class="wn-narrow">
+            <span class="wn-tag reveal">The Scale Required</span>
+            <h2 class="wn-h2 reveal">You Don't Need More Analysts.<br>You Need a Different Kind.</h2>
+            <p class="wn-p reveal">To catch a silent AI attacker, you need hundreds of AI SOC Analysts ready the millisecond an alert fires. Not 8 analysts reviewing dashboards.</p>
+
+            <div class="scale-grid reveal">
+                <div class="scale-box">
+                    <span class="scale-lbl">Human SOC</span>
+                    <span class="scale-num" data-count="12">0</span>
+                    <span class="scale-sub">analysts per shift</span>
+                </div>
+                <div class="scale-vs">vs</div>
+                <div class="scale-box accent-box">
+                    <span class="scale-lbl">What's Actually Needed</span>
+                    <span class="scale-num" data-count="100" data-suffix="s">0</span>
+                    <span class="scale-sub">AI analysts, deployed instantly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE DEATH SPIRAL (animated) ═══ -->
+    <section class="wn-section" id="cost-section">
+        <div class="wn-narrow">
+            <span class="wn-tag reveal">The Financial Death Spiral</span>
+            <h2 class="wn-h2 reveal">Watch What Happens When<br>AI Meets Legacy Pricing</h2>
+            <p class="wn-p reveal">A human analyst runs a handful of queries per investigation. An AI SOC Analyst running a 3-layer blast radius investigation generates <strong>5x to 10x more queries per event</strong>. On a legacy SIEM, that means your bill goes vertical.</p>
+        </div>
+
+        <div class="cost-sim-wrap reveal" id="costAnim">
+            <div class="cost-sim-card">
+                <!-- Header bar -->
+                <div class="cost-sim-header">
+                    <span class="cost-sim-title">Yearly Cost Simulator</span>
+                    <span class="cost-sim-status"><span class="dot" id="simDot"></span> <span id="simStatus">Waiting...</span></span>
+                </div>
+
+                <!-- 3-column body: Legacy | Center | Vigilense -->
+                <div class="sim-body-grid">
+                    <!-- LEFT: Legacy SIEM -->
+                    <div class="sim-panel sim-panel-legacy">
+                        <div class="sim-panel-title">Legacy SIEM</div>
+                        <div class="sim-panel-sub">Per-GB ingestion pricing</div>
+                        <div class="panel-cost" id="legacyCost">$0</div>
+                        <div class="panel-cost-label">Annual cost</div>
+                        <div class="panel-bar-wrap">
+                            <div class="panel-bar" id="legacyBar" style="height:0;"></div>
+                        </div>
+                        <div class="panel-budget">
+                            <div class="panel-budget-head">
+                                <span>Budget Used</span>
+                                <span id="legacyBudgetPct">0%</span>
+                            </div>
+                            <div class="panel-budget-track">
+                                <div class="panel-budget-fill" id="legacyBudgetFill"></div>
+                            </div>
+                            <div class="panel-budget-alert" id="legacyAlert">80% budget gone to ingestion</div>
+                        </div>
+                        <div class="panel-verdict-tag" id="legacyVerdict" style="opacity:0; transition: opacity 0.6s; margin-top: 12px; padding: 6px 16px; border: 1px solid var(--wn-red); border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--wn-red);">Unsustainable</div>
+                    </div>
+
+                    <!-- CENTER: Metrics + Agent Canvas -->
+                    <div class="sim-center">
+                        <div class="sim-shared-metrics">
+                            <div class="sim-shared-metric">
+                                <span class="sim-shared-metric-label">Agents</span>
+                                <span class="sim-shared-metric-val" id="metricAgents">0</span>
+                            </div>
+                            <div class="sim-shared-metric">
+                                <span class="sim-shared-metric-label">Queries/Event</span>
+                                <span class="sim-shared-metric-val" id="metricQueries">1x</span>
+                            </div>
+                            <div class="sim-shared-metric">
+                                <span class="sim-shared-metric-label">Volume/Day</span>
+                                <span class="sim-shared-metric-val" id="metricVolume">-</span>
+                            </div>
+                        </div>
+                        <div class="agent-arena-row">
+                            <div class="agent-arena-head">
+                                <span class="agent-arena-label">AI SOC Agents</span>
+                                <span class="agent-arena-count" id="arenaCount">0 / 100 active</span>
+                            </div>
+                            <canvas class="agent-canvas" id="agentCanvas"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Vigilense AI -->
+                    <div class="sim-panel sim-panel-vig">
+                        <div class="sim-panel-title"><img src="/vigilense-logo.png?v=2" alt="Vigilense AI">Vigilense <span style="color: var(--wn-accent);">AI</span></div>
+                        <div class="sim-panel-sub">BYODb - zero ingestion fees</div>
+                        <div class="panel-cost" id="vigCost">$0</div>
+                        <div class="panel-cost-label">Processing + detection</div>
+                        <div class="panel-bar-wrap">
+                            <div class="panel-bar" id="vigBar" style="height:0;"></div>
+                        </div>
+                        <div class="panel-budget">
+                            <div class="panel-budget-head">
+                                <span>Budget Used</span>
+                                <span id="vigBudgetPct">0%</span>
+                            </div>
+                            <div class="panel-budget-track">
+                                <div class="panel-budget-fill" id="vigBudgetFill"></div>
+                            </div>
+                            <div class="panel-budget-alert" id="vigAlert">15% of budget. Rest goes to security.</div>
+                        </div>
+                        <div class="panel-verdict-tag" id="vigVerdict" style="opacity:0; transition: opacity 0.6s; margin-top: 12px; padding: 6px 16px; border: 1px solid var(--wn-accent); border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--wn-accent);">Future-Proof</div>
+                    </div>
+                </div>
+
+                <!-- Verdict -->
+                <div class="sim-verdict" id="simVerdict">
+                    <p>Deploy AI agents to see the cost impact...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wn-narrow">
+            <div class="impossible-choice reveal">
+                <p><span class="strike">Stay secure and go bankrupt.</span><br><span class="dim">Or stay on budget and stay blind.</span></p>
+            </div>
+
+            <div class="extortion-callout reveal">
+                <p>Queries are a commodity. They should cost commodity prices. Charging premium rates just to search a database you already own isn't security - <strong>it's a breach of trust</strong> by the very provider you handed the keys to.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE RECEIPT ═══ -->
+    <section class="wn-section">
+        <div class="wn-narrow">
+            <span class="wn-tag reveal">The Receipt</span>
+            <h2 class="wn-h2 reveal">Year 1 on a Legacy SIEM<br>at 500 GB/day</h2>
+
+            <div class="receipt-card" id="receiptCard">
+                <div class="receipt-card-title">Invoice Summary</div>
+                <div class="rcpt-line" data-delay="0"><span>Ingestion (500 GB x $0.88 x 365)</span><span>$160,600</span></div>
+                <div class="rcpt-line" data-delay="150"><span>Infrastructure</span><span>$200,000</span></div>
+                <div class="rcpt-line" data-delay="300"><span>SIEM license add-ons</span><span>$75,000+</span></div>
+                <div class="rcpt-line" data-delay="450"><span>Admin salary</span><span>$150,000</span></div>
+                <div class="rcpt-line total" data-delay="650"><span>Year 1 total</span><span>$585,000+</span></div>
+                <div class="rcpt-punchline" id="receiptPunch">Threats stopped by ingestion: Zero.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ THE ANSWER ═══ -->
+    <section class="wn-section">
+        <div class="wn-wide">
+            <div class="wn-narrow" style="margin-bottom: 0;">
+                <span class="wn-tag reveal">The Answer</span>
+                <h2 class="wn-h2 reveal">Built for the AI Era</h2>
+            </div>
+
+            <div class="compare-wrap reveal" style="max-width: 760px; margin-left: auto; margin-right: auto;">
+                <table>
+                    <thead>
+                        <tr><th>Capability</th><th>Legacy SIEM</th><th>Vigilense AI</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pricing</td><td class="legacy-cell">Per-GB ingestion tax</td><td>BYODb - $0 ingestion</td></tr>
+                        <tr><td>Data</td><td class="legacy-cell">Vendor-controlled silo</td><td>Your infra, your control</td></tr>
+                        <tr><td>Alerts</td><td class="legacy-cell">Static risk scoring</td><td>Dynamic risk consolidation</td></tr>
+                        <tr><td>Investigation</td><td class="legacy-cell">Manual, linear</td><td>3-layer blast radius</td></tr>
+                        <tr><td>Cost at Scale</td><td class="legacy-cell">Exponential</td><td>Flat - $0 ingestion</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pillars" style="max-width: 760px; margin-left: auto; margin-right: auto; margin-top: 48px;">
+                <div class="pillar reveal">
+                    <span class="pillar-icon">BYODb</span>
+                    <h3>Query Your Own Data</h3>
+                    <p>Investigation queries run on your cost-efficient databases. You pay for storage once. We provide the brain. No query tax.</p>
+                </div>
+                <div class="pillar reveal reveal-delay-1">
+                    <span class="pillar-icon">AI SOC</span>
+                    <h3>10x Depth, Flat Cost</h3>
+                    <p>State-aware reasoning increases investigative depth by 10x without increasing your bill. Every alert, every time.</p>
+                </div>
+                <div class="pillar reveal reveal-delay-2">
+                    <span class="pillar-icon">Blast Radius</span>
+                    <h3>Full Forensic Narrative</h3>
+                    <p>Every alert investigated three layers deep automatically. A complete forensic story before a human even logs in.</p>
+                </div>
+            </div>
+
+            <div class="blast-radius-detail reveal">
+                <p style="font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.65); margin: 0 0 14px;"><strong style="color: #fff;">What 3-layer blast radius actually means:</strong></p>
+                <p style="font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 10px;"><strong style="color: var(--wn-accent);">Layer 1:</strong> Alert triage - enrichment across 50+ sources, deduplication, initial verdict.</p>
+                <p style="font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 10px;"><strong style="color: var(--wn-accent);">Layer 2:</strong> Lateral investigation - pivot to related endpoints, identities, sessions, and network paths. What else did this actor touch?</p>
+                <p style="font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6); margin: 0 0 14px;"><strong style="color: var(--wn-accent);">Layer 3:</strong> Causal reasoning - timeline reconstruction, root cause analysis, and full evidence chain. What happened, how, and what's the blast radius?</p>
+                <p style="font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.35); margin: 0; font-style: italic;">The output isn't a summary. It's a forensic case file - ready for human review or automated resolution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ VENDOR QUESTIONS ═══ -->
+    <section class="wn-section">
+        <div class="wn-wide" style="max-width: 760px;">
+            <span class="wn-tag reveal">Before You Sign</span>
+            <h2 class="wn-h2 reveal">Questions to Ask Any AI SOC Vendor</h2>
+            <p class="wn-p reveal" style="text-align: center; max-width: 620px; margin-left: auto; margin-right: auto;">Every vendor claims AI. Not every vendor has rebuilt the architecture. Before you evaluate any platform - including ours - ask these.</p>
+
+            <div class="vq-grid">
+                <div class="vq-card reveal">
+                    <div class="vq-num">01</div>
+                    <h3>Does this reduce my ingestion costs, or add to them?</h3>
+                    <p>If the AI sits on top of a legacy SIEM, you're paying twice. Once for ingestion, once for AI compute.</p>
+                </div>
+                <div class="vq-card reveal reveal-delay-1">
+                    <div class="vq-num">02</div>
+                    <h3>Where does my data live - in my infrastructure or yours?</h3>
+                    <p>Data sovereignty isn't a feature. It's a requirement. If your vendor controls your data, they control your exit.</p>
+                </div>
+                <div class="vq-card reveal reveal-delay-2">
+                    <div class="vq-num">03</div>
+                    <h3>Can your AI investigate 10x deeper without 10x the cost?</h3>
+                    <p>Depth without financial sustainability is a demo, not a product. Ask for the math at scale.</p>
+                </div>
+                <div class="vq-card reveal reveal-delay-3">
+                    <div class="vq-num">04</div>
+                    <h3>Do you provide deterministic evidence chains, or just repackaged alerts?</h3>
+                    <p>If your AI SOC returns the same alert data in different words with a probability score, that's a summarizer, not an analyst. Ask to see a 3-layer investigation output.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="wn-cta">
+        <div class="wn-narrow">
+            <h2 class="reveal">See It In Action</h2>
+            <p class="wn-p reveal">Security that's autonomous, exhaustive, and financially sustainable. That's not a pitch. It's a requirement.</p>
+            <p class="wn-cta-proof reveal">In pilot with enterprise security teams across technology, financial services, healthcare, and government.</p>
+            <a href="/demo/" class="wn-cta-btn reveal">Book a Demo</a>
+            <p class="wn-cta-sub reveal">Risk-free pilot · No charge until proven value · Results guaranteed</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team/">Team</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+                <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+    (function() {
+        // ── Scroll Reveal ──
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function(el) { observer.observe(el); });
+
+        // ── Count-up for scale numbers ──
+        var scaleNums = document.querySelectorAll('.scale-num[data-count]');
+        var scaleObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target;
+                    var target = parseInt(el.getAttribute('data-count'));
+                    var suffix = el.getAttribute('data-suffix') || '';
+                    var duration = 1200;
+                    var start = performance.now();
+                    function tick(now) {
+                        var t = Math.min((now - start) / duration, 1);
+                        t = 1 - Math.pow(1 - t, 3); // ease-out cubic
+                        el.textContent = Math.round(t * target) + suffix;
+                        if (t < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    scaleObs.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        scaleNums.forEach(function(el) { scaleObs.observe(el); });
+
+        // ── Cost Simulation Animation (canvas-based agents) ──
+        var costSection = document.getElementById('costAnim');
+        var simRan = false;
+        var agentSim = null; // holds canvas state
+
+        // Canvas agent arena
+        (function() {
+            var canvas = document.getElementById('agentCanvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var dpr = window.devicePixelRatio || 1;
+            var agents = [];
+            var queries = [];
+            var targetCount = 0;
+            var phase = 0; // 0=green, 1=blue, 2=purple
+            var animId;
+
+            function resize() {
+                var rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = rect.height * dpr;
+                ctx.scale(dpr, dpr);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            var W = function() { return canvas.width / dpr; };
+            var H = function() { return canvas.height / dpr; };
+
+            var colors = [
+                { r: 0, g: 212, b: 170 },   // phase 0 - teal
+                { r: 90, g: 140, b: 255 },   // phase 1 - blue
+                { r: 150, g: 110, b: 255 }   // phase 2 - purple
+            ];
+
+            function spawnAgent() {
+                var r = 3.5;
+                agents.push({
+                    x: r + Math.random() * (W() - r * 2),
+                    y: r + Math.random() * (H() - r * 2),
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    r: r,
+                    nextFire: performance.now() + 400 + Math.random() * 1200,
+                    pulse: Math.random() * Math.PI * 2
+                });
+            }
+
+            var labels = ['API', 'Query', 'LLM', 'Processing', 'Search', 'Detect', 'Enrich', 'Correlate', 'Ingest', 'Analyze'];
+
+            function fireQuery(ax, ay) {
+                var angle = Math.random() * Math.PI * 2;
+                var speed = 0.4 + Math.random() * 0.6;
+                    var showLabel = Math.random() < 0.15; // 15% chance of label
+                queries.push({
+                    x: ax, y: ay,
+                    vx: Math.cos(angle) * speed * (showLabel ? 0.3 : 1),
+                    vy: Math.sin(angle) * speed * (showLabel ? 0.3 : 1),
+                    life: 1,
+                    decay: showLabel ? 0.002 + Math.random() * 0.003 : 0.008 + Math.random() * 0.012,
+                    label: showLabel ? labels[Math.floor(Math.random() * labels.length)] : null
+                });
+            }
+
+            function draw(now) {
+                var w = W(), h = H();
+                ctx.clearRect(0, 0, w, h);
+
+                var c = colors[phase] || colors[0];
+
+                // Add agents up to target
+                while (agents.length < targetCount) spawnAgent();
+
+                // Update and draw agents
+                for (var i = 0; i < agents.length; i++) {
+                    var a = agents[i];
+                    a.x += a.vx;
+                    a.y += a.vy;
+                    // Bounce off walls
+                    if (a.x < a.r) { a.x = a.r; a.vx *= -1; }
+                    if (a.x > w - a.r) { a.x = w - a.r; a.vx *= -1; }
+                    if (a.y < a.r) { a.y = a.r; a.vy *= -1; }
+                    if (a.y > h - a.r) { a.y = h - a.r; a.vy *= -1; }
+
+                    // Slight drift
+                    a.vx += (Math.random() - 0.5) * 0.03;
+                    a.vy += (Math.random() - 0.5) * 0.03;
+                    var spd = Math.sqrt(a.vx * a.vx + a.vy * a.vy);
+                    var maxSpd = 0.7;
+                    if (spd > maxSpd) { a.vx *= maxSpd / spd; a.vy *= maxSpd / spd; }
+
+                    // Fire queries periodically
+                    if (now > a.nextFire) {
+                        var burst = 1 + Math.floor(Math.random() * 2);
+                        for (var b = 0; b < burst; b++) fireQuery(a.x, a.y);
+                        a.nextFire = now + 500 + Math.random() * 1200;
+                    }
+
+                    a.pulse += 0.04;
+
+                    // Glow
+                    var glowAlpha = 0.15 + Math.sin(a.pulse) * 0.08;
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + glowAlpha + ')';
+                    ctx.fill();
+
+                    // Outer ring
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',0.85)';
+                    ctx.fill();
+
+                    // Inner bright core
+                    ctx.beginPath();
+                    ctx.arc(a.x - a.r * 0.2, a.y - a.r * 0.2, a.r * 0.45, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+                    ctx.fill();
+
+                    // "AI" text inside (for larger view)
+                    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+                    var aiFontSize = w < 300 ? Math.max(3, a.r * 0.7) : Math.max(4, a.r * 0.9);
+                    ctx.font = 'bold ' + aiFontSize + 'px JetBrains Mono, monospace';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('AI', a.x, a.y + 0.5);
+                }
+
+                // Update and draw query particles
+                for (var q = queries.length - 1; q >= 0; q--) {
+                    var p = queries[q];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.life -= p.decay;
+                    if (p.life <= 0) { queries.splice(q, 1); continue; }
+
+                    var alpha = p.life * 0.6;
+
+                    if (p.label) {
+                        // Draw labeled particle as floating text - responsive size
+                        var labelSize = w < 300 ? 12 : (w < 500 ? 16 : 20);
+                        ctx.font = '700 ' + labelSize + 'px JetBrains Mono, monospace';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + Math.min(alpha * 1.4, 0.85) + ')';
+                        ctx.fillText(p.label, p.x, p.y);
+                    } else {
+                        // Draw as small dot
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha + ')';
+                        ctx.fill();
+                    }
+                }
+
+                animId = requestAnimationFrame(draw);
+            }
+
+            // Expose controls
+            agentSim = {
+                setTarget: function(n) { targetCount = n; },
+                setPhase: function(p) { phase = p; },
+                start: function() { animId = requestAnimationFrame(draw); },
+                stop: function() { cancelAnimationFrame(animId); },
+                reset: function() { agents.length = 0; queries.length = 0; targetCount = 0; phase = 0; }
+            };
+        })();
+
+        if (costSection) {
+            var costObs = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting && !simRan) {
+                    simRan = true;
+                    if (agentSim) agentSim.start();
+                    runCostSim();
+                    costObs.unobserve(costSection);
+                }
+            }, { threshold: 0.15 });
+            costObs.observe(costSection);
+        }
+
+        function runCostSim() {
+            var simStatus = document.getElementById('simStatus');
+            var simDot = document.getElementById('simDot');
+            var arenaCount = document.getElementById('arenaCount');
+            var mAgents = document.getElementById('metricAgents');
+            var mQueries = document.getElementById('metricQueries');
+            var mVolume = document.getElementById('metricVolume');
+            var legacyCost = document.getElementById('legacyCost');
+            var vigCost = document.getElementById('vigCost');
+            var legacyBar = document.getElementById('legacyBar');
+            var vigBar = document.getElementById('vigBar');
+            var legacyBudgetPct = document.getElementById('legacyBudgetPct');
+            var legacyBudgetFill = document.getElementById('legacyBudgetFill');
+            var legacyAlert = document.getElementById('legacyAlert');
+            var vigBudgetPct = document.getElementById('vigBudgetPct');
+            var vigBudgetFill = document.getElementById('vigBudgetFill');
+            var vigAlert = document.getElementById('vigAlert');
+            var verdict = document.getElementById('simVerdict');
+
+            function fmt(n) {
+                if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+                if (n >= 1000) return '$' + Math.round(n/1000).toLocaleString() + 'K';
+                return '$' + n.toLocaleString();
+            }
+
+            function fmtVol(n) {
+                if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+                if (n >= 1000) return Math.round(n/1000) + 'K';
+                return n.toString();
+            }
+
+            var steps = [
+                { agents: 1,  qm: '1x',  vol: 30000,  cost: 160000, budget: 8,  barH: 5,  vc: 24000,  vb: 2,  vBarH: 3 },
+                { agents: 2,  qm: '1x',  vol: 32000,  cost: 175000, budget: 9,  barH: 6,  vc: 28000,  vb: 2,  vBarH: 3 },
+                { agents: 4,  qm: '2x',  vol: 36000,  cost: 195000, budget: 10, barH: 8,  vc: 32000,  vb: 3,  vBarH: 3 },
+                { agents: 6,  qm: '2x',  vol: 40000,  cost: 213000, budget: 12, barH: 10, vc: 36000,  vb: 3,  vBarH: 3 },
+                { agents: 8,  qm: '3x',  vol: 45000,  cost: 240000, budget: 15, barH: 13, vc: 40000,  vb: 3,  vBarH: 4 },
+                { agents: 12, qm: '3x',  vol: 55000,  cost: 293000, budget: 18, barH: 16, vc: 48000,  vb: 4,  vBarH: 4 },
+                { agents: 16, qm: '4x',  vol: 65000,  cost: 346000, budget: 22, barH: 20, vc: 58000,  vb: 5,  vBarH: 4 },
+                { agents: 20, qm: '5x',  vol: 75000,  cost: 400000, budget: 26, barH: 25, vc: 66000,  vb: 5,  vBarH: 5 },
+                { agents: 24, qm: '5x',  vol: 80000,  cost: 426000, budget: 30, barH: 28, vc: 72000,  vb: 6,  vBarH: 5 },
+                { agents: 32, qm: '6x',  vol: 95000,  cost: 506000, budget: 38, barH: 35, vc: 86000,  vb: 7,  vBarH: 6 },
+                { agents: 40, qm: '7x',  vol: 110000, cost: 586000, budget: 45, barH: 42, vc: 100000, vb: 8,  vBarH: 7 },
+                { agents: 48, qm: '7x',  vol: 120000, cost: 640000, budget: 52, barH: 50, vc: 112000, vb: 9,  vBarH: 7 },
+                { agents: 56, qm: '8x',  vol: 125000, cost: 666000, budget: 56, barH: 56, vc: 120000, vb: 10, vBarH: 8 },
+                { agents: 64, qm: '8x',  vol: 130000, cost: 693000, budget: 62, barH: 65, vc: 132000, vb: 11, vBarH: 9 },
+                { agents: 72, qm: '9x',  vol: 140000, cost: 746000, budget: 70, barH: 75, vc: 148000, vb: 13, vBarH: 10 },
+                { agents: 80, qm: '10x', vol: 150000, cost: 880000, budget: 80, barH: 95, vc: 165000, vb: 15, vBarH: 12 }
+            ];
+
+            var stepIdx = 0;
+            var legacyVerdict = document.getElementById('legacyVerdict');
+            var vigVerdict = document.getElementById('vigVerdict');
+
+            function startSim() {
+                stepIdx = 0;
+                resetUI();
+                setTimeout(function() {
+                    simStatus.textContent = 'Deploying agents...';
+                    runStep();
+                }, 600);
+            }
+
+            function resetUI() {
+                // Reset canvas
+                if (agentSim) { agentSim.setTarget(0); agentSim.setPhase(0); agentSim.reset(); }
+                arenaCount.textContent = '0 / 100 active';
+
+                // Reset shared metrics
+                mAgents.textContent = '0';
+                mQueries.textContent = '1x';
+                mVolume.textContent = '-';
+                mVolume.classList.remove('danger');
+
+                // Reset legacy panel
+                legacyCost.textContent = '$0';
+                legacyCost.classList.remove('danger');
+                legacyBar.style.height = '0%';
+                legacyBudgetPct.textContent = '0%';
+                legacyBudgetFill.style.width = '0%';
+                legacyAlert.classList.remove('visible');
+
+                // Reset vigilense panel
+                vigCost.textContent = '$0';
+                vigBar.style.height = '0%';
+                vigBudgetPct.textContent = '0%';
+                vigBudgetFill.style.width = '0%';
+                vigAlert.classList.remove('visible');
+
+                // Reset verdict tags
+                legacyVerdict.style.opacity = '0';
+                vigVerdict.style.opacity = '0';
+
+                // Reset status
+                simStatus.textContent = 'Initializing...';
+                simDot.classList.remove('red');
+                verdict.innerHTML = '<p>Deploy AI agents to see the cost impact...</p>';
+            }
+
+            startSim();
+
+            function runStep() {
+                if (stepIdx >= steps.length) { finalize(); return; }
+
+                var s = steps[stepIdx];
+
+                // Update canvas agents
+                if (agentSim) {
+                    agentSim.setTarget(s.agents);
+                    if (s.budget > 50) agentSim.setPhase(2);
+                    else if (s.budget > 25) agentSim.setPhase(1);
+                    else agentSim.setPhase(0);
+                }
+                arenaCount.textContent = s.agents + ' / 100 active';
+
+                // Shared metrics
+                mAgents.textContent = s.agents;
+                mQueries.textContent = s.qm;
+                mVolume.textContent = fmtVol(s.vol) + '/day';
+                if (s.cost >= 200000) mVolume.classList.add('danger');
+
+                // Legacy panel
+                legacyCost.textContent = fmt(s.cost);
+                legacyBar.style.height = s.barH + '%';
+                legacyBudgetPct.textContent = s.budget + '%';
+                legacyBudgetFill.style.width = s.budget + '%';
+
+                if (s.cost >= 400000) {
+                    legacyCost.classList.add('danger');
+                    legacyCost.classList.add('shake');
+                    setTimeout(function() { legacyCost.classList.remove('shake'); }, 400);
+                }
+
+                // Vigilense panel
+                vigCost.textContent = fmt(s.vc);
+                vigBar.style.height = s.vBarH + '%';
+                vigBudgetPct.textContent = s.vb + '%';
+                vigBudgetFill.style.width = s.vb + '%';
+
+                // Status
+                if (s.budget > 50) {
+                    simStatus.textContent = 'Budget critical - ' + s.agents + ' agents, ' + s.qm + ' queries';
+                    simDot.classList.add('red');
+                } else if (s.budget > 25) {
+                    simStatus.textContent = 'Costs accelerating - ' + s.agents + ' agents active';
+                } else {
+                    simStatus.textContent = 'Deploying ' + s.agents + ' agent' + (s.agents > 1 ? 's' : '') + '...';
+                }
+
+                stepIdx++;
+                setTimeout(runStep, 1560);
+            }
+
+            function finalize() {
+                simStatus.textContent = 'Simulation complete';
+                simDot.classList.remove('red');
+                legacyAlert.classList.add('visible');
+                setTimeout(function() { vigAlert.classList.add('visible'); }, 400);
+                setTimeout(function() {
+                    legacyVerdict.style.opacity = '1';
+                    vigVerdict.style.opacity = '1';
+                }, 600);
+                setTimeout(function() {
+                    verdict.innerHTML = '<p>Same 100 AI agents. 30K to 150K queries/day.<br><span class="red">$880K and 80% of budget gone</span> on legacy vs <span class="green">$165K and 15% with Vigilense AI</span>.<br>5x savings. Your budget goes to security, not ingestion.</p>';
+                }, 800);
+
+                // 10 second pause, then restart loop
+                setTimeout(startSim, 10000);
+            }
+        }
+
+        // ── Receipt stacking animation ──
+        var receiptCard = document.getElementById('receiptCard');
+        if (receiptCard) {
+            var rObs = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                    var lines = receiptCard.querySelectorAll('.rcpt-line');
+                    lines.forEach(function(line) {
+                        var delay = parseInt(line.getAttribute('data-delay')) || 0;
+                        setTimeout(function() { line.classList.add('visible'); }, delay);
+                    });
+                    setTimeout(function() {
+                        var punch = document.getElementById('receiptPunch');
+                        if (punch) punch.classList.add('visible');
+                    }, 900);
+                    rObs.unobserve(receiptCard);
+                }
+            }, { threshold: 0.4 });
+            rObs.observe(receiptCard);
+        }
+    })();
+    </script>
+</body>
+</html>

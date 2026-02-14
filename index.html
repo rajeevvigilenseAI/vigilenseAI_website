@@ -166,6 +166,168 @@
         .btn-large { padding: 16px 36px; font-size: 0.9rem; }
         .btn-full { width: 100%; text-align: center; }
 
+        /* Hero Why Link */
+        .hero-why-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+        .hero-why-link:hover { opacity: 0.7; }
+
+        /* Query Explosion Section */
+        .query-explosion-section {
+            padding: 100px 0;
+            background: var(--navy);
+            color: #fff;
+        }
+        .query-explosion-section .container.narrow {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .query-explosion-section .section-tag {
+            color: var(--accent);
+        }
+        .query-explosion-section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 32px;
+        }
+        .query-explosion-narrative p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+        .query-explosion-narrative strong {
+            color: #fff;
+        }
+        .query-explosion-choice {
+            text-align: center;
+            padding: 40px 0;
+            margin: 32px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .query-explosion-choice .choice-line {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            line-height: 1.6;
+            color: #fff;
+            margin: 0;
+        }
+        .query-explosion-choice .muted {
+            color: rgba(255,255,255,0.6);
+        }
+        .query-explosion-answer {
+            margin-top: 32px;
+        }
+        .query-explosion-truth {
+            margin-top: 32px;
+            padding: 24px 28px;
+            border-left: 3px solid var(--accent);
+            background: rgba(0,212,170,0.04);
+            border-radius: 0 8px 8px 0;
+        }
+        .query-explosion-truth p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.8);
+            margin: 0 0 12px;
+        }
+        .query-explosion-truth p:last-child { margin-bottom: 0; }
+        .query-explosion-truth strong { color: var(--accent); }
+        .query-explosion-answer p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.8);
+        }
+        .accent-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Vendor Questions Section */
+        .vendor-questions-section {
+            padding: 100px 0;
+            background: var(--navy);
+            color: #fff;
+        }
+        .vendor-questions-section .section-tag {
+            color: var(--accent);
+        }
+        .vendor-questions-section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .vendor-intro {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.75);
+            max-width: 700px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+        .vendor-questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .vendor-question {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 28px 24px;
+        }
+        .question-number {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: rgba(0, 212, 170, 0.45);
+            display: block;
+            margin-bottom: 12px;
+        }
+        .vendor-question h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .vendor-question p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.7);
+        }
+        .vendor-answer {
+            text-align: center;
+        }
+        .vendor-answer p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.75);
+        }
+        .vendor-answer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .vendor-answer a:hover { opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            .vendor-questions-grid { grid-template-columns: 1fr; }
+        }
+
         /* ============================
            1. NAVIGATION
            ============================ */
@@ -287,7 +449,7 @@
             font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             margin-bottom: 16px;
         }
         .industry-badges {
@@ -439,7 +601,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             font-family: var(--font-mono);
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .terminal-title {
@@ -503,7 +665,7 @@
         .terminal-body .t-line.success { color: var(--accent); }
         .terminal-body .t-line.closed { color: var(--accent); font-weight: 700; }
         .terminal-body .t-line.blank { height: 1.2em; }
-        .terminal-body .t-line.dim { color: rgba(255,255,255,0.25); }
+        .terminal-body .t-line.dim { color: rgba(255,255,255,0.5); }
 
         /* Hide terminal scrollbar but keep functionality */
         .terminal-body::-webkit-scrollbar { width: 0; background: transparent; }
@@ -678,6 +840,63 @@
             }
         }
 
+        /* Product callouts side by side */
+        .product-callouts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .product-callout-card {
+            padding: 32px 28px;
+            border-radius: 8px;
+            border-left: 3px solid;
+        }
+        .product-callout-card.callout-accent {
+            border-left-color: var(--accent);
+            background: rgba(0, 212, 170, 0.04);
+        }
+        .product-callout-card.callout-navy {
+            border-left-color: var(--navy);
+            background: rgba(10, 22, 40, 0.03);
+        }
+        .product-callout-card .callout-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 14px;
+        }
+        .callout-accent .callout-label { color: var(--accent-dim); }
+        .callout-navy .callout-label { color: var(--navy); }
+        .product-callout-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 14px;
+            line-height: 1.35;
+        }
+        .product-callout-card p {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        .product-callout-card p:last-child { margin-bottom: 0; }
+        .product-callout-card strong { color: var(--navy); }
+
+        @media (max-width: 900px) {
+            .product-callouts-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+        @media (max-width: 600px) {
+            .product-callout-card { padding: 24px 20px; }
+            .product-callout-card h3 { font-size: 1.05rem; }
+            .product-callout-card p { font-size: 0.9rem; }
+        }
+
         /* ============================
            PRODUCT DASHBOARD PREVIEW
            ============================ */
@@ -735,7 +954,7 @@
         .dash-nav span {
             font-family: var(--font-mono);
             font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.55);
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
@@ -798,7 +1017,7 @@
         .dash-metric-label {
             font-family: var(--font-mono);
             font-size: 0.55rem;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 8px;
@@ -841,7 +1060,7 @@
         .dash-panel-title {
             font-family: var(--font-mono);
             font-size: 0.6rem;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.6);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 16px;
@@ -892,7 +1111,7 @@
 
         .dash-feed-time {
             font-size: 0.55rem;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.5);
             margin-top: 2px;
         }
 
@@ -934,7 +1153,7 @@
             text-align: center;
             font-family: var(--font-mono);
             font-size: 0.5rem;
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Fade-out bottom edge */
@@ -1070,7 +1289,7 @@
             justify-content: space-between;
             font-family: var(--font-mono);
             font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.75);
         }
 
         .receipt-item.total {
@@ -1702,7 +1921,7 @@
 
         .footer-brand p {
             font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 12px;
             margin-left: 42px;
         }
@@ -1937,6 +2156,145 @@
             .faq-item summary { font-size: 0.85rem; padding: 16px 20px; }
             .faq-item .faq-answer { padding: 0 20px 16px; font-size: 0.88rem; }
         }
+
+        /* ============================
+           ADDITIONAL RESPONSIVE FIXES
+           ============================ */
+
+        /* ── TABLET (769px - 1024px) ── */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            /* Sovereign grid: 2 columns on tablet */
+            .sovereign-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+            /* Guarantee: 2 columns on tablet */
+            .guarantee-items { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+            /* Contact layout gap */
+            .contact-layout { gap: 48px; }
+
+            /* Sections padding reduction */
+            .sovereign-section { padding: 80px 0; }
+            .receipt-section { padding: 80px 0; }
+            .guarantee-section { padding: 80px 0; }
+            .philosophy-contact-section { padding: 80px 0; }
+            .query-explosion-section { padding: 80px 0; }
+            .vendor-questions-section { padding: 80px 0; }
+            .architecture-workflow-section { padding: 80px 0; }
+
+            /* Receipt block padding */
+            .receipt-block { padding: 36px 28px; }
+            .receipt-solution { padding: 32px 24px; }
+
+            /* Products grid: already 1fr at 900px - good */
+
+            /* Vendor questions tighter */
+            .vendor-questions-grid { gap: 16px; }
+            .vendor-question { padding: 24px 20px; }
+
+            /* Hero terminal constraint */
+            .hero-terminal { max-width: 100%; }
+
+            /* Architecture stages tighter */
+            .arch-stage { min-width: 140px; padding: 20px 22px; }
+        }
+
+        /* ── MOBILE ADDITIONS (768px and below) ── */
+        @media (max-width: 768px) {
+            /* Section padding reductions */
+            .sovereign-section { padding: 60px 0; }
+            .receipt-section { padding: 60px 0; }
+            .guarantee-section { padding: 60px 0; }
+            .philosophy-contact-section { padding: 60px 0; }
+            .query-explosion-section { padding: 60px 0; }
+            .vendor-questions-section { padding: 60px 0; }
+            .architecture-workflow-section { padding: 60px 0; }
+
+            /* Sovereign cards */
+            .sovereign-card { padding: 28px 20px; }
+
+            /* Receipt block */
+            .receipt-block { padding: 32px 20px; }
+            .receipt-solution { padding: 28px 20px; }
+            .receipt-problem-text { font-size: 0.95rem; }
+
+            /* Query explosion */
+            .query-explosion-section .container.narrow { padding: 0 20px; }
+            .query-explosion-truth { padding: 20px 16px; }
+            .query-explosion-truth p { font-size: 0.95rem; }
+            .query-explosion-choice { padding: 32px 0; }
+
+            /* Vendor questions */
+            .vendor-question { padding: 22px 18px; }
+            .vendor-question h3 { font-size: 0.92rem; }
+            .vendor-question p { font-size: 0.82rem; }
+            .vendor-intro { font-size: 0.95rem; }
+
+            /* Investigation depth (override inline styles) */
+            .investigation-depth { padding: 20px 16px !important; margin-top: 24px !important; }
+
+            /* Hero terminal full width */
+            .hero-terminal { max-width: 100%; }
+
+            /* Architecture summary flow */
+            .arch-summary-flow { gap: 16px; }
+            .arch-stage { padding: 18px 16px; min-width: 120px; }
+        }
+
+        /* ── SMALL MOBILE (480px and below) ── */
+        @media (max-width: 480px) {
+            /* Further section padding */
+            .sovereign-section { padding: 48px 0; }
+            .receipt-section { padding: 48px 0; }
+            .guarantee-section { padding: 48px 0; }
+            .philosophy-contact-section { padding: 48px 0; }
+            .query-explosion-section { padding: 40px 0; }
+            .vendor-questions-section { padding: 40px 0; }
+
+            /* Receipt block tighter */
+            .receipt-block { padding: 24px 16px; }
+            .receipt-item { font-size: 0.75rem; flex-wrap: wrap; gap: 2px; }
+            .receipt-solution { padding: 24px 16px; }
+
+            /* Query explosion even tighter */
+            .query-explosion-section .container.narrow { padding: 0 16px; }
+            .query-explosion-truth { padding: 16px 14px; }
+            .query-explosion-truth p { font-size: 0.9rem; }
+            .query-explosion-narrative p { font-size: 0.95rem; line-height: 1.8; }
+            .query-explosion-choice .choice-line { font-size: clamp(1rem, 4vw, 1.2rem); }
+
+            /* Vendor questions tighter */
+            .vendor-question { padding: 20px 16px; }
+            .vendor-question h3 { font-size: 0.88rem; }
+            .vendor-question p { font-size: 0.8rem; }
+
+            /* Investigation depth */
+            .investigation-depth { padding: 16px 14px !important; }
+
+            /* Hero terminal mobile */
+            .hero-terminal { max-width: 100%; margin: 0 auto; }
+            .terminal-body { padding: 14px 16px; font-size: 0.65rem; height: auto; min-height: 240px; }
+
+            /* Architecture stages */
+            .arch-stage { min-width: auto; padding: 16px 14px; }
+            .arch-stage-label { font-size: 0.75rem; letter-spacing: 0.1em; }
+            .arch-stage-desc { font-size: 0.7rem; }
+            .arch-expand-btn { font-size: 0.72rem; padding: 8px 18px; }
+
+            /* Guarantee items */
+            .guarantee-item h3 { font-size: 0.92rem; }
+            .guarantee-item p { font-size: 0.82rem; }
+
+            /* Contact form */
+            .contact-form-container { padding: 24px 16px; }
+            .contact-info p { font-size: 0.92rem; }
+
+            /* Social proof badges smaller */
+            .industry-badges span { font-size: 0.65rem; padding: 5px 12px; }
+            .social-proof-label { font-size: 0.65rem; }
+
+            /* Product cards */
+            .product-card { padding: 24px 18px; }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -2018,6 +2376,7 @@
                 <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
             </a>
             <ul class="nav-menu">
+                <li><a href="/why-now/" style="color: #FF6B6B; font-weight: 700;">Why Now</a></li>
                 <li>
                     <a href="#">Platform</a>
                     <ul class="dropdown-menu">
@@ -2048,6 +2407,7 @@
                         <li><a href="/security/">Security</a></li>
                     </ul>
                 </li>
+                <li><a href="/why-now/#cost-section" style="color: #00D4AA; font-weight: 700;">Cost Simulator</a></li>
                 <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
             </ul>
             <div class="hamburger">
@@ -2090,6 +2450,7 @@
                         </div>
                     </div>
                     <p class="hero-subline">The average enterprise spends more on log ingestion than on the analysts reading them.</p>
+                    <a href="/why-now/" class="hero-why-link">Why the SOC must change →</a>
                 </div>
 
                 <!-- Right column: terminal -->
@@ -2285,7 +2646,6 @@
                     <span class="section-tag">02</span>
                     <h2 class="section-title"><a href="/platform/byodb-siem/" style="color: inherit; text-decoration: none;">BYODb SIEM</a></h2>
                     <p class="product-desc">A SIEM that runs on your existing databases. No ingestion pipeline. No vendor lock-in.</p>
-                    <p class="product-callout">Your data is already in Snowflake/Elasticsearch. So why are you paying six figures to copy it somewhere else?</p>
                     <div class="product-features">
                         <div class="feature-item">
                             <span class="feature-marker"></span>
@@ -2318,6 +2678,51 @@
                     </div>
                     <a href="/platform/byodb-siem/" style="display: inline-block; margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600;">Learn more about BYODb SIEM →</a>
                 </div>
+            </div>
+
+            <!-- Side-by-side callouts -->
+            <div class="product-callouts-grid">
+                <div class="product-callout-card callout-accent">
+                    <span class="callout-label">AI SOC Analyst</span>
+                    <h3>Real Investigation. Not Repackaged Alerts.</h3>
+                    <p>Most AI SOC tools take your alert data, feed it to an LLM, and return the same information dressed up in AI jargon with a probability score attached. That's not investigation - that's summarization.</p>
+                    <p>Vigilense AI SOC Agents perform <strong>3-layer blast radius investigation</strong> - pivoting from the initial alert to correlated endpoints, identities, network activity, and threat intelligence. Each layer deepens the context. The result is a full forensic narrative with a deterministic evidence chain, not a reworded alert with "87% confidence."</p>
+                </div>
+                <div class="product-callout-card callout-navy">
+                    <span class="callout-label">BYODb SIEM</span>
+                    <h3>Your data is already in Snowflake/Elasticsearch.</h3>
+                    <p>So why are you paying six figures to copy it somewhere else?</p>
+                    <p>Legacy SIEMs require you to duplicate every byte of telemetry into their proprietary storage before a single query can run. That's not security architecture - that's a toll booth on your own data.</p>
+                    <p>BYODb means investigation queries execute directly on <strong>your existing databases</strong>. You pay for storage once. No ingestion pipeline. No vendor lock-in. No per-GB tax.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE QUERY EXPLOSION
+         ======================================== -->
+    <section id="query-explosion" class="query-explosion-section">
+        <div class="container narrow">
+            <span class="section-tag">The Financial Death Spiral</span>
+            <h2>Why AI Investigation Breaks Legacy SIEMs</h2>
+
+            <div class="query-explosion-narrative">
+                <p>A human analyst runs a handful of queries per investigation. An AI SOC Analyst performing a 3-layer blast radius investigation generates <strong>5x to 50x more queries per event</strong> - correlating across endpoints, identity, network, and threat intel to ensure no stone is left unturned.</p>
+                <p>Legacy SIEMs charge you for every GB ingested and every compute unit used. When your AI analysts increase investigative depth by 50x across thousands of alerts, your SIEM bill goes vertical.</p>
+            </div>
+
+            <div class="query-explosion-choice">
+                <p class="choice-line"><strong>Stay secure and go bankrupt.<br><span class="muted">Or stay on budget and stay blind.</span></strong></p>
+            </div>
+
+            <div class="query-explosion-answer">
+                <p>Vigilense AI eliminates this choice. BYODb means investigation queries run on your own infrastructure. You pay for storage once. We provide the brain. <span class="accent-text">No query tax. No ingestion tax. No impossible tradeoffs.</span></p>
+            </div>
+
+            <div class="query-explosion-truth">
+                <p>Queries should run at commodity price - because that's what they are. Charging premium rates just to run a query on a database you already own isn't security. <strong>It's extortion.</strong></p>
+                <p>You handed your SIEM provider the keys to your data. They turned those keys into a toll booth.</p>
             </div>
         </div>
     </section>
@@ -2646,6 +3051,47 @@
     </section>
 
     <!-- ========================================
+         QUESTIONS TO ASK YOUR VENDOR
+         ======================================== -->
+    <section id="vendor-questions" class="vendor-questions-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Before You Sign</span>
+                <h2>Questions to Ask Any AI SOC Vendor</h2>
+            </div>
+
+            <p class="vendor-intro">Every vendor claims AI. Not every vendor has rebuilt the architecture. Before you evaluate any AI SOC platform - including ours - ask these questions.</p>
+
+            <div class="vendor-questions-grid">
+                <div class="vendor-question">
+                    <span class="question-number">01</span>
+                    <h3>Does this solution reduce my ingestion costs, or add to them?</h3>
+                    <p>If the AI layer sits on top of a legacy SIEM, you're paying twice - once for ingestion, once for AI compute.</p>
+                </div>
+                <div class="vendor-question">
+                    <span class="question-number">02</span>
+                    <h3>Where does my data live - in my infrastructure or yours?</h3>
+                    <p>Data sovereignty isn't a feature. It's a requirement. If your vendor controls your data, they control your exit.</p>
+                </div>
+                <div class="vendor-question">
+                    <span class="question-number">03</span>
+                    <h3>Can your AI investigate 50x deeper without 50x the cost?</h3>
+                    <p>Depth without financial sustainability is a demo, not a product. Ask for the math at scale.</p>
+                </div>
+                <div class="vendor-question">
+                    <span class="question-number">04</span>
+                    <h3>Do you provide deterministic evidence chains, or just summaries?</h3>
+                    <p>An AI that summarizes logs is a chatbot. An AI that delivers causal reasoning with full audit trails is an analyst.</p>
+                </div>
+            </div>
+
+            <div class="vendor-answer">
+                <p>Vigilense AI was built to answer every one of these questions. <a href="/demo/">See for yourself →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          SECTION 6: THE GUARANTEE
          ======================================== -->
     <section class="guarantee-section">
@@ -2867,6 +3313,7 @@
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
                             <li><a href="/blog/">Blog & News</a></li>
                             <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
                             <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
