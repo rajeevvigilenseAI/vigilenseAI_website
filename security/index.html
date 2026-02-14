@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vigilense AI security practices: BYODb data sovereignty, BYO-LLM AI privacy, tenant isolation, encryption, SOC 2 Type II (in progress), GDPR, HIPAA alignment.">
-    <meta name="keywords" content="Vigilense AI security, BYODb security, BYO LLM, data sovereignty cybersecurity, SOC 2 SIEM, HIPAA SIEM security">
+    <meta name="description" content="Vigilense AI security practices: BYODb data sovereignty, tenant isolation, encryption, SOC 2 Type II (in progress), GDPR, HIPAA alignment.">
+    <meta name="keywords" content="Vigilense AI security, BYODb security, data sovereignty cybersecurity, SOC 2 SIEM, HIPAA SIEM security">
     <link rel="canonical" href="https://vigilense.ai/security/">
-    <meta property="og:title" content="Security — Vigilense AI">
-    <meta property="og:description" content="Your data stays with you. BYODb architecture, BYO-LLM, tenant isolation, encryption at rest and in transit.">
+    <meta property="og:title" content="Security - Vigilense AI">
+    <meta property="og:description" content="Your data stays with you. BYODb architecture, tenant isolation, encryption at rest and in transit.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vigilense.ai/security/">
     <meta property="og:image" content="https://vigilense.ai/og-image.png">
     <meta property="og:site_name" content="Vigilense AI">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Security at Vigilense AI">
-    <meta name="twitter:description" content="BYODb + BYO-LLM. Your data never leaves your infrastructure.">
+    <meta name="twitter:description" content="BYODb architecture. Your data never leaves your infrastructure.">
     <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -29,6 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"Vigilense AI","alternateName":["Vigilance AI","Vigilense","Vigilance"],"url":"https://vigilense.ai","logo":"https://vigilense.ai/vigilense-logo.png","description":"The Sovereign SOC - BYODb SIEM + Autonomous AI SOC Analyst. Query your databases in place, zero ingestion fees, AI-powered investigation and resolution.","email":"sales@vigilense.ai","sameAs":["https://www.linkedin.com/company/vigilense-ai"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":1,"maxValue":50},"industry":"Cybersecurity","knowsAbout":["SIEM","SOC Automation","AI Security Operations","BYODb","Threat Detection","Incident Response"]}
+    </script>
+    <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vigilense.ai/"},{"@type":"ListItem","position":2,"name":"Security"}]}
     </script>
 </head>
@@ -37,7 +40,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="/" class="nav-brand">
-                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
                 <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
             </a>
             <ul class="nav-menu">
@@ -117,15 +120,6 @@
                     <li><strong>Credential Security:</strong> Database credentials are encrypted at rest using HSM-backed keys and never logged.</li>
                 </ul>
 
-                <h2>Bring Your Own AI/LLM</h2>
-                <p>Control your AI processing with your own models:</p>
-                <ul>
-                    <li><strong>Supported Providers:</strong> Azure OpenAI, AWS Bedrock, Google Vertex AI, OpenAI API, self-hosted models (Ollama, vLLM, etc.).</li>
-                    <li><strong>Data Privacy:</strong> When using your own AI, prompts and responses flow directly between your <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> instance and your AI service  we have no visibility.</li>
-                    <li><strong>No Training:</strong> Your data is never used to train AI models, regardless of which AI service you use.</li>
-                    <li><strong>Self-Hosted AI:</strong> For maximum control, deploy your own LLM infrastructure and connect it to <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</li>
-                    <li><strong>Credential Management:</strong> AI API keys are encrypted and stored securely, with optional integration with your secrets manager.</li>
-                </ul>
 
                 <h2>Compliance & Certifications</h2>
                 <p>We are actively building toward the industry's most rigorous compliance standards. Our platform is architected from day one to meet these frameworks.</p>
@@ -241,7 +235,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="/" class="nav-brand">
-                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
                         <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
                     </a>
                     <p>The Sovereign SOC</p>
@@ -298,6 +292,7 @@
                         <a href="/disclaimer/">Disclaimer</a>
                     </div>
                 </div>
+                <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
             </div>
         </div>
     </footer>

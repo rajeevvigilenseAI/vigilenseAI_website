@@ -5,7 +5,7 @@ Marketing website for Vigilense AI, an autonomous SOC platform that delivers det
 ## Core Messaging
 
 - **Primary**: The Sovereign SOC - your data, your infrastructure, our intelligence
-- **Secondary**: BYODb (Bring Your Own Database), BYO-LLM, integrated detection engine
+- **Secondary**: BYODb (Bring Your Own Database), integrated detection engine
 
 ## Tech Stack
 
@@ -30,7 +30,6 @@ Pure HTML, CSS, and JavaScript. No build process required.
 │   └── og-preview.png          # 1200×630 Open Graph / Twitter Card preview image
 └── resources/
     ├── byodb-architecture.html
-    ├── byollm-guide.html
     ├── deployment-comparison.html
     ├── healthcare-case-study.html
     ├── siem-buyers-guide.html
