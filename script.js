@@ -68,14 +68,55 @@ if (hamburger) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
+        // Close all dropdowns when menu is toggled
+        if (!navMenu.classList.contains('active')) {
+            navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
+                li.classList.remove('mobile-dropdown-open');
+            });
+            navMenu.querySelectorAll('.mobile-open').forEach(dd => {
+                dd.classList.remove('mobile-open');
+            });
+        }
     });
 
-    // Close mobile menu when a link is clicked
-    navMenu.querySelectorAll('a').forEach(link => {
+    // Toggle dropdowns on click in mobile menu
+    navMenu.querySelectorAll(':scope > li > a[href="#"]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                const parentLi = trigger.parentElement;
+                const dropdown = parentLi.querySelector('.dropdown-menu');
+                if (dropdown) {
+                    const isOpen = dropdown.classList.contains('mobile-open');
+                    // Close all other dropdowns
+                    navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
+                        li.classList.remove('mobile-dropdown-open');
+                    });
+                    navMenu.querySelectorAll('.mobile-open').forEach(dd => {
+                        dd.classList.remove('mobile-open');
+                    });
+                    // Toggle this one
+                    if (!isOpen) {
+                        parentLi.classList.add('mobile-dropdown-open');
+                        dropdown.classList.add('mobile-open');
+                    }
+                }
+            }
+        });
+    });
+
+    // Close mobile menu when a real link is clicked
+    navMenu.querySelectorAll('a:not([href="#"])').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 1024) {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
+                navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
+                    li.classList.remove('mobile-dropdown-open');
+                });
+                navMenu.querySelectorAll('.mobile-open').forEach(dd => {
+                    dd.classList.remove('mobile-open');
+                });
             }
         });
     });
