@@ -70,8 +70,7 @@
 
         /* ── CALLOUT ── */
         .wn-callout { text-align: center; padding: 56px 24px; margin: 64px 0; position: relative; }
-        .wn-callout::before, .wn-callout::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 120px; height: 1px; background: var(--wn-accent); opacity: 0.4; }
-        .wn-callout::before { top: 0; }
+        .wn-callout::before, .wn-callout::after { display: none; }
         .wn-callout::after { bottom: 0; }
         .wn-callout p { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 600; color: #fff; margin: 0; line-height: 1.35; letter-spacing: -0.3px; }
 
@@ -215,6 +214,7 @@
         .wn-cta-btn { display: inline-block; padding: 18px 48px; background: var(--wn-accent); color: var(--wn-bg); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; font-weight: 700; text-decoration: none; border-radius: 6px; transition: transform 0.2s, box-shadow 0.2s; }
         .wn-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,170,0.2); }
         .wn-cta-sub { margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+        .footer { border-top: none; }
 
         /* ── RESPONSIVE: TABLET (769px - 1024px) ── */
         @media (max-width: 1024px) and (min-width: 769px) {
