@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Vigilense AI" />
-    <meta property="og:title" content="Vigilense AI — The Sovereign SOC | BYODb SIEM + AI SOC" />
-    <meta property="og:description" content="BYODb SIEM that detects on your databases. AI SOC that investigates and resolves autonomously. Zero ingestion fees. Human in the loop." />
-    <meta property="og:url" content="https://vigilense.ai/" />
-    <meta property="og:image" content="https://vigilense.ai/images/og-preview.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vigilense AI — The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
-    <meta property="og:locale" content="en_US" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Vigilense AI — The Sovereign SOC | BYODb SIEM + AI SOC" />
-    <meta name="twitter:description" content="BYODb SIEM queries your databases in place. AI SOC analyst resolves threats in seconds. $0 ingestion cost." />
-    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview.jpg" />
-    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
-    <!-- Standard -->
-    <meta name="description" content="Vigilense AI is the Sovereign SOC platform. BYODb SIEM queries your existing databases with zero ingestion costs. AI SOC Analyst investigates and resolves threats autonomously in seconds. Deploy risk-free." />
-    <meta name="author" content="Vigilense AI" />
-    <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="AI SOC, BYODb SIEM, Sovereign SOC, autonomous SOC, AI SOC analyst, SIEM alternative, zero ingestion SIEM, security operations center AI" />
-    <link rel="canonical" href="https://vigilense.ai/" />
+    <meta name="description" content="Vigilense AI is the Sovereign SOC platform. BYODb SIEM queries your existing databases with zero ingestion costs. AI SOC Analyst investigates and resolves threats autonomously in seconds. Risk-free pilot.">
+    <meta name="keywords" content="AI SOC, BYODb SIEM, Sovereign SOC, autonomous SOC, AI SOC analyst, SIEM alternative, zero ingestion SIEM, security operations center AI, AI security analyst">
+    <link rel="canonical" href="https://vigilense.ai/">
+    <meta property="og:title" content="Vigilense AI — The Sovereign SOC | BYODb SIEM + AI SOC Analyst">
+    <meta property="og:description" content="BYODb SIEM + AI SOC Analyst. Query your databases. Zero ingestion costs. Autonomous investigation and resolution.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vigilense.ai/">
+    <meta property="og:image" content="https://vigilense.ai/og-image.png">
+    <meta property="og:site_name" content="Vigilense AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vigilense AI — The Sovereign SOC">
+    <meta name="twitter:description" content="BYODb SIEM + AI SOC Analyst. Zero ingestion costs. Autonomous threat investigation.">
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -241,6 +231,145 @@
         .btn-nav:hover {
             background: #33E0BB;
             box-shadow: 0 4px 16px rgba(0, 212, 170, 0.3);
+        }
+
+        /* Dropdown Navigation */
+        .nav-menu li { position: relative; }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--navy);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 8px 0;
+            min-width: 220px;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            list-style: none;
+        }
+        .dropdown-menu li { padding: 0; }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.7) !important;
+            transition: background 0.2s, color 0.2s;
+        }
+        .dropdown-menu a:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: #FFFFFF !important;
+        }
+        .nav-menu > li:hover > .dropdown-menu { display: block; }
+        .cta-nav a {
+            padding: 8px 20px;
+            background: var(--accent);
+            color: var(--navy) !important;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        .cta-nav a:hover {
+            background: #33E0BB;
+            box-shadow: 0 4px 16px rgba(0, 212, 170, 0.3);
+        }
+
+        /* Social Proof & Metrics */
+        .social-proof {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .social-proof-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 16px;
+        }
+        .industry-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .industry-badges span {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 6px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            padding: 48px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .metric {
+            text-align: center;
+            padding: 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .metric:last-child { border-right: none; }
+        .metric-value {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+        .metric-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 8px;
+        }
+
+        /* BYO-LLM Section */
+        .byollm-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(0, 212, 170, 0.03) 50%, var(--bg-primary) 100%);
+        }
+        .byollm-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .byollm-content h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+        .byollm-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 24px;
+        }
+        .byollm-providers {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .byollm-providers span {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 8px 16px;
+            border: 1px solid rgba(0, 212, 170, 0.25);
+            border-radius: 4px;
+            color: var(--accent);
         }
 
         .hamburger {
@@ -1740,6 +1869,10 @@
                 padding: 24px;
                 gap: 16px;
             }
+            .dropdown-menu { position: static; display: block; border: none; box-shadow: none; background: transparent; padding: 0 0 0 16px; min-width: auto; }
+            .nav-menu > li:hover > .dropdown-menu { display: block; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+            .metric { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
             .sovereign-grid { grid-template-columns: 1fr; }
             .guarantee-items { grid-template-columns: 1fr; }
             .hero-stats-bar { flex-direction: column; gap: 12px; align-items: center; }
@@ -1848,31 +1981,46 @@
       "name": "Vigilense AI",
       "url": "https://vigilense.ai",
       "logo": "https://vigilense.ai/vigilense-logo.png",
-      "email": "sales@vigilense.ai",
-      "contactPoint": [
-        { "@type": "ContactPoint", "email": "sales@vigilense.ai", "contactType": "sales" },
-        { "@type": "ContactPoint", "email": "support@vigilense.ai", "contactType": "technical support" }
+      "description": "The Sovereign SOC platform. BYODb SIEM + AI SOC Analyst.",
+      "foundingDate": "2025",
+      "founders": [
+        {"@type": "Person", "name": "Zachary Troyer", "jobTitle": "Co-Founder & CEO"},
+        {"@type": "Person", "name": "Raj Choudhary", "jobTitle": "Co-Founder & CTO"}
       ],
-      "sameAs": []
+      "contactPoint": [
+        {"@type": "ContactPoint", "email": "sales@vigilense.ai", "contactType": "sales"},
+        {"@type": "ContactPoint", "email": "support@vigilense.ai", "contactType": "customer support"},
+        {"@type": "ContactPoint", "email": "security@vigilense.ai", "contactType": "security"}
+      ],
+      "sameAs": ["https://www.linkedin.com/company/vigilense-ai"]
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Vigilense AI - The Sovereign SOC",
-      "description": "BYODb SIEM that queries your existing databases with zero ingestion fees, paired with an autonomous AI SOC analyst that investigates, triages, and resolves threats in seconds.",
+      "@type": "SoftwareApplication",
+      "name": "Vigilense AI — The Sovereign SOC",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Cloud / SaaS",
+      "description": "BYODb SIEM queries your existing databases with zero ingestion fees. AI SOC Analyst investigates and resolves threats autonomously.",
       "url": "https://vigilense.ai",
-      "brand": { "@type": "Organization", "name": "Vigilense AI" },
-      "category": "Cybersecurity Software",
-      "image": "https://vigilense.ai/images/og-preview.jpg",
+      "provider": {"@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai"},
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "Risk-free pilot — no charge until proven value",
-        "availability": "https://schema.org/InStock"
-      }
+        "description": "Risk-free pilot with zero upfront cost. Zero per-GB ingestion fees.",
+        "url": "https://vigilense.ai/pricing.html"
+      },
+      "featureList": [
+        "BYODb SIEM — query databases in place",
+        "AI SOC Analyst — autonomous investigation",
+        "50+ enrichment sources",
+        "Human-in-the-loop controls",
+        "Natural language search",
+        "BYO-LLM support",
+        "Zero per-GB ingestion fees"
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -1880,36 +2028,14 @@
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is BYODb SIEM?",
-          "acceptedAnswer": { "@type": "Answer", "text": "BYODb (Bring Your Own Database) SIEM queries your existing databases like Snowflake, Elasticsearch, and OpenSearch in place. No data movement, no ingestion fees, no vendor lock-in." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is a Sovereign SOC?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A Sovereign SOC keeps your security data in your own databases while an AI analyst investigates and resolves threats autonomously. You maintain full data sovereignty with zero ingestion costs." }
-        },
-        {
-          "@type": "Question",
-          "name": "How does the AI SOC Analyst work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The AI SOC Analyst enriches alerts across 50+ sources, correlates signals, and delivers verdicts in seconds. It auto-resolves false positives, creates tickets, and escalates real threats with full audit trails." }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does deployment take?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Vigilense AI connects to your existing databases and security tools in days, not months. We deploy at no cost and you don't pay until we deliver measurable results." }
-        },
-        {
-          "@type": "Question",
-          "name": "What databases does Vigilense AI support?",
-          "acceptedAnswer": { "@type": "Answer", "text": "OpenSearch, Elasticsearch, Snowflake, Microsoft Sentinel, AWS Security Lake, S3, BigQuery, and more." }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does Vigilense AI cost?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Zero per-GB ingestion fees. We offer risk-free pilots with no payment until proven value. Contact sales@vigilense.ai for pricing." }
-        }
+        {"@type": "Question", "name": "What is BYODb SIEM?", "acceptedAnswer": {"@type": "Answer", "text": "BYODb (Bring Your Own Database) SIEM queries your existing databases like Snowflake, Elasticsearch, and OpenSearch in place. No data movement, no ingestion fees, no vendor lock-in."}},
+        {"@type": "Question", "name": "What is a Sovereign SOC?", "acceptedAnswer": {"@type": "Answer", "text": "A Sovereign SOC keeps your security data in your own databases while an AI analyst investigates and resolves threats autonomously. You maintain full data sovereignty with zero ingestion costs."}},
+        {"@type": "Question", "name": "How does the AI SOC Analyst work?", "acceptedAnswer": {"@type": "Answer", "text": "The AI SOC Analyst enriches alerts across 50+ sources, correlates signals, and delivers verdicts in seconds. It auto-resolves false positives, creates tickets, and escalates real threats with full audit trails and human-in-the-loop controls."}},
+        {"@type": "Question", "name": "How long does deployment take?", "acceptedAnswer": {"@type": "Answer", "text": "Vigilense AI connects to your existing databases and security tools in days, not months. We deploy at no cost and you don't pay until we deliver measurable results."}},
+        {"@type": "Question", "name": "What databases does Vigilense AI support?", "acceptedAnswer": {"@type": "Answer", "text": "OpenSearch, Elasticsearch, Snowflake, Microsoft Sentinel, AWS Security Lake, S3, BigQuery, Databricks, and more."}},
+        {"@type": "Question", "name": "What is Bring Your Own LLM (BYO-LLM)?", "acceptedAnswer": {"@type": "Answer", "text": "Vigilense AI supports Bring Your Own LLM — connect Azure OpenAI, AWS Bedrock, Google Vertex AI, or self-hosted models. Your AI prompts and responses stay within your infrastructure for maximum data privacy."}},
+        {"@type": "Question", "name": "How much does Vigilense AI cost?", "acceptedAnswer": {"@type": "Answer", "text": "Zero per-GB ingestion fees. Outcome-based pricing tied to results, not data volume. Risk-free pilot with no payment until proven value."}},
+        {"@type": "Question", "name": "How is Vigilense AI different from Splunk or Microsoft Sentinel?", "acceptedAnswer": {"@type": "Answer", "text": "Unlike Splunk and Sentinel, Vigilense AI queries your databases in place with zero ingestion fees. No data movement, no vendor lock-in. Plus an autonomous AI SOC Analyst that investigates and resolves threats in seconds."}}
       ]
     }
     </script>
@@ -1921,15 +2047,41 @@
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="nav-brand">
-                <img src="vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon">
+                <img src="vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
                 <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
             </a>
             <ul class="nav-menu">
-                <li><a href="#pillars">Platform</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="trust.html">Trust Center</a></li>
-                <li><a href="demo.html" class="btn-nav">Talk to a Human Vigilant</a></li>
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="platform/ai-soc-analyst.html">AI SOC Analyst</a></li>
+                        <li><a href="platform/byodb-siem.html">BYODb SIEM</a></li>
+                        <li><a href="platform/integrations.html">Integrations</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="security.html">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="resources/what-is-byodb-siem.html">What is BYODb SIEM?</a></li>
+                        <li><a href="resources/what-is-sovereign-soc.html">What is a Sovereign SOC?</a></li>
+                        <li><a href="resources/what-is-ai-soc-analyst.html">What is an AI SOC Analyst?</a></li>
+                        <li><a href="resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
+                        <li><a href="resources/healthcare-case-study.html">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="security.html">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="demo.html">Book a Demo</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -1995,6 +2147,45 @@
     </section>
 
     <!-- ========================================
+         SOCIAL PROOF
+         ======================================== -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="social-proof-label">In pilot with enterprise security teams across</p>
+            <div class="industry-badges">
+                <span>Technology</span>
+                <span>Financial Services</span>
+                <span>Healthcare</span>
+                <span>Government</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         METRICS BAR
+         ======================================== -->
+    <section class="metrics-bar">
+        <div class="container" style="display: contents;">
+            <div class="metric">
+                <span class="metric-value">14s</span>
+                <span class="metric-label">Mean Time to Resolve</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">94.2%</span>
+                <span class="metric-label">Auto-Resolved by AI</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">$0</span>
+                <span class="metric-label">Ingestion Cost</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">50+</span>
+                <span class="metric-label">Enrichment Sources</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          PRODUCT DASHBOARD PREVIEW
          ======================================== -->
     <div class="dashboard-preview">
@@ -2003,7 +2194,7 @@
                 <!-- Top bar -->
                 <div class="dash-topbar">
                     <div class="dash-topbar-left">
-                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI" class="dash-logo-icon" loading="lazy">
+                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="dash-logo-icon" loading="lazy">
                         <div class="dash-logo">Vigilense <span>AI</span></div>
                         <div class="dash-nav">
                             <span class="active">Overview</span>
@@ -2226,6 +2417,28 @@
     </section>
 
     <!-- ========================================
+         BYO-LLM SECTION
+         ======================================== -->
+    <section class="byollm-section">
+        <div class="container">
+            <div class="byollm-content">
+                <span class="section-tag">AI Privacy</span>
+                <h2>Your AI: Bring Your Own LLM</h2>
+                <p>Choose your AI provider. Azure OpenAI, AWS Bedrock, Google Vertex AI, or self-hosted models (Ollama, vLLM). Prompts and responses flow directly between your Vigilense AI instance and your AI service — we have zero visibility.</p>
+                <p>Your data is never used to train models. Maximum AI privacy, zero compromise. This is a capability neither Torq nor Dropzone offers.</p>
+                <div class="byollm-providers">
+                    <span>Azure OpenAI</span>
+                    <span>AWS Bedrock</span>
+                    <span>Google Vertex AI</span>
+                    <span>OpenAI API</span>
+                    <span>Ollama</span>
+                    <span>vLLM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          THE RECEIPT: Cost Callout
          ======================================== -->
     <section class="receipt-section">
@@ -2290,7 +2503,7 @@
                 <div class="workflow-flow-container">
                     <!-- Logo at top left -->
                     <div class="workflow-logo">
-                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon">
+                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
                         <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
                     </div>
                     
@@ -2673,8 +2886,16 @@
                     <div class="faq-answer">OpenSearch, Elasticsearch, Snowflake, Microsoft Sentinel, AWS Security Lake, S3, BigQuery, Databricks, and more. If you have a database, we can query it.</div>
                 </details>
                 <details class="faq-item">
+                    <summary>What is Bring Your Own LLM (BYO-LLM)?</summary>
+                    <div class="faq-answer">Vigilense AI supports Bring Your Own LLM — connect Azure OpenAI, AWS Bedrock, Google Vertex AI, or self-hosted models (Ollama, vLLM). Your AI prompts and responses stay within your infrastructure for maximum data privacy. We never see your data or use it to train models.</div>
+                </details>
+                <details class="faq-item">
                     <summary>How much does Vigilense AI cost?</summary>
-                    <div class="faq-answer">Zero per-GB ingestion fees. We offer risk-free pilots with no payment until proven value. You only pay when we deliver measurable security outcomes. Contact <a href="mailto:sales@vigilense.ai" style="color: var(--accent);">sales@vigilense.ai</a> for pricing.</div>
+                    <div class="faq-answer">Zero per-GB ingestion fees. Outcome-based pricing tied to results, not data volume. Risk-free pilot with no payment until proven value. Contact <a href="mailto:sales@vigilense.ai" style="color: var(--accent);">sales@vigilense.ai</a> for pricing.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>How is Vigilense AI different from Splunk or Microsoft Sentinel?</summary>
+                    <div class="faq-answer">Unlike Splunk and Sentinel, Vigilense AI queries your databases in place with zero ingestion fees. No data movement, no vendor lock-in. Plus an autonomous AI SOC Analyst that investigates and resolves threats in seconds — not a dashboard that requires a team of analysts to operate.</div>
                 </details>
             </div>
         </div>
@@ -2688,7 +2909,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#home" class="nav-brand">
-                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon" loading="lazy">
+                        <img src="vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
                         <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
                     </a>
                     <p>The Sovereign SOC</p>
@@ -2699,9 +2920,9 @@
                         <ul>
                             <li><a href="platform/ai-soc-analyst.html">AI SOC Analyst</a></li>
                             <li><a href="platform/byodb-siem.html">BYODb SIEM</a></li>
+                            <li><a href="platform/integrations.html">Integrations</a></li>
                             <li><a href="pricing.html">Pricing</a></li>
                             <li><a href="#how-it-works">How It Works</a></li>
-                            <li><a href="demo.html">Integrations</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -2720,8 +2941,8 @@
                             <li><a href="blog.html">Blog & News</a></li>
                             <li><a href="resources/what-is-byodb-siem.html">What is BYODb SIEM?</a></li>
                             <li><a href="resources/what-is-sovereign-soc.html">What is a Sovereign SOC?</a></li>
+                            <li><a href="resources/what-is-ai-soc-analyst.html">What is an AI SOC Analyst?</a></li>
                             <li><a href="resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
-                            <li><a href="resources/healthcare-case-study.html">Case Studies</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">

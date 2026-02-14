@@ -3,29 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Vigilense AI" />
-    <meta property="og:title" content="What is BYODb SIEM? — Vigilense AI" />
-    <meta property="og:description" content="Learn what BYODb (Bring Your Own Database) SIEM is, how it differs from traditional SIEM, and why it eliminates ingestion costs while keeping your data sovereign." />
-    <meta property="og:url" content="https://vigilense.ai/resources/what-is-byodb-siem.html" />
-    <meta property="og:image" content="https://vigilense.ai/images/og-preview.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Vigilense AI — The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
-    <meta property="og:locale" content="en_US" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="What is BYODb SIEM? — Vigilense AI" />
-    <meta name="twitter:description" content="Learn what BYODb SIEM is, how it differs from traditional SIEM, and why it eliminates ingestion costs." />
-    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview.jpg" />
-    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
-    <!-- Standard -->
-    <meta name="description" content="Learn what BYODb (Bring Your Own Database) SIEM is, how it differs from traditional SIEM, and why it eliminates ingestion costs while keeping your data sovereign." />
-    <meta name="author" content="Vigilense AI" />
-    <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="BYODb SIEM, what is BYODb, bring your own database SIEM, SIEM alternative, zero ingestion SIEM, data sovereignty SIEM" />
-    <link rel="canonical" href="https://vigilense.ai/resources/what-is-byodb-siem.html" />
+    <meta name="description" content="What is BYODb SIEM? A SIEM that queries your existing databases in place — Snowflake, Elasticsearch, OpenSearch — with zero ingestion fees and full data sovereignty.">
+    <meta name="keywords" content="what is BYODb SIEM, bring your own database SIEM, BYODb SIEM definition, SIEM without ingestion, query in place SIEM">
+    <link rel="canonical" href="https://vigilense.ai/resources/what-is-byodb-siem.html">
+    <meta property="og:title" content="What is BYODb SIEM? — Vigilense AI">
+    <meta property="og:description" content="BYODb SIEM connects to your existing databases instead of ingesting logs. Zero fees. Full sovereignty.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vigilense.ai/resources/what-is-byodb-siem.html">
+    <meta property="og:image" content="https://vigilense.ai/og-image.png">
+    <meta property="og:site_name" content="Vigilense AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What is BYODb SIEM?">
+    <meta name="twitter:description" content="The complete guide to Bring Your Own Database SIEM architecture.">
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -39,32 +29,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "What is BYODb SIEM?",
-  "description": "Learn what BYODb (Bring Your Own Database) SIEM is, how it differs from traditional SIEM, and why it eliminates ingestion costs while keeping your data sovereign.",
-  "url": "https://vigilense.ai/resources/what-is-byodb-siem.html",
-  "image": "https://vigilense.ai/images/og-preview.jpg",
-  "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
-  "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } },
-  "datePublished": "2026-02-12"
-}
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "What is BYODb SIEM?",
+      "description": "Learn what BYODb (Bring Your Own Database) SIEM is, how it differs from traditional SIEM, and why it eliminates ingestion costs while keeping your data sovereign.",
+      "url": "https://vigilense.ai/resources/what-is-byodb-siem.html",
+      "image": "https://vigilense.ai/og-image.png",
+      "author": {"@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai"},
+      "publisher": {"@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": {"@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png"}},
+      "datePublished": "2026-02-12",
+      "dateModified": "2026-02-14",
+      "mainEntityOfPage": "https://vigilense.ai/resources/what-is-byodb-siem.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vigilense.ai/"},{"@type":"ListItem","position":2,"name":"Resources"},{"@type":"ListItem","position":3,"name":"What is BYODb SIEM?"}]}
     </script>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <a href="../index.html" class="nav-brand">
-                <img src="../vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon">
+                <img src="../vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
                 <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
             </a>
             <ul class="nav-menu">
-                <li><a href="../index.html#pillars">Platform</a></li>
-                <li><a href="../index.html#how-it-works">How It Works</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../trust.html">Trust Center</a></li>
-                <li><a href="../demo.html" class="btn-nav">Talk to a Human Vigilant</a></li>
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../platform/ai-soc-analyst.html">AI SOC Analyst</a></li>
+                        <li><a href="../platform/byodb-siem.html">BYODb SIEM</a></li>
+                        <li><a href="../platform/integrations.html">Integrations</a></li>
+                        <li><a href="../index.html#how-it-works">How It Works</a></li>
+                        <li><a href="../security.html">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="../pricing.html">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../blog.html">Blog</a></li>
+                        <li><a href="../resources/what-is-byodb-siem.html">What is BYODb SIEM?</a></li>
+                        <li><a href="../resources/what-is-sovereign-soc.html">What is a Sovereign SOC?</a></li>
+                        <li><a href="../resources/what-is-ai-soc-analyst.html">What is an AI SOC Analyst?</a></li>
+                        <li><a href="../resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
+                        <li><a href="../resources/healthcare-case-study.html">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../team.html">Team</a></li>
+                        <li><a href="../careers.html">Careers</a></li>
+                        <li><a href="../security.html">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="../demo.html">Book a Demo</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -143,7 +164,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="../index.html" class="nav-brand">
-                        <img src="../vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon" loading="lazy">
+                        <img src="../vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
                         <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
                     </a>
                     <p>The Sovereign SOC</p>
@@ -154,9 +175,9 @@
                         <ul>
                             <li><a href="../platform/ai-soc-analyst.html">AI SOC Analyst</a></li>
                             <li><a href="../platform/byodb-siem.html">BYODb SIEM</a></li>
+                            <li><a href="../platform/integrations.html">Integrations</a></li>
                             <li><a href="../pricing.html">Pricing</a></li>
                             <li><a href="../index.html#how-it-works">How It Works</a></li>
-                            <li><a href="../demo.html">Integrations</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -175,8 +196,8 @@
                             <li><a href="../blog.html">Blog & News</a></li>
                             <li><a href="what-is-byodb-siem.html">What is BYODb SIEM?</a></li>
                             <li><a href="what-is-sovereign-soc.html">What is a Sovereign SOC?</a></li>
+                            <li><a href="what-is-ai-soc-analyst.html">What is an AI SOC Analyst?</a></li>
                             <li><a href="siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
-                            <li><a href="healthcare-case-study.html">Case Studies</a></li>
                         </ul>
                     </div>
                     <div class="footer-column">

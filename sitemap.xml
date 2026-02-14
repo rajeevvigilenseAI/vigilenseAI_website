@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main pages -->
-  <url><loc>https://vigilense.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://vigilense.ai/demo.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://vigilense.ai/trust.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/security.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/team.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/careers.html</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://vigilense.ai/pricing.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://vigilense.ai/</loc><lastmod>2026-02-14</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://vigilense.ai/platform/ai-soc-analyst.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vigilense.ai/platform/byodb-siem.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vigilense.ai/platform/integrations.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/pricing.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://vigilense.ai/demo.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/team.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/careers.html</loc><lastmod>2026-02-14</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/security.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/trust.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog.html</loc><lastmod>2026-02-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 
-  <!-- Platform -->
-  <url><loc>https://vigilense.ai/platform/ai-soc-analyst.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/platform/byodb-siem.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Resources / Pillar content -->
+  <url><loc>https://vigilense.ai/resources/what-is-byodb-siem.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/what-is-sovereign-soc.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/what-is-ai-soc-analyst.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/siem-buyers-guide.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/resources/healthcare-case-study.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/resources/byodb-architecture.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/resources/tenant-separation.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Blog posts -->
-  <url><loc>https://vigilense.ai/blog-sovereign-soc.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-financial-unsustainability.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-zero-to-detection.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-byodb-architecture.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-ingestion-tax.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-sovereign-over-scale.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-ciso-buying-shift.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-alert-fatigue.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-detection-rules-eight-databases.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-selling-to-cisos.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-hidden-costs-siem.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/blog-tenant-isolation.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-
-  <!-- Resources -->
-  <url><loc>https://vigilense.ai/resources/byodb-architecture.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/resources/siem-buyers-guide.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/resources/healthcare-case-study.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/resources/tenant-separation.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/resources/what-is-byodb-siem.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://vigilense.ai/resources/what-is-sovereign-soc.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://vigilense.ai/blog-sovereign-soc.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-financial-unsustainability.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-zero-to-detection.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-byodb-architecture.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-ingestion-tax.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-sovereign-over-scale.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-ciso-buying-shift.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-alert-fatigue.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-detection-rules-eight-databases.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-selling-to-cisos.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-hidden-costs-siem.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog-tenant-isolation.html</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Legal -->
-  <url><loc>https://vigilense.ai/privacy.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://vigilense.ai/terms.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://vigilense.ai/disclaimer.html</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://vigilense.ai/privacy.html</loc><lastmod>2026-02-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://vigilense.ai/terms.html</loc><lastmod>2026-02-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://vigilense.ai/disclaimer.html</loc><lastmod>2026-02-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
