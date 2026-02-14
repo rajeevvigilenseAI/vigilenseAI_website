@@ -139,11 +139,12 @@
                 <div class="arch-overview-card">
                     <div class="arch-icon">4</div>
                     <h3>Resolution</h3>
-                    <p>Based on the verdict, the autonomous SOC analyst executes the appropriate resolution workflow: auto-close false positives, create tickets, block IPs, disable sessions, or escalate to your team.</p>
+                    <p>Based on the verdict, the SOC analyst executes the resolution workflow you configured: auto-close false positives, create tickets, block IPs, disable sessions, or escalate. Every destructive action requires approval unless you explicitly allow autonomy.</p>
                     <ul>
-                        <li>Automated remediation actions</li>
-                        <li>Human-in-the-loop approval gates</li>
-                        <li>Full audit trail</li>
+                        <li>Per-action approval gates (block, isolate, disable)</li>
+                        <li>One-click rollback on every action taken</li>
+                        <li>Policy guardrails by severity, asset type, and time-of-day</li>
+                        <li>Immutable audit trail for compliance</li>
                     </ul>
                 </div>
             </div>
@@ -194,7 +195,7 @@
     <section style="padding: 80px 0; background: var(--bg-primary);">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 48px;">Resolution Workflow</h2>
-            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 48px; font-size: 1.05rem;">The autonomous SOC analyst doesn't just investigate-it resolves. Configure workflows to match your risk tolerance.</p>
+            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 48px; font-size: 1.05rem;">The SOC analyst doesn't just investigate - it resolves. But it never acts outside the boundaries you define. Every destructive action (isolating a host, disabling a user, blocking an IP) passes through your approval gate unless you explicitly grant autonomy. One-click rollback is available on every action taken.</p>
             <div class="practices-grid">
                 <div class="practice-card">
                     <h4>✅ Auto-Resolve False Positives</h4>
@@ -226,6 +227,7 @@
                         <li>Revoke user sessions in IdP</li>
                         <li>Force password reset</li>
                         <li>Disable compromised accounts</li>
+                        <li>Approval gate by default - one-click rollback</li>
                     </ul>
                 </div>
                 <div class="practice-card">
@@ -252,12 +254,12 @@
     <section style="padding: 80px 0; background: var(--bg-secondary);">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 48px;">Human-in-the-Loop Controls</h2>
-            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 48px; font-size: 1.05rem;">You remain in control. The AI security analyst recommends; you approve. Configure autonomy to match your comfort level.</p>
+            <p class="section-intro" style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 48px; font-size: 1.05rem;">No AI agent should isolate a CEO's laptop or shut down a production database on a false positive. That's why every containment action is gated by default. You choose what runs autonomously and what requires a human to approve. Rollback is one click away, always.</p>
             <div class="arch-overview-grid">
                 <div class="arch-overview-card">
                     <div class="arch-icon">✓</div>
                     <h3>Approve or Reject Actions</h3>
-                    <p>Every remediation action-blocking an IP, disabling an account-can require explicit operator approval. No blind automation.</p>
+                    <p>Every remediation action - blocking an IP, disabling an account, isolating a host - requires explicit operator approval by default. No action fires without your sign-off unless you choose to allow it.</p>
                     <ul>
                         <li>Action queue for review</li>
                         <li>One-click approve or reject</li>
@@ -286,12 +288,12 @@
                 </div>
                 <div class="arch-overview-card">
                     <div class="arch-icon">🔄</div>
-                    <h3>Override Capabilities</h3>
-                    <p>Operators can override any AI verdict, reverse any action, and provide feedback that improves future analyses.</p>
+                    <h3>One-Click Rollback</h3>
+                    <p>Made a call you disagree with? Reverse any action the AI took with a single click. Override any verdict. Every rollback is logged and feeds back into the model to prevent repeat mistakes.</p>
                     <ul>
+                        <li>Instant rollback on any containment action</li>
                         <li>Manual verdict override</li>
-                        <li>Action rollback</li>
-                        <li>Feedback loop for model tuning</li>
+                        <li>Feedback loop - corrections train better future decisions</li>
                     </ul>
                 </div>
             </div>
