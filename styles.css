@@ -2261,6 +2261,7 @@ ul {
     .nav-menu.active {
         display: flex;
         flex-direction: column;
+        align-items: stretch;
         position: absolute;
         top: 64px;
         left: 0;
@@ -2272,9 +2273,12 @@ ul {
         z-index: 999;
         max-height: calc(100vh - 64px);
         overflow-y: auto;
+        text-align: left;
     }
     .nav-menu.active > li {
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        list-style: none;
+        width: 100%;
     }
     .nav-menu.active > li:last-child {
         border-bottom: none;
@@ -2285,30 +2289,45 @@ ul {
         font-size: 0.9rem;
         font-weight: 500;
         color: var(--text-secondary, #94a3b8);
+        text-align: left;
     }
-    /* Dropdowns hidden by default - toggled via JS */
-    .nav-menu.active .dropdown-menu {
+    /* CRITICAL: Kill the desktop hover rule on mobile */
+    .nav-menu > li:hover > .dropdown-menu {
+        display: none !important;
+    }
+    /* Dropdowns hidden by default - only shown via JS .mobile-open class */
+    .nav-menu.active .dropdown-menu,
+    .dropdown-menu {
         position: static;
-        display: none;
+        display: none !important;
         border: none;
         box-shadow: none;
         background: rgba(255, 255, 255, 0.03);
-        padding: 4px 0 8px 12px;
+        padding: 4px 0 8px 16px;
         min-width: auto;
-        margin: 0 -4px;
+        margin: 0;
         border-radius: 6px;
+        list-style: none;
     }
     .nav-menu.active .dropdown-menu.mobile-open {
-        display: block;
+        display: block !important;
     }
     .nav-menu.active .dropdown-menu a {
         padding: 8px 12px;
         font-size: 0.82rem;
         color: var(--text-muted, #64748b);
         display: block;
+        text-align: left;
     }
     .nav-menu.active .dropdown-menu a:hover {
         color: var(--text-primary, #fff);
+    }
+    /* Left-align all menu items */
+    .nav-menu.active > li {
+        text-align: left;
+    }
+    .nav-menu.active > li > a {
+        text-align: left;
     }
     /* Dropdown parent arrow indicator */
     .nav-menu.active > li > a[href="#"]::after {
@@ -2334,7 +2353,6 @@ ul {
         border-radius: 6px;
         font-size: 0.9rem !important;
     }
-    .dropdown-menu { display: none; }
     
     .hamburger {
         display: flex;

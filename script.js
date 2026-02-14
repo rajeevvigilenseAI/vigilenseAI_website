@@ -64,62 +64,71 @@ document.querySelectorAll('section').forEach(section => {
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
+function closeAllMobileDropdowns() {
+    if (!navMenu) return;
+    var openLis = navMenu.querySelectorAll('.mobile-dropdown-open');
+    for (var i = 0; i < openLis.length; i++) {
+        openLis[i].classList.remove('mobile-dropdown-open');
+    }
+    var openDDs = navMenu.querySelectorAll('.mobile-open');
+    for (var i = 0; i < openDDs.length; i++) {
+        openDDs[i].classList.remove('mobile-open');
+    }
+}
+
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
-        // Close all dropdowns when menu is toggled
         if (!navMenu.classList.contains('active')) {
-            navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
-                li.classList.remove('mobile-dropdown-open');
-            });
-            navMenu.querySelectorAll('.mobile-open').forEach(dd => {
-                dd.classList.remove('mobile-open');
-            });
+            closeAllMobileDropdowns();
         }
     });
 
-    // Toggle dropdowns on click in mobile menu
-    navMenu.querySelectorAll(':scope > li > a[href="#"]').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024) {
-                e.preventDefault();
-                const parentLi = trigger.parentElement;
-                const dropdown = parentLi.querySelector('.dropdown-menu');
-                if (dropdown) {
-                    const isOpen = dropdown.classList.contains('mobile-open');
-                    // Close all other dropdowns
-                    navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
-                        li.classList.remove('mobile-dropdown-open');
-                    });
-                    navMenu.querySelectorAll('.mobile-open').forEach(dd => {
-                        dd.classList.remove('mobile-open');
-                    });
-                    // Toggle this one
+    // Find all top-level <li> that contain a .dropdown-menu
+    var topLevelItems = navMenu.children;
+    for (var i = 0; i < topLevelItems.length; i++) {
+        var li = topLevelItems[i];
+        var dropdown = li.querySelector('.dropdown-menu');
+        if (!dropdown) continue;
+        
+        // The first <a> child is the dropdown trigger
+        var trigger = li.querySelector('a');
+        if (!trigger) continue;
+        
+        (function(triggerEl, parentLi, dropdownEl) {
+            triggerEl.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var isOpen = dropdownEl.classList.contains('mobile-open');
+                    closeAllMobileDropdowns();
                     if (!isOpen) {
                         parentLi.classList.add('mobile-dropdown-open');
-                        dropdown.classList.add('mobile-open');
+                        dropdownEl.classList.add('mobile-open');
                     }
                 }
-            }
-        });
-    });
+            });
+        })(trigger, li, dropdown);
+    }
 
-    // Close mobile menu when a real link is clicked
-    navMenu.querySelectorAll('a:not([href="#"])').forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 1024) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                navMenu.querySelectorAll('.mobile-dropdown-open').forEach(li => {
-                    li.classList.remove('mobile-dropdown-open');
-                });
-                navMenu.querySelectorAll('.mobile-open').forEach(dd => {
-                    dd.classList.remove('mobile-open');
-                });
+    // Close mobile menu when a real navigation link is clicked
+    var allLinks = navMenu.querySelectorAll('a');
+    for (var i = 0; i < allLinks.length; i++) {
+        (function(link) {
+            // Skip dropdown triggers (links with href="#" that have a sibling .dropdown-menu)
+            if (link.getAttribute('href') === '#' && link.parentElement.querySelector('.dropdown-menu')) {
+                return;
             }
-        });
-    });
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 1024) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    closeAllMobileDropdowns();
+                }
+            });
+        })(allLinks[i]);
+    }
 }
 
 // ═══════════════════════════════════════════

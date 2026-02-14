@@ -2006,6 +2006,10 @@
             /* Collapse nav to hamburger on tablets - uses styles.css rules */
             .nav-menu { display: none; }
             .hamburger { display: flex; }
+            /* Kill desktop hover dropdown on mobile */
+            .nav-menu > li:hover > .dropdown-menu { display: none !important; }
+            .dropdown-menu { display: none !important; position: static; border: none; box-shadow: none; }
+            .nav-menu.active .dropdown-menu.mobile-open { display: block !important; }
 
             .hero-split {
                 grid-template-columns: 1fr;
