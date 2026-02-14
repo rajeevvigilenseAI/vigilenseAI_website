@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /blog-post-template.html
+
+Sitemap: https://vigilense.ai/sitemap.xml

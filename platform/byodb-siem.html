@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="BYODb SIEM — Query Your Databases, Kill Ingestion Costs | Vigilense AI" />
+    <meta property="og:description" content="BYODb SIEM queries your existing databases like Snowflake, Elasticsearch, and OpenSearch in place. Zero data movement, zero ingestion fees, zero vendor lock-in." />
+    <meta property="og:url" content="https://vigilense.ai/platform/byodb-siem.html" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vigilense AI — The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BYODb SIEM — Query Your Databases, Kill Ingestion Costs | Vigilense AI" />
+    <meta name="twitter:description" content="BYODb SIEM queries your existing databases in place. Zero data movement, zero ingestion fees." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview.jpg" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="BYODb SIEM queries your existing databases like Snowflake, Elasticsearch, and OpenSearch in place. Zero data movement, zero ingestion fees, zero vendor lock-in." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="BYODb SIEM, SIEM alternative, zero ingestion SIEM, bring your own database SIEM, Snowflake SIEM, Elasticsearch SIEM, OpenSearch SIEM" />
+    <link rel="canonical" href="https://vigilense.ai/platform/byodb-siem.html" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>BYODb SIEM - Query Your Databases, Kill Ingestion Costs | Vigilense AI</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @media (max-width: 1024px) {
+            .db-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 640px) {
+            .db-grid-4 { grid-template-columns: 1fr !important; }
+            .steps-grid-3 { grid-template-columns: 1fr !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">
+                <img src="../vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#pillars">Platform</a></li>
+                <li><a href="../index.html#how-it-works">How It Works</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../trust.html">Trust Center</a></li>
+                <li><a href="../demo.html" class="btn-nav">Talk to a Human Vigilant</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="trust-hero">
+        <div class="container">
+            <div class="trust-hero-content">
+                <span class="section-tag">BYODb SIEM</span>
+                <h1>BYODb SIEM — Query Your Databases, Kill Ingestion Costs</h1>
+                <p>The zero ingestion SIEM alternative. Connect to your existing Snowflake, Elasticsearch, OpenSearch, and more. Run detection rules in place. No data movement. No per-GB fees. No vendor lock-in.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Databases -->
+    <section style="padding: 80px 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Supported Databases</span>
+                <h2 class="section-title">Bring Your Own Database — We Connect to What You Already Have</h2>
+                <p class="section-subtitle">BYODb SIEM integrates with the leading data platforms. Your security data stays where it is. We bring the detection engine to you.</p>
+            </div>
+            <div class="certifications-grid db-grid-4" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="cert-card">
+                    <div class="cert-badge">🔍</div>
+                    <h3>OpenSearch</h3>
+                    <p>Query AWS OpenSearch and self-hosted OpenSearch clusters. Native integration for log analytics and security event correlation. Ideal for SIEM workloads already indexed in OpenSearch.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">⚡</div>
+                    <h3>Elasticsearch</h3>
+                    <p>Connect to Elasticsearch and Elastic Cloud. Run detection rules against your existing indices. No re-indexing, no data duplication. Full-text search and aggregations supported.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">❄️</div>
+                    <h3>Snowflake</h3>
+                    <p>Query your Snowflake data lake and security data warehouse. Leverage Snowflake's compute for SIEM detection. Scale elastically without moving petabytes of log data.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🛡️</div>
+                    <h3>Microsoft Sentinel</h3>
+                    <p>Integrate with Sentinel workspaces and Log Analytics. Extend your Microsoft security stack with BYODb detection. Query Sentinel data in place without additional ingestion.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🏔️</div>
+                    <h3>AWS Security Lake</h3>
+                    <p>Connect to AWS Security Lake's OCSF-formatted data. Query S3-backed security lake directly. Native integration with Amazon OpenSearch Serverless.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🪣</div>
+                    <h3>S3</h3>
+                    <p>Query Parquet, JSON, and CSV files in S3 buckets. Connect to data lakes and archival storage. No ETL pipeline required — query raw logs in place.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📊</div>
+                    <h3>BigQuery</h3>
+                    <p>Run detection rules against Google BigQuery tables. Leverage BigQuery's serverless analytics. Ideal for GCP-centric security architectures.</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🔷</div>
+                    <h3>Databricks</h3>
+                    <p>Connect to Databricks Delta Lake and Unity Catalog. Query security data in your data lakehouse. Unified analytics and SIEM in one platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Querying Works -->
+    <section style="padding: 80px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Connect → Detect → Respond. No Data Movement.</h2>
+                <p class="section-subtitle">Traditional SIEMs move your data to their infrastructure. BYODb SIEM moves compute to your data. Here's how query-based detection works.</p>
+            </div>
+            <div class="steps-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
+                <div class="cert-card" style="text-align: center;">
+                    <div class="cert-badge" style="font-size: 2rem; margin-bottom: 16px;">1</div>
+                    <h3 style="margin-bottom: 12px;">Connect</h3>
+                    <p>Grant read-only access to your existing databases. Vigilense connects via secure, encrypted connections. Credentials are encrypted at rest. No writes — we never modify your data.</p>
+                </div>
+                <div class="cert-card" style="text-align: center;">
+                    <div class="cert-badge" style="font-size: 2rem; margin-bottom: 16px;">2</div>
+                    <h3 style="margin-bottom: 12px;">Detect</h3>
+                    <p>Detection rules are translated to your database's native query language. Rules run in place against your data. Results are processed in memory — nothing is copied or stored by Vigilense.</p>
+                </div>
+                <div class="cert-card" style="text-align: center;">
+                    <div class="cert-badge" style="font-size: 2rem; margin-bottom: 16px;">3</div>
+                    <h3 style="margin-bottom: 12px;">Respond</h3>
+                    <p>When detections fire, automated response workflows trigger. Integrations with ticketing, Slack, PagerDuty, and more. AI SOC Analyst investigates and resolves in seconds.</p>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-secondary); margin-top: 32px; max-width: 700px; margin-left: auto; margin-right: auto;">Zero data movement. Zero ingestion fees. Zero vendor lock-in. Your data never leaves your infrastructure. This is the SIEM alternative built for the modern data stack.</p>
+        </div>
+    </section>
+
+    <!-- Cost Comparison -->
+    <section style="padding: 80px 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cost Comparison</span>
+                <h2 class="section-title">Traditional SIEM vs BYODb SIEM</h2>
+                <p class="section-subtitle">See why organizations are switching to a zero ingestion SIEM and slashing their security operations costs.</p>
+            </div>
+            <div class="comparison-table-wrapper" style="margin-top: 48px;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-col">Factor</th>
+                            <th>Traditional SIEM</th>
+                            <th class="ha-col">BYODb SIEM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Ingestion Cost</td>
+                            <td>Per-GB pricing — costs scale with volume. 1 TB/day can mean $500K+/year.</td>
+                            <td class="ha-cell"><span class="comp-yes">$0 ingestion</span> — query in place, no data movement.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Data Architecture</td>
+                            <td>Data shipped to vendor infrastructure. Duplication of logs in vendor format.</td>
+                            <td class="ha-cell"><span class="comp-yes">Data stays in place</span> — no copy, no ETL.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Vendor Lock-in</td>
+                            <td>Proprietary storage. Migration = multi-year project. Exit costs are massive.</td>
+                            <td class="ha-cell"><span class="comp-yes">No lock-in</span> — your databases, your data, your choice.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Time to Deploy</td>
+                            <td>Months. Pipelines, parsers, normalization, retention policies.</td>
+                            <td class="ha-cell"><span class="comp-yes">Days</span> — connect, map schema, run rules.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Compliance & Sovereignty</td>
+                            <td>Data leaves your environment. Cross-border transfer issues for GDPR, HIPAA.</td>
+                            <td class="ha-cell"><span class="comp-yes">Data never leaves</span> — sovereignty preserved.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Natural Language Search -->
+    <section style="padding: 80px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Natural Language Search</span>
+                <h2 class="section-title">Search Across All Databases — In Plain English</h2>
+                <p class="section-subtitle">Stop memorizing query syntax. BYODb SIEM lets analysts ask questions in natural language and get answers across every connected database.</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="cert-card" style="padding: 32px; margin-bottom: 24px;">
+                    <p style="margin-bottom: 24px;">Instead of learning KQL, SPL, Lucene, SQL, and vendor-specific query languages, SOC analysts can type:</p>
+                    <ul style="margin-left: 24px; margin-bottom: 24px; color: var(--text-secondary);">
+                        <li style="margin-bottom: 12px;">"Show me failed logins from the last 24 hours across all sources"</li>
+                        <li style="margin-bottom: 12px;">"Find lateral movement from this IP in Snowflake and Elasticsearch"</li>
+                        <li style="margin-bottom: 12px;">"Which users had privileged access changes in the past week?"</li>
+                    </ul>
+                    <p>Vigilense translates natural language to the appropriate query for each database, federates the request, and returns unified results. This is the SIEM alternative that works the way analysts think — not the way vendors structure their products.</p>
+                </div>
+                <p style="text-align: center; color: var(--text-secondary);">Combine natural language search with AI-powered investigation for a SOC that moves at the speed of thought.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 80px 0; text-align: center; background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+        <div class="container">
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 2rem; margin-bottom: 16px;">Stop Paying Per-GB. Start Querying in Place.</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 32px; font-size: 1.1rem;">See how BYODb SIEM connects to your databases in minutes.</p>
+            <a href="../demo.html" class="btn btn-primary btn-large">Book a Demo →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="nav-brand">
+                        <img src="../vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="../platform/ai-soc-analyst.html">AI SOC Analyst</a></li>
+                            <li><a href="../platform/byodb-siem.html">BYODb SIEM</a></li>
+                            <li><a href="../pricing.html">Pricing</a></li>
+                            <li><a href="../index.html#how-it-works">How It Works</a></li>
+                            <li><a href="../demo.html">Integrations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="../team.html">Team</a></li>
+                            <li><a href="../careers.html">Careers</a></li>
+                            <li><a href="../security.html">About & Security</a></li>
+                            <li><a href="../trust.html">Trust Center</a></li>
+                            <li><a href="../demo.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="../blog.html">Blog & News</a></li>
+                            <li><a href="../resources/what-is-byodb-siem.html">What is BYODb SIEM?</a></li>
+                            <li><a href="../resources/what-is-sovereign-soc.html">What is a Sovereign SOC?</a></li>
+                            <li><a href="../resources/siem-buyers-guide.html">SIEM Buyer's Guide</a></li>
+                            <li><a href="../resources/healthcare-case-study.html">Case Studies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="../trust.html">Trust Center</a></li>
+                            <li><a href="../security.html">Security</a></li>
+                            <li><a href="../privacy.html">Privacy Policy</a></li>
+                            <li><a href="../terms.html">Terms of Service</a></li>
+                            <li><a href="../disclaimer.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy</a>
+                        <a href="../terms.html">Terms</a>
+                        <a href="../disclaimer.html">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
