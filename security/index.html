@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vigilense AI security practices: BYODb data sovereignty, BYO-LLM AI privacy, tenant isolation, encryption, SOC 2 Type II (in progress), GDPR, HIPAA alignment.">
+    <meta name="keywords" content="Vigilense AI security, BYODb security, BYO LLM, data sovereignty cybersecurity, SOC 2 SIEM, HIPAA SIEM security">
+    <link rel="canonical" href="https://vigilense.ai/security/">
+    <meta property="og:title" content="Security — Vigilense AI">
+    <meta property="og:description" content="Your data stays with you. BYODb architecture, BYO-LLM, tenant isolation, encryption at rest and in transit.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vigilense.ai/security/">
+    <meta property="og:image" content="https://vigilense.ai/og-image.png">
+    <meta property="og:site_name" content="Vigilense AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security at Vigilense AI">
+    <meta name="twitter:description" content="BYODb + BYO-LLM. Your data never leaves your infrastructure.">
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Security - Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vigilense.ai/"},{"@type":"ListItem","position":2,"name":"Security"}]}
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                        <li><a href="/platform/integrations/">Integrations</a></li>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="/security/">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                        <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                        <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        <li><a href="/resources/healthcare-case-study/">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team/">Team</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Security Page Content -->
+    <section class="legal-section">
+        <div class="container">
+            <div class="legal-header">
+                <h1>Security at <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span></h1>
+                <p class="legal-updated">Your Security is Our Priority</p>
+            </div>
+            <div class="legal-content">
+                <p>At Vigilense AI, security is built into everything we do. You are trusting us with access to your security infrastructure, and we take that responsibility seriously.</p>
+
+                <h2>Deployment Options</h2>
+                <p><span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> is delivered as a fully managed SaaS platform with enterprise-grade security and compliance:</p>
+
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>☁️ SaaS Cloud</h3>
+                        <p>Fully managed by us with tenant-separated infrastructure. Ideal for teams who want rapid deployment and minimal operational overhead.</p>
+                    </div>
+                </div>
+
+                <h2>Tenant Separation (SaaS)</h2>
+                <p>For SaaS deployments, we implement strict multi-tenant isolation:</p>
+                <ul>
+                    <li><strong>Logical Isolation:</strong> Each customer's data is logically separated using unique tenant identifiers and access controls.</li>
+                    <li><strong>Encryption Separation:</strong> Each tenant has dedicated encryption keys managed via AWS KMS / Azure Key Vault.</li>
+                    <li><strong>Network Isolation:</strong> Network-level controls and security groups prevent cross-tenant access.</li>
+                    <li><strong>Compute Isolation:</strong> Processing is isolated at the container/instance level per tenant.</li>
+                    <li><strong>Database Isolation:</strong> Tenant data is separated at the schema or database level depending on configuration.</li>
+                    <li><strong>Audit Logging:</strong> All access is logged with tenant context for audit and compliance.</li>
+                </ul>
+
+                <h2>BYODb: Your Data Stays With You</h2>
+                <p>Our Bring Your Own Database (BYODb) architecture is designed with security-first principles:</p>
+                <ul>
+                    <li><strong>No Data Storage:</strong> We never store your security logs, event data, or sensitive information on our servers (when using BYODb).</li>
+                    <li><strong>Real-Time Queries:</strong> We query your databases in real-time and process data in memory.</li>
+                    <li><strong>Your Infrastructure:</strong> Your data remains in your controlled environment at all times.</li>
+                    <li><strong>Zero Data Export:</strong> We don't copy, export, or retain your security data.</li>
+                    <li><strong>Credential Security:</strong> Database credentials are encrypted at rest using HSM-backed keys and never logged.</li>
+                </ul>
+
+                <h2>Bring Your Own AI/LLM</h2>
+                <p>Control your AI processing with your own models:</p>
+                <ul>
+                    <li><strong>Supported Providers:</strong> Azure OpenAI, AWS Bedrock, Google Vertex AI, OpenAI API, self-hosted models (Ollama, vLLM, etc.).</li>
+                    <li><strong>Data Privacy:</strong> When using your own AI, prompts and responses flow directly between your <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span> instance and your AI service  we have no visibility.</li>
+                    <li><strong>No Training:</strong> Your data is never used to train AI models, regardless of which AI service you use.</li>
+                    <li><strong>Self-Hosted AI:</strong> For maximum control, deploy your own LLM infrastructure and connect it to <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</li>
+                    <li><strong>Credential Management:</strong> AI API keys are encrypted and stored securely, with optional integration with your secrets manager.</li>
+                </ul>
+
+                <h2>Compliance & Certifications</h2>
+                <p>We are actively building toward the industry's most rigorous compliance standards. Our platform is architected from day one to meet these frameworks.</p>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <h3>🛡️ SOC 2 Type II (In Progress)</h3>
+                        <p>Platform and processes architected for annual audits covering security, availability, and confidentiality controls.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>📜 GDPR (In Progress)</h3>
+                        <p>Built to meet the General Data Protection Regulation requirements for EU data subjects.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>🔒 CCPA (In Progress)</h3>
+                        <p>Designed to satisfy California Consumer Privacy Act requirements from the ground up.</p>
+                    </div>
+                    <div class="security-item">
+                        <h3>✅ ISO 27001 (Aligned, Certification In Progress)</h3>
+                        <p>Information security management system aligned with ISO 27001 international standards.</p>
+                    </div>
+                </div>
+
+                <h2>Infrastructure Security</h2>
+                <h3>Encryption</h3>
+                <ul>
+                    <li><strong>In Transit:</strong> All communications are encrypted using TLS 1.3.</li>
+                    <li><strong>At Rest:</strong> All data is encrypted using AES-256 with tenant-specific keys.</li>
+                    <li><strong>Key Management:</strong> Encryption keys are managed using hardware security modules (HSM) via cloud KMS services.</li>
+                    <li><strong>Database Credentials:</strong> Encrypted at rest and in transit, with support for secrets managers.</li>
+                </ul>
+
+                <h3>Network Security</h3>
+                <ul>
+                    <li>Zero-trust network architecture</li>
+                    <li>Network segmentation and micro-segmentation</li>
+                    <li>Intrusion detection and prevention systems</li>
+                    <li>DDoS protection and mitigation</li>
+                    <li>Web application firewall (WAF)</li>
+                    <li>Private endpoints available for database and AI service connections</li>
+                </ul>
+
+                <h3>Access Controls</h3>
+                <ul>
+                    <li>Multi-factor authentication (MFA) required for all access</li>
+                    <li>Role-based access control (RBAC) with granular permissions</li>
+                    <li>Principle of least privilege</li>
+                    <li>SSO integration (SAML, OIDC) for enterprise identity management</li>
+                    <li>Regular access reviews and audits</li>
+                    <li>Automated deprovisioning</li>
+                </ul>
+
+                <h2>Application Security</h2>
+                <ul>
+                    <li><strong>Secure Development:</strong> We follow secure coding practices and OWASP guidelines.</li>
+                    <li><strong>Code Reviews:</strong> All code changes undergo security review before deployment.</li>
+                    <li><strong>Dependency Scanning:</strong> Automated scanning for vulnerable dependencies.</li>
+                    <li><strong>Penetration Testing:</strong> Third-party penetration testing scheduled.</li>
+                    <li><strong>Responsible Disclosure:</strong> We maintain a responsible disclosure program.</li>
+                </ul>
+
+                <h2>Operational Security</h2>
+                <ul>
+                    <li><strong>24/7 Monitoring:</strong> Continuous security monitoring of our SaaS infrastructure.</li>
+                    <li><strong>Incident Response:</strong> Documented incident response procedures with defined SLAs.</li>
+                    <li><strong>Business Continuity:</strong> Disaster recovery and business continuity plans.</li>
+                    <li><strong>Employee Security:</strong> Background checks, security training, and awareness programs.</li>
+                    <li><strong>Separation of Duties:</strong> No single employee has access to all systems.</li>
+                </ul>
+
+                <h2>Vendor Security</h2>
+                <p>We carefully vet all third-party vendors and require:</p>
+                <ul>
+                    <li>SOC 2 or equivalent compliance</li>
+                    <li>Security questionnaire completion</li>
+                    <li>Contractual security requirements</li>
+                    <li>Regular security assessments</li>
+                    <li>Data processing agreements where applicable</li>
+                </ul>
+
+                <h2>Security Reporting</h2>
+                <p>If you discover a security vulnerability, please report it responsibly:</p>
+                <ul>
+                    <li><strong>Email:</strong> security@vigilense.ai</li>
+                    <li><strong>PGP Key:</strong> Available upon request</li>
+                    <li><strong>Response Time:</strong> We acknowledge reports within 24 hours</li>
+                    <li><strong>Responsible Disclosure:</strong> Responsible disclosure program</li>
+                </ul>
+
+                <h2>Security Documentation</h2>
+                <p>Enterprise customers can request:</p>
+                <ul>
+                    <li>SOC 2 Type II audit report (available upon completion of certification)</li>
+                    <li>Penetration test executive summary</li>
+                    <li>Security questionnaire responses (SIG, CAIQ, custom)</li>
+                    <li>Data processing agreements (DPA)</li>
+                    <li>Architecture and data flow diagrams</li>
+                    <li>Tenant isolation technical documentation</li>
+                </ul>
+
+                <h2>Questions?</h2>
+                <p>For security-related inquiries, contact our security team:</p>
+                <p>
+                    <strong>Vigilense AI - Security Team</strong><br>
+                    Email: security@vigilense.ai
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team/">Team</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

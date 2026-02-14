@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="The Ingestion Tax: Why Your SIEM Budget Is Broken" />
+    <meta property="og:description" content="The economics of legacy SIEMs are broken. $0.88/GB ingestion costs are draining security budgets." />
+    <meta property="og:url" content="https://vigilense.ai/blog/ingestion-tax/" />
+    <meta property="og:image" content="https://vigilense.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vigilense AI — The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Ingestion Tax: Why Your SIEM Budget Is Broken" />
+    <meta name="twitter:description" content="The economics of legacy SIEMs are broken. $0.88/GB ingestion costs are draining security budgets." />
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="You are paying $0.88 for every gigabyte your SIEM indexes. 500GB/day means $160K/year just to ingest data. The economics of legacy SIEMs are broken. Here is why." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/ingestion-tax/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>The Ingestion Tax: Why Your SIEM Budget Is Broken - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           BLOG POST LAYOUT
+           ============================ */
+        .blog-post {
+            padding: 140px 0 100px;
+        }
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #0A1628;
+        }
+        .post-category {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00D4AA;
+            border: 1px solid #00D4AA;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+            background: rgba(0, 212, 170, 0.06);
+        }
+        .post-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        .post-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+        .post-meta span {
+            margin: 0 8px;
+        }
+        .post-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* ============================
+           POST BODY TYPOGRAPHY
+           ============================ */
+        .post-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .post-body p {
+            margin-bottom: 24px;
+        }
+        .post-body h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+        .post-body h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 36px;
+            margin-bottom: 20px;
+        }
+        .post-body ul,
+        .post-body ol {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+        .post-body li {
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        .post-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: #F2F5F7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0A1628;
+        }
+        .post-body pre {
+            background: #F2F5F7;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+        .post-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #0A1628;
+            font-size: 0.9rem;
+        }
+        .post-body blockquote {
+            border-left: 3px solid #0A1628;
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #475569;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 32px 0;
+            border: 1px solid #E2E8F0;
+        }
+        .post-body a {
+            color: #00B892;
+            text-decoration: underline;
+        }
+        .post-body a:hover {
+            color: #00D4AA;
+        }
+        .post-body strong {
+            color: #0A1628;
+        }
+
+        /* ============================
+           POST CTA
+           ============================ */
+        .post-cta {
+            margin-top: 64px;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .post-cta .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #0A1628;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .post-cta .btn:hover {
+            background: #0F1E36;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        /* ============================
+           AUTHOR CARD
+           ============================ */
+        .author-card {
+            margin-top: 48px;
+            padding: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #0A1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .author-info .author-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+        .author-info .author-bio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .blog-post { padding: 120px 0 60px; }
+            .post-content { max-width: 100%; }
+            .post-body { font-size: 1rem; }
+            .post-body h2 { font-size: 1.5rem; }
+            .post-body h3 { font-size: 1.2rem; }
+            .author-card { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .post-cta { padding: 24px 16px; }
+            .author-card { padding: 20px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Ingestion Tax: Why Your SIEM Budget Is Broken",
+      "description": "You are paying $0.88 for every gigabyte your SIEM indexes. 500GB/day means $160K/year just to ingest data. The economics of legacy SIEMs are broken.",
+      "datePublished": "2026-01-28",
+      "url": "https://vigilense.ai/blog/ingestion-tax/",
+      "image": "https://vigilense.ai/og-image.png",
+      "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
+      "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } }
+    }
+    </script>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                        <li><a href="/platform/integrations/">Integrations</a></li>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="/security/">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                        <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                        <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        <li><a href="/resources/healthcare-case-study/">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team/">Team</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BLOG POST CONTENT
+         ======================================== -->
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>The Ingestion Tax: Why Your SIEM Budget Is Broken</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-01-28">Jan 28, 2026</time>
+                        <span>&middot;</span>
+                        <span>5 min read</span>
+                        <span>&middot;</span>
+                        <span>By Zachary Troyer</span>
+                    </div>
+                </header>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+                    <p>I have spent my career scaling B2B companies, and I have seen plenty of broken pricing models. But I have never seen anything quite as backwards as the way legacy SIEMs charge for security.</p>
+
+                    <p>The core of the problem is the Ingestion Tax: you pay per gigabyte of data your SIEM ingests. Not per threat detected. Not per incident resolved. You are being billed based on how much data your business generates, essentially a tax on your own growth.</p>
+
+                    <h2>The Math of Failure</h2>
+
+                    <p>In 2026, the average cost across major SIEM vendors sits at about $0.88 per GB. Let us look at what a mid-size organization actually pays to stay "visible":</p>
+
+                    <ul>
+                        <li><strong>Ingestion (500GB/day):</strong> $160,600/year</li>
+                        <li><strong>Infrastructure and Compute:</strong> $200,000/year</li>
+                        <li><strong>SIEM Add-ons/Integrations:</strong> $75,000/year</li>
+                        <li><strong>Dedicated SIEM Admin Salary:</strong> $150,000+</li>
+                    </ul>
+
+                    <p><strong>Year 1 Total: $585,600+</strong></p>
+
+                    <p>Here is the question that keeps me up at night: How many threats did that $585K stop? Ingestion does not stop threats. Indexing does not stop threats. These are infrastructure costs disguised as security spending.</p>
+
+                    <h2>The Growth Penalty and The AI Explosion</h2>
+
+                    <p>The most insidious part of per-GB pricing is how it reacts to the modern "AI Storm." As attackers use AI to automate campaigns, security teams are forced to investigate lower-level "informational" alerts.</p>
+
+                    <p>To catch a silent AI attacker, your investigative depth might need to increase 5x to 50x. Under a legacy SIEM model, your bill does not just grow. It goes vertical. I have talked to CISOs who deliberately dropped log sources to keep costs under control. They made their organization less secure because the tool designed to protect them was too expensive to "feed."</p>
+
+                    <h2>The Healthcare Case Study: Visibility Without the Tax</h2>
+
+                    <p>A regional healthcare system recently faced a $1.8M annual SIEM renewal. With 14 hospitals and thousands of medical devices, dropping data was not an option. It was a compliance risk.</p>
+
+                    <p>By deploying Vigilense AI with BYODb, they retired the legacy SIEM entirely. They kept their telemetry in their own Snowflake and S3 buckets.</p>
+
+                    <ul>
+                        <li><strong>Result:</strong> $2.1M in first-year savings.</li>
+                        <li><strong>ROI:</strong> 340%.</li>
+                        <li><strong>Visibility:</strong> 100% of log sources maintained.</li>
+                    </ul>
+
+                    <h2>Legacy Pricing for a World That No Longer Exists</h2>
+
+                    <p>Per-GB pricing made sense 15 years ago when data was scarce. Today, your data is already in modern platforms like BigQuery or Snowflake. Paying a SIEM vendor to re-ingest and re-index data you already own is paying twice for the same thing.</p>
+
+                    <p>In 2026, data centralization is table stakes. Intelligence is the hard part.</p>
+
+                    <h2>Choose Your Future</h2>
+
+                    <p>Next time your SIEM renewal lands on your desk, ask one question: What percentage of this cost is actually stopping threats? If most of it is going toward the "Ingestion Tax," you are not buying security. You are buying a storage bill.</p>
+
+                    <p>There is a better way. Stop paying the tax. Start catching the threat.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>Schedule a 20-minute Financial Impact Audit.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">ZT</div>
+                    <div class="author-info">
+                        <h4>Zachary Troyer</h4>
+                        <div class="author-title">Co-founder & CEO</div>
+                        <div class="author-bio">Experienced operator who has scaled multiple B2B companies from early stage to market leadership. Focused on building businesses that solve real problems for security teams.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team/">Team</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var hamburger = document.querySelector('.hamburger');
+            var navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

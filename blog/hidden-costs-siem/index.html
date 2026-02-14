@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="The $4.5M Breach You Already Paid For: Hidden Costs of SIEM Sprawl" />
+    <meta property="og:description" content="Break down the real cost stack that SIEM vendors hide from you. From per-GB ingestion fees to mandatory add-ons, here is what your SIEM actually costs." />
+    <meta property="og:url" content="https://vigilense.ai/blog/hidden-costs-siem/" />
+    <meta property="og:image" content="https://vigilense.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Vigilense AI — The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The $4.5M Breach You Already Paid For: Hidden Costs of SIEM Sprawl" />
+    <meta name="twitter:description" content="Break down the real cost stack that SIEM vendors hide from you. From per-GB ingestion fees to mandatory add-ons, here is what your SIEM actually costs." />
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Break down the real cost stack that SIEM vendors hide from you. From per-GB ingestion fees to mandatory add-ons, here is what your SIEM actually costs and why it still failed to stop the breach." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/hidden-costs-siem/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>The $4.5M Breach You Already Paid For: Hidden Costs of SIEM Sprawl - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           BLOG POST LAYOUT
+           ============================ */
+        .blog-post {
+            padding: 140px 0 100px;
+        }
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #0A1628;
+        }
+        .post-category {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00D4AA;
+            border: 1px solid #00D4AA;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+            background: rgba(0, 212, 170, 0.06);
+        }
+        .post-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        .post-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+        .post-meta span {
+            margin: 0 8px;
+        }
+        .post-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* ============================
+           POST BODY TYPOGRAPHY
+           ============================ */
+        .post-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .post-body p {
+            margin-bottom: 24px;
+        }
+        .post-body h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+        .post-body h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 36px;
+            margin-bottom: 20px;
+        }
+        .post-body ul,
+        .post-body ol {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+        .post-body li {
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        .post-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: #F2F5F7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0A1628;
+        }
+        .post-body pre {
+            background: #F2F5F7;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+        .post-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #0A1628;
+            font-size: 0.9rem;
+        }
+        .post-body blockquote {
+            border-left: 3px solid #0A1628;
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #475569;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 32px 0;
+            border: 1px solid #E2E8F0;
+        }
+        .post-body a {
+            color: #00B892;
+            text-decoration: underline;
+        }
+        .post-body a:hover {
+            color: #00D4AA;
+        }
+        .post-body strong {
+            color: #0A1628;
+        }
+
+        /* ============================
+           POST CTA
+           ============================ */
+        .post-cta {
+            margin-top: 64px;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .post-cta .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #0A1628;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .post-cta .btn:hover {
+            background: #0F1E36;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        /* ============================
+           AUTHOR CARD
+           ============================ */
+        .author-card {
+            margin-top: 48px;
+            padding: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #0A1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .author-info .author-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+        .author-info .author-bio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .blog-post { padding: 120px 0 60px; }
+            .post-content { max-width: 100%; }
+            .post-body { font-size: 1rem; }
+            .post-body h2 { font-size: 1.5rem; }
+            .post-body h3 { font-size: 1.2rem; }
+            .author-card { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .post-cta { padding: 24px 16px; }
+            .author-card { padding: 20px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The $4.5M Breach You Already Paid For: Hidden Costs of SIEM Sprawl",
+      "description": "Break down the real cost stack that SIEM vendors hide from you. From per-GB ingestion fees to mandatory add-ons, here is what your SIEM actually costs.",
+      "datePublished": "2025-11-05",
+      "url": "https://vigilense.ai/blog/hidden-costs-siem/",
+      "image": "https://vigilense.ai/og-image.png",
+      "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
+      "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } }
+    }
+    </script>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                        <li><a href="/platform/integrations/">Integrations</a></li>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="/security/">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                        <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                        <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        <li><a href="/resources/healthcare-case-study/">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team/">Team</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BLOG POST CONTENT
+         ======================================== -->
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>The $4.5M Breach You Already Paid For: Hidden Costs of SIEM Sprawl</h1>
+                    <div class="post-meta">
+                        <time datetime="2025-11-05">Nov 5, 2025</time>
+                        <span>&middot;</span>
+                        <span>6 min read</span>
+                        <span>&middot;</span>
+                        <span>By Zachary Troyer</span>
+                    </div>
+                </header>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+                    <p>IBM's 2024 Cost of a Data Breach report puts the average breach cost at $4.88 million. That number gets all the headlines. But here is the number nobody talks about: most of the companies in that report were already spending over $500,000 a year on a SIEM that failed to prevent the breach.</p>
+
+                    <p>Let that sit for a second. Half a million dollars a year, and the breach still happened.</p>
+
+                    <p>The problem is not that SIEMs do not work. The problem is that the SIEM pricing model creates incentives that directly undermine security outcomes. When you charge by the gigabyte, customers reduce visibility to control costs. When customers reduce visibility, attackers exploit the blind spots. The SIEM vendor still gets paid. The customer still gets breached.</p>
+
+                    <h2>The Receipt Your SIEM Vendor Hopes You Never Itemize</h2>
+
+                    <p>Let's break down what a mid-size organization actually pays for a traditional SIEM in year one. These are not hypothetical numbers. These come from real procurement cycles and vendor quotes we have seen during competitive evaluations.</p>
+
+                    <h3>Data Ingestion</h3>
+
+                    <p>500 GB/day is a common volume for a mid-size enterprise once you include endpoint telemetry, network flows, cloud audit logs, and identity events. At the industry-standard rate of $0.88 per GB:</p>
+
+                    <p><strong>500 GB x $0.88 x 365 days = $160,600/year</strong></p>
+
+                    <p>That is $160,600 just to ingest your data into someone else's storage. Not to analyze it. Not to detect threats. Not to respond to incidents. Just to move it from your infrastructure to theirs and index it.</p>
+
+                    <h3>Infrastructure</h3>
+
+                    <p>Your SIEM needs to run somewhere. Whether it is on-premises hardware or cloud compute, budget $200,000 for servers, storage, networking, and the care and feeding of the infrastructure that keeps the SIEM alive. This number goes up every year as data volumes grow.</p>
+
+                    <h3>Add-Ons</h3>
+
+                    <p>The base SIEM license rarely includes everything you need. SOAR integration? That is a separate SKU. Advanced analytics? Premium tier. Threat intelligence feeds? Another line item. Budget at least $75,000 for the add-ons you will inevitably need to make the platform functional.</p>
+
+                    <h3>Personnel</h3>
+
+                    <p>Someone has to run this thing. A dedicated SIEM administrator costs at least $150,000 in fully loaded compensation. And that is one person. Most organizations need at least two to cover on-call rotations, rule tuning, parser maintenance, and the constant stream of vendor upgrades.</p>
+
+                    <h3>The Year 1 Total</h3>
+
+                    <ul>
+                        <li><strong>Data ingestion:</strong> $160,600</li>
+                        <li><strong>Infrastructure:</strong> $200,000</li>
+                        <li><strong>Add-ons:</strong> $75,000+</li>
+                        <li><strong>Admin salary:</strong> $150,000</li>
+                        <li><strong>Year 1 total:</strong> $585,600+</li>
+                    </ul>
+
+                    <p>Threats stopped by ingestion alone? <strong>Zero.</strong></p>
+
+                    <h2>The Hidden Cost Stack</h2>
+
+                    <p>That $585K is just the number on the purchase order. The real total cost of ownership includes line items that never appear in vendor quotes but always appear in budgets:</p>
+
+                    <ul>
+                        <li><strong>Licensing complexity:</strong> Per-user, per-GB, or flat-rate models each have traps. Per-GB penalizes data growth and punishes organizations that try to increase visibility. Per-user pricing looks clean until you realize every service account and API integration counts as a user.</li>
+                        <li><strong>Professional services:</strong> Deployment timelines measured in months, not days. Vendors quote 6-12 week implementation projects staffed by consultants billing $250-400/hour. These engagements frequently overrun.</li>
+                        <li><strong>Premium support:</strong> Base support gets you a ticket queue. Actual responsiveness requires a premium support contract, typically 15-20% of your annual license fee.</li>
+                        <li><strong>Training:</strong> Your team needs to learn the platform. Vendor-led training courses run $3,000-5,000 per person, and you need to retrain after every major version upgrade.</li>
+                        <li><strong>Maintenance windows:</strong> Upgrades, patches, schema migrations. Each one requires planning, testing, and downtime. Each one pulls your team away from actual security work.</li>
+                    </ul>
+
+                    <h2>Red Flags in the Sales Cycle</h2>
+
+                    <p>After sitting through dozens of SIEM evaluations alongside security teams, certain patterns emerge. These are the red flags that signal you are about to inherit a cost problem:</p>
+
+                    <ul>
+                        <li><strong>Pricing that penalizes data growth:</strong> If the cost goes up when you increase visibility, the pricing model is working against your security goals. You should never have to choose between budget and coverage.</li>
+                        <li><strong>Mandatory vendor storage:</strong> If you cannot bring your own database and must ship all data to the vendor's infrastructure, you are paying for data transport and storage that adds zero security value.</li>
+                        <li><strong>Long deployment timelines:</strong> If the vendor quotes months instead of days for initial deployment, the platform is too complex. Complexity in deployment becomes complexity in operations, and complexity in operations becomes blind spots.</li>
+                        <li><strong>Heavy professional services:</strong> If the platform cannot be deployed and configured by your own team, you are buying a dependency, not a product.</li>
+                    </ul>
+
+                    <h2>The Visibility Tax</h2>
+
+                    <p>Here is what I think is the most dangerous consequence of per-GB pricing: organizations deliberately reduce their log volume to stay within budget.</p>
+
+                    <p>I have seen security teams disable DNS logging because it was too expensive to ingest. I have seen organizations drop NetFlow data because the SIEM vendor charges by volume. I have seen teams reduce retention to 30 days because 90-day storage costs were prohibitive.</p>
+
+                    <p>Every one of those decisions created a blind spot. And attackers consistently exploit blind spots. The average dwell time for a breach is 204 days. If your retention is 30 days, the attacker was in your environment for six months before the evidence was even available, and you deleted the first five months of it to save money on ingestion fees.</p>
+
+                    <p>You are not saving money. You are subsidizing the attacker.</p>
+
+                    <h2>Case Study: Healthcare Provider Migration</h2>
+
+                    <p>One of our healthcare customers ran a legacy SIEM for eight years. Here is what their environment looked like before the switch:</p>
+
+                    <ul>
+                        <li><strong>Annual SIEM cost:</strong> $1.8 million</li>
+                        <li><strong>Full-time staff for maintenance:</strong> 3 people</li>
+                        <li><strong>Detection rule currency:</strong> Outdated, with rules written 4+ years ago that no longer matched their threat landscape</li>
+                        <li><strong>Mean time to detect:</strong> Measured in days, not hours</li>
+                    </ul>
+
+                    <p>After migrating to Vigilense with BYODb architecture:</p>
+
+                    <ul>
+                        <li><strong>First-year savings:</strong> $2.1 million</li>
+                        <li><strong>ROI:</strong> 340%</li>
+                        <li><strong>Payback period:</strong> 4 months</li>
+                        <li><strong>Staff reallocation:</strong> Two of the three SIEM admins moved to threat hunting and incident response, work that actually reduces risk</li>
+                    </ul>
+
+                    <p>The savings came from eliminating the ingestion line item entirely. BYODb means your data stays in your databases. Vigilense queries it in place at commodity storage prices. No data movement, no per-GB fees, no rehydration tax when you need to search historical data.</p>
+
+                    <h2>What the Math Actually Looks Like</h2>
+
+                    <p>When you remove the ingestion cost, the entire economics of security operations shift. You are no longer paying to move data. You are paying for detection, investigation, and response, which is the part that actually stops breaches.</p>
+
+                    <p>Your data stays in ElasticSearch, Snowflake, BigQuery, S3, or wherever you already store it. You are already paying for that storage. Vigilense brings the detection engine and the analyst to your data instead of demanding you ship your data to yet another vendor's infrastructure.</p>
+
+                    <p>That is the difference between a platform that costs you more as your security posture improves and one that gets cheaper as you scale.</p>
+
+                    <h2>Stop Paying the Ingestion Tax</h2>
+
+                    <p>The $4.88 million average breach cost is not a scare tactic. It is a real number that real organizations pay. But the $500K+ you are already spending on a SIEM that failed to prevent that breach? That is the cost you can actually control.</p>
+
+                    <p>If your SIEM bill goes up every time you try to see more of your environment, you do not have a security platform. You have a toll booth between you and your own data.</p>
+
+                    <p>Ready to see what security operations look like without the ingestion tax? <a href="/demo/">Let's walk through the numbers together.</a></p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>Find out what you are really paying for SIEM.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">ZT</div>
+                    <div class="author-info">
+                        <h4>Zachary Troyer</h4>
+                        <div class="author-title">Co-founder & CEO</div>
+                        <div class="author-bio">Former security operations leader with deep experience in SIEM procurement, SOC optimization, and the economics of enterprise security platforms.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team/">Team</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var hamburger = document.querySelector('.hamburger');
+            var navMenu = document.querySelector('.nav-menu');
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

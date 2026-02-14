@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vigilense AI pricing: zero per-GB ingestion fees, risk-free pilot deployment, outcome-based pricing. No upfront cost. You don't pay until we deliver measurable results.">
+    <meta name="keywords" content="Vigilense AI pricing, AI SOC pricing, BYODb SIEM cost, SIEM alternative pricing, zero ingestion fees, risk-free SOC pilot">
+    <link rel="canonical" href="https://vigilense.ai/pricing/">
+    <meta property="og:title" content="Pricing — Risk-Free Pilot, Zero Ingestion Fees | Vigilense AI">
+    <meta property="og:description" content="No per-GB costs. Risk-free pilot. You don't pay until we deliver measurable security outcomes.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vigilense.ai/pricing/">
+    <meta property="og:image" content="https://vigilense.ai/og-image.png">
+    <meta property="og:site_name" content="Vigilense AI">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing — Risk-Free Pilot | Vigilense AI">
+    <meta name="twitter:description" content="Zero ingestion fees. Risk-free pilot. Outcome-based pricing.">
+    <meta name="twitter:image" content="https://vigilense.ai/og-image.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Pricing - Risk-Free Pilot, Zero Ingestion Fees | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .pricing-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            text-align: center;
+        }
+        .pricing-hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 16px;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .pricing-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .pricing-value {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .value-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .value-card .value-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .value-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pricing-pilot {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+        .pilot-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .pilot-content h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .pilot-content > p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+        .pilot-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .pilot-step {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+        }
+        .step-content h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .step-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pricing-included {
+            padding: 80px 0;
+            background: var(--bg-primary);
+        }
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+        .included-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .included-check {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .included-item p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .included-item p span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        .pricing-faq {
+            padding: 80px 0;
+            background: var(--bg-secondary);
+        }
+        .pricing-faq h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .pricing-faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .pricing-faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .pricing-faq-item summary {
+            padding: 20px 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pricing-faq-item summary:hover { background: rgba(255,255,255,0.03); }
+        .pricing-faq-item summary::-webkit-details-marker { display: none; }
+        .pricing-faq-item summary::after {
+            content: '+';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .pricing-faq-item[open] summary::after { content: '\2212'; }
+        .pricing-faq-item .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .pricing-cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+        .pricing-cta h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .pricing-cta p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .value-grid { grid-template-columns: 1fr; }
+            .included-grid { grid-template-columns: 1fr; }
+            .pricing-hero { padding: 120px 0 60px; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Is there really no upfront cost?", "acceptedAnswer": {"@type": "Answer", "text": "Correct. We deploy the full Sovereign SOC platform — BYODb SIEM and AI SOC Analyst — at our expense during the pilot. You pay nothing until we demonstrate measurable results."}},
+        {"@type": "Question", "name": "What happens after the pilot?", "acceptedAnswer": {"@type": "Answer", "text": "After the pilot, we review results together. If the outcomes meet your expectations, we move to a subscription. If not, you walk away with zero obligation. No lock-in, no penalties."}},
+        {"@type": "Question", "name": "How is Vigilense AI pricing structured?", "acceptedAnswer": {"@type": "Answer", "text": "Pricing is outcome-based, not volume-based. There are zero per-GB ingestion fees. Contact sales@vigilense.ai for a custom quote tailored to your environment."}},
+        {"@type": "Question", "name": "Are there any hidden fees?", "acceptedAnswer": {"@type": "Answer", "text": "No. There are no ingestion fees, no data transfer fees, no storage surcharges, and no surprise overages. Your data stays in your databases — we never move or copy it."}},
+        {"@type": "Question", "name": "How long is the Vigilense AI pilot?", "acceptedAnswer": {"@type": "Answer", "text": "Typical pilots run 2-4 weeks, enough time to connect your databases, deploy the AI analyst, and measure results. Deployment itself takes days, not months."}},
+        {"@type": "Question", "name": "Can I cancel anytime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There are no long-term commitments. You can cancel at any time with no penalties."}}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://vigilense.ai/"},{"@type":"ListItem","position":2,"name":"Pricing"}]}
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li>
+                    <a href="#">Platform</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                        <li><a href="/platform/integrations/">Integrations</a></li>
+                        <li><a href="/#how-it-works">How It Works</a></li>
+                        <li><a href="/security/">Security & Trust</a></li>
+                    </ul>
+                </li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li>
+                    <a href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                        <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                        <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        <li><a href="/resources/healthcare-case-study/">Case Studies</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Company</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team/">Team</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                        <li><a href="/security/">Security</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <span class="section-tag">Pricing</span>
+            <h1>Risk-Free Pilot, Zero Ingestion Fees</h1>
+            <p>No per-GB costs. No upfront commitment. We deploy at our expense and you don't pay until we deliver measurable security outcomes.</p>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="pricing-value">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">$0</div>
+                    <h3>Zero Ingestion Fees</h3>
+                    <p>We query your databases in place. No data movement means no per-GB ingestion costs — ever. Your log volume doesn't affect your bill.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">[→]</div>
+                    <h3>Risk-Free Pilot</h3>
+                    <p>We deploy the Sovereign SOC at no cost. You don't pay a cent until we prove measurable value — reduced MTTR, fewer false positives, real threats resolved.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">[✓]</div>
+                    <h3>Outcome-Based</h3>
+                    <p>Our pricing is tied to outcomes, not data volume. You pay for threats investigated and resolved, not for gigabytes ingested or stored.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Program -->
+    <section class="pricing-pilot">
+        <div class="container">
+            <div class="pilot-content">
+                <h2>How the Pilot Works</h2>
+                <p>From first conversation to measurable results — typically in under two weeks.</p>
+                <div class="pilot-steps">
+                    <div class="pilot-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Discovery Call</h3>
+                            <p>We learn about your current security stack, data sources, and pain points. 30 minutes to understand your environment and goals.</p>
+                        </div>
+                    </div>
+                    <div class="pilot-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Deploy in Days</h3>
+                            <p>Vigilense AI connects read-only to your existing databases — Snowflake, Elasticsearch, OpenSearch, S3, and more. No agents to install, no data to migrate.</p>
+                        </div>
+                    </div>
+                    <div class="pilot-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>AI Analyst Goes Live</h3>
+                            <p>The AI SOC Analyst starts investigating alerts in real time. Enrichment across 50+ sources, automated triage, and verdicts in seconds — with human-in-the-loop controls.</p>
+                        </div>
+                    </div>
+                    <div class="pilot-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Measure Results</h3>
+                            <p>After the pilot, we review results together: MTTR reduction, false positive rate, analyst time saved. You only continue if the numbers speak for themselves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="pricing-included">
+        <div class="container">
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; color: var(--text-primary); text-align: center;">What's Included</h2>
+            <div class="included-grid">
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>BYODb SIEM</strong><span>Query your existing databases in place with zero ingestion fees.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>AI SOC Analyst</strong><span>Autonomous investigation, triage, and resolution of every alert.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>50+ Enrichment Sources</strong><span>Threat intel, identity, cloud, EDR, email, and more — correlated automatically.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>Automated Response</strong><span>Block IPs, disable sessions, create tickets — with human approval controls.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>Natural Language Search</strong><span>Query across all your databases using plain English instead of complex syntax.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>Full Audit Trail</strong><span>Every investigation, decision, and action logged for compliance and review.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>Dedicated Onboarding</strong><span>Our team handles deployment, configuration, and initial tuning — at no cost.</span></p>
+                </div>
+                <div class="included-item">
+                    <span class="included-check">[+]</span>
+                    <p><strong>24/7 Support</strong><span>Technical support available around the clock during and after the pilot.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing FAQ -->
+    <section class="pricing-faq">
+        <div class="container">
+            <h2>Pricing FAQ</h2>
+            <div class="pricing-faq-grid">
+                <details class="pricing-faq-item">
+                    <summary>Is there really no upfront cost?</summary>
+                    <div class="faq-answer">Correct. We deploy the full Sovereign SOC platform — BYODb SIEM and AI SOC Analyst — at our expense during the pilot. You pay nothing until we demonstrate measurable results.</div>
+                </details>
+                <details class="pricing-faq-item">
+                    <summary>What happens after the pilot?</summary>
+                    <div class="faq-answer">After the pilot, we review results together. If the outcomes meet your expectations, we move to a subscription. If not, you walk away with zero obligation. No lock-in, no penalties.</div>
+                </details>
+                <details class="pricing-faq-item">
+                    <summary>How is pricing structured?</summary>
+                    <div class="faq-answer">Pricing is outcome-based, not volume-based. There are zero per-GB ingestion fees. Contact <a href="mailto:sales@vigilense.ai" style="color: var(--accent);">sales@vigilense.ai</a> for a custom quote tailored to your environment.</div>
+                </details>
+                <details class="pricing-faq-item">
+                    <summary>Are there any hidden fees?</summary>
+                    <div class="faq-answer">No. There are no ingestion fees, no data transfer fees, no storage surcharges, and no surprise overages. Your data stays in your databases — we never move or copy it.</div>
+                </details>
+                <details class="pricing-faq-item">
+                    <summary>How long is the pilot?</summary>
+                    <div class="faq-answer">Typical pilots run 2–4 weeks, enough time to connect your databases, deploy the AI analyst, and measure results. Deployment itself takes days, not months.</div>
+                </details>
+                <details class="pricing-faq-item">
+                    <summary>Can I cancel anytime?</summary>
+                    <div class="faq-answer">Yes. There are no long-term commitments. You can cancel at any time with no penalties. We believe in earning your business through results, not contracts.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pricing-cta">
+        <div class="container">
+            <h2>Ready to See It in Action?</h2>
+            <p>Talk to our team about a risk-free pilot. No obligation, no upfront cost, no per-GB fees.</p>
+            <a href="/demo/" class="btn btn-primary btn-large">Talk to Sales →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - The Sovereign SOC platform" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/team/">Team</a></li>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>
