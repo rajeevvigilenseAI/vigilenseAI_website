@@ -2451,26 +2451,28 @@
                         {
                             label: 'AI SOC - Low Automation (60%)',
                             data: vigLowAutoData,
-                            borderColor: 'rgba(0,212,170,0.45)',
-                            backgroundColor: 'rgba(0,212,170,0.12)',
-                            borderWidth: 1,
-                            borderDash: [4, 4],
+                            borderColor: 'rgba(255,167,38,0.7)',
+                            backgroundColor: 'rgba(0,212,170,0.08)',
+                            borderWidth: 1.5,
+                            borderDash: [8, 4],
                             fill: '+1',
                             tension: 0.3,
-                            pointRadius: 0,
-                            pointHoverRadius: 4
+                            pointRadius: 2,
+                            pointHoverRadius: 5,
+                            pointStyle: 'triangle'
                         },
                         {
                             label: 'AI SOC - High Automation (90%)',
                             data: vigHighAutoData,
-                            borderColor: 'rgba(0,212,170,0.45)',
-                            backgroundColor: 'rgba(0,212,170,0.12)',
-                            borderWidth: 1,
-                            borderDash: [4, 4],
+                            borderColor: 'rgba(102,187,106,0.7)',
+                            backgroundColor: 'rgba(0,212,170,0.08)',
+                            borderWidth: 1.5,
+                            borderDash: [3, 3],
                             fill: false,
                             tension: 0.3,
-                            pointRadius: 0,
-                            pointHoverRadius: 4
+                            pointRadius: 2,
+                            pointHoverRadius: 5,
+                            pointStyle: 'rectRot'
                         },
                         {
                             label: 'AI Investigation Compute',
@@ -2660,26 +2662,28 @@
                         {
                             label: 'SOVEREIGN - Low Automation (60%)',
                             data: vigLowAutoData,
-                            borderColor: 'rgba(0,212,170,0.45)',
-                            backgroundColor: 'rgba(0,212,170,0.12)',
-                            borderWidth: 1,
-                            borderDash: [4, 4],
+                            borderColor: 'rgba(255,167,38,0.7)',
+                            backgroundColor: 'rgba(0,212,170,0.08)',
+                            borderWidth: 1.5,
+                            borderDash: [8, 4],
                             fill: '+1',
                             tension: 0.3,
-                            pointRadius: 0,
-                            pointHoverRadius: 4
+                            pointRadius: 2,
+                            pointHoverRadius: 5,
+                            pointStyle: 'triangle'
                         },
                         {
                             label: 'SOVEREIGN - High Automation (90%)',
                             data: vigHighAutoData,
-                            borderColor: 'rgba(0,212,170,0.45)',
-                            backgroundColor: 'rgba(0,212,170,0.12)',
-                            borderWidth: 1,
-                            borderDash: [4, 4],
+                            borderColor: 'rgba(102,187,106,0.7)',
+                            backgroundColor: 'rgba(0,212,170,0.08)',
+                            borderWidth: 1.5,
+                            borderDash: [3, 3],
                             fill: false,
                             tension: 0.3,
-                            pointRadius: 0,
-                            pointHoverRadius: 4
+                            pointRadius: 2,
+                            pointHoverRadius: 5,
+                            pointStyle: 'rectRot'
                         },
                         {
                             label: 'Savings %',
@@ -2760,7 +2764,7 @@
                             beginAtZero: !useSovLogScale
                         },
                         y2: {
-                            display: false,
+                            display: true,
                             type: 'linear',
                             position: 'right',
                             min: 0,
