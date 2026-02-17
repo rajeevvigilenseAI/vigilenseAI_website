@@ -1041,7 +1041,7 @@
                 <li>
                     <a href="#">Company</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/team/">Team</a></li>
+                        <!-- <li><a href="/team/">Team</a></li> -->
                         <li><a href="/careers/">Careers</a></li>
                         <li><a href="/security/">Security</a></li>
                     </ul>
@@ -1389,7 +1389,7 @@
                     <div class="footer-column">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="/team/">Team</a></li>
+                            <!-- <li><a href="/team/">Team</a></li> -->
                             <li><a href="/careers/">Careers</a></li>
                             <li><a href="/security/">About & Security</a></li>
                             <li><a href="/trust/">Trust Center</a></li>
@@ -2210,7 +2210,7 @@
 
         function renderTrendChart() {
 
-            var volumes = [1, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+            var volumes = [1, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
             var labels = volumes.map(function(v) { return v >= 1000 ? (v/1000) + ' TB' : v + ' GB'; });
 
             var legacyData = [], vigTotalData = [];
@@ -2587,9 +2587,7 @@
                 { gb: 200,   alerts: 450 },
                 { gb: 500,   alerts: 1000 },
                 { gb: 1000,  alerts: 1500 },
-                { gb: 2000,  alerts: 2500 },
-                { gb: 5000,  alerts: 3800 },
-                { gb: 10000, alerts: 5000 }
+                { gb: 2000,  alerts: 2500 }
             ];
 
             var labels = scales.map(function(s) {
