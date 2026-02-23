@@ -2211,7 +2211,7 @@
         function renderTrendChart() {
 
             var volumes = [1, 5, 10, 20, 50, 100, 200, 500, 1000, 2000];
-            var labels = volumes.map(function(v) { return v >= 1000 ? (v/1000) + ' TB' : v + ' GB'; });
+            var labels = volumes.map(function(v) { return v >= 1000 ? (v/1000) + 'T' : v + ''; });
 
             var legacyData = [], vigTotalData = [];
 
@@ -2285,6 +2285,10 @@
                             borderColor: 'rgba(255,255,255,0.1)',
                             borderWidth: 1,
                             callbacks: {
+                                title: function(items) {
+                                    var v = volumes[items[0].dataIndex];
+                                    return v >= 1000 ? (v/1000) + ' TB per day' : v + ' GB per day';
+                                },
                                 label: function(ctx) {
                                     var v = ctx.parsed.y;
                                     var label = ctx.dataset.label || '';
@@ -2296,6 +2300,13 @@
                     },
                     scales: {
                         x: {
+                            title: {
+                                display: true,
+                                text: 'GB per day',
+                                color: 'rgba(255,255,255,0.4)',
+                                font: { family: "'JetBrains Mono', monospace", size: 10, weight: '600' },
+                                padding: { top: 8 }
+                            },
                             ticks: {
                                 color: 'rgba(255,255,255,0.5)',
                                 font: { family: "'JetBrains Mono', monospace", size: 10 }
@@ -2399,7 +2410,7 @@
             var investLevels = [100, 250, 500, 1000, 2000, 3000, 5000, 7500, 10000];
             var investRate = P.socDefaults.investigationRate / 100;
             var labels = investLevels.map(function(inv) {
-                return inv >= 1000 ? (inv/1000) + 'K' : inv + '';
+                return inv >= 1000 ? (inv/1000) + 'K' : inv;
             });
 
             var humanData = [], vigData = [], aiComputeData = [], hilData = [];
@@ -2590,9 +2601,9 @@
                 { gb: 2000,  alerts: 2500 }
             ];
 
-            var labels = scales.map(function(s) {
-                var volLabel = s.gb >= 1000 ? (s.gb/1000) + ' TB' : s.gb + ' GB';
-                return volLabel + ' / ' + s.alerts + ' inv';
+            var labels = scales.map(function(s, i) {
+                var volLabel = s.gb >= 1000 ? (s.gb/1000) + 'T' : s.gb;
+                return volLabel + ' / ' + s.alerts;
             });
 
             var legacyData = [], vigData = [], savingsPctData = [];
@@ -2722,6 +2733,12 @@
                             borderColor: 'rgba(255,255,255,0.1)',
                             borderWidth: 1,
                             callbacks: {
+                                title: function(items) {
+                                    var idx = items[0].dataIndex;
+                                    var s = scales[idx];
+                                    var volLabel = s.gb >= 1000 ? (s.gb/1000) + ' TB' : s.gb + ' GB';
+                                    return volLabel + '  /  ' + s.alerts + ' Investigations per day';
+                                },
                                 label: function(ctx) {
                                     var v = ctx.parsed.y;
                                     var label = ctx.dataset.label || '';
@@ -2735,11 +2752,18 @@
                     },
                     scales: {
                         x: {
+                            title: {
+                                display: true,
+                                text: 'GB / Investigations per day',
+                                color: 'rgba(255,255,255,0.4)',
+                                font: { family: "'JetBrains Mono', monospace", size: 10, weight: '600' },
+                                padding: { top: 8 }
+                            },
                             ticks: {
                                 color: 'rgba(255,255,255,0.5)',
                                 font: { family: "'JetBrains Mono', monospace", size: 9 },
-                                maxRotation: 45,
-                                minRotation: 25
+                                maxRotation: 0,
+                                minRotation: 0
                             },
                             grid: { color: 'rgba(255,255,255,0.04)' }
                         },

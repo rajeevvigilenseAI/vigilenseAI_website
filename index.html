@@ -63,7 +63,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: auto; }
 
         body {
             font-family: var(--font-body);
@@ -74,9 +74,9 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1320px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
         /* --- Typography --- */
@@ -151,6 +151,18 @@
             background: var(--navy);
             color: #FFFFFF;
             font-weight: 700;
+            position: relative;
+        }
+        .hero-cta .btn-primary {
+            animation: ctaPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes ctaPulse {
+            0%   { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.5); }
+            50%  { box-shadow: 0 0 0 12px rgba(0, 212, 170, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
+        }
+        .hero-cta .btn-primary:hover {
+            animation: none;
         }
         .btn-primary:hover {
             background: #0F1E36;
@@ -185,6 +197,152 @@
             transition: opacity 0.2s;
         }
         .hero-why-link:hover { opacity: 0.7; }
+
+        /* --- Cost Simulator inside hero right column --- */
+        .hero-sim-col .cost-sim-wrap { width: 100%; }
+        .hero-sim-col .cost-sim-card {
+            border: 1px solid rgba(0,212,170,0.2) !important;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #0A1628 !important;
+            color: #fff !important;
+            box-shadow: 0 4px 40px rgba(10,22,40,0.15) !important;
+        }
+        .hero-sim-col .cost-sim-card p { color: rgba(255,255,255,0.45) !important; }
+        .hero-sim-col .cost-sim-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.015); }
+        .hero-sim-col .cost-sim-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.5) !important; }
+        .hero-sim-col .cost-sim-status { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #00D4AA !important; display: flex; align-items: center; gap: 6px; }
+        .hero-sim-col .cost-sim-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #00D4AA; animation: hero-wn-pulse 1.5s infinite; }
+        .hero-sim-col .cost-sim-status .dot.red { background: #FF6B6B; }
+        @keyframes hero-wn-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .hero-sim-col .sim-body-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; }
+        .hero-sim-col .sim-center { display: flex; flex-direction: column; border-left: 1px solid rgba(255,255,255,0.06); border-right: 1px solid rgba(255,255,255,0.06); }
+        .hero-sim-col .sim-shared-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+        .hero-sim-col .sim-shared-metric { text-align: center; padding: 8px 6px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.06); }
+        .hero-sim-col .sim-shared-metric:last-child { border-right: none; }
+        .hero-sim-col .sim-shared-metric-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.4) !important; display: block; margin-bottom: 2px; }
+        .hero-sim-col .sim-shared-metric-val { font-family: 'JetBrains Mono', monospace; font-size: clamp(0.9rem, 1.5vw, 1.2rem); font-weight: 700; color: #fff !important; display: block; transition: color 0.3s; }
+        .hero-sim-col .sim-shared-metric-val.danger { color: #FF6B6B !important; }
+        .hero-sim-col .agent-arena-row { flex: 1; background: rgba(0,0,0,0.3); position: relative; display: flex; flex-direction: column; }
+        .hero-sim-col .agent-arena-head { display: flex; justify-content: space-between; align-items: center; padding: 6px 12px 0; }
+        .hero-sim-col .agent-arena-label { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #00D4AA !important; }
+        .hero-sim-col .agent-arena-count { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #00D4AA !important; font-weight: 600; }
+        .hero-sim-col .agent-canvas { width: 100%; flex: 1; min-height: 140px; display: block; }
+        .hero-sim-col .sim-panel { padding: 12px 12px; display: flex; flex-direction: column; align-items: center; }
+        .hero-sim-col .sim-panel-legacy { background: rgba(255,60,60,0.03) !important; }
+        .hero-sim-col .sim-panel-vig { background: rgba(0,212,170,0.03) !important; }
+        .hero-sim-col .sim-panel-title { font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+        .hero-sim-col .sim-panel-legacy .sim-panel-title { color: #FF6B6B !important; }
+        .hero-sim-col .sim-panel-vig .sim-panel-title { color: #fff !important; text-transform: none; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.02em; }
+        .hero-sim-col .sim-panel-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: rgba(255,255,255,0.3) !important; margin-bottom: 6px; text-align: center; }
+        .hero-sim-col .panel-cost { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 3px; transition: color 0.4s; }
+        .hero-sim-col .sim-panel-legacy .panel-cost { color: #fff !important; }
+        .hero-sim-col .sim-panel-legacy .panel-cost.danger { color: #FF6B6B !important; }
+        .hero-sim-col .sim-panel-vig .panel-cost { color: #00D4AA !important; }
+        .hero-sim-col .panel-cost-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: rgba(255,255,255,0.3) !important; margin-bottom: 6px; }
+        @keyframes hero-cost-shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-3px)} 40%{transform:translateX(3px)} 60%{transform:translateX(-2px)} 80%{transform:translateX(2px)} }
+        .hero-sim-col .panel-cost.shake { animation: hero-cost-shake 0.4s ease; }
+        .hero-sim-col .panel-bar-wrap { width: 100%; height: 70px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 6px; }
+        .hero-sim-col .panel-bar { width: 60%; max-width: 80px; border-radius: 4px 4px 0 0; transition: height 0.8s cubic-bezier(0.25,0.46,0.45,0.94); min-height: 0; }
+        .hero-sim-col .sim-panel-legacy .panel-bar { background: linear-gradient(180deg, #FF6B6B 0%, #8B0000 100%) !important; }
+        .hero-sim-col .sim-panel-vig .panel-bar { background: linear-gradient(180deg, #00D4AA 0%, #007755 100%) !important; }
+        .hero-sim-col .panel-budget { width: 100%; margin-top: 2px; }
+        .hero-sim-col .panel-budget-head { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.56rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(255,255,255,0.4) !important; margin-bottom: 4px; }
+        .hero-sim-col .panel-budget-track { width: 100%; height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+        .hero-sim-col .panel-budget-fill { height: 100%; width: 0; border-radius: 3px; transition: width 0.8s cubic-bezier(0.25,0.46,0.45,0.94), background 0.5s; }
+        .hero-sim-col .sim-panel-legacy .panel-budget-fill { background: #FF6B6B !important; }
+        .hero-sim-col .sim-panel-vig .panel-budget-fill { background: #00D4AA !important; }
+        .hero-sim-col .panel-budget-alert { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 600; margin-top: 4px; text-align: center; opacity: 0; transition: opacity 0.5s; min-height: 14px; }
+        .hero-sim-col .panel-budget-alert.visible { opacity: 1; }
+        .hero-sim-col .sim-panel-legacy .panel-budget-alert { color: #FF6B6B !important; }
+        .hero-sim-col .sim-panel-vig .panel-budget-alert { color: #00D4AA !important; }
+        .hero-sim-col .sim-panel-vig .sim-panel-title img { height: 28px; width: 28px; object-fit: contain; vertical-align: middle; margin-right: 6px; opacity: 0.9; }
+        .hero-sim-col .sim-verdict { text-align: center; padding: 8px 14px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); }
+        .hero-sim-col .sim-verdict p { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: rgba(255,255,255,0.45) !important; margin: 0; line-height: 1.5; }
+        .hero-sim-col .sim-verdict .red { color: #FF6B6B !important; font-weight: 700; }
+        .hero-sim-col .sim-verdict .green { color: #00D4AA !important; font-weight: 700; }
+
+        /* Section 2: secondary text + terminal */
+        .hero-section-two {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 64px 0 72px;
+            background: var(--bg-secondary, #F2F5F7);
+            border-top: 1px solid var(--border-color, #E2E8F0);
+        }
+        .section-two-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .section-two-text {}
+        .s2-lead {
+            font-family: var(--font-mono);
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .s2-detail {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+        .s2-detail strong { color: var(--navy); }
+        .s2-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .s2-bullet {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .s2-bullet-icon {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.2);
+            border-radius: 4px;
+            padding: 4px 8px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .s2-bullet div {
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+        .s2-bullet strong { color: var(--navy); }
+        .section-two-terminal {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .section-two-terminal .hero-terminal {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-sim-col .sim-body-grid { grid-template-columns: 1fr; }
+            .hero-sim-col .sim-center { border-left: none; border-right: none; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+            .hero-sim-col .agent-canvas { min-height: 100px; }
+            .hero-sim-col .panel-bar-wrap { height: 50px; }
+            .hero-sim-col .cost-sim-header { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 12px; }
+        }
+        @media (max-width: 480px) {
+            .hero-sim-col .panel-cost { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+            .hero-sim-col .agent-canvas { min-height: 80px; }
+            .hero-sim-col .panel-bar-wrap { height: 40px; }
+        }
 
         /* Query Explosion Section */
         .query-explosion-section {
@@ -445,33 +603,47 @@
 
         /* Social Proof (inside hero) */
         .hero-social-proof {
-            text-align: center;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 6px;
+            padding: 10px 0;
+            flex-wrap: nowrap;
+            white-space: nowrap;
         }
         .social-proof-label {
             font-family: var(--font-mono);
             font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+            color: var(--navy);
+            font-weight: 700;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .social-proof-sep {
+            width: 1px;
+            height: 18px;
+            background: var(--navy);
+            opacity: 0.2;
+            flex-shrink: 0;
         }
         .industry-badges {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: nowrap;
         }
         .industry-badges span {
             font-family: var(--font-mono);
-            font-size: 0.72rem;
-            padding: 6px 16px;
-            border: 1px solid var(--border-color);
+            font-size: 0.7rem;
+            padding: 5px 14px;
+            background: var(--navy);
+            color: #fff;
             border-radius: 20px;
-            color: var(--navy);
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .hamburger {
@@ -491,7 +663,7 @@
            ============================ */
         .hero {
             position: relative;
-            padding: 100px 0 48px;
+            padding: 100px 0 36px;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -501,49 +673,154 @@
             position: absolute;
             inset: 0;
             z-index: 0;
+            overflow: hidden;
         }
 
         .hero-grid {
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(10, 22, 40, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10, 22, 40, 0.04) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(rgba(10, 22, 40, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 22, 40, 0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: heroGridDrift 18s linear infinite;
+        }
+        @keyframes heroGridDrift {
+            0%   { background-position: 0 0, 0 0; }
+            100% { background-position: 50px 50px, 50px 50px; }
         }
 
         .hero-glow {
             position: absolute;
-            top: -200px;
+            top: -180px;
             left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse, rgba(0, 212, 170, 0.08) 0%, transparent 70%);
+            width: 900px;
+            height: 700px;
+            background: radial-gradient(ellipse, rgba(0, 212, 170, 0.18) 0%, rgba(0, 212, 170, 0.04) 50%, transparent 70%);
             pointer-events: none;
+            animation: heroGlowFloat 8s ease-in-out infinite;
+        }
+        @keyframes heroGlowFloat {
+            0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.6; }
+            30%  { transform: translateX(-42%) translateY(-40px) scale(1.12); opacity: 1; }
+            70%  { transform: translateX(-55%) translateY(20px) scale(0.95); opacity: 0.75; }
+            100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.6; }
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: -60px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, rgba(0, 100, 80, 0.03) 40%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: heroOrb2 14s ease-in-out infinite;
+        }
+        @keyframes heroOrb2 {
+            0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            25%  { transform: translate(-80px, -50px) scale(1.15); opacity: 0.9; }
+            50%  { transform: translate(-30px, -80px) scale(1.05); opacity: 0.7; }
+            75%  { transform: translate(50px, -30px) scale(0.92); opacity: 0.85; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -50px;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.07) 0%, rgba(10, 22, 40, 0.04) 40%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: heroOrb3 16s ease-in-out infinite reverse;
+        }
+        @keyframes heroOrb3 {
+            0%   { transform: translate(0, 0) scale(1); opacity: 0.4; }
+            40%  { transform: translate(70px, 50px) scale(1.1); opacity: 0.8; }
+            80%  { transform: translate(30px, -30px) scale(0.96); opacity: 0.6; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+        }
+
+        #heroParticles {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        @media (max-width: 768px) {
+            #heroParticles { display: none; }
         }
 
         .hero .container {
             position: relative;
             z-index: 1;
+            max-width: 1380px;
+            padding: 0 28px;
         }
 
-        /* --- Split hero layout --- */
+        /* --- Split hero layout (33% text / 67% sim) --- */
         .hero-split {
             display: grid;
-            grid-template-columns: 1.22fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 33fr 67fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        /* Staggered entrance animation */
+        .hero-enter {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+        .hero-enter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3D tilt on simulator card */
+        .hero-sim-col {
+            perspective: 900px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-sim-col .cost-sim-wrap {
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .hero-sim-col .cost-sim-wrap:hover {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        /* Section two scroll reveal */
+        .s2-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+        }
+        .s2-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .hero-text {
             text-align: left;
             min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero-headline {
             font-family: var(--font-mono);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -552,14 +829,27 @@
             margin: 0;
         }
         .hero-headline .accent { color: var(--accent); }
+        .hero-headline .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 0.85em;
+            background: var(--accent);
+            margin-left: 4px;
+            vertical-align: baseline;
+            animation: cursorBlink 0.7s step-end infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
         .hero-subhead {
             font-family: var(--font-mono);
-            font-size: clamp(1.05rem, 2vw, 1.5rem);
+            font-size: clamp(0.95rem, 1.8vw, 1.25rem);
             font-weight: 700;
             color: var(--navy);
-            line-height: 1.25;
-            margin-top: 16px;
+            line-height: 1.35;
+            margin-top: 14px;
             letter-spacing: -0.01em;
         }
 
@@ -570,9 +860,9 @@
 
         .hero-cta {
             display: flex;
-            gap: 16px;
-            margin-top: 32px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-top: 28px;
+            margin-bottom: 0;
             flex-wrap: wrap;
             justify-content: flex-start;
         }
@@ -706,19 +996,34 @@
         /* --- Stats bar --- */
         .hero-stats-bar {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             flex-wrap: wrap;
+            margin-top: 20px;
             margin-bottom: 0;
             justify-content: flex-start;
         }
 
         .hero-stat {
             font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-secondary);
             display: flex;
-            align-items: center;
-            gap: 8px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+        .stat-number {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            opacity: 0.7;
         }
 
         .hero-subline {
@@ -749,8 +1054,12 @@
            3-4. PRODUCT SECTIONS (side by side)
            ============================ */
         .products-section {
-            padding: 80px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
         }
+        .products-section > .container { width: 100%; }
 
         .products-grid {
             display: grid;
@@ -761,9 +1070,11 @@
         .product-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 40px 36px;
+            border-radius: 8px;
+            padding: 32px 28px;
             transition: border-color 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -781,10 +1092,21 @@
 
         .product-desc {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 28px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
+        .product-link {
+            display: inline-block;
+            margin-top: auto;
+            padding-top: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .product-link:hover { opacity: 0.7; }
 
         .product-callout {
             font-family: var(--font-mono);
@@ -820,17 +1142,17 @@
 
         .feature-item h4 {
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             letter-spacing: -0.01em;
         }
 
         .feature-item p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.82rem;
+            line-height: 1.55;
         }
 
         @media (max-width: 900px) {
@@ -907,7 +1229,11 @@
            PRODUCT DASHBOARD PREVIEW
            ============================ */
         .dashboard-preview {
-            padding: 40px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
             position: relative;
             z-index: 2;
         }
@@ -917,9 +1243,26 @@
             margin: 0 auto;
             background: #0B1120;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 80px rgba(10, 22, 40, 0.4), 0 0 0 1px rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.12);
+            box-shadow: 0 20px 80px rgba(10, 22, 40, 0.5), 0 0 30px rgba(0, 212, 170, 0.06);
             overflow: hidden;
+            position: relative;
+        }
+        .dashboard-frame::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            right: 0;
+            height: 200%;
+            background: linear-gradient(transparent 40%, rgba(0, 212, 170, 0.03) 50%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+            animation: dashScanline 4s linear infinite;
+        }
+        @keyframes dashScanline {
+            0%   { transform: translateY(-25%); }
+            100% { transform: translateY(25%); }
         }
 
         .dash-topbar {
@@ -1087,7 +1430,18 @@
             gap: 10px;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            opacity: 0;
+            transform: translateX(-12px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
+        .dashboard-preview.in-view .dash-feed-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .dashboard-preview.in-view .dash-feed-item:nth-child(1) { transition-delay: 0.2s; }
+        .dashboard-preview.in-view .dash-feed-item:nth-child(2) { transition-delay: 0.4s; }
+        .dashboard-preview.in-view .dash-feed-item:nth-child(3) { transition-delay: 0.6s; }
+        .dashboard-preview.in-view .dash-feed-item:nth-child(4) { transition-delay: 0.8s; }
 
         .dash-feed-item:last-child { border-bottom: none; }
 
@@ -1136,7 +1490,18 @@
             border-radius: 3px 3px 0 0;
             position: relative;
             min-height: 8px;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
         }
+        .dashboard-preview.in-view .dash-bar { transform: scaleY(1); }
+        .dashboard-preview.in-view .dash-bar:nth-child(1) { transition-delay: 0.1s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(2) { transition-delay: 0.2s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(3) { transition-delay: 0.3s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(4) { transition-delay: 0.4s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(5) { transition-delay: 0.5s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(6) { transition-delay: 0.6s; }
+        .dashboard-preview.in-view .dash-bar:nth-child(7) { transition-delay: 0.7s; }
 
         .dash-bar .bar-fill {
             position: absolute;
@@ -1164,16 +1529,13 @@
 
         /* Fade-out bottom edge */
         .dashboard-frame::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(transparent, var(--bg-primary));
-            pointer-events: none;
+            display: none;
         }
 
+        .hero-section-two > .container,
+        .dashboard-preview > .container {
+            width: 100%;
+        }
         .dashboard-preview .container {
             position: relative;
         }
@@ -2026,24 +2388,23 @@
             .hero-terminal {
                 max-width: 680px;
             }
-            .hero-headline {
-                text-align: center;
+            .hero-headline { text-align: center; }
+            .hero-subhead { text-align: center; }
+            .hero-cta { justify-content: center; }
+            .hero-stats-bar { justify-content: center; flex-direction: row; }
+            .hero-sim-col { perspective: none; margin-top: 0; }
+            .hero-sim-col .cost-sim-wrap { transform: none !important; }
+            .hero-social-proof { justify-content: center; flex-wrap: wrap; white-space: normal; }
+
+            .section-two-split {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-            .hero-subhead {
-                text-align: center;
-            }
-            .hero-cta {
-                justify-content: center;
-            }
-            .hero-stats-bar {
-                justify-content: center;
-            }
-            .hero-subline {
-                text-align: center;
-            }
-            .hero-proof {
-                text-align: center;
-            }
+            .section-two-text { text-align: center; }
+            .s2-bullets { align-items: center; }
+            .s2-bullet { text-align: left; max-width: 480px; }
+            .section-two-terminal { justify-content: center; }
+            .section-two-terminal .hero-terminal { max-width: 100%; }
             .contact-layout { grid-template-columns: 1fr; }
             .contact-info { padding-top: 0; }
             .footer-content { grid-template-columns: 1fr; gap: 32px; }
@@ -2054,15 +2415,23 @@
             /* Nav sizing handled by styles.css */
             .sovereign-grid { grid-template-columns: 1fr; }
             .guarantee-items { grid-template-columns: 1fr; }
-            .hero-stats-bar { flex-direction: column; gap: 12px; align-items: center; }
+            .hero-stats-bar { flex-direction: row; gap: 16px; align-items: center; justify-content: center; }
+            .stat-number { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+            .stat-label { font-size: 0.58rem; }
             .form-row { grid-template-columns: 1fr; }
             .footer-links { grid-template-columns: 1fr 1fr; }
             .footer-bottom-content { flex-direction: column; gap: 12px; text-align: center; }
             .terminal-body { height: 280px; padding: 16px 18px; font-size: 0.68rem; }
-            .hero { padding: 90px 0 40px; min-height: auto; }
-            .hero-social-proof { margin-top: 32px; padding-top: 24px; }
+            .hero { padding: 90px 0 40px; min-height: auto; overflow: visible; }
+            .hero-section-two { min-height: auto; }
+            .dashboard-preview { min-height: auto; padding: 40px 0; }
+            .products-section { min-height: auto; padding: 60px 0; }
+            .hero-social-proof { flex-wrap: wrap; justify-content: center; white-space: normal; margin-top: 16px; gap: 10px; }
+            .social-proof-sep { display: none; }
+            .industry-badges { flex-wrap: wrap; justify-content: center; }
             .hero-headline { font-size: clamp(1.8rem, 8vw, 3rem); }
             .hero-subhead { font-size: clamp(0.85rem, 3vw, 1.2rem); }
+            .industry-badges span { font-size: 0.58rem; padding: 4px 10px; }
         }
 
         @media (max-width: 480px) {
@@ -2070,7 +2439,18 @@
             .footer-links { grid-template-columns: 1fr; gap: 24px; }
             .hero-headline { font-size: 1.6rem; letter-spacing: 0.04em; }
             .hero-subhead { font-size: 0.85rem; }
+            .hero-cta { flex-direction: column; gap: 10px; }
             .hero-cta .btn-large { padding: 14px 24px; font-size: 0.85rem; width: 100%; text-align: center; }
+            .hero-stats-bar { flex-direction: column; gap: 10px; }
+            .stat-number { font-size: 1.1rem; }
+            .social-proof-label { font-size: 0.55rem; text-align: center; }
+            .industry-badges span { font-size: 0.55rem; padding: 3px 8px; }
+            .hero .container { padding: 0 16px; }
+            .s2-lead { font-size: 0.95rem; }
+            .s2-detail { font-size: 0.85rem; }
+            .s2-bullet div { font-size: 0.82rem; }
+            .dash-metrics { grid-template-columns: 1fr 1fr; }
+            .dashboard-frame { border-radius: 8px; }
             .container { padding: 0 16px; }
             .contact-form-container { padding: 24px 16px; }
             .sovereign-card { padding: 28px 20px; }
@@ -2286,8 +2666,9 @@
             .contact-info p { font-size: 0.92rem; }
 
             /* Social proof badges smaller */
-            .industry-badges span { font-size: 0.65rem; padding: 5px 12px; }
-            .social-proof-label { font-size: 0.65rem; }
+            .industry-badges span { font-size: 0.58rem; padding: 4px 10px; }
+            .industry-badges { flex-wrap: wrap; justify-content: center; }
+            .social-proof-label { font-size: 0.58rem; }
 
             /* Product cards */
             .product-card { padding: 24px 18px; }
@@ -2427,37 +2808,156 @@
         <div class="hero-bg">
             <div class="hero-grid"></div>
             <div class="hero-glow"></div>
+            <canvas id="heroParticles"></canvas>
         </div>
         <div class="container">
             <div class="hero-split">
-                <!-- Left column: text content -->
-                <div class="hero-text">
-                    <h1 class="hero-headline">The Sovereign<br><span class="accent">SOC</span></h1>
-                    <h2 class="hero-subhead"><span class="navy-mark">BYODb SIEM</span> <span style="font-size:0.7em;opacity:0.7;">(Bring Your Own Database)</span> Detects on your data platforms.<br><span class="navy-mark">AI SOC</span> Investigates and resolves autonomously.</h2>
-                    <div class="hero-cta">
+                <!-- Left column: essential text only -->
+                <div class="hero-text" id="heroText">
+                    <h1 class="hero-headline hero-enter" style="transition-delay:0s">The Sovereign<br><span class="accent" id="heroSOC"></span></h1>
+                    <h2 class="hero-subhead hero-enter" style="transition-delay:0.15s"><span class="navy-mark">BYODb SIEM</span> detects on your data.<br><span class="navy-mark">AI SOC</span> investigates and resolves autonomously.</h2>
+                    <div class="hero-stats-bar hero-enter" style="transition-delay:0.3s">
+                        <div class="hero-stat"><span class="stat-number" data-target="4.3" data-prefix="$" data-suffix="M" data-decimals="1">$0</span><span class="stat-label">wasted on ingestion/yr</span></div>
+                        <div class="hero-stat"><span class="stat-number" data-target="12" data-suffix="x" data-decimals="0">0</span><span class="stat-label">savings with Vigilense</span></div>
+                        <div class="hero-stat"><span class="stat-number" data-target="30" data-prefix="<" data-suffix="s" data-decimals="0">0</span><span class="stat-label">to investigate</span></div>
+                    </div>
+                    <div class="hero-cta hero-enter" style="transition-delay:0.45s">
                         <a href="/demo/" class="btn btn-primary btn-large">Book a Demo</a>
+                        <a href="/why-now/" class="btn btn-secondary btn-large">Why Now</a>
                     </div>
-                    <div class="hero-stats-bar">
-                        <div class="hero-stat">
-                            <span class="stat-dot"></span>
-                            <span>No SIEM Ingestion Tax</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="stat-dot"></span>
-                            <span>Autonomous AI SOC</span>
-                        </div>
-                        <div class="hero-stat">
-                            <span class="stat-dot"></span>
-                            <span>Human in Loop</span>
-                        </div>
-                    </div>
-                    <p class="hero-subline">The average enterprise spends more on log ingestion than on the analysts reading them.</p>
-                    <p class="hero-subline" style="font-size: 0.8rem; opacity: 0.6; margin-top: 8px;">The global SIEM market is projected to exceed $28B by 2028. Most of that spend is wasted on log ingestion.</p>
-                    <a href="/why-now/" class="hero-why-link">Why the SOC must change →</a>
                 </div>
 
-                <!-- Right column: terminal -->
-                <div class="hero-terminal-col">
+                <!-- Right column: Cost Simulator (65%) -->
+                <div class="hero-terminal-col hero-sim-col hero-enter" style="transition-delay:0.3s">
+                    <div class="cost-sim-wrap" id="costAnim">
+                        <div class="cost-sim-card">
+                            <div class="cost-sim-header">
+                                <span class="cost-sim-title">Your Cybersecurity Budget</span>
+                                <span class="cost-sim-status"><span class="dot" id="simDot"></span> <span id="simStatus">Waiting...</span></span>
+                            </div>
+                            <div class="sim-body-grid">
+                                <div class="sim-panel sim-panel-legacy">
+                                    <div class="sim-panel-title">Legacy SIEM</div>
+                                    <div class="sim-panel-sub">Per-GB ingestion pricing</div>
+                                    <div class="panel-cost" id="legacyCost">$0</div>
+                                    <div class="panel-cost-label">Annual cost</div>
+                                    <div class="panel-bar-wrap">
+                                        <div class="panel-bar" id="legacyBar" style="height:0;"></div>
+                                    </div>
+                                    <div class="panel-budget">
+                                        <div class="panel-budget-head">
+                                            <span>Budget Used</span>
+                                            <span id="legacyBudgetPct">0%</span>
+                                        </div>
+                                        <div class="panel-budget-track">
+                                            <div class="panel-budget-fill" id="legacyBudgetFill"></div>
+                                        </div>
+                                        <div class="panel-budget-alert" id="legacyAlert">80% budget gone to ingestion</div>
+                                    </div>
+                                    <div class="panel-verdict-tag" id="legacyVerdict" style="opacity:0; transition: opacity 0.6s; margin-top: 12px; padding: 6px 16px; border: 1px solid #FF6B6B; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FF6B6B;">Unsustainable</div>
+                                </div>
+                                <div class="sim-center">
+                                    <div class="sim-shared-metrics">
+                                        <div class="sim-shared-metric">
+                                            <span class="sim-shared-metric-label">Agents</span>
+                                            <span class="sim-shared-metric-val" id="metricAgents">0</span>
+                                        </div>
+                                        <div class="sim-shared-metric">
+                                            <span class="sim-shared-metric-label">Queries/Event</span>
+                                            <span class="sim-shared-metric-val" id="metricQueries">1x</span>
+                                        </div>
+                                        <div class="sim-shared-metric">
+                                            <span class="sim-shared-metric-label">Total Queries/Day</span>
+                                            <span class="sim-shared-metric-val" id="metricVolume">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="agent-arena-row">
+                                        <div class="agent-arena-head">
+                                            <span class="agent-arena-label">AI SOC Agents</span>
+                                            <span class="agent-arena-count" id="arenaCount">0 / 100 active</span>
+                                        </div>
+                                        <canvas class="agent-canvas" id="agentCanvas"></canvas>
+                                    </div>
+                                </div>
+                                <div class="sim-panel sim-panel-vig">
+                                    <div class="sim-panel-title"><img src="/vigilense-logo.png?v=2" alt="Vigilense AI">Vigilense <span style="color: #00D4AA;">AI</span></div>
+                                    <div class="sim-panel-sub">BYODb - zero ingestion fees</div>
+                                    <div class="panel-cost" id="vigCost">$0</div>
+                                    <div class="panel-cost-label">Processing + detection</div>
+                                    <div class="panel-bar-wrap">
+                                        <div class="panel-bar" id="vigBar" style="height:0;"></div>
+                                    </div>
+                                    <div class="panel-budget">
+                                        <div class="panel-budget-head">
+                                            <span>Budget Used</span>
+                                            <span id="vigBudgetPct">0%</span>
+                                        </div>
+                                        <div class="panel-budget-track">
+                                            <div class="panel-budget-fill" id="vigBudgetFill"></div>
+                                        </div>
+                                        <div class="panel-budget-alert" id="vigAlert">15% of budget. Rest goes to security.</div>
+                                    </div>
+                                    <div class="panel-verdict-tag" id="vigVerdict" style="opacity:0; transition: opacity 0.6s; margin-top: 12px; padding: 6px 16px; border: 1px solid #00D4AA; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #00D4AA;">Future-Proof</div>
+                                </div>
+                            </div>
+                            <div class="sim-verdict" id="simVerdict">
+                                <p>Deploy AI agents to see the cost impact...</p>
+                            </div>
+                            <div style="text-align: center; padding: 12px 0 4px;">
+                                <a href="/cost-simulator/" style="color: #00D4AA; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(0,212,170,0.3); opacity: 0.85;">Run a detailed comparison in our Cost Simulator &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social proof - bottom of right column -->
+                    <div class="hero-social-proof hero-enter" style="transition-delay:0.55s">
+                        <p class="social-proof-label">In pilot with enterprise security teams across</p>
+                        <span class="social-proof-sep"></span>
+                        <div class="industry-badges">
+                            <span>Technology</span>
+                            <span>Financial Services</span>
+                            <span>Healthcare</span>
+                            <span>Government</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTION 2: Secondary text + Terminal CLI
+         ======================================== -->
+    <div class="hero-section-two">
+        <div class="container">
+            <div class="section-two-split">
+                <div class="section-two-text s2-reveal">
+                    <p class="s2-lead">The average enterprise spends more on log ingestion than on the analysts reading them.</p>
+                    <p class="s2-detail">The global SIEM market is projected to exceed <strong>$28B by 2028</strong>. Most of that spend is wasted on ingestion fees, not security outcomes.</p>
+                    <div class="s2-bullets">
+                        <div class="s2-bullet">
+                            <span class="s2-bullet-icon">01</span>
+                            <div>
+                                <strong>BYODb</strong> - Bring Your Own Database. Query your existing data platforms. Zero ingestion costs.
+                            </div>
+                        </div>
+                        <div class="s2-bullet">
+                            <span class="s2-bullet-icon">02</span>
+                            <div>
+                                <strong>AI SOC Analyst</strong> - Every alert investigated 3 layers deep. Autonomous resolution in seconds.
+                            </div>
+                        </div>
+                        <div class="s2-bullet">
+                            <span class="s2-bullet-icon">03</span>
+                            <div>
+                                <strong>Sovereign</strong> - Your data stays in your infrastructure. No vendor lock-in. Full control.
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/why-now/" class="hero-why-link" style="margin-top: 24px;">Why the SOC must change &rarr;</a>
+                </div>
+                <div class="section-two-terminal s2-reveal" style="transition-delay:0.2s">
                     <div class="hero-terminal">
                         <div class="terminal-bar">
                             <span class="terminal-dot red"></span>
@@ -2473,19 +2973,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Social proof inside hero, below the split -->
-            <div class="hero-social-proof">
-                <p class="social-proof-label">In pilot with enterprise security teams across</p>
-                <div class="industry-badges">
-                    <span>Technology</span>
-                    <span>Financial Services</span>
-                    <span>Healthcare</span>
-                    <span>Government</span>
-                </div>
-            </div>
         </div>
-    </section>
+    </div>
 
     <!-- ========================================
          PRODUCT DASHBOARD PREVIEW
@@ -2520,17 +3009,17 @@
                     <div class="dash-metrics">
                         <div class="dash-metric">
                             <div class="dash-metric-label">Alerts Processed (24h)</div>
-                            <div class="dash-metric-value">12,847</div>
+                            <div class="dash-metric-value">0</div>
                             <div class="dash-metric-change">+18% vs last week</div>
                         </div>
                         <div class="dash-metric">
                             <div class="dash-metric-label">Mean Time to Resolve</div>
-                            <div class="dash-metric-value accent">14s</div>
+                            <div class="dash-metric-value accent">0s</div>
                             <div class="dash-metric-change">from 4.2 hrs (manual)</div>
                         </div>
                         <div class="dash-metric">
                             <div class="dash-metric-label">Auto-Resolved by AI</div>
-                            <div class="dash-metric-value">94.2%</div>
+                            <div class="dash-metric-value">0%</div>
                             <div class="dash-metric-change">1,091 cases closed</div>
                         </div>
                         <div class="dash-metric">
@@ -2610,93 +3099,26 @@
                 <div class="product-card">
                     <span class="section-tag">1</span>
                     <h2 class="section-title"><a href="/platform/ai-soc-analyst/" style="color: inherit; text-decoration: none;">AI SOC Analyst</a></h2>
-                    <p class="product-desc">An autonomous analyst that investigates, triages, and resolves threats alongside your team.</p>
+                    <p class="product-desc">Real investigation, not repackaged alerts. 3-layer blast radius analysis with full forensic narratives.</p>
                     <div class="product-features">
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>AI-powered investigations</h4>
-                                <p>Enriches alerts across 50+ sources, correlates signals, and delivers verdicts in seconds.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Resolution in seconds, not hours</h4>
-                                <p>Automated containment, ticketing, and notification with full audit trails.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Learns from your team's decisions</h4>
-                                <p>Absorbs tribal knowledge: escalation patterns, asset criticality, what's normal in your environment.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Human-in-the-loop, not human-out-of-the-loop</h4>
-                                <p>Every containment action - blocking an IP, disabling a session, isolating an endpoint - requires explicit approval unless you say otherwise. Per-action policy guardrails, severity-based overrides, and one-click rollback on every action taken. Your AI analyst never acts outside the boundaries you set.</p>
-                            </div>
-                        </div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>50+ source enrichment</h4><p>Correlates signals across endpoints, identity, network and threat intel. Verdicts in seconds.</p></div></div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>Autonomous resolution</h4><p>Containment, ticketing, and notification with full audit trails and one-click rollback.</p></div></div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>Human-in-the-loop</h4><p>Per-action guardrails, severity overrides. Your AI never acts outside the boundaries you set.</p></div></div>
                     </div>
-                    <a href="/platform/ai-soc-analyst/" style="display: inline-block; margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600;">Learn more about AI SOC Analyst →</a>
+                    <a href="/platform/ai-soc-analyst/" class="product-link">Learn more about AI SOC Analyst &rarr;</a>
                 </div>
 
                 <!-- BYODb SIEM -->
                 <div class="product-card">
                     <span class="section-tag">2</span>
                     <h2 class="section-title"><a href="/platform/byodb-siem/" style="color: inherit; text-decoration: none;">BYODb SIEM</a></h2>
-                    <p class="product-desc">A SIEM that runs on your existing databases. No ingestion pipeline. No vendor lock-in.</p>
+                    <p class="product-desc">Your data is already in Snowflake/Elasticsearch. Stop paying six figures to copy it somewhere else.</p>
                     <div class="product-features">
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Query your databases in place</h4>
-                                <p>OpenSearch, Elasticsearch, Snowflake, MS Sentinel, Security Lakes. Connected in days, not months.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>No data movement, no duplication</h4>
-                                <p>Your telemetry stays where it is. Zero egress. Zero replication costs.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Natural language search</h4>
-                                <p>Ask questions in plain English. The AI generates and executes the queries across your databases.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-marker"></span>
-                            <div>
-                                <h4>Zero per-GB ingestion fees</h4>
-                                <p>Stop paying to store your own data. Move your budget from ingestion to intelligence.</p>
-                            </div>
-                        </div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>Query databases in place</h4><p>OpenSearch, Snowflake, MS Sentinel, Security Lakes. Connected in days, not months.</p></div></div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>Zero data movement</h4><p>Telemetry stays where it is. No egress, no duplication, no ingestion pipeline.</p></div></div>
+                        <div class="feature-item"><span class="feature-marker"></span><div><h4>Zero per-GB fees</h4><p>Move your budget from ingestion to intelligence. Natural language search across all sources.</p></div></div>
                     </div>
-                    <a href="/platform/byodb-siem/" style="display: inline-block; margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600;">Learn more about BYODb SIEM →</a>
-                </div>
-            </div>
-
-            <!-- Side-by-side callouts -->
-            <div class="product-callouts-grid">
-                <div class="product-callout-card callout-accent">
-                    <span class="callout-label">AI SOC Analyst</span>
-                    <h3>Real Investigation. Not Repackaged Alerts.</h3>
-                    <p>Most AI SOC tools take your alert data, feed it to an LLM, and return the same information dressed up in AI jargon with a probability score attached. That's not investigation - that's summarization.</p>
-                    <p>Vigilense AI SOC Agents perform <strong>3-layer blast radius investigation</strong> - pivoting from the initial alert to correlated endpoints, identities, network activity, and threat intelligence. Each layer deepens the context. The result is a full forensic narrative with a deterministic evidence chain, not a reworded alert with "87% confidence."</p>
-                </div>
-                <div class="product-callout-card callout-navy">
-                    <span class="callout-label">BYODb SIEM</span>
-                    <h3>Your data is already in Snowflake/Elasticsearch.</h3>
-                    <p>So why are you paying six figures to copy it somewhere else?</p>
-                    <p>Legacy SIEMs require you to duplicate every byte of telemetry into their proprietary storage before a single query can run. That's not security architecture - that's a toll booth on your own data.</p>
-                    <p>BYODb means investigation queries execute directly on <strong>your existing databases</strong>. You pay for storage once. No ingestion pipeline. No vendor lock-in. No per-GB tax.</p>
+                    <a href="/platform/byodb-siem/" class="product-link">Learn more about BYODb SIEM &rarr;</a>
                 </div>
             </div>
         </div>
@@ -3527,6 +3949,572 @@
                 // Done. Terminal stays static.
             })();
         })();
+    </script>
+    <script>
+    (function() {
+        var costSection = document.getElementById('costAnim');
+        if (!costSection) return;
+
+        var agentSim = null;
+        (function() {
+            var canvas = document.getElementById('agentCanvas');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var dpr = window.devicePixelRatio || 1;
+            var agents = [];
+            var queries = [];
+            var targetCount = 0;
+            var phase = 0;
+            var animId;
+
+            function resize() {
+                var rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = rect.height * dpr;
+                ctx.scale(dpr, dpr);
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            var W = function() { return canvas.width / dpr; };
+            var H = function() { return canvas.height / dpr; };
+
+            var colors = [
+                { r: 0, g: 212, b: 170 },
+                { r: 90, g: 140, b: 255 },
+                { r: 150, g: 110, b: 255 }
+            ];
+
+            function spawnAgent() {
+                var r = 3.5;
+                agents.push({
+                    x: r + Math.random() * (W() - r * 2),
+                    y: r + Math.random() * (H() - r * 2),
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    r: r,
+                    nextFire: performance.now() + 400 + Math.random() * 1200,
+                    pulse: Math.random() * Math.PI * 2
+                });
+            }
+
+            var labels = ['API', 'Query', 'LLM', 'Processing', 'Search', 'Detect', 'Enrich', 'Correlate', 'Ingest', 'Analyze'];
+
+            function fireQuery(ax, ay) {
+                var angle = Math.random() * Math.PI * 2;
+                var speed = 0.4 + Math.random() * 0.6;
+                var showLabel = Math.random() < 0.15;
+                queries.push({
+                    x: ax, y: ay,
+                    vx: Math.cos(angle) * speed * (showLabel ? 0.3 : 1),
+                    vy: Math.sin(angle) * speed * (showLabel ? 0.3 : 1),
+                    life: 1,
+                    decay: showLabel ? 0.002 + Math.random() * 0.003 : 0.008 + Math.random() * 0.012,
+                    label: showLabel ? labels[Math.floor(Math.random() * labels.length)] : null
+                });
+            }
+
+            function draw(now) {
+                var w = W(), h = H();
+                ctx.clearRect(0, 0, w, h);
+                var c = colors[phase] || colors[0];
+                while (agents.length < targetCount) spawnAgent();
+                for (var i = 0; i < agents.length; i++) {
+                    var a = agents[i];
+                    a.x += a.vx; a.y += a.vy;
+                    if (a.x < a.r) { a.x = a.r; a.vx *= -1; }
+                    if (a.x > w - a.r) { a.x = w - a.r; a.vx *= -1; }
+                    if (a.y < a.r) { a.y = a.r; a.vy *= -1; }
+                    if (a.y > h - a.r) { a.y = h - a.r; a.vy *= -1; }
+                    a.vx += (Math.random() - 0.5) * 0.03;
+                    a.vy += (Math.random() - 0.5) * 0.03;
+                    var spd = Math.sqrt(a.vx * a.vx + a.vy * a.vy);
+                    if (spd > 0.7) { a.vx *= 0.7 / spd; a.vy *= 0.7 / spd; }
+                    if (now > a.nextFire) {
+                        for (var b = 0; b < 1 + Math.floor(Math.random() * 2); b++) fireQuery(a.x, a.y);
+                        a.nextFire = now + 500 + Math.random() * 1200;
+                    }
+                    a.pulse += 0.04;
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + (0.15 + Math.sin(a.pulse) * 0.08) + ')';
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',0.85)';
+                    ctx.fill();
+                }
+                for (var q = queries.length - 1; q >= 0; q--) {
+                    var p = queries[q];
+                    p.x += p.vx; p.y += p.vy; p.life -= p.decay;
+                    if (p.life <= 0) { queries.splice(q, 1); continue; }
+                    var alpha = p.life * 0.6;
+                    if (p.label) {
+                        ctx.font = '700 ' + (w < 300 ? 12 : w < 500 ? 16 : 20) + 'px JetBrains Mono, monospace';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + Math.min(alpha * 1.4, 0.85) + ')';
+                        ctx.fillText(p.label, p.x, p.y);
+                    } else {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + alpha + ')';
+                        ctx.fill();
+                    }
+                }
+                animId = requestAnimationFrame(draw);
+            }
+
+            agentSim = {
+                setTarget: function(n) { targetCount = n; },
+                setPhase: function(p) { phase = p; },
+                start: function() { animId = requestAnimationFrame(draw); },
+                stop: function() { cancelAnimationFrame(animId); },
+                reset: function() { agents.length = 0; queries.length = 0; targetCount = 0; phase = 0; }
+            };
+        })();
+
+        var simRan = false;
+        var costObs = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !simRan) {
+                simRan = true;
+                if (agentSim) agentSim.start();
+                runCostSim();
+                costObs.unobserve(costSection);
+            }
+        }, { threshold: 0.15 });
+        costObs.observe(costSection);
+
+        function runCostSim() {
+            var simStatus = document.getElementById('simStatus');
+            var simDot = document.getElementById('simDot');
+            var arenaCount = document.getElementById('arenaCount');
+            var mAgents = document.getElementById('metricAgents');
+            var mQueries = document.getElementById('metricQueries');
+            var mVolume = document.getElementById('metricVolume');
+            var legacyCost = document.getElementById('legacyCost');
+            var vigCost = document.getElementById('vigCost');
+            var legacyBar = document.getElementById('legacyBar');
+            var vigBar = document.getElementById('vigBar');
+            var legacyBudgetPct = document.getElementById('legacyBudgetPct');
+            var legacyBudgetFill = document.getElementById('legacyBudgetFill');
+            var legacyAlert = document.getElementById('legacyAlert');
+            var vigBudgetPct = document.getElementById('vigBudgetPct');
+            var vigBudgetFill = document.getElementById('vigBudgetFill');
+            var vigAlert = document.getElementById('vigAlert');
+            var verdict = document.getElementById('simVerdict');
+            var legacyVerdict = document.getElementById('legacyVerdict');
+            var vigVerdict = document.getElementById('vigVerdict');
+
+            function fmt(n) {
+                if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+                if (n >= 1000) return '$' + Math.round(n/1000).toLocaleString() + 'K';
+                return '$' + n.toLocaleString();
+            }
+            function fmtVol(n) {
+                if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+                if (n >= 1000) return n.toLocaleString();
+                return n.toString();
+            }
+
+            var steps = [
+                { agents: 1,  qm: '1x',  vol: 500,   cost: 1218000, budget: 63,  barH: 18, vc: 330000,  vb: 17, vBarH: 5 },
+                { agents: 2,  qm: '1x',  vol: 600,   cost: 1280000, budget: 66,  barH: 20, vc: 332000,  vb: 17, vBarH: 5 },
+                { agents: 4,  qm: '2x',  vol: 900,   cost: 1400000, budget: 72,  barH: 25, vc: 335000,  vb: 17, vBarH: 5 },
+                { agents: 6,  qm: '2x',  vol: 1200,  cost: 1520000, budget: 78,  barH: 30, vc: 337000,  vb: 17, vBarH: 5 },
+                { agents: 8,  qm: '3x',  vol: 1600,  cost: 1680000, budget: 86,  barH: 35, vc: 340000,  vb: 17, vBarH: 5 },
+                { agents: 12, qm: '3x',  vol: 2100,  cost: 1900000, budget: 98,  barH: 42, vc: 343000,  vb: 18, vBarH: 6 },
+                { agents: 16, qm: '4x',  vol: 2800,  cost: 2150000, budget: 110, barH: 48, vc: 345000,  vb: 18, vBarH: 6 },
+                { agents: 20, qm: '5x',  vol: 3500,  cost: 2450000, budget: 126, barH: 55, vc: 348000,  vb: 18, vBarH: 6 },
+                { agents: 24, qm: '5x',  vol: 4000,  cost: 2650000, budget: 136, barH: 60, vc: 350000,  vb: 18, vBarH: 6 },
+                { agents: 32, qm: '6x',  vol: 5000,  cost: 3000000, budget: 154, barH: 68, vc: 352000,  vb: 18, vBarH: 6 },
+                { agents: 40, qm: '7x',  vol: 5800,  cost: 3300000, budget: 170, barH: 74, vc: 355000,  vb: 18, vBarH: 6 },
+                { agents: 48, qm: '7x',  vol: 6500,  cost: 3550000, budget: 182, barH: 80, vc: 357000,  vb: 18, vBarH: 7 },
+                { agents: 56, qm: '8x',  vol: 7200,  cost: 3750000, budget: 193, barH: 84, vc: 360000,  vb: 18, vBarH: 7 },
+                { agents: 64, qm: '8x',  vol: 7800,  cost: 3950000, budget: 203, barH: 88, vc: 362000,  vb: 19, vBarH: 7 },
+                { agents: 72, qm: '9x',  vol: 8500,  cost: 4100000, budget: 211, barH: 92, vc: 365000,  vb: 19, vBarH: 7 },
+                { agents: 80, qm: '10x', vol: 9000,  cost: 4350000, budget: 224, barH: 92, vc: 368000,  vb: 19, vBarH: 7 },
+                { agents: 90, qm: '10x', vol: 9500,  cost: 4650000, budget: 239, barH: 96, vc: 370000,  vb: 19, vBarH: 7 },
+                { agents: 100, qm: '10x', vol: 10000, cost: 4900000, budget: 252, barH: 100, vc: 372000, vb: 19, vBarH: 7 }
+            ];
+
+            var stepIdx = 0;
+            function startSim() {
+                stepIdx = 0;
+                if (agentSim) { agentSim.setTarget(0); agentSim.setPhase(0); agentSim.reset(); }
+                if (arenaCount) arenaCount.textContent = '0 / 100 active';
+                if (mAgents) mAgents.textContent = '0';
+                if (mQueries) mQueries.textContent = '1x';
+                if (mVolume) { mVolume.textContent = '-'; mVolume.classList.remove('danger'); }
+                if (legacyCost) { legacyCost.textContent = '$0'; legacyCost.classList.remove('danger'); }
+                if (legacyBar) legacyBar.style.height = '0%';
+                if (legacyBudgetPct) legacyBudgetPct.textContent = '0%';
+                if (legacyBudgetFill) legacyBudgetFill.style.width = '0%';
+                if (legacyAlert) legacyAlert.classList.remove('visible');
+                if (vigCost) vigCost.textContent = '$0';
+                if (vigBar) vigBar.style.height = '0%';
+                if (vigBudgetPct) vigBudgetPct.textContent = '0%';
+                if (vigBudgetFill) vigBudgetFill.style.width = '0%';
+                if (vigAlert) vigAlert.classList.remove('visible');
+                if (legacyVerdict) legacyVerdict.style.opacity = '0';
+                if (vigVerdict) vigVerdict.style.opacity = '0';
+                if (simStatus) simStatus.textContent = 'Initializing...';
+                if (simDot) simDot.classList.remove('red');
+                if (verdict) verdict.innerHTML = '<p>Deploy AI agents to see the cost impact...</p>';
+                setTimeout(function() {
+                    if (simStatus) simStatus.textContent = 'Deploying agents...';
+                    runStep();
+                }, 1200);
+            }
+            function runStep() {
+                if (stepIdx >= steps.length) {
+                    if (simStatus) simStatus.textContent = 'Simulation complete';
+                    if (simDot) simDot.classList.remove('red');
+                    if (legacyAlert) legacyAlert.classList.add('visible');
+                    setTimeout(function() { if (vigAlert) vigAlert.classList.add('visible'); }, 600);
+                    setTimeout(function() {
+                        if (legacyVerdict) legacyVerdict.style.opacity = '1';
+                        if (vigVerdict) vigVerdict.style.opacity = '1';
+                    }, 1000);
+                    setTimeout(function() {
+                        if (verdict) verdict.innerHTML = '<p>Same 80 AI agents. Up to 10K total queries/day.<br><span class="red">$4.35M and 224% of budget gone</span> on legacy vs <span class="green">$368K and 19% with Vigilense AI</span>.<br>12x savings. Your budget goes to security, not ingestion.</p>';
+                    }, 1400);
+                    setTimeout(startSim, 14000);
+                    return;
+                }
+                var s = steps[stepIdx];
+                if (agentSim) {
+                    agentSim.setTarget(s.agents);
+                    agentSim.setPhase(s.budget > 50 ? 2 : s.budget > 25 ? 1 : 0);
+                }
+                if (arenaCount) arenaCount.textContent = s.agents + ' / 100 active';
+                if (mAgents) mAgents.textContent = s.agents;
+                if (mQueries) mQueries.textContent = s.qm;
+                if (mVolume) { mVolume.textContent = fmtVol(s.vol); if (s.cost >= 2000000) mVolume.classList.add('danger'); }
+                if (legacyCost) { legacyCost.textContent = fmt(s.cost); if (s.cost >= 2500000) { legacyCost.classList.add('danger'); legacyCost.classList.add('shake'); setTimeout(function() { legacyCost.classList.remove('shake'); }, 400); } }
+                if (legacyBar) legacyBar.style.height = s.barH + '%';
+                if (legacyBudgetPct) legacyBudgetPct.textContent = s.budget + '%';
+                if (legacyBudgetFill) legacyBudgetFill.style.width = s.budget + '%';
+                if (vigCost) vigCost.textContent = fmt(s.vc);
+                if (vigBar) vigBar.style.height = s.vBarH + '%';
+                if (vigBudgetPct) vigBudgetPct.textContent = s.vb + '%';
+                if (vigBudgetFill) vigBudgetFill.style.width = s.vb + '%';
+                if (simStatus) {
+                    if (s.budget > 50) { simStatus.textContent = 'Budget critical - ' + s.agents + ' agents, ' + s.qm + ' queries'; if (simDot) simDot.classList.add('red'); }
+                    else if (s.budget > 25) simStatus.textContent = 'Costs accelerating - ' + s.agents + ' agents active';
+                    else simStatus.textContent = 'Deploying ' + s.agents + ' agent' + (s.agents > 1 ? 's' : '') + '...';
+                }
+                stepIdx++;
+                setTimeout(runStep, 2800);
+            }
+            startSim();
+        }
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var c = document.getElementById('heroParticles');
+        if (!c || window.innerWidth <= 768) return;
+        var ctx = c.getContext('2d');
+        var particles = [];
+        var COUNT = 45;
+        var mouse = { x: -1000, y: -1000 };
+
+        function resize() {
+            var hero = c.closest('.hero');
+            c.width = hero.offsetWidth;
+            c.height = hero.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        var hero = c.closest('.hero');
+        if (hero) {
+            hero.addEventListener('mousemove', function(e) {
+                var r = hero.getBoundingClientRect();
+                mouse.x = e.clientX - r.left;
+                mouse.y = e.clientY - r.top;
+            });
+            hero.addEventListener('mouseleave', function() {
+                mouse.x = -1000; mouse.y = -1000;
+            });
+        }
+
+        for (var i = 0; i < COUNT; i++) {
+            particles.push({
+                x: Math.random() * c.width,
+                y: Math.random() * c.height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                r: Math.random() * 2 + 1,
+                o: Math.random() * 0.35 + 0.1
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, c.width, c.height);
+            for (var i = 0; i < particles.length; i++) {
+                var p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = c.width;
+                if (p.x > c.width) p.x = 0;
+                if (p.y < 0) p.y = c.height;
+                if (p.y > c.height) p.y = 0;
+
+                var dx = mouse.x - p.x, dy = mouse.y - p.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    p.x -= dx * 0.008;
+                    p.y -= dy * 0.008;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0,212,170,' + p.o + ')';
+                ctx.fill();
+
+                for (var j = i + 1; j < particles.length; j++) {
+                    var p2 = particles[j];
+                    var lx = p.x - p2.x, ly = p.y - p2.y;
+                    var ld = Math.sqrt(lx * lx + ly * ly);
+                    if (ld < 140) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = 'rgba(0,212,170,' + (0.12 * (1 - ld / 140)) + ')';
+                        ctx.lineWidth = 0.6;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+    </script>
+
+    <script>
+    (function() {
+        // 1. STAGGERED ENTRANCE ANIMATION
+        var heroEls = document.querySelectorAll('.hero-enter');
+        setTimeout(function() {
+            heroEls.forEach(function(el) { el.classList.add('visible'); });
+        }, 200);
+
+        // 2. TYPEWRITER on "SOC"
+        var socEl = document.getElementById('heroSOC');
+        if (socEl) {
+            var word = 'SOC';
+            var i = 0;
+            var cursor = document.createElement('span');
+            cursor.className = 'typewriter-cursor';
+            socEl.appendChild(cursor);
+            function typeNext() {
+                if (i < word.length) {
+                    socEl.insertBefore(document.createTextNode(word[i]), cursor);
+                    i++;
+                    setTimeout(typeNext, 180);
+                } else {
+                    setTimeout(function() { cursor.style.display = 'none'; }, 2500);
+                }
+            }
+            setTimeout(typeNext, 700);
+        }
+
+        // 3. COUNTER ANIMATION on stats
+        var counters = document.querySelectorAll('.stat-number');
+        var counterDone = false;
+        function animateCounters() {
+            if (counterDone) return;
+            counterDone = true;
+            counters.forEach(function(el) {
+                var target = parseFloat(el.dataset.target);
+                var prefix = el.dataset.prefix || '';
+                var suffix = el.dataset.suffix || '';
+                var decimals = parseInt(el.dataset.decimals) || 0;
+                var duration = 1800;
+                var start = performance.now();
+                function tick(now) {
+                    var t = Math.min((now - start) / duration, 1);
+                    var ease = 1 - Math.pow(1 - t, 3);
+                    var val = (target * ease).toFixed(decimals);
+                    el.textContent = prefix + val + suffix;
+                    if (t < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            });
+        }
+        setTimeout(animateCounters, 900);
+
+        // 5. PARALLAX on scroll (desktop only)
+        var heroText = document.getElementById('heroText');
+        var simCol = document.querySelector('.hero-sim-col');
+        if (heroText && simCol && window.innerWidth > 1024) {
+            var ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(function() {
+                        var y = window.scrollY;
+                        if (y < 800) {
+                            heroText.style.transform = 'translateY(' + (y * 0.08) + 'px)';
+                            simCol.style.transform = 'translateY(' + (y * -0.04) + 'px)';
+                        }
+                        ticking = false;
+                    });
+                }
+            });
+        }
+
+        // 6. 3D TILT on simulator card (desktop only)
+        var simWrap = document.querySelector('.hero-sim-col .cost-sim-wrap');
+        var simColEl = document.querySelector('.hero-sim-col');
+        if (simWrap && simColEl && window.innerWidth > 1024) {
+            simColEl.addEventListener('mousemove', function(e) {
+                var r = simColEl.getBoundingClientRect();
+                var x = (e.clientX - r.left) / r.width - 0.5;
+                var y = (e.clientY - r.top) / r.height - 0.5;
+                simWrap.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 4) + 'deg) scale(1.01)';
+            });
+            simColEl.addEventListener('mouseleave', function() {
+                simWrap.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+            });
+        }
+
+        // 7. SCROLL REVEAL for section two
+        var s2Els = document.querySelectorAll('.s2-reveal');
+        if (s2Els.length && 'IntersectionObserver' in window) {
+            var s2Obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        s2Obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            s2Els.forEach(function(el) { s2Obs.observe(el); });
+        }
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var snapSections = document.querySelectorAll(
+            '.hero, .hero-section-two, .dashboard-preview'
+        );
+        if (!snapSections.length) return;
+
+        var isScrolling = false;
+        var cooldown = 900;
+        var lastSnapBottom = snapSections[snapSections.length - 1].offsetTop + snapSections[snapSections.length - 1].offsetHeight;
+
+        function getSnapIndex() {
+            var scrollY = window.scrollY + window.innerHeight * 0.3;
+            var idx = -1;
+            for (var i = 0; i < snapSections.length; i++) {
+                if (snapSections[i].offsetTop <= scrollY) idx = i;
+            }
+            return idx;
+        }
+
+        function isInSnapZone() {
+            return window.scrollY < lastSnapBottom - window.innerHeight * 0.5;
+        }
+
+        function smoothScrollTo(target) {
+            isScrolling = true;
+            var start = window.scrollY;
+            var distance = target - start;
+            var duration = Math.min(1000, Math.max(600, Math.abs(distance) * 0.4));
+            var startTime = null;
+
+            function ease(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function step(time) {
+                if (!startTime) startTime = time;
+                var progress = Math.min((time - startTime) / duration, 1);
+                window.scrollTo(0, start + distance * ease(progress));
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    setTimeout(function() { isScrolling = false; }, cooldown);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        window.addEventListener('wheel', function(e) {
+            if (window.innerWidth <= 1024) return;
+            if (!isInSnapZone()) return;
+            if (isScrolling) { e.preventDefault(); return; }
+
+            var delta = e.deltaY;
+            if (Math.abs(delta) < 30) return;
+
+            var idx = getSnapIndex();
+            var nextIdx;
+
+            if (delta > 0) {
+                nextIdx = Math.min(idx + 1, snapSections.length - 1);
+            } else {
+                nextIdx = Math.max(idx - 1, 0);
+            }
+
+            if (nextIdx !== idx) {
+                e.preventDefault();
+                smoothScrollTo(snapSections[nextIdx].offsetTop);
+            }
+        }, { passive: false });
+    })();
+    </script>
+
+    <script>
+    (function() {
+        var dash = document.querySelector('.dashboard-preview');
+        if (!dash) return;
+
+        var dashObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    dash.classList.add('in-view');
+                    animateDashMetrics();
+                    dashObs.unobserve(dash);
+                }
+            });
+        }, { threshold: 0.2 });
+        dashObs.observe(dash);
+
+        function animateDashMetrics() {
+            var metrics = [
+                { el: dash.querySelectorAll('.dash-metric-value')[0], target: 12847, prefix: '', suffix: '', decimals: 0, comma: true },
+                { el: dash.querySelectorAll('.dash-metric-value')[1], target: 14, prefix: '', suffix: 's', decimals: 0, comma: false },
+                { el: dash.querySelectorAll('.dash-metric-value')[2], target: 94.2, prefix: '', suffix: '%', decimals: 1, comma: false },
+                { el: dash.querySelectorAll('.dash-metric-value')[3], target: 0, prefix: '$', suffix: '', decimals: 0, comma: false }
+            ];
+            metrics.forEach(function(m, i) {
+                if (!m.el) return;
+                var duration = 1600;
+                var start = performance.now();
+                var delay = i * 150;
+                setTimeout(function() {
+                    function tick(now) {
+                        var t = Math.min((now - start) / duration, 1);
+                        var ease = 1 - Math.pow(1 - t, 3);
+                        var val = m.target * ease;
+                        var text = m.prefix + (m.comma ? Math.round(val).toLocaleString() : val.toFixed(m.decimals)) + m.suffix;
+                        m.el.textContent = text;
+                        if (t < 1) requestAnimationFrame(tick);
+                    }
+                    start = performance.now();
+                    requestAnimationFrame(tick);
+                }, delay);
+            });
+        }
+    })();
     </script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 Marketing website for Vigilense AI, an autonomous SOC platform that delivers detection, investigation, and response on your data, under your control.
 
+**Repository:** [github.com/rajeevvigilenseAI/vigilenseAI_website](https://github.com/rajeevvigilenseAI/vigilenseAI_website)
+
 ## Core Messaging
 
 - **Primary**: The Sovereign SOC - your data, your infrastructure, our intelligence
