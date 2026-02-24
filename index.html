@@ -776,7 +776,7 @@
         .hero-enter {
             opacity: 0;
             transform: translateY(28px);
-            transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+            transition: opacity 2s cubic-bezier(0.16,1,0.3,1), transform 2s cubic-bezier(0.16,1,0.3,1);
         }
         .hero-enter.visible {
             opacity: 1;
@@ -1024,6 +1024,31 @@
             text-transform: uppercase;
             letter-spacing: 0.06em;
             opacity: 0.7;
+        }
+        .stats-phase-indicator {
+            width: 100%;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #E53E3E;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .phase-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #E53E3E;
+            animation: phasePulse 1.5s ease-in-out infinite;
+        }
+        @keyframes phasePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         .hero-subline {
@@ -2815,13 +2840,14 @@
                 <!-- Left column: essential text only -->
                 <div class="hero-text" id="heroText">
                     <h1 class="hero-headline hero-enter" style="transition-delay:0s">The Sovereign<br><span class="accent" id="heroSOC"></span></h1>
-                    <h2 class="hero-subhead hero-enter" style="transition-delay:0.15s"><span class="navy-mark">BYODb SIEM</span> detects on your data.<br><span class="navy-mark">AI SOC</span> investigates and resolves autonomously.</h2>
-                    <div class="hero-stats-bar hero-enter" style="transition-delay:0.3s">
-                        <div class="hero-stat"><span class="stat-number" data-target="4.3" data-prefix="$" data-suffix="M" data-decimals="1">$0</span><span class="stat-label">wasted on ingestion/yr</span></div>
-                        <div class="hero-stat"><span class="stat-number" data-target="12" data-suffix="x" data-decimals="0">0</span><span class="stat-label">savings with Vigilense</span></div>
-                        <div class="hero-stat"><span class="stat-number" data-target="30" data-prefix="<" data-suffix="s" data-decimals="0">0</span><span class="stat-label">to investigate</span></div>
+                    <h2 class="hero-subhead hero-enter" style="transition-delay:0.6s"><span class="navy-mark">BYODb SIEM</span> detects on your data.<br><span class="navy-mark">AI SOC</span> investigates and resolves autonomously.</h2>
+                    <div class="hero-stats-bar hero-enter" style="transition-delay:1.2s">
+                        <div class="stats-phase-indicator" id="statsPhase"><span class="phase-dot" id="phaseDot"></span> <span id="statsPhaseLabel">Legacy SIEM</span></div>
+                        <div class="hero-stat"><span class="stat-number" id="statCost" style="color:#E53E3E">$4.3M</span><span class="stat-label">ingestion tax/yr</span></div>
+                        <div class="hero-stat"><span class="stat-number" id="statMTTR" style="color:#E53E3E">4+ hrs</span><span class="stat-label">to investigate</span></div>
+                        <div class="hero-stat"><span class="stat-number" id="statResolve" style="color:#E53E3E">15%</span><span class="stat-label">auto-resolved</span></div>
                     </div>
-                    <div class="hero-cta hero-enter" style="transition-delay:0.45s">
+                    <div class="hero-cta hero-enter" style="transition-delay:1.8s">
                         <a href="/demo/" class="btn btn-primary btn-large">Book a Demo</a>
                         <a href="/why-now/" class="btn btn-secondary btn-large">Why Now</a>
                     </div>
@@ -4301,7 +4327,7 @@
         var heroEls = document.querySelectorAll('.hero-enter');
         setTimeout(function() {
             heroEls.forEach(function(el) { el.classList.add('visible'); });
-        }, 200);
+        }, 700);
 
         // 2. TYPEWRITER on "SOC"
         var socEl = document.getElementById('heroSOC');
@@ -4315,38 +4341,111 @@
                 if (i < word.length) {
                     socEl.insertBefore(document.createTextNode(word[i]), cursor);
                     i++;
-                    setTimeout(typeNext, 180);
+                    setTimeout(typeNext, 550);
                 } else {
                     setTimeout(function() { cursor.style.display = 'none'; }, 2500);
                 }
             }
-            setTimeout(typeNext, 700);
+            setTimeout(typeNext, 1800);
         }
 
-        // 3. COUNTER ANIMATION on stats
-        var counters = document.querySelectorAll('.stat-number');
-        var counterDone = false;
-        function animateCounters() {
-            if (counterDone) return;
-            counterDone = true;
-            counters.forEach(function(el) {
-                var target = parseFloat(el.dataset.target);
-                var prefix = el.dataset.prefix || '';
-                var suffix = el.dataset.suffix || '';
-                var decimals = parseInt(el.dataset.decimals) || 0;
-                var duration = 1800;
-                var start = performance.now();
-                function tick(now) {
-                    var t = Math.min((now - start) / duration, 1);
-                    var ease = 1 - Math.pow(1 - t, 3);
-                    var val = (target * ease).toFixed(decimals);
-                    el.textContent = prefix + val + suffix;
-                    if (t < 1) requestAnimationFrame(tick);
-                }
-                requestAnimationFrame(tick);
-            });
+        // 3. BEFORE/AFTER STATS: Legacy SIEM (red) → Vigilense AI (teal)
+        var statCost = document.getElementById('statCost');
+        var statMTTR = document.getElementById('statMTTR');
+        var statResolve = document.getElementById('statResolve');
+        var phaseLabel = document.getElementById('statsPhaseLabel');
+        var phaseDot = document.getElementById('phaseDot');
+
+        var costStages = [
+            { text: '$4.3M', t: 0 },
+            { text: '$3.5M', t: 0.12 },
+            { text: '$2.8M', t: 0.25 },
+            { text: '$1.5M', t: 0.42 },
+            { text: '$800K', t: 0.58 },
+            { text: '$200K', t: 0.78 },
+            { text: '$0',    t: 1 }
+        ];
+        var mttrStages = [
+            { text: '4+ hrs', t: 0 },
+            { text: '3 hrs',  t: 0.1 },
+            { text: '2 hrs',  t: 0.2 },
+            { text: '1 hr',   t: 0.33 },
+            { text: '30 min', t: 0.48 },
+            { text: '10 min', t: 0.62 },
+            { text: '2 min',  t: 0.76 },
+            { text: '45s',    t: 0.88 },
+            { text: '<30s',   t: 1 }
+        ];
+        var resolveStages = [
+            { text: '15%', t: 0 },
+            { text: '25%', t: 0.1 },
+            { text: '40%', t: 0.22 },
+            { text: '55%', t: 0.38 },
+            { text: '70%', t: 0.54 },
+            { text: '82%', t: 0.7 },
+            { text: '90%', t: 0.85 },
+            { text: '95%', t: 1 }
+        ];
+
+        var RED = { r: 229, g: 62, b: 62 };
+        var TEAL = { r: 0, g: 212, b: 170 };
+
+        function lerpColor(t) {
+            var r = Math.round(RED.r + (TEAL.r - RED.r) * t);
+            var g = Math.round(RED.g + (TEAL.g - RED.g) * t);
+            var b = Math.round(RED.b + (TEAL.b - RED.b) * t);
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
         }
-        setTimeout(animateCounters, 900);
+
+        function getCurrentStage(stages, ease) {
+            var idx = 0;
+            for (var s = 0; s < stages.length - 1; s++) {
+                if (ease >= stages[s + 1].t) idx = s + 1;
+            }
+            return stages[idx].text;
+        }
+
+        function runBeforeAfter() {
+            var duration = 4500;
+            var startTime = null;
+            var phaseSwitched = false;
+
+            function tick(now) {
+                if (!startTime) startTime = now;
+                var t = Math.min((now - startTime) / duration, 1);
+                var ease = 1 - Math.pow(1 - t, 3);
+                var color = lerpColor(ease);
+
+                statCost.textContent = getCurrentStage(costStages, ease);
+                statMTTR.textContent = getCurrentStage(mttrStages, ease);
+                statResolve.textContent = getCurrentStage(resolveStages, ease);
+                statCost.style.color = color;
+                statMTTR.style.color = color;
+                statResolve.style.color = color;
+                phaseDot.style.background = color;
+
+                if (ease > 0.5 && !phaseSwitched) {
+                    phaseSwitched = true;
+                    phaseLabel.textContent = 'Vigilense AI';
+                }
+                document.getElementById('statsPhase').style.color = color;
+
+                if (t < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    statCost.style.color = 'var(--accent)';
+                    statMTTR.style.color = 'var(--accent)';
+                    statResolve.style.color = 'var(--accent)';
+                    phaseDot.style.background = 'var(--accent)';
+                    document.getElementById('statsPhase').style.color = 'var(--accent)';
+                }
+            }
+
+            requestAnimationFrame(tick);
+        }
+
+        // Pause so users read the "before" state, then transition
+        setTimeout(runBeforeAfter, 3800);
 
         // 5. PARALLAX on scroll (desktop only)
         var heroText = document.getElementById('heroText');
