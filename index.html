@@ -2843,7 +2843,7 @@
                     <h2 class="hero-subhead hero-enter" style="transition-delay:0.6s"><span class="navy-mark">BYODb SIEM</span> detects on your data.<br><span class="navy-mark">AI SOC</span> investigates and resolves autonomously.</h2>
                     <div class="hero-stats-bar hero-enter" style="transition-delay:1.2s">
                         <div class="stats-phase-indicator" id="statsPhase"><span class="phase-dot" id="phaseDot"></span> <span id="statsPhaseLabel">Legacy SIEM</span></div>
-                        <div class="hero-stat"><span class="stat-number" id="statCost" style="color:#E53E3E">$4.3M</span><span class="stat-label">ingestion tax/yr</span></div>
+                        <div class="hero-stat"><span class="stat-number" id="statCost" style="color:#E53E3E">$1.2M</span><span class="stat-label">ingestion tax/yr</span></div>
                         <div class="hero-stat"><span class="stat-number" id="statMTTR" style="color:#E53E3E">4+ hrs</span><span class="stat-label">to investigate</span></div>
                         <div class="hero-stat"><span class="stat-number" id="statResolve" style="color:#E53E3E">15%</span><span class="stat-label">auto-resolved</span></div>
                     </div>
@@ -4357,13 +4357,11 @@
         var phaseDot = document.getElementById('phaseDot');
 
         var costStages = [
-            { text: '$4.3M', t: 0 },
-            { text: '$3.5M', t: 0.12 },
-            { text: '$2.8M', t: 0.25 },
-            { text: '$1.5M', t: 0.42 },
-            { text: '$800K', t: 0.58 },
-            { text: '$200K', t: 0.78 },
-            { text: '$0',    t: 1 }
+            { text: '$1.2M', t: 0 },
+            { text: '$1.0M', t: 0.1 },
+            { text: '$800K', t: 0.22 },
+            { text: '$500K', t: 0.38 },
+            { text: '$200K', t: 0.48 }
         ];
         var mttrStages = [
             { text: '4+ hrs', t: 0 },
@@ -4416,10 +4414,8 @@
                 var ease = 1 - Math.pow(1 - t, 3);
                 var color = lerpColor(ease);
 
-                statCost.textContent = getCurrentStage(costStages, ease);
                 statMTTR.textContent = getCurrentStage(mttrStages, ease);
                 statResolve.textContent = getCurrentStage(resolveStages, ease);
-                statCost.style.color = color;
                 statMTTR.style.color = color;
                 statResolve.style.color = color;
                 phaseDot.style.background = color;
@@ -4427,6 +4423,13 @@
                 if (ease > 0.5 && !phaseSwitched) {
                     phaseSwitched = true;
                     phaseLabel.textContent = 'Vigilense AI';
+                    statCost.textContent = '$0';
+                    statCost.style.color = 'var(--accent)';
+                }
+
+                if (!phaseSwitched) {
+                    statCost.textContent = getCurrentStage(costStages, ease);
+                    statCost.style.color = color;
                 }
                 document.getElementById('statsPhase').style.color = color;
 
