@@ -783,20 +783,10 @@
             transform: translateY(0);
         }
 
-        /* 3D tilt on simulator card */
         .hero-sim-col {
-            perspective: 900px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-        .hero-sim-col .cost-sim-wrap {
-            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-        .hero-sim-col .cost-sim-wrap:hover {
-            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
         }
 
         /* Section two scroll reveal */
@@ -2417,8 +2407,7 @@
             .hero-subhead { text-align: center; }
             .hero-cta { justify-content: center; }
             .hero-stats-bar { justify-content: center; flex-direction: row; }
-            .hero-sim-col { perspective: none; margin-top: 0; }
-            .hero-sim-col .cost-sim-wrap { transform: none !important; }
+            .hero-sim-col { margin-top: 0; }
             .hero-social-proof { justify-content: center; flex-wrap: wrap; white-space: normal; }
 
             .section-two-split {
@@ -4470,22 +4459,7 @@
             });
         }
 
-        // 6. 3D TILT on simulator card (desktop only)
-        var simWrap = document.querySelector('.hero-sim-col .cost-sim-wrap');
-        var simColEl = document.querySelector('.hero-sim-col');
-        if (simWrap && simColEl && window.innerWidth > 1024) {
-            simColEl.addEventListener('mousemove', function(e) {
-                var r = simColEl.getBoundingClientRect();
-                var x = (e.clientX - r.left) / r.width - 0.5;
-                var y = (e.clientY - r.top) / r.height - 0.5;
-                simWrap.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 4) + 'deg) scale(1.01)';
-            });
-            simColEl.addEventListener('mouseleave', function() {
-                simWrap.style.transform = 'rotateY(0) rotateX(0) scale(1)';
-            });
-        }
-
-        // 7. SCROLL REVEAL for section two
+        // 6. SCROLL REVEAL for section two
         var s2Els = document.querySelectorAll('.s2-reveal');
         if (s2Els.length && 'IntersectionObserver' in window) {
             var s2Obs = new IntersectionObserver(function(entries) {
