@@ -1581,6 +1581,21 @@
         .sovereign-card:hover { border-color: var(--navy); }
         .sovereign-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 14px; }
         .sovereign-card p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7; }
+        .human-photo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+        .human-photo {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            filter: saturate(0.92);
+        }
+        .human-photo-wide { aspect-ratio: 16 / 9; }
+        .human-photo-portrait { aspect-ratio: 4 / 5; object-position: center top; }
+        .sovereign-card .human-photo-card { margin-bottom: 18px; }
         .sovereign-tagline {
             text-align: center;
             font-family: var(--font-mono);
@@ -2094,6 +2109,11 @@
            7. GUARANTEE SECTION
            ============================ */
         .guarantee-section { padding: 100px 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .guarantee-photo-wrap { margin: 0 0 36px; }
+        .guarantee-photo-wrap .human-photo {
+            aspect-ratio: 21 / 9;
+            object-position: center 30%;
+        }
         .guarantee-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
         .guarantee-item { border-top: 3px solid var(--navy); padding-top: 20px; }
         .guarantee-item h3 { font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
@@ -2139,6 +2159,10 @@
 
         .contact-info {
             padding-top: 52px;
+        }
+        .contact-info .human-photo-card {
+            max-width: 420px;
+            margin-bottom: 28px;
         }
 
         .contact-info p {
@@ -2429,6 +2453,8 @@
             /* Nav sizing handled by styles.css */
             .sovereign-grid { grid-template-columns: 1fr; }
             .guarantee-items { grid-template-columns: 1fr; }
+            .guarantee-photo-wrap { margin-bottom: 28px; }
+            .guarantee-photo-wrap .human-photo { aspect-ratio: 16 / 10; }
             .hero-stats-bar { flex-direction: row; gap: 16px; align-items: center; justify-content: center; }
             .stat-number { font-size: clamp(1.1rem, 4vw, 1.4rem); }
             .stat-label { font-size: 0.58rem; }
@@ -2467,6 +2493,7 @@
             .dashboard-frame { border-radius: 8px; }
             .container { padding: 0 16px; }
             .contact-form-container { padding: 24px 16px; }
+            .contact-info .human-photo-card { margin: 0 auto 24px; }
             .sovereign-card { padding: 28px 20px; }
             .guarantee-item { padding-top: 16px; }
         }
@@ -3540,6 +3567,11 @@
                 <span class="section-tag">Our Promise</span>
                 <h2 class="section-title">We Deploy. You Don't Pay Until We <span class="navy-mark">Deliver</span>.</h2>
             </div>
+            <div class="guarantee-photo-wrap">
+                <div class="human-photo-card">
+                    <img src="/Two-team-member-collaborating.jpg" alt="Security team members collaborating on response workflow" class="human-photo human-photo-wide" loading="lazy" decoding="async">
+                </div>
+            </div>
 
             <div class="guarantee-items">
                 <div class="guarantee-item">
@@ -3579,6 +3611,9 @@
 
             <div class="contact-layout">
                 <div class="contact-info">
+                    <div class="human-photo-card">
+                        <img src="/single-analyst-writing-paper.jpg" alt="Security analyst discussing investigation findings" class="human-photo human-photo-portrait" loading="lazy" decoding="async">
+                    </div>
                     <div class="contact-details">
                         <div class="contact-item">
                             <div>

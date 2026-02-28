@@ -63,6 +63,9 @@ body {
 }
 
 .navbar .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
     height: 64px;
 }
 
@@ -302,6 +305,7 @@ code, pre {
 
 /* ── Mobile overrides for subpages ── */
 @media (max-width: 768px) {
+    .navbar .container { padding: 0 16px; }
     .nav-menu { display: none; }
     .hamburger { display: flex; }
     .nav-menu.active {
