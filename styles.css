@@ -4092,8 +4092,8 @@ ul {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    max-width: 75vw;
-    width: 75vw;
+    max-width: 1180px;
+    width: min(94vw, 1180px);
     margin: 0 auto;
     padding: 30px 50px;
     background: rgba(0, 0, 0, 0.5);
@@ -4139,8 +4139,8 @@ ul {
 .engine-row {
     display: flex;
     align-items: stretch;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    gap: 14px;
     width: 100%;
     max-width: 100%;
 }
@@ -4272,7 +4272,7 @@ ul {
 
 /* Connector Lines (SVG) */
 .connector-lines {
-    width: 60px;
+    width: 70px;
     height: 100%;
     min-height: 120px;
     flex-shrink: 0;
