@@ -422,3 +422,34 @@ document.querySelectorAll('.workflow-stage').forEach(stage => {
 console.log('%c> Vigilense AI', 'font-size: 24px; font-weight: bold; color: #0A1628; font-family: monospace;');
 console.log('%cThe Sovereign SOC', 'font-size: 14px; color: #00D4AA; font-family: monospace;');
 console.log('%cYour Data. Your Infrastructure. Our Intelligence.', 'font-size: 12px; color: #475569; font-family: monospace;');
+
+// ═══════════════════════════════════════════
+// FOOTER SOCIAL LINKS
+// ═══════════════════════════════════════════
+(function addFooterSocialLinks() {
+    var containers = document.querySelectorAll('.footer-legal-links');
+    if (!containers.length) return;
+
+    var socialLinks = [
+        { href: 'https://www.linkedin.com/company/111587909/', label: 'LinkedIn' },
+        { href: 'https://x.com/VigilenseAI', label: 'X' },
+        { href: 'https://www.youtube.com/@VigilenseAI', label: 'YouTube' }
+    ];
+
+    containers.forEach(function(container) {
+        socialLinks.forEach(function(linkDef) {
+            var exists = Array.from(container.querySelectorAll('a')).some(function(link) {
+                return link.textContent && link.textContent.trim().toLowerCase() === linkDef.label.toLowerCase();
+            });
+
+            if (exists) return;
+
+            var link = document.createElement('a');
+            link.href = linkDef.href;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = linkDef.label;
+            container.appendChild(link);
+        });
+    });
+})();
