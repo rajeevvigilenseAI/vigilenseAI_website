@@ -12,8 +12,6 @@ desktop.ini
 
 # Private internal pages (never deploy)
 cost-simulator/private/
-team/
-team.html
 
 # Dependencies
 node_modules/
