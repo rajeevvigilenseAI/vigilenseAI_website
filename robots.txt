@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /cost-simulator/private/
+Disallow: /team/
 Disallow: /blog/post-template/
 
 Sitemap: https://vigilense.ai/sitemap.xml
