@@ -99,6 +99,43 @@
             border-radius: 999px;
             margin-bottom: 18px;
         }
+        .mdr-hero .mdr-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--mdr-navy);
+            background: var(--mdr-teal);
+            padding: 10px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 18px rgba(0, 212, 170, 0.32);
+        }
+        .mdr-hero .mdr-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--mdr-navy);
+            box-shadow: 0 0 0 3px rgba(10, 22, 40, 0.18);
+            animation: mdrEyebrowPulse 2.2s ease-in-out infinite;
+        }
+        @keyframes mdrEyebrowPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.55; transform: scale(0.85); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .mdr-hero .mdr-eyebrow::before { animation: none; }
+        }
+        @media (max-width: 640px) {
+            .mdr-hero .mdr-eyebrow {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+                letter-spacing: 0.14em;
+            }
+        }
 
         .mdr-section {
             padding: 96px 0;
