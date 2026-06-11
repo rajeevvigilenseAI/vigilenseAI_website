@@ -6,9 +6,9 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Vigilense AI" />
-    <meta property="og:title" content="Writing Detection Rules That Actually Work Across Eight Databases" />
-    <meta property="og:description" content="A deep technical look at how the detection abstraction layer translates one rule into native queries across eight backends." />
-    <meta property="og:url" content="https://vigilense.ai/blog/detection-rules-eight-databases/" />
+    <meta property="og:title" content="How Bring-Your-Own-Lake (BYOL) Architecture Eliminates MDR Ingestion Costs" />
+    <meta property="og:description" content="A technical deep dive into BYOL architecture and how it eliminates ingestion fees while maintaining full security visibility." />
+    <meta property="og:url" content="https://vigilense.ai/blog/byol-architecture/" />
     <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
     <meta property="og:image:width" content="1424" />
     <meta property="og:image:height" content="752" />
@@ -16,22 +16,22 @@
     <meta property="og:locale" content="en_US" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Writing Detection Rules That Actually Work Across Eight Databases" />
-    <meta name="twitter:description" content="A deep technical look at how the detection abstraction layer translates one rule into native queries across eight backends." />
+    <meta name="twitter:title" content="How Bring-Your-Own-Lake (BYOL) Architecture Eliminates MDR Ingestion Costs" />
+    <meta name="twitter:description" content="A technical deep dive into BYOL architecture and how it eliminates ingestion fees while maintaining full security visibility." />
     <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
     <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
     <!-- Standard -->
-    <meta name="description" content="A deep technical look at how the Vigilense AI detection abstraction layer translates one rule into native queries across OpenSearch, Snowflake, BigQuery, Databricks, and more." />
+    <meta name="description" content="A technical deep dive into BYOL architecture and how it eliminates ingestion fees while maintaining full security visibility." />
     <meta name="author" content="Vigilense AI" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://vigilense.ai/blog/detection-rules-eight-databases/" />
+    <link rel="canonical" href="https://vigilense.ai/blog/byol-architecture/" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>Writing Detection Rules That Actually Work Across Eight Databases - Vigilense AI Blog</title>
+    <title>How Bring-Your-Own-Lake (BYOL) Architecture Eliminates MDR Ingestion Costs - Vigilense AI Blog</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,10 +288,10 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Writing Detection Rules That Actually Work Across Eight Databases",
-      "description": "A deep technical look at how the Vigilense AI detection abstraction layer translates one rule into native queries across OpenSearch, Snowflake, BigQuery, Databricks, and more.",
-      "datePublished": "2025-12-02",
-      "url": "https://vigilense.ai/blog/detection-rules-eight-databases/",
+      "headline": "How Bring-Your-Own-Lake (BYOL) Architecture Eliminates MDR Ingestion Costs",
+      "description": "A technical deep dive into BYOL architecture and how it eliminates ingestion fees while maintaining full security visibility.",
+      "datePublished": "2026-06-09",
+      "url": "https://vigilense.ai/blog/byol-architecture/",
       "image": "https://vigilense.ai/images/og-preview_new.png",
       "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
       "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } }
@@ -345,11 +345,11 @@
 
                 <header class="post-header">
                     <span class="post-category">Engineering</span>
-                    <h1>Writing Detection Rules That Actually Work Across Eight Databases</h1>
+                    <h1>How Bring-Your-Own-Lake (BYOL) Architecture Eliminates MDR Ingestion Costs</h1>
                     <div class="post-meta">
-                        <time datetime="2025-12-02">Dec 2, 2025</time>
+                        <time datetime="2026-06-09">Jun 9, 2026</time>
                         <span>&middot;</span>
-                        <span>9 min read</span>
+                        <span>10 min read</span>
                         <span>&middot;</span>
                         <span>By Bal Singh</span>
                     </div>
@@ -358,114 +358,52 @@
                 <hr class="post-divider">
 
                 <div class="post-body">
-                    <p>One of the hardest engineering problems we have tackled at Vigilense AI is detection portability. When your security data lives in OpenSearch, Snowflake, BigQuery, Databricks, Amazon Redshift, S3+Athena, PostgreSQL, MongoDB, ClickHouse, and TimescaleDB all at once, writing a detection rule that works everywhere is not a matter of clever string interpolation. It is an architecture problem.</p>
+                    <p>The morning our security operations team sat down with our chief financial officer, everything shifted. Our cloud infrastructure was expanding beautifully, but our security budget was bleeding out at an alarming pace. The culprit was not a sudden spike in malicious attacks. Instead, it was the staggering cost of moving and storing logs in our provider's closed, proprietary platform. This realization forced our hand. We had to build a bring your own data lake MDR setup from scratch. By shifting to this direct model, we took back total control of our security telemetry, wiped out predatory data ingestion fees, and laid an elastic base for querying using Snowflake security analytics. This is the story of how we broke free from old models that no longer work for growing enterprises.</p>
 
-                    <p>This post walks through the technical challenge, the abstraction approach we built, and the performance tradeoffs we had to navigate.</p>
+                    <h2>The Traditional MDR Trap and the Birth of Bring Your Own Data Lake MDR</h2>
 
-                    <h2>The Problem: Query Languages Are Not Interchangeable</h2>
+                    <p>The classic managed detection and response setup has a fatal design flaw. It drains cash. Traditional providers force you to ship every scrap of telemetry, massive network logs, endpoint events, cloud trails, straight to a closed platform inside their own cloud. It is a massive transfer of wealth disguised as a service. You pay your cloud provider for outbound data transfer, pay the security vendor to ingest it, and then pay a premium to store it. This double-dipping fee forces teams to make dangerous compromises. They filter out key network telemetry just to keep licensing bills manageable. This leaves massive blind spots. Advanced threats slip in and hide in the unmonitored dark space.</p>
 
-                    <p>Let me state the obvious thing that is easy to underestimate: Splunk SPL does not translate to Snowflake SQL. Elastic KQL is not BigQuery. Every database has its own query language, its own performance characteristics, its own way of handling time-series data, and its own quirks around null values, type coercion, and aggregation semantics.</p>
+                    <p>We hit this wall during a simple audit. Our previous provider had quietly told us to turn off VPC flow logs because the volume was too high. That advice left us entirely blind to lateral movement inside our own cloud. It was unacceptable. So, we moved to a bring your own data lake MDR model. We stopped sending terabytes of raw logs to an external black box. Instead, we kept every byte of data inside our own cloud walls. The provider simply ran checks on the data where it sat. Instantly, the heavy ingestion fees that used to dominate our monthly bills vanished.</p>
 
-                    <p>A detection rule that checks for "more than 5 failed login attempts from the same IP within 10 minutes" sounds simple. But the implementation varies wildly:</p>
+                    <h2>Architecting the Future with Bring Your Own Data Lake MDR</h2>
 
-                    <ul>
-                        <li>In <strong>OpenSearch</strong>, you are writing a DSL query with date histograms and bucket aggregations.</li>
-                        <li>In <strong>Snowflake</strong>, you are writing SQL with window functions and <code>QUALIFY</code> clauses.</li>
-                        <li>In <strong>BigQuery</strong>, you are writing Standard SQL with <code>TIMESTAMP_DIFF</code> and nested subqueries.</li>
-                        <li>In <strong>MongoDB</strong>, you are building an aggregation pipeline with <code>$match</code>, <code>$group</code>, and <code>$bucket</code> stages.</li>
-                        <li>In <strong>S3+Athena</strong>, you are writing Presto SQL against partitioned Parquet files with completely different performance characteristics.</li>
-                    </ul>
+                    <p>Our journey started with a simple rule. We had to separate storage from compute. Instead of exporting data to outside databases, we stood up a consolidated security data repository inside our own cloud environment using Snowflake security analytics. This design let us store raw telemetry in cheap cloud storage buckets while using fast engines for threat hunting. Security telemetry now drops straight into our private Amazon S3 buckets in standard formats. We have a single source of truth.</p>
 
-                    <p>If you ask a security engineer to maintain the same detection logic across all of these, you are asking them to be an expert in eight different query languages simultaneously. That does not scale.</p>
+                    <p>The mechanics are simple. We set up our cloud collectors to dump security events into raw storage using the Open Cybersecurity Schema Framework. Snowflake links directly to these S3 buckets as external tables. Our team can run fast queries without moving a single file. The external provider is no longer our database gatekeeper. They simply hook into our Snowflake instance using secure, zero-copy data sharing. They run their detection engines directly on our compute resources. Our ingestion costs dropped to zero because the data never leaves our yard.</p>
 
-                    <h2>The Abstraction Layer: One Rule, Eight Backends</h2>
+                    <h2>Reclaiming Independence with Bring Your Own Data Lake MDR</h2>
 
-                    <p>Our approach is what we call the Unified Detection Engine. The core idea: security engineers write detection logic once in an abstract format, and the system translates that logic into each database's native query language at execution time.</p>
+                    <p>Data ownership is a quiet problem until you try to leave your vendor. With old-school providers, ending a contract means losing your history or paying massive fees to download your own raw logs. We faced this lock-in ourselves when investigating an older breach attempt from six months prior. The provider wanted a premium fee just to search the history our own systems had built. Moving to a bring your own data lake MDR model completely flips this dynamic. The power goes back to the enterprise.</p>
 
-                    <p>This is not a lowest-common-denominator approach. We do not limit detection logic to what all backends support equally. Instead, we built a translation layer that understands the strengths and idioms of each backend and generates optimized native queries.</p>
+                    <p>The data stays in our cloud account indefinitely, locked down by our own access rules. If we decide to fire our service provider tomorrow, we do not have to migrate any data. We simply delete their access keys and plug in a new vendor. There is no complex data migration, no loss of history, and no painful export process. This level of self-governance keeps our defense independent of any vendor relationship, building a far more durable security posture.</p>
 
-                    <h3>Query Federation</h3>
+                    <h2>The Financial Side of Bring Your Own Data Lake MDR with Snowflake</h2>
 
-                    <p>When a detection rule fires, the query federation layer handles four things:</p>
+                    <p>To see the financial difference, look at how legacy platforms charge. They bill you based on daily gigabytes, with prices starting at several dollars per gigabyte. This model scales directly with your growth, punishing you for securing your cloud. Storing data in a cloud repository, however, costs pennies. By using Snowflake security analytics, we split storage costs away from compute costs.</p>
 
-                    <ol>
-                        <li><strong>Native query translation:</strong> The abstract rule is compiled into the target database's native format, whether that is SQL, DSL, MQL, or something else entirely. Each translation target has its own optimizer that generates idiomatic queries, not generic ones.</li>
-                        <li><strong>Query plan optimization:</strong> Before execution, the system analyzes the target database's schema, indexes, and partitioning strategy to generate an efficient query plan. A naive translation might work, but a naive translation against a 100TB Snowflake warehouse will cost you real money in compute credits.</li>
-                        <li><strong>Parallel query execution:</strong> If a detection rule needs to correlate data across multiple backends (for example, matching firewall logs in OpenSearch against identity events in Snowflake), the queries execute in parallel and the results are joined in memory.</li>
-                        <li><strong>Result streaming for large datasets:</strong> For rules that scan large volumes of historical data, results stream back incrementally rather than buffering the entire result set. This keeps memory usage predictable and allows the detection engine to start processing matches before the full scan completes.</li>
-                    </ol>
+                    <p>Our monthly storage bills fell from tens of thousands of dollars to a few hundred. We set our Snowflake virtual warehouses to sleep when inactive, meaning we only pay when queries are running. This pay-as-you-go setup let us keep telemetry for years instead of days, giving our threat hunters immense forensic power. They can hunt threats across petabytes of history without fearing surprise search fees or hitting ingestion caps.</p>
 
-                    <h2>Schema Discovery and Field Normalization</h2>
+                    <h2>Our Step-by-Step Blueprint for Building Bring Your Own Data Lake MDR</h2>
 
-                    <p>Detection portability breaks down fast if every backend uses different field names for the same concept. One database stores the source IP in <code>src_ip</code>, another in <code>source.address</code>, another in <code>srcAddr</code>.</p>
+                    <p>Moving to this model took three structured steps to keep daily operations smooth. First, we unified our intake. We directed our cloud collectors, including Amazon Data Firehose and Azure Event Hubs, to write security events directly into raw storage. We used the Open Cybersecurity Schema Framework to shape different log sources so that firewall logs and endpoint data shared the exact same fields. This cleanup made queries much easier.</p>
 
-                    <p>Our schema discovery system handles this automatically. When you connect a new data source, the system maps the data schema and normalizes field names to a common taxonomy. This means a detection rule that references <code>source_ip</code> will work regardless of whether the underlying database calls it <code>src_ip</code>, <code>source.address</code>, or <code>ClientIP</code>.</p>
+                    <p>Second, we built our Snowflake security analytics environment. We set up external tables linked to our storage buckets, using auto-ingest pipes to process new files within seconds. We optimized our external table partitioning using timestamp-based directory paths for fast searches. Third, we set up secure, read-only data shares. We used Snowflake Secure Data Sharing to let our provider inspect specific tables without copying anything. Their threat hunters write rules that run in our warehouse, sending alerts to our response desk. The pipeline runs quietly, keeping our boundaries secure.</p>
 
-                    <p>Field mappings can be customized. If your organization uses non-standard field names or has legacy schemas that do not conform to common formats like ECS or OCSF, you can define custom mappings that persist across all detection rules.</p>
+                    <p>The financial and operational results beat our expectations. Within ninety days of cutting off our old ingestion pipelines, our monthly security data spend fell by eighty-two percent. We put those savings back into hiring engineers and rolling out advanced endpoint agents. Operationally, our retention grew from a tight thirty days to an unlimited archive. Our threat hunters now run long-term threat hunts across petabytes of data without speed issues. Setting up Snowflake security analytics cut our average search time from hours to seconds, proving that saving money does not mean losing speed.</p>
 
-                    <h3>How Schema Discovery Works in Practice</h3>
-
-                    <p>When a new database connection is established, the discovery process runs in three phases:</p>
-
-                    <ol>
-                        <li><strong>Structure scan:</strong> The system introspects the database schema to understand tables, columns, data types, and relationships.</li>
-                        <li><strong>Sample analysis:</strong> A small sample of actual data is analyzed to understand the semantic meaning of each field. A column named <code>ts</code> might be a timestamp, a string, or an integer depending on the source.</li>
-                        <li><strong>Mapping generation:</strong> The system proposes field mappings to the normalized taxonomy and flags any ambiguities for human review.</li>
-                    </ol>
-
-                    <p>This process runs in seconds for most backends. The result is a mapping layer that detection rules can rely on without caring about the underlying schema.</p>
-
-                    <h2>Cross-Backend Signal Correlation</h2>
-
-                    <p>The real power of the Unified Detection Engine is not just running the same rule on different backends. It is correlating signals across all your security data regardless of where it lives.</p>
-
-                    <p>Consider a detection scenario: an attacker uses stolen credentials (identity data in Snowflake) to access a VPN (network logs in OpenSearch), then moves laterally to a database server (cloud audit logs in BigQuery), and exfiltrates data (DLP events in S3+Athena).</p>
-
-                    <p>No single backend has the full picture. The detection engine queries each backend in parallel, correlates the results by entity (user, IP, hostname), and constructs a unified timeline of the attack. One detection rule captures the entire kill chain across four different data stores.</p>
-
-                    <h2>Performance: The Numbers</h2>
-
-                    <p>Performance varies significantly by backend, data volume, and query complexity. Here are the benchmarks we track internally:</p>
-
-                    <ul>
-                        <li><strong>OpenSearch/Elasticsearch:</strong> Sub-500ms query latency at 10TB+ data volumes. This is the fastest backend for real-time detection because the data is pre-indexed and optimized for search.</li>
-                        <li><strong>Snowflake:</strong> Under 2 seconds at 100TB+ data volumes. The warehouse auto-scaling handles burst query loads well, but cold warehouse spin-up adds latency on the first query of a session.</li>
-                        <li><strong>S3+Athena:</strong> Under 5 seconds at 1PB+ data volumes. This is the cost-optimized tier for historical analysis and retroactive threat hunting. Latency is higher because Athena scans Parquet files on read, but the cost per query is a fraction of what you would pay to index the same data.</li>
-                    </ul>
-
-                    <p>The tradeoff is explicit: faster backends cost more to operate, slower backends cost less. Our query planner takes this into account and routes queries to the appropriate backend based on the detection rule's latency requirements.</p>
-
-                    <h3>Query Plan Optimization Details</h3>
-
-                    <p>Naive query translation would work for small datasets but falls apart at scale. A few examples of optimizations the query planner applies:</p>
-
-                    <ul>
-                        <li><strong>Partition pruning:</strong> For time-series data in S3+Athena or BigQuery, the planner adds partition filters to avoid scanning data outside the detection window.</li>
-                        <li><strong>Index selection:</strong> For OpenSearch, the planner routes queries to the most selective index based on the fields referenced in the detection rule.</li>
-                        <li><strong>Aggregation pushdown:</strong> Where possible, aggregations are pushed down to the database engine rather than computed in the detection layer. This reduces data transfer and leverages each backend's native optimization.</li>
-                        <li><strong>Cost-based routing:</strong> For rules that could run on multiple backends (if the same data exists in both OpenSearch and Snowflake), the planner estimates the cost and latency of each option and routes accordingly.</li>
-                    </ul>
-
-                    <h2>What This Means for Security Teams</h2>
-
-                    <p>The practical implication is straightforward: your detection engineers write rules once. They do not need to know Snowflake SQL or OpenSearch DSL or MongoDB aggregation pipelines. They write detection logic in an abstract format, and the engine handles the translation, optimization, and execution.</p>
-
-                    <p>This also means your detection coverage is not limited by where your data lives. If you add a new database to your architecture, existing detection rules automatically start covering the new data source once the schema mapping is in place. No rewriting. No porting. No regression testing against a new query language.</p>
-
-                    <p>We built this because the alternative is untenable. Security teams should not spend their time translating queries between databases. They should spend it writing better detection logic and hunting threats.</p>
-
-                    <p>If you want to see the detection abstraction layer in action across your own data sources, <a href="/demo/">reach out for a technical deep dive</a>.</p>
+                    <p>Modern security requires leaving behind old vendor-lock models. By building a clean architecture, we proved that security teams do not have to choose between a complete view and smart budgets. We took back our data, cut out predatory fees, and built a foundation that grows with us. The future belongs to teams that own their data, control their search tools, and demand clear terms from their partners.</p>
                 </div>
 
                 <hr class="post-divider">
 
                 <div class="post-cta">
-                    <h3>See multi-backend detection on your own data.</h3>
-                    <a href="/demo/" class="btn">Book a Technical Deep Dive</a>
+                    <h3>See how BYOL architecture works for you.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
                 </div>
 
                 <div class="author-card">
-                    <div class="author-avatar">RC</div>
+                    <div class="author-avatar">BS</div>
                     <div class="author-info">
                         <h4>Bal Singh</h4>
                         <div class="author-title">Co-founder & CTO</div>
@@ -503,7 +441,6 @@
                     <div class="footer-column">
                         <h4>Company</h4>
                         <ul>
-                            <!-- <li><a href="/team/">Team</a></li> -->
                             <li><a href="/careers/">Careers</a></li>
                             <li><a href="/security/">About & Security</a></li>
                             <li><a href="/trust/">Trust Center</a></li>
@@ -542,22 +479,11 @@
                         <a href="/disclaimer/">Disclaimer</a>
                     </div>
                 </div>
-                <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
             </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
         </div>
     </footer>
 
     <script src="/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var hamburger = document.querySelector('.hamburger');
-            var navMenu = document.querySelector('.nav-menu');
-            if (hamburger) {
-                hamburger.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
