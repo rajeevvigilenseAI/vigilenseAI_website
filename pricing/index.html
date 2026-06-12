@@ -829,97 +829,26 @@
     </section>
 
     <!-- ============================================
-         PRICING TIERS - AI MDR style
+         CONTACT US SECTION
          ============================================ -->
-    <section class="pricing-tiers-section" id="plans">
+    <section class="pricing-contact-section" id="contact" style="padding: 80px 0; background: var(--bg-primary);">
         <div class="container">
-            <div class="pt-header">
-                <h2>Three ways to buy. All risk-free to start.</h2>
-                <p>Per-endpoint pricing for AI-powered MDR. Pay monthly per endpoint, pay flat at Enterprise, or run a free pilot first. Zero ingestion fees on every plan.</p>
-            </div>
-            <div class="pt-grid">
-                <!-- Tier 1: Pilot -->
-                <div class="pt-card">
-                    <div class="pt-tier-name">Pilot</div>
-                    <div class="pt-price-row">
-                        <span class="pt-price">$0</span>
-                        <span class="pt-price-unit">/ 30 days</span>
+            <div style="max-width: 720px; margin: 0 auto; text-align: center;">
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 16px;">Contact Us</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px;">Talk to our team to learn more about Vigilense AI and discuss how we can help secure your environment. Every deployment starts with a risk-free pilot.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px;">
+                    <a href="/demo/" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; font-weight: 600; background: #0A1628; color: #FFFFFF; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(10, 22, 40, 0.15);">Book a Demo</a>
+                    <a href="mailto:sales@vigilense.ai" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 32px; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; font-weight: 600; background: transparent; color: #0A1628; border: 2px solid #0A1628; border-radius: 8px; text-decoration: none; cursor: pointer; transition: all 0.2s;">Email Sales</a>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: left;">
+                    <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #00D4AA; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Email</div>
+                        <a href="mailto:sales@vigilense.ai" style="color: var(--text-primary); text-decoration: none; font-weight: 500;">sales@vigilense.ai</a>
                     </div>
-                    <p class="pt-price-sub">No credit card. No commitment.</p>
-                    <h3>Risk-free pilot</h3>
-                    <p class="pt-tagline">Try the full AI SOC analyst against your real data before you spend a dollar.</p>
-                    <div class="pt-divider"></div>
-                    <ul class="pt-feature-list">
-                        <li>Full platform access for 30 days</li>
-                        <li>Up to <strong>500 endpoints</strong>, 3 data sources connected</li>
-                        <li>Deployment handled by our team</li>
-                        <li>Live investigation reports daily</li>
-                        <li>Walk away at any time, keep your data</li>
-                    </ul>
-                    <a href="/demo/" class="pt-cta pt-cta-secondary">Start a Pilot</a>
-                    <div class="pt-bestfor">Best for: <strong>Validating ROI before committing</strong></div>
-                </div>
-
-                <!-- Tier 2: AI MDR (Most Popular) -->
-                <div class="pt-card featured">
-                    <div class="pt-tier-name">AI MDR</div>
-                    <div class="pt-price-row">
-                        <span class="pt-price">$10</span>
-                        <span class="pt-price-unit">/ endpoint / month</span>
+                    <div style="padding: 24px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 700; color: #00D4AA; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Schedule</div>
+                        <a href="/demo/" style="color: var(--text-primary); text-decoration: none; font-weight: 500;">Book a 15-minute demo</a>
                     </div>
-                    <p class="pt-price-sub">Billed monthly. No minimum term.</p>
-                    <h3>Pay per endpoint</h3>
-                    <p class="pt-tagline">Simple, predictable pricing for midsize teams. Know exactly what you will pay before the month starts.</p>
-                    <div class="pt-divider"></div>
-                    <ul class="pt-feature-list">
-                        <li><strong>$0 ingestion</strong>, $0 data transfer, $0 storage fees</li>
-                        <li>Unlimited data sources and integrations</li>
-                        <li>AI SOC analyst, 24/7 monitoring</li>
-                        <li>50+ enrichment sources, full chain of reasoning</li>
-                        <li>Automated response with human-in-the-loop</li>
-                        <li>Email + chat support, &lt;4hr response SLA</li>
-                    </ul>
-                    <a href="/demo/" class="pt-cta pt-cta-primary">Book a Demo</a>
-                    <div class="pt-bestfor">Best for: <strong>50-500 employee organizations</strong></div>
-                </div>
-
-                <!-- Tier 3: Enterprise -->
-                <div class="pt-card">
-                    <div class="pt-tier-name">Enterprise</div>
-                    <div class="pt-price-row">
-                        <span class="pt-price">Custom</span>
-                    </div>
-                    <p class="pt-price-sub">Annual subscription. Volume + unlimited model.</p>
-                    <h3>Flat platform fee</h3>
-                    <p class="pt-tagline">Unlimited investigations and predictable spend for high-volume environments and regulated industries.</p>
-                    <div class="pt-divider"></div>
-                    <ul class="pt-feature-list">
-                        <li>Everything in AI MDR, plus:</li>
-                        <li><strong>Unlimited investigations</strong> at a flat annual rate</li>
-                        <li>Custom retention &amp; compliance controls</li>
-                        <li>Dedicated Customer Success Manager</li>
-                        <li>24/7 priority support, &lt;1hr response SLA</li>
-                        <li>SSO, SCIM, custom audit exports, SOC 2 reports</li>
-                    </ul>
-                    <a href="mailto:sales@vigilense.ai?subject=Vigilense%20Enterprise%20Pricing" class="pt-cta pt-cta-secondary">Talk to Sales</a>
-                    <div class="pt-bestfor">Best for: <strong>500+ employees, regulated workloads</strong></div>
-                </div>
-            </div>
-
-            <div class="pt-comparison">
-                <div class="vs-item">
-                    <span class="vs-label">Traditional MDR</span>
-                    <span class="vs-value red">~$15 per endpoint</span>
-                </div>
-                <span class="vs-arrow">&rarr;</span>
-                <div class="vs-item">
-                    <span class="vs-label">Vigilense AI MDR</span>
-                    <span class="vs-value green">$10 per endpoint</span>
-                </div>
-                <span class="vs-arrow">&rarr;</span>
-                <div class="vs-item">
-                    <span class="vs-label">+ Ingestion fees</span>
-                    <span class="vs-value green">$0 (always)</span>
                 </div>
             </div>
         </div>
