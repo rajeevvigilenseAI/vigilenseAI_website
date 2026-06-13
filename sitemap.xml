@@ -49,6 +49,8 @@
   <url><loc>https://vigilense.ai/blog/byol-architecture/</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/flat-rate-vs-per-gb/</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/mdr-no-ingestion-fees/</loc><lastmod>2026-06-11</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/what-is-byodb-siem/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/siem-without-ingestion-fees/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Legal -->
   <url><loc>https://vigilense.ai/privacy/</loc><lastmod>2026-02-14</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>

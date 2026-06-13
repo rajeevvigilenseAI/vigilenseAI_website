@@ -3,5 +3,17 @@ Allow: /
 Disallow: /cost-simulator/private/
 Disallow: /team/
 Disallow: /blog/post-template/
+Disallow: /_archive/
+Disallow: /blog.html
+Disallow: /blog-*.html
+Disallow: /pricing.html
+Disallow: /careers.html
+Disallow: /demo.html
+Disallow: /disclaimer.html
+Disallow: /privacy.html
+Disallow: /security.html
+Disallow: /terms.html
+Disallow: /trust.html
+Disallow: /blog-post-template.html
 
 Sitemap: https://vigilense.ai/sitemap.xml

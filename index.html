@@ -1411,7 +1411,7 @@
         {"@type": "Question", "name": "How is Vigilense different from traditional MDR?", "acceptedAnswer": {"@type": "Answer", "text": "Three things. (1) Your data stays put: traditional MDR copies your logs into the provider's cloud and charges per gigabyte ingested. Vigilense queries your data where it already lives (Snowflake, OpenSearch, Sentinel, S3, BigQuery) with zero ingestion fees. (2) Every alert gets a full investigation: human analysts can't scale to investigate every alert, so traditional MDR drops the long tail. Our AI investigates 100% of alerts end-to-end. (3) No vendor lock-in: because your data never moves to us, you can leave at any time without a painful re-ingest."}},
         {"@type": "Question", "name": "How long does deployment take?", "acceptedAnswer": {"@type": "Answer", "text": "Most customers are running detections and seeing investigations within 5 business days of contract signature. Typical timeline: Day 1 read-only connector to your existing database; Days 2-3 detection tuning and enrichment sources wired up; Day 4 AI SOC analyst runs in shadow mode for review; Day 5 go-live with approved response actions. Larger environments with custom integrations may take 2-3 weeks. We do the deployment work; you don't need to staff a project."}},
         {"@type": "Question", "name": "What if I already have a SIEM?", "acceptedAnswer": {"@type": "Answer", "text": "Keep it. Vigilense was built to run on top of the SIEMs and data lakes you already own, not to replace them. We connect read-only to Splunk, Microsoft Sentinel, Elastic, OpenSearch, Chronicle, and others. Your existing detections, dashboards, and historical data keep working. Vigilense adds the AI investigation and response layer on top so you get measurably more value from the SIEM spend you've already committed to."}},
-        {"@type": "Question", "name": "How much does Vigilense cost?", "acceptedAnswer": {"@type": "Answer", "text": "Three components, each predictable. (1) Platform subscription: a flat annual fee for the AI SOC analyst, the detection engine, and the investigation workflow. Scales with your organization, not your log volume. (2) Per-investigation usage: pay only for alerts the AI actually investigates. Pricing starts around $4 per investigation at midmarket volumes, lower at scale. (3) Ingestion: $0, always. Most midsize customers see a 50-70% reduction in total SIEM + SOC spend versus their previous stack."}},
+        {"@type": "Question", "name": "How much does Vigilense cost?", "acceptedAnswer": {"@type": "Answer", "text": "Vigilense AI uses simple per-endpoint pricing with zero ingestion fees. Your bill scales with your organization, not your data volume. Contact our team for a tailored quote based on your environment."}},
         {"@type": "Question", "name": "Is my data safe with Vigilense?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your data never leaves your infrastructure. We query it in place: we do not copy, move, replicate, or store it on our side. Read-only access by default; write access only for response actions you explicitly approve. All connections use TLS 1.2+. Every query, verdict, and response action is logged with chain-of-custody. SOC 2 Type 1 in progress. GDPR-aligned data handling. Architecture supports HIPAA, PCI-DSS, and other regulated workloads because data stays within your existing compliance boundary."}},
         {"@type": "Question", "name": "What databases and tools does Vigilense support?", "acceptedAnswer": {"@type": "Answer", "text": "Vigilense is database-agnostic by design. First-class integrations include: Data platforms: Snowflake, Databricks, Google BigQuery, Amazon S3, AWS Security Lake. Search engines: Elasticsearch, OpenSearch, Splunk, Microsoft Sentinel. Identity: Okta, Microsoft Entra ID, Google Workspace, Duo. Endpoint/XDR: CrowdStrike, SentinelOne, Microsoft Defender, Sophos. Cloud: AWS CloudTrail, Azure Activity Logs, GCP Audit Logs. Response and ticketing: Jira, ServiceNow, Slack, Microsoft Teams, PagerDuty. If your data source has a SQL-compatible interface or documented API, we can almost certainly query it."}}
       ]
@@ -1652,7 +1652,7 @@
                         </div>
                         <div class="mdr-compare-row" role="row">
                             <div class="label" role="cell">Ingestion fees</div>
-                            <div class="legacy" role="cell">$0.88+/GB</div>
+                            <div class="legacy" role="cell">Per-GB fees</div>
                             <div class="vig" role="cell">$0</div>
                         </div>
                         <div class="mdr-compare-row" role="row">
@@ -1767,8 +1767,8 @@
                     <div class="mdr-number-label">ingestion cost</div>
                 </div>
                 <div class="mdr-number-card">
-                    <div class="mdr-number-value">50-70%</div>
-                    <div class="mdr-number-label">cost reduction vs traditional SIEM</div>
+                    <div class="mdr-number-value">Per endpoint</div>
+                    <div class="mdr-number-label">simple, predictable pricing</div>
                 </div>
             </div>
         </div>
@@ -1892,13 +1892,8 @@
                 <details class="mdr-faq-item">
                     <summary>How much does it cost?</summary>
                     <div class="answer">
-                        <p>Three components, each predictable:</p>
-                        <ul>
-                            <li><strong>Platform subscription:</strong> A flat annual fee for the AI SOC analyst, the detection engine, and the investigation workflow. Scales with your organization, not your log volume.</li>
-                            <li><strong>Per-investigation usage:</strong> Pay only for alerts the AI actually investigates. Pricing starts around $4 per investigation at midmarket volumes, lower at scale.</li>
-                            <li><strong>Ingestion:</strong> $0. Always. Because your data never moves to us, there is nothing to ingest.</li>
-                        </ul>
-                        <p>Most midsize customers see a 50-70% reduction in total SIEM + SOC spend compared with their previous stack. We&rsquo;ll run the numbers against your current environment during the risk-free pilot. <a href="/pricing/" style="color: var(--mdr-teal);">See full pricing details &rarr;</a></p>
+                        <p>Vigilense AI uses simple per-endpoint pricing with zero ingestion fees. Your bill scales with your organization, not your data volume. There are no per-GB charges, no data transfer fees, and no storage surcharges.</p>
+                        <p>We will run the numbers against your current environment during the risk-free pilot. <a href="/demo/" style="color: var(--mdr-teal);">Talk to our team</a> for a tailored quote.</p>
                     </div>
                 </details>
                 <details class="mdr-faq-item">
