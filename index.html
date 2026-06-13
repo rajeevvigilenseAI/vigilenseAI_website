@@ -33,8 +33,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,500,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,500,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,500,400&display=swap" rel="stylesheet">
+    </noscript>
 
     <style>
         /* ============================================
@@ -334,7 +339,8 @@
             justify-content: space-between;
             margin-bottom: 18px;
         }
-        .mdr-mockup-headline h3 {
+        .mdr-mockup-headline h3,
+        .mdr-mockup-title {
             font-family: var(--font-display);
             font-size: 0.95rem;
             font-weight: 700;
@@ -1420,7 +1426,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="/" class="nav-brand">
-                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" width="56" height="56">
                 <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
             </a>
             <ul class="nav-menu">
@@ -1448,6 +1454,7 @@
         </div>
     </nav>
 
+    <main>
     <!-- ========================================
          SECTION 2: HERO
          ======================================== -->
@@ -1485,7 +1492,7 @@
                     </div>
                     <div class="mdr-mockup-canvas">
                         <div class="mdr-mockup-headline">
-                            <h3>Security Operations</h3>
+                            <div class="mdr-mockup-title" aria-hidden="true">Security Operations</div>
                             <span class="mdr-mockup-time">Last 24 hours</span>
                         </div>
                         <div class="mdr-mockup-metrics">
@@ -2004,6 +2011,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- ========================================
          FOOTER
          ======================================== -->
@@ -2012,7 +2021,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="/" class="nav-brand">
-                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon" loading="lazy">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI" class="logo-icon" width="56" height="56" loading="lazy">
                         <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
                     </a>
                     <p>AI-Powered Detection &amp; Response. Your Data Never Leaves.</p>
