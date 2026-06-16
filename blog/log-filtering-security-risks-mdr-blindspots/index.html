@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Open Graph -->
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Vigilense AI" />
-    <meta property="og:title" content="The Complete Guide to MDR with No Ingestion Fees" />
-    <meta property="og:description" content="How to secure your enterprise without unpredictable costs using MDR with no ingestion fees." />
-    <meta property="og:url" content="https://vigilense.ai/blog/mdr-no-ingestion-fees/" />
+    <meta property="og:title" content="The Danger of Log Filtering: Why Traditional MDR Ingestion Limits Create Blindspots" />
+    <meta property="og:description" content="Understand how log filtering security risks compromise your enterprise. Learn why traditional MDR data exclusion limits create dangerous security blindspots." />
+    <meta property="og:url" content="https://vigilense.ai/blog/log-filtering-security-risks-mdr-blindspots/" />
     <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
     <meta property="og:image:width" content="1424" />
     <meta property="og:image:height" content="752" />
     <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
     <meta property="og:locale" content="en_US" />
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="The Complete Guide to MDR with No Ingestion Fees" />
-    <meta name="twitter:description" content="How to secure your enterprise without unpredictable costs using MDR with no ingestion fees." />
+    <meta name="twitter:title" content="The Danger of Log Filtering: Why Traditional MDR Ingestion Limits Create Blindspots" />
+    <meta name="twitter:description" content="Understand how log filtering security risks compromise your enterprise. Learn why traditional MDR data exclusion limits create dangerous security blindspots." />
     <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
     <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
-    <!-- Standard -->
-    <meta name="description" content="How to secure your enterprise without unpredictable costs using MDR with no ingestion fees. A complete guide to predictable security spending." />
+    <meta name="description" content="Understand how log filtering security risks compromise your enterprise. Learn why traditional MDR data exclusion limits create dangerous security blindspots." />
     <meta name="author" content="Vigilense AI" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://vigilense.ai/blog/mdr-no-ingestion-fees/" />
-    <!-- Favicon -->
+    <link rel="canonical" href="https://vigilense.ai/blog/log-filtering-security-risks-mdr-blindspots/" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
-    <title>The Complete Guide to MDR with No Ingestion Fees - Vigilense AI Blog</title>
+    <title>The Danger of Log Filtering: Why Traditional MDR Ingestion Limits Create Blindspots - Vigilense AI Blog</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/theme.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
+<style>
         /* ============================
            BLOG POST LAYOUT
            ============================ */
@@ -285,23 +281,32 @@
     {"@context":"https://schema.org","@type":"Organization","name":"Vigilense AI","alternateName":["Vigilance AI","Vigilense","Vigilance"],"url":"https://vigilense.ai","logo":"https://vigilense.ai/vigilense-logo.png","description":"The Sovereign SOC - BYODb SIEM + Autonomous AI SOC Analyst. Query your databases in place, zero ingestion fees, AI-powered investigation and resolution.","email":"sales@vigilense.ai","sameAs":["https://www.linkedin.com/company/111587909/","https://x.com/VigilenseAI","https://www.youtube.com/@VigilenseAI"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":1,"maxValue":50},"industry":"Cybersecurity","knowsAbout":["SIEM","SOC Automation","AI Security Operations","BYODb","Threat Detection","Incident Response"]}
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Complete Guide to MDR with No Ingestion Fees",
-      "description": "How to secure your enterprise without unpredictable costs using MDR with no ingestion fees.",
-      "datePublished": "2026-06-07",
-      "url": "https://vigilense.ai/blog/mdr-no-ingestion-fees/",
-      "image": "https://vigilense.ai/images/og-preview_new.png",
-      "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
-      "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } }
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Danger of Log Filtering: Why Traditional MDR Ingestion Limits Create Blindspots",
+  "description": "Understand how log filtering security risks compromise your enterprise. Learn why traditional MDR data exclusion limits create dangerous security blindspots.",
+  "datePublished": "2026-06-14",
+  "url": "https://vigilense.ai/blog/log-filtering-security-risks-mdr-blindspots/",
+  "image": "https://vigilense.ai/images/og-preview_new.png",
+  "author": {
+    "@type": "Organization",
+    "name": "Vigilense AI",
+    "url": "https://vigilense.ai"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vigilense AI",
+    "url": "https://vigilense.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vigilense.ai/vigilense-logo.png"
     }
+  }
+}
     </script>
 </head>
 <body>
-    <!-- ========================================
-         NAVIGATION
-         ======================================== -->
     <nav class="navbar">
         <div class="container">
             <a href="/" class="nav-brand">
@@ -318,6 +323,7 @@
                     <a href="/resources/">Resources</a>
                     <ul class="dropdown-menu">
                         <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/ai-soc-analyst-support/">AI SOC + Human Teams</a></li>
                         <li><a href="/resources/team/">Team</a></li>
                         <li><a href="/blog/">Blog</a></li>
                     </ul>
@@ -332,9 +338,6 @@
         </div>
     </nav>
 
-    <!-- ========================================
-         BLOG POST CONTENT
-         ======================================== -->
     <article class="blog-post">
         <div class="container">
             <div class="post-content">
@@ -345,11 +348,11 @@
 
                 <header class="post-header">
                     <span class="post-category">Industry</span>
-                    <h1>The Complete Guide to MDR with No Ingestion Fees</h1>
+                    <h1>The Danger of Log Filtering: Why Traditional MDR Ingestion Limits Create Blindspots</h1>
                     <div class="post-meta">
-                        <time datetime="2026-06-07">Jun 7, 2026</time>
+                        <time datetime="2026-06-14">Jun 14, 2026</time>
                         <span>&middot;</span>
-                        <span>9 min read</span>
+                        <span>12 min read</span>
                         <span>&middot;</span>
                         <span>By Bal Singh</span>
                     </div>
@@ -358,59 +361,39 @@
                 <hr class="post-divider">
 
                 <div class="post-body">
-                    <h2>Why Enterprises Need MDR No Ingestion Fees for Predictable Security</h2>
-
-                    <h3>How Predictable MDR No Ingestion Fees Prevent Cloud Cost Disasters</h3>
-
-                    <p>The glowing red numbers on the monitor showed a four-hundred percent surge in daily log volume. It was a silent crisis. The security team at a mid-market financial firm watched in disbelief as their automated logging systems went wild. An internal application update had triggered a benign but relentless loop of API calls. Millions of repetitive log entries flooded the system every hour. The legacy security platform ingested every single line of this digital noise, and the bill began to climb rapidly. By the time the software team applied a patch to stop the loop, the firm had racked up an unexpected thirty-thousand-dollar charge. That single incident exposed the deep flaw of traditional pricing and forced the team to search for MDR no ingestion fees models.</p>
-
-                    <p>For years, security leaders accepted an unfair compromise. They had to choose between complete visibility and predictable budgets. Every new cloud service, every remote worker, and every update expanded the digital trail. Analysts need this trail to spot threats, yet old licensing models penalize companies for gathering the very data they need to defend themselves. This is the data tax. To keep monthly bills from exploding, teams deliberately ignore important log sources. It is a dangerous game of roulette. Transitioning to a model with predictable costs allows companies to break free from this cycle and run a defense system that does not charge for data volume.</p>
-
-                    <p>Removing these unpredictable costs is not just about financial convenience. It is a vital security requirement. When a firm limits data collection to save money, it creates blind spots that attackers can easily exploit. Threat actors often hide in the quiet, overlooked corners of networks, such as DNS logs or workstation event logs. Under a variable pricing model, these logs are often the first to be discarded during budget cuts. By adopting a flat rate MDR model, organizations can gather every byte of telemetry from every endpoint, cloud workload, and network device without the fear of ballooning invoices. This is the story of how our team redesigned our security operations, walked away from fluctuating ingestion bills, and built a defense system on predictability.</p>
-
-                    <h2>Why Legacy Security Models Fail Without MDR No Ingestion Fees</h2>
-
-                    <p>To understand the value of a system with no data tax, one must look at the broken economics of old security pricing. Legacy providers built their businesses around the volume of data processed, measured in gigabytes per day. This structure was designed when networks had clear borders and data volumes were modest. Today, modern cloud setups and microservices generate oceans of data in hours, making old volume-based pricing punitive and obsolete.</p>
-
-                    <p>This pricing framework creates a direct conflict of interest. The security vendor makes more money when the client generates more data, meaning they have no incentive to help clean up the pipelines. Meanwhile, the enterprise tries to limit data collection to save money, leaving analysts blind. Analysts are left working with incomplete datasets, unable to connect events across different platforms because the necessary logs were filtered out before ingestion. The pricing model becomes a barrier to safety, turning the chief information security officer into a budget warden rather than a defender.</p>
-
-                    <p>The administrative burden is also exhausting. Finance teams spend hours dissecting complex invoices to understand sudden spikes. Security staff waste time writing complex filters to block logs instead of hunting for threats. This hidden labor cost is rarely mentioned during the initial sales pitch. Removing these volume fees changes everything, allowing the defense team to focus exclusively on protection.</p>
-
-                    <h2>Why Transitioning to MDR No Ingestion Fees Restores Security Integrity</h2>
-
-                    <p>The primary benefit of adopting a security program built around MDR no ingestion fees is the immediate restoration of complete visibility. When there is no financial penalty for collecting data, engineers can gather telemetry from every corner of the network. This includes high-volume sources like Active Directory logs, firewall connections, and DNS queries. Having access to this data allows analysts to construct complete timelines of security incidents, tracing a threat from the initial email down to movement across cloud databases.</p>
-
-                    <p>Consider how a modern ransomware attack unfolds. Attackers do not just break in and release their malware immediately. They creep through the system slowly, mimicking normal administrative actions. Catching these whispers requires connecting dots from many different sources over weeks. If a company turned off DNS logging to save money, the defense team remains blind until the damage is already done.</p>
-
-                    <p>A fixed-rate model also heals internal friction. Often, security teams are seen as obstacles because they demand access to logs but complain about the cost. With flat pricing, they can encourage developers to log everything thoroughly, knowing that this data can be analyzed for vulnerabilities without affecting the corporate budget. This fosters a culture of cooperation where engineering and security work in tandem.</p>
-
-                    <h2>The Technical Architecture Supporting MDR No Ingestion Fees</h2>
-
-                    <p>Many wonder how a security provider can offer flat-rate pricing without going broke. The answer lies in modern architecture. Instead of dumping every raw log into expensive central databases, modern platforms use decentralized processing.</p>
-
-                    <p>Lightweight agents handle telemetry right at the source, on the endpoint or server. They filter out repetitive, harmless noise before any data is sent over the network. This keeps central storage requirements low without losing security context. By filtering out normal administrative noise at the source, the amount of data sent to the central analytical engine drops significantly.</p>
-
-                    <p>Decoupled storage also keeps costs low. Modern systems separate the active analysis layer from long-term compliance storage. Historical logs are stored in cheap cloud object storage, like Amazon S3 or Google Cloud Storage. When an investigator needs to dig into the past, the system quickly retrieves the necessary blocks. This architectural shift allows the provider to offer predictable flat rate MDR pricing while maintaining full search capabilities.</p>
-
-                    <h2>A Step-by-Step Blueprint for Adopting MDR No Ingestion Fees</h2>
-
-                    <p>Switching to a flat-rate model requires a clear plan. First, the team must map out all active data sources and measure the daily volume of telemetry. This assessment shows exactly how much money can be saved by moving away from traditional security data ingestion fees.</p>
-
-                    <p>Next, the team configures local tools to clean up the data. Open-source collectors like Vector or Fluent Bit can parse and organize logs before they leave the local network. They can drop useless status updates while keeping important authentication records. This local preparation ensures that the data sent to the flat rate MDR provider is clean and structured, which speeds up response operations.</p>
-
-                    <p>Finally, the integration begins in phases. Starting with a small test group of endpoints, the team verifies that the system detects threats correctly. Once the pilot succeeds, the rest of the enterprise can be moved over, and the old, expensive SIEM can be turned off for good, eliminating variable ingestion bills forever.</p>
-
-                    <h2>The Long-Term ROI of Switching to MDR No Ingestion Fees</h2>
-
-                    <p>The transition to a security model free from unpredictable ingestion fees delivers substantial long-term value. With a predictable budget, security leaders can focus on long-term defenses like Zero Trust architectures and regular penetration testing. Analysts are no longer forced to prune logs. They can focus on their true mission of defending the company. The friction with finance is gone, replaced by trust and clear, predictable costs. Most importantly, the enterprise is left with a strong security posture that leaves no stone unturned and no log uncollected.</p>
-
-                    <p><strong>Related:</strong> <a href="/resources/zero-ingestion-fee-mdr-tco/">Zero ingestion fee MDR TCO guide</a> | <a href="/resources/best-247-threat-monitoring-services/">Best 24/7 threat monitoring services</a> | <a href="/compare/">Compare legacy MDR vs Vigilense</a></p>
+<p>Grasping <strong>log filtering security risks</strong> is vital for corporations blocking data breaches. At Sovereign Logistics, a global shipping company, the monitoring screen showed green while the company was exposed because high-volume logs were filtered to stay within spending limits. The quietest night of a security defender's career often precedes the loudest, most chaotic morning. To stay within a rigid monthly spending cap, the systems team choked back high-volume event logs before they could reach their cloud-based threat detection hub. This story maps the hidden dangers of log filtering and shows how organizations can preserve complete security telemetry without draining their budgets.</p>
+                    <p>The disaster at Sovereign Logistics did not trigger a single siren. It arrived via a sudden phone call from a federal cyber defense agent. The voice on the line told the Chief Information Security Officer that proprietary routing algorithms and private customer shipping lists were already being bought and sold on the dark web. Sarah, the lead engineer, raced to investigate and found nothing but empty space in her central monitoring console. Her team had configured system agents to ignore Security Log Event ID 4624, which tracks successful logons, and Event ID 4625, which tracks failed logon attempts, from non-essential application servers. Intruders slipped into a low-priority print server, grabbed administrative credentials, and walked straight through to the main domain controller. Because those logon records were destroyed at the source, the external security provider had no way to see the unauthorized access.</p>
+                    <h2>The Night the Silent Threat Slipped Through: Understanding Log Filtering Security Risks</h2>
+                    <p>This collapse shows exactly how online thieves exploit the structural voids left by aggressive cost-cutting. When a company filters logs at the outer boundary or the source, they choose which doors to bolt while leaving the back windows unlocked. Intruders do not knock on heavily guarded gates; they search for the noisy, unmonitored pathways that security teams routinely discard to save pennies. Deleting high-volume logs like PowerShell command histories, local group updates, or registry tweaks might trim the monthly software bill, but it starves threat hunters of the vital clues needed to piece together a complex intrusion.</p>
+                    <p>Ultimately, the cleanup at Sovereign Logistics cost four million dollars in regulatory penalties, forensic bills, and shattered customer trust, a figure that closely aligns with the global average cost of a data breach, which reached <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">$4.88 million according to the 2024 IBM Cost of a Data Breach Report</a>. The financial savings of blind filtering are nothing but a dangerous mirage.</p>
+                    <h3>Why Correlation Requires Full Context</h3>
+                    <p>Spotting an attack relies on correlation, the art of binding seemingly unrelated events across separate systems to reveal a hidden pattern. A single failed logon on a laptop is a typo. Fifty failed logons across fifty separate systems followed by one successful entry is a brute-force raid. If local systems are set to throw away failed logon events to trim storage costs, the analytical engine sees only that final, successful connection. To the security console, this looks like a normal employee starting their shift, and no alert is ever generated. The intrusion remains completely hidden because the vital context was destroyed before it could reach the brain of the security system.</p>
+                    <h2>How Budget-Driven Decisions Amplify Log Filtering Security Risks</h2>
+                    <p>Many security teams fall into the trap of treating data intake as an all-or-nothing financial weight. Traditional monitoring companies bill clients based on the sheer volume of data received, measured in gigabytes per day or events per second. When the annual bill arrives, the sticker shock drives finance teams to demand immediate cuts. The security team must then choose which data streams to sacrifice, usually starting with DNS requests, firewall permits, and process histories, writing them off as useless background noise.</p>
+                    <p>This triage method is deeply flawed because what looks like harmless static during peaceful times becomes the smoking gun during an active attack. DNS queries are incredibly massive, often making up <a href="https://www.cisco.com/c/en/us/products/security/what-is-dns-security.html" target="_blank" rel="noopener noreferrer">more than 30 percent of a company's total log volume</a>. Cutting these records to avoid ballooning monitoring costs directly blinds the team to outbound communication channels used by hackers. Without DNS records, spotting domain generation tricks or data theft through hidden channels is almost impossible. The monitoring service cannot flag a threat they never see, creating a massive blind spot that skilled hackers look for.</p>
+                    <h2>How Log Filtering Security Risks Neutralize Your Incident Response</h2>
+                    <p>When an incident occurs, time is a defender's most precious asset. Responders talk about the golden hour, the tight window right after an intrusion where quick action can lock down the threat and halt data theft. Filtering logs destroys this window by dragging out the time it takes to spot and clean up an intrusion. According to industry benchmarks like the <a href="https://www.mandiant.com/m-trends" target="_blank" rel="noopener noreferrer">Mandiant M-Trends report</a>, the median global dwell time for cyberattacks remains around 10 days, but filtering critical logs can easily push this timeline into months.</p>
+                    <p>At Sovereign Logistics, when the outside forensic team arrived to map the attack, they spent three painful weeks pulling local event logs directly from individual hard drives by hand. They had to do this because the central security system lacked the necessary deep records to trace where the attacker had walked. Current attackers use native administrative tools already built into the system, such as PowerShell, Windows Management Instrumentation, and network shares, to run their malicious payloads. These actions blend perfectly with everyday administrative work. Spotting these tiny abnormalities requires deep comparison across different log sources over long periods. If the network filters out successful administrative logins or local process logs, the monitoring engine cannot link a normal tool to a rogue remote session. The intruder remains invisible, moving quietly from machine to machine for months, while the security team stares at a green screen that is only green because it has been blinded by aggressive filtering settings.</p>
+                    <h2>Mitigating Log Filtering Security Risks with Comprehensive Security Telemetry</h2>
+                    <p>To break this dangerous cycle, companies must move away from blind data dumping and adopt smart pipeline routing. The answer is not to dump every byte into an expensive, fast-access database, nor is it to throw away vital records at the source. Instead, smart security setups use an active data pipeline that can clean, enrich, and route records to different storage tiers based on their value. This setup keeps vital security data intact while easing the financial strain of old-school licensing models.</p>
+                    <h3>Smart Pipeline Routing and Tiered Storage</h3>
+                    <p>A modern data pipeline acts as an intelligent traffic director. High-value, high-context logs like logons, security alerts, and cloud admin paths go straight to the fast-access tier for real-time analysis. Meanwhile, massive but lower-priority logs like raw firewall permits or web proxy traffic are squeezed into highly compressed, searchable formats and sent directly to cheap cloud storage. If a defender spots a weird event on a computer, they can instantly search this compressed archive to map out the network traffic without paying massive fees to keep it in the main database. This two-track storage method closes security gaps without forcing the firm into a financial corner.</p>
+                    <h2>A Blueprint for Eliminating Log Filtering Security Risks Without Breaking the Budget</h2>
+                    <p>Building a strong defense requires a step-by-step plan for managing security data. Companies can follow this clear roadmap to keep eyes on their whole network while keeping storage bills low.</p>
+                    <ul>
+                    <li><strong>Audit all filter points:</strong> Run a complete audit of all active data sources and find out exactly where filtering happens. Security teams must map out every agent setting, firewall rule, and log forwarder policy that drops data. This search often uncovers old exclusion rules that were set up years ago for testing and forgotten, leaving massive holes in today's defenses.</li>
+                    <li><strong>Three-tier sorting:</strong> Group records into three piles: vital for real-time alerts, necessary for investigations, and compliance-only. Send the alert-heavy logs to the main monitoring engine. Route the investigation logs to a fast, cheap archive tier. Store compliance-only logs in locked, read-only storage to satisfy auditors at the lowest possible cost.</li>
+                    <li><strong>Edge compression up to 40 percent:</strong> Clean and compress data at the edge before sending it. Many logs contain repeating metadata, long system paths, or useless diagnostic text that floods the file size without adding security value. By stripping this filler and tidying the data format, companies can shrink their log volume by up to 40 percent without losing a single security event.</li>
+                    <li><strong>Continuous testing with simulated attacks:</strong> Security setups are never permanent; software updates, system shifts, and simple human mistakes can easily break log delivery. By running simulated attacks and checking that the resulting logs show up in the central console, companies can ensure their vision remains clear.</li>
+                    </ul>
+                    <p>The illusion of safety is far more dangerous than an open vulnerability. Trusting a monitoring service that is fed a starvation diet of filtered logs creates a false confidence that can destroy a business. To protect vital assets from smart, modern threats, companies must stop reckless log filtering and embrace smart routing pipelines. By preserving complete security records, using cheap multi-tiered storage, and cleaning data at the edge, security leaders can protect both their networks and their bottom lines. True safety lies in realizing that clear sight is not a luxury to be rationed, but the very bedrock of defense.</p>
+                    <p><a href="/">Vigilense AI</a> is a BYODb SIEM with a built-in AI SOC analyst, designed for mid-market teams who want enterprise detection without enterprise overhead. <a href="/demo/">Book a demo</a> to see how it works on your own data.</p>
                 </div>
 
                 <hr class="post-divider">
 
                 <div class="post-cta">
-                    <h3>Explore MDR with no ingestion fees.</h3>
+                    <h3>See how full telemetry coverage works without ingestion fees.</h3>
                     <a href="/demo/" class="btn">Book a Demo</a>
                 </div>
 
@@ -418,7 +401,7 @@
                     <div class="author-avatar">BS</div>
                     <div class="author-info">
                         <h4>Bal Singh</h4>
-                        <div class="author-title">Co-founder & CTO</div>
+                        <div class="author-title">Co-founder &amp; CTO</div>
                         <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
                     </div>
                 </div>
@@ -426,9 +409,6 @@
         </div>
     </article>
 
-    <!-- ========================================
-         FOOTER
-         ======================================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -454,7 +434,7 @@
                         <h4>Company</h4>
                         <ul>
                             <li><a href="/careers/">Careers</a></li>
-                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/security/">About &amp; Security</a></li>
                             <li><a href="/trust/">Trust Center</a></li>
                             <li><a href="/demo/">Contact</a></li>
                         </ul>
@@ -463,7 +443,7 @@
                         <h4>Resources</h4>
                         <ul>
                             <li><a href="/why-now/">Why Now</a></li>
-                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/blog/">Blog &amp; News</a></li>
                             <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
                             <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
                             <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
@@ -471,7 +451,7 @@
                         </ul>
                     </div>
                     <div class="footer-column">
-                        <h4>Legal & Security</h4>
+                        <h4>Legal &amp; Security</h4>
                         <ul>
                             <li><a href="/trust/">Trust Center</a></li>
                             <li><a href="/security/">Security</a></li>
