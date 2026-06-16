@@ -3,6 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+        var redirects = {
+            '/blog.html': 'https://vigilense.ai/blog/',
+            '/blog/what-is-byodb-siem/': 'https://vigilense.ai/resources/what-is-byodb-siem/',
+            '/blog/what-is-byodb-siem/index.html': 'https://vigilense.ai/resources/what-is-byodb-siem/',
+            '/blog-ingestion-tax.html': 'https://vigilense.ai/blog/ingestion-tax/',
+            '/blog-detection-rules-eight-databases.html': 'https://vigilense.ai/blog/detection-rules-eight-databases/',
+            '/blog-hidden-costs-siem.html': 'https://vigilense.ai/blog/hidden-costs-siem/',
+            '/blog-financial-unsustainability.html': 'https://vigilense.ai/blog/financial-unsustainability/',
+            '/blog-selling-to-cisos.html': 'https://vigilense.ai/blog/selling-to-cisos/',
+            '/blog-ciso-buying-shift.html': 'https://vigilense.ai/blog/ciso-buying-shift/',
+            '/blog-tenant-isolation.html': 'https://vigilense.ai/blog/tenant-isolation/',
+            '/blog-alert-fatigue.html': 'https://vigilense.ai/blog/alert-fatigue/',
+            '/blog-zero-to-detection.html': 'https://vigilense.ai/blog/zero-to-detection/',
+            '/blog-sovereign-over-scale.html': 'https://vigilense.ai/blog/sovereign-over-scale/',
+            '/blog-byodb-architecture.html': 'https://vigilense.ai/blog/byodb-architecture/',
+            '/blog-sovereign-soc.html': 'https://vigilense.ai/blog/sovereign-soc/'
+        };
+        var dest = redirects[location.pathname];
+        if (dest) {
+            location.replace(dest);
+        }
+    })();
+    </script>
     <meta name="robots" content="noindex">
     <title>Page Not Found - Vigilense AI</title>
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
