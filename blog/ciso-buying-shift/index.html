@@ -280,22 +280,123 @@
             .post-cta { padding: 24px 16px; }
             .author-card { padding: 20px; }
         }
+    
+        .post-related {
+            margin: 48px 0 32px;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .post-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .post-related ul {
+            margin: 0 0 16px;
+            padding-left: 20px;
+        }
+        .post-related li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .post-related a {
+            color: #0D9488;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .post-related-products a {
+            color: #0D9488;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .post-related-products a:hover { text-decoration: underline; }
+        .lp-related {
+            margin: 48px 0;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .lp-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .lp-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .lp-related li { margin-bottom: 8px; }
+        .lp-related a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related a:hover { text-decoration: underline; }
+        .lp-related-cta { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .lp-related-cta a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related-cta a:hover { text-decoration: underline; }
+
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"Vigilense AI","alternateName":["Vigilance AI","Vigilense","Vigilance"],"url":"https://vigilense.ai","logo":"https://vigilense.ai/vigilense-logo.png","description":"The Sovereign SOC - BYODb SIEM + Autonomous AI SOC Analyst. Query your databases in place, zero ingestion fees, AI-powered investigation and resolution.","email":"sales@vigilense.ai","sameAs":["https://www.linkedin.com/company/111587909/","https://x.com/VigilenseAI","https://www.youtube.com/@VigilenseAI"],"numberOfEmployees":{"@type":"QuantitativeValue","minValue":1,"maxValue":50},"industry":"Cybersecurity","knowsAbout":["SIEM","SOC Automation","AI Security Operations","BYODb","Threat Detection","Incident Response"]}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The CISO Buying Shift: Why Security Leaders Are Killing Vendor Lock-In",
+  "description": "CISOs are done with per-GB pricing, proprietary data formats, and multi-year contracts that punish growth. The SIEM market is shifting toward modular, data-sovereign platforms.",
+  "datePublished": "2026-02-14",
+  "dateModified": "2026-02-14",
+  "url": "https://vigilense.ai/blog/ciso-buying-shift/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vigilense.ai/blog/ciso-buying-shift/"
+  },
+  "image": "https://vigilense.ai/images/og-preview_new.png",
+  "author": {
+    "@type": "Person",
+    "name": "Bal Singh"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vigilense AI",
+    "url": "https://vigilense.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vigilense.ai/vigilense-logo.png"
+    }
+  }
+}
     </script>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The CISO Buying Shift: Why Security Leaders Are Killing Vendor Lock-In",
-      "description": "CISOs are done with per-GB pricing, proprietary data formats, and multi-year contracts that punish growth. The SIEM market is shifting toward modular, data-sovereign platforms.",
-      "datePublished": "2025-12-10",
-      "url": "https://vigilense.ai/blog/ciso-buying-shift/",
-      "image": "https://vigilense.ai/images/og-preview_new.png",
-      "author": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai" },
-      "publisher": { "@type": "Organization", "name": "Vigilense AI", "url": "https://vigilense.ai", "logo": { "@type": "ImageObject", "url": "https://vigilense.ai/vigilense-logo.png" } }
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vigilense.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://vigilense.ai/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The CISO Buying Shift: Why Security Leaders Are Killing Vendor Lock-In"
     }
+  ]
+}
     </script>
 </head>
 <body>
@@ -354,6 +455,15 @@
                         <span>By Bal Singh</span>
                     </div>
                 </header>
+
+                
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/selling-to-cisos/">selling security to CISOs</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/for-businesses/">Vigilense for businesses</a>, <a href="/why-now/">Why now for AI security</a>.</p>
+                </div>
 
                 <hr class="post-divider">
 
@@ -535,7 +645,7 @@
         </div>
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="/script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var hamburger = document.querySelector('.hamburger');
