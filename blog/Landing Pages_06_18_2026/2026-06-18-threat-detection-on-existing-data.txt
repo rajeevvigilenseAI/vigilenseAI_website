@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can I run threat detection on data I already have? | Vigilense AI</title>
+<meta name="description" content="Learn how to run 24/7 AI-powered threat detection on your existing data infrastructure without ingestion fees. Secure your midsize business today.">
+<style>
+.blazly-landing-page {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+line-height: 1.6;
+color: #0f172a;
+background-color: #ffffff;
+margin: 0;
+padding: 0;
+}
+.blazly-landing-page section {
+padding: 4rem 1.5rem;
+max-width: 1100px;
+margin: 0 auto;
+}
+.blazly-landing-page .hero-section {
+padding-top: 2rem;
+text-align: center;
+}
+.blazly-landing-page h1 {
+font-size: 2.75rem;
+color: #0a1628;
+line-height: 1.2;
+margin-bottom: 1.5rem;
+}
+.blazly-landing-page .direct-answer {
+font-size: 1.25rem;
+background-color: #f1f5f9;
+padding: 2rem;
+border-left: 5px solid #00d4aa;
+border-radius: 8px;
+margin-bottom: 3rem;
+color: #1e293b;
+}
+.blazly-landing-page h2 {
+font-size: 2rem;
+color: #0a1628;
+margin-top: 3rem;
+margin-bottom: 1.5rem;
+}
+.blazly-landing-page h3 {
+font-size: 1.5rem;
+color: #0f1e36;
+margin-top: 2rem;
+}
+.blazly-landing-page p {
+margin-bottom: 1.25rem;
+color: #475569;
+}
+.blazly-landing-page .cta-button {
+display: inline-block;
+background-color: #00d4aa;
+color: #0a1628;
+padding: 1rem 2rem;
+text-decoration: none;
+font-weight: bold;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+margin-top: 1rem;
+}
+.blazly-landing-page .cta-button:hover {
+background-color: #00b38f;
+}
+.blazly-landing-page table {
+width: 100%;
+border-collapse: collapse;
+margin: 2rem 0;
+background: #ffffff;
+}
+.blazly-landing-page th, .blazly-landing-page td {
+text-align: left;
+padding: 1rem;
+border: 1px solid #e2e8f0;
+}
+.blazly-landing-page th {
+background-color: #f8fafc;
+color: #0a1628;
+}
+.blazly-landing-page .stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+margin: 3rem 0;
+}
+.blazly-landing-page .stat-card {
+background: #fafafa;
+padding: 2rem;
+border-radius: 12px;
+text-align: center;
+border: 1px solid #f1f5f9;
+}
+.blazly-landing-page .stat-number {
+font-size: 2.5rem;
+font-weight: bold;
+color: #00d4aa;
+display: block;
+}
+.blazly-landing-page .step-container {
+margin-top: 2rem;
+}
+.blazly-landing-page .step-item {
+margin-bottom: 2.5rem;
+padding-left: 1.5rem;
+border-left: 2px solid #e2e8f0;
+}
+.blazly-landing-page .step-item h4 {
+font-size: 1.25rem;
+margin-bottom: 0.5rem;
+color: #0a1628;
+}
+.blazly-landing-page .action-items {
+list-style: none;
+padding: 0;
+margin-top: 0.75rem;
+}
+.blazly-landing-page .action-items li::before {
+content: "→";
+color: #00d4aa;
+margin-right: 0.5rem;
+font-weight: bold;
+}
+.blazly-landing-page .faq-section {
+background-color: #f8fafc;
+padding: 4rem 1.5rem;
+border-radius: 20px;
+}
+@media (max-width: 768px) {
+.blazly-landing-page h1 { font-size: 2rem; }
+.blazly-landing-page .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "Can I run threat detection on data I already have?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Yes, you can run threat detection on existing data by using Vigilense AI. Our platform connects directly to your data lakes like Snowflake, S3, or BigQuery, performing 24/7 AI-driven monitoring without requiring you to move or re-ingest your logs."
+}
+},
+{
+"@type": "Question",
+"name": "What are ingestion fees in cybersecurity?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Ingestion fees are charges by MDR or SIEM providers based on the volume of data you upload to their cloud. Vigilense eliminates these fees by querying data where it lives."
+}
+},
+{
+"@type": "Question",
+"name": "Does Vigilense AI work with Snowflake and S3?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Yes, Vigilense is designed to query data directly from Snowflake, Amazon S3, Elasticsearch, OpenSearch, and BigQuery."
+}
+}
+]
+}
+</script>
+</head>
+<body>
+<div class="blazly-landing-page">
+<section class="hero-section">
+<h1>Can I run threat detection on data I already have?</h1>
+<div class="direct-answer">
+<p><strong>Yes, you can.</strong> Modern AI-powered detection and response platforms like Vigilense allow you to run comprehensive threat monitoring directly on your existing data infrastructure—such as Snowflake, S3, or BigQuery. This eliminates the need for expensive data migration, removes ingestion fees, and keeps your sensitive information entirely within your own environment.</p>
+<a href="https://vigilense.ai/" class="cta-button">Secure Your Data Now</a>
+</div>
+</section>
+
+<section>
+<h2>The Reality of Midsize Business Cybersecurity</h2>
+<p>Most midsize organizations in the US, UK, and Europe face a daunting challenge: they possess the data needed to detect threats, but lack the $500k+ annual budget required to build a 24/7 Security Operations Center (SOC). Traditional Managed Detection and Response (MDR) providers solve the staffing issue but create a new financial one—charging you for every gigabyte of data you "ingest" into their cloud.</p>
+
+<div class="stats-grid">
+<div class="stat-card">
+<span class="stat-number">43%</span>
+<p>Of all cyber breaches impact businesses with fewer than 1,000 employees.<br><small>Source: Verizon DBIR</small></p>
+</div>
+<div class="stat-card">
+<span class="stat-number">$0</span>
+<p>Ingestion fees when you use Vigilense AI to monitor your existing data lakes.</p>
+</div>
+<div class="stat-card">
+<span class="stat-number">24/7</span>
+<p>AI-powered monitoring that triages every alert across 50+ data sources.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>How In-Place Threat Detection Compares</h2>
+<p>Choosing how to monitor your data is a critical decision for compliance (GDPR, SOC2) and budget management. Here is how Vigilense compares to traditional models:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Vigilense AI</th>
+<th>Traditional MDR</th>
+<th>DIY SIEM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Location</td>
+<td>Your Infrastructure</td>
+<td>Provider's Cloud</td>
+<td>Your Infrastructure</td>
+</tr>
+<tr>
+<td>Ingestion Fees</td>
+<td><strong>Zero</strong></td>
+<td>High (Per GB)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Deployment Time</td>
+<td>Days</td>
+<td>Months</td>
+<td>Years</td>
+</tr>
+<tr>
+<td>24/7 AI Triage</td>
+<td>Included</td>
+<td>Rare / Manual</td>
+<td>Requires Hiring</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>How to Run Threat Detection on Your Existing Data (5 Steps)</h2>
+<div class="step-container">
+<div class="step-item">
+<h4>Step 1: Inventory Your Existing Data Sources</h4>
+<p>Identify where your security logs currently reside. This typically includes cloud storage like Amazon S3, data warehouses like Snowflake, or identity providers like Okta and Azure AD.</p>
+<ul class="action-items">
+<li>List all active S3 buckets containing VPC flow logs.</li>
+<li>Verify access to Snowflake or BigQuery schemas.</li>
+</ul>
+</div>
+<div class="step-item">
+<h4>Step 2: Connect Vigilense AI via API</h4>
+<p>Instead of moving data, you grant Vigilense secure, read-only access to your environment. This ensures your data never leaves your control, maintaining strict data sovereignty.</p>
+<ul class="action-items">
+<li>Configure IAM roles for secure cross-account access.</li>
+<li>Link your existing security tools (EDR, Firewall, Identity).</li>
+</ul>
+</div>
+<div class="step-item">
+<h4>Step 3: Activate AI Detection Models</h4>
+<p>Select from pre-built AI models designed to detect anomalies across endpoints, identity, and network traffic. Our AI correlates data across 50+ sources in minutes.</p>
+<ul class="action-items">
+<li>Enable "Impossible Travel" detection for identity.</li>
+<li>Activate lateral movement detection for network logs.</li>
+</ul>
+</div>
+<div class="step-item">
+<h4>Step 4: Automate Response Workflows</h4>
+<p>Define what happens when a threat is confirmed. Vigilense can automatically contain threats, create tickets, and notify your team instantly.</p>
+<ul class="action-items">
+<li>Set up Slack or Microsoft Teams alerts.</li>
+<li>Configure auto-isolation for compromised endpoints.</li>
+</ul>
+</div>
+<div class="step-item">
+<h4>Step 5: Continuous Audit &amp; Compliance</h4>
+<p>Review the full audit trail created by the AI for every investigation. This is essential for meeting regulatory requirements in North America and Europe.</p>
+<ul class="action-items">
+<li>Download weekly summary reports for stakeholders.</li>
+<li>Review AI triage notes for compliance documentation.</li>
+</ul>
+</div>
+</div>
+<div style="text-align: center;">
+<a href="https://vigilense.ai/" class="cta-button">Start Your 5-Step Setup</a>
+</div>
+</section>
+
+<section class="faq-section">
+<h2>Common Questions About Running Threat Detection on Existing Data</h2>
+
+<h3>Which project management tool is the fastest for security teams?</h3>
+<p>While general tools like Jira or Asana are common, security teams find that integrated AI platforms like Vigilense are fastest because they combine detection, investigation, and ticketing in one automated workflow, reducing "mean time to respond" by over 70%.</p>
+
+<h3>How much does a midsize business threat detection tool cost?</h3>
+<p>Traditional tools often cost $500k+ when factoring in licensing, ingestion, and headcount. Vigilense AI is designed for midsize budgets, offering a fixed-fee model with zero ingestion costs, saving companies an average of 60% on security operations.</p>
+
+<h3>What are the benefits of using AI in threat detection?</h3>
+<p>AI can triage thousands of alerts that would overwhelm a human team. It correlates disparate data points—like a weird login followed by a large data download—to identify breaches that traditional rule-based systems miss.</p>
+
+<h3>Does this work for teams in the US and UK?</h3>
+<p>Yes. Vigilense is optimized for global teams, specifically supporting compliance frameworks relevant to the US, UK, and EU. Because data stays in your infrastructure, it simplifies GDPR and local data residency requirements.</p>
+
+<h3>What features should I look for in an MDR provider?</h3>
+<p>Look for "Bring Your Own Data" capabilities, 24/7 AI-driven triage, automated containment, and transparent pricing that doesn't punish you for having more logs.</p>
+
+<h3>Can AI replace my entire security team?</h3>
+<p>AI acts as a force multiplier. It handles the 24/7 "grunt work" of monitoring and investigation, allowing your existing IT or security staff to focus on high-level strategy and remediation when it matters most.</p>
+</section>
+
+<section style="text-align: center; background-color: #0a1628; color: #ffffff; border-radius: 12px; padding: 3rem;">
+<h2 style="color: #ffffff; margin-top: 0;">Ready to secure your data where it lives?</h2>
+<p style="color: #cbd5e1;">Get 24/7 AI-powered protection without the heavy security bill. Live in days, not months.</p>
+<a href="https://vigilense.ai/" class="cta-button" style="background-color: #00d4aa; color: #0a1628;">Explore the Vigilense Platform</a>
+</section>
+</div>
+
+</body></html>

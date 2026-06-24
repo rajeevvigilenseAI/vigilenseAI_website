@@ -4,6 +4,10 @@ Disallow: /cost-simulator/private/
 Disallow: /team/
 Disallow: /blog/post-template/
 Disallow: /blog/Landing Pages_06_15_2026/
+Disallow: /blog/Blogs_06_18_2026/
+Disallow: /blog/Blogs_06_23_2026/
+Disallow: /blog/Landing Pages_06_18_2026/
+Disallow: /blog/Landing Pages_06_23_2026/
 Disallow: /_archive/
 Disallow: /blog.html
 Disallow: /blog/what-is-byodb-siem/
