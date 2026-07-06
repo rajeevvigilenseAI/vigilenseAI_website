@@ -4,13 +4,6 @@
     var STORAGE_KEY = 'vigilense_cookie_consent';
     var LEADSOURCING_TID = 'K1WqUfBv0O6DTWEW1NEg';
 
-    function getGtmContainerId() {
-        if (typeof window.VIGILENSE_GTM_ID === 'string' && window.VIGILENSE_GTM_ID) {
-            return window.VIGILENSE_GTM_ID;
-        }
-        return '';
-    }
-
     function getConsent() {
         try {
             return localStorage.getItem(STORAGE_KEY);
@@ -33,45 +26,9 @@
         }
         window.__vigilenseLeadsourcingLoaded = true;
         !function (e, t, n, r) {
-            (n = e.createElement('script')).async = true;
-            n.src = 'https://visitor.leadsourcing.co/n?tid=' + t;
+            (n = e.createElement('script')).src = '//visitor.leadsourcing.co/n?tid=' + t;
             (r = e.getElementsByTagName('script')[0]).parentNode.insertBefore(n, r);
         }(document, LEADSOURCING_TID);
-    }
-
-    function loadGoogleTagManager(containerId) {
-        if (!containerId || window.__vigilenseGtmLoaded) {
-            return;
-        }
-        window.__vigilenseGtmLoaded = true;
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(containerId);
-        document.head.appendChild(script);
-
-        if (!document.getElementById('vigilense-gtm-noscript')) {
-            var noscript = document.createElement('noscript');
-            noscript.id = 'vigilense-gtm-noscript';
-            noscript.innerHTML = '<iframe src="https://www.googletagmanager.com/ns.html?id=' +
-                encodeURIComponent(containerId) +
-                '" height="0" width="0" style="display:none;visibility:hidden"></iframe>';
-            document.body.insertBefore(noscript, document.body.firstChild);
-        }
-    }
-
-    function loadMarketingTags() {
-        var gtmId = getGtmContainerId();
-        if (gtmId) {
-            loadGoogleTagManager(gtmId);
-            return;
-        }
-        loadLeadsourcing();
     }
 
     function injectStyles() {
@@ -146,18 +103,24 @@
             if (!button) {
                 return;
             }
-            setConsent(button.getAttribute('data-consent'));
+            var choice = button.getAttribute('data-consent');
+            setConsent(choice);
             hideBanner(bar);
+            if (choice === 'accepted') {
+                loadLeadsourcing();
+            }
         });
 
         document.body.appendChild(bar);
     }
 
     function init() {
-        loadMarketingTags();
-
         var consent = getConsent();
-        if (consent === 'accepted' || consent === 'declined') {
+        if (consent === 'accepted') {
+            loadLeadsourcing();
+            return;
+        }
+        if (consent === 'declined') {
             return;
         }
         showBanner();
