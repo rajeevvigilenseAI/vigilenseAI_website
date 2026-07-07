@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="The Hidden Costs of 'Free' Ingestion in Managed Detection and Response" />
+    <meta property="og:description" content="Discover how free ingestion models lead to steep overage fees. Learn the hidden costs of MDR to protect your cybersecurity budget from surprise bills." />
+    <meta property="og:url" content="https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Hidden Costs of 'Free' Ingestion in Managed Detection and Response" />
+    <meta name="twitter:description" content="Discover how free ingestion models lead to steep overage fees. Learn the hidden costs of MDR to protect your cybersecurity budget from surprise bills." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Discover how free ingestion models lead to steep overage fees. Learn the hidden costs of MDR to protect your cybersecurity budget from surprise bills." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>The Hidden Costs of 'Free' Ingestion in Managed Detection and Response - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           BLOG POST LAYOUT
+           ============================ */
+        .blog-post {
+            padding: 140px 0 100px;
+        }
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #0A1628;
+        }
+        .post-category {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00D4AA;
+            border: 1px solid #00D4AA;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+            background: rgba(0, 212, 170, 0.06);
+        }
+        .post-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        .post-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+        .post-meta span {
+            margin: 0 8px;
+        }
+        .post-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* ============================
+           POST BODY TYPOGRAPHY
+           ============================ */
+        .post-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .post-body p {
+            margin-bottom: 24px;
+        }
+        .post-body h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+        .post-body h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 36px;
+            margin-bottom: 20px;
+        }
+        .post-body ul,
+        .post-body ol {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+        .post-body li {
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        .post-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: #F2F5F7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0A1628;
+        }
+        .post-body pre {
+            background: #F2F5F7;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+        .post-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #0A1628;
+            font-size: 0.9rem;
+        }
+        .post-body blockquote {
+            border-left: 3px solid #0A1628;
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #475569;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 32px 0;
+            border: 1px solid #E2E8F0;
+        }
+        .post-body a {
+            color: #00B892;
+            text-decoration: underline;
+        }
+        .post-body a:hover {
+            color: #00D4AA;
+        }
+        .post-body strong {
+            color: #0A1628;
+        }
+
+        /* ============================
+           POST CTA
+           ============================ */
+        .post-cta {
+            margin-top: 64px;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .post-cta .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #0A1628;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .post-cta .btn:hover {
+            background: #0F1E36;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        /* ============================
+           AUTHOR CARD
+           ============================ */
+        .author-card {
+            margin-top: 48px;
+            padding: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #0A1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .author-info .author-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+        .author-info .author-bio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .blog-post { padding: 120px 0 60px; }
+            .post-content { max-width: 100%; }
+            .post-body { font-size: 1rem; }
+            .post-body h2 { font-size: 1.5rem; }
+            .post-body h3 { font-size: 1.2rem; }
+            .author-card { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .post-cta { padding: 24px 16px; }
+            .author-card { padding: 20px; }
+        }
+    
+        .post-related {
+            margin: 48px 0 32px;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .post-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .post-related ul {
+            margin: 0 0 16px;
+            padding-left: 20px;
+        }
+        .post-related li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .post-related a {
+            color: #0D9488;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .post-related-products a {
+            color: #0D9488;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .post-related-products a:hover { text-decoration: underline; }
+        .lp-related {
+            margin: 48px 0;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .lp-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .lp-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .lp-related li { margin-bottom: 8px; }
+        .lp-related a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related a:hover { text-decoration: underline; }
+        .lp-related-cta { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .lp-related-cta a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related-cta a:hover { text-decoration: underline; }
+
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Hidden Costs of 'Free' Ingestion in Managed Detection and Response",
+  "description": "Discover how free ingestion models lead to steep overage fees. Learn the hidden costs of MDR to protect your cybersecurity budget from surprise bills.",
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30",
+  "url": "https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/"
+  },
+  "image": "https://vigilense.ai/images/og-preview_new.png",
+  "author": {
+    "@type": "Person",
+    "name": "Bal Singh"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vigilense AI",
+    "url": "https://vigilense.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vigilense.ai/vigilense-logo.png"
+    }
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vigilense.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://vigilense.ai/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The Hidden Costs of 'Free' Ingestion in Managed Detection and Response",
+      "item": "https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BLOG POST CONTENT
+         ======================================== -->
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>The Hidden Costs of 'Free' Ingestion in Managed Detection and Response</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-06-30">Jun 30, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By Bal Singh</span>
+                    </div>
+                </header>
+
+                
+                                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/mdr-no-ingestion-fees/">MDR with no ingestion fees</a></li>
+                        <li><a href="/blog/ingestion-tax/">the SIEM ingestion tax</a></li>
+                        <li><a href="/blog/flat-rate-vs-per-gb/">flat-rate MDR vs pay-per-gigabyte</a></li>
+                        <li><a href="/blog/hidden-costs-siem/">hidden costs of traditional SIEM</a></li>
+                        <li><a href="/blog/ingestion-fees-hurt-budget/">why ingestion fees hurt your budget</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/pricing/">MDR pricing</a>, <a href="/mdr/">AI-powered MDR services</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+                    <p>Consider a mid-sized logistics provider that watched their entire operation grind to a halt. A devastating ransomware attack tore through their defenses. The culprit was not a lack of software, but a silent betrayal. Their security partner was quietly dropping vital telemetry data to keep a marketing promise. The IT department watched screens freeze one by one, only to learn that their Managed Detection and Response provider capped daily data intake to protect their own bottom line. This disaster laid bare a harsh truth. In corporate defense, nothing comes without a price. Before signing any contract, security leaders must look past the sales pitch and dissect the <strong>hidden costs of MDR</strong>.</p><p>Glossy brochures promise boundless security for a flat rate. IT buyers sign on the dotted line, believing they secured a digital fortress. Instead, they unknowingly buy a stripped-down service that charges exorbitant rates the moment a real emergency strikes. These financial traps drain annual budgets while exposing the network to aggressive threat actors. Many discover too late that their cheap safety net has gaping holes. This is the reality of modern security pricing, where free data intake schemes hide massive financial risks and variable fees that explode during a breach.</p><h2>The Silent Squeeze of Data Throttling</h2><p>In many standard agreements, providers promise free intake up to fifty gigabytes each day. What the sales team omits is a tiny clause. Every gigabyte beyond that limit carries a five-dollar penalty. On an ordinary Tuesday, fifty gigabytes feels like plenty. The system runs quietly, and executives celebrated their temporary savings.</p><p>Then comes a routine infrastructure update. If the organization shifts several legacy databases to cloud servers, it can trigger a massive flood of system events. Daily telemetry can jump from forty-five gigabytes to over one hundred and eighty. Because the system is configured to ingest everything to maintain basic monitoring, the limit can be breached for twenty straight days. The next invoice carries a thirteen-thousand-dollar surprise. The savings vanish instantly. This is how the <strong>hidden costs of MDR</strong> work in practice, turning normal business growth into a financial penalty.</p><p>Corporate networks are living organisms. Log volumes rise and fall with every software update, seasonal rush, and employee shift. Hard limits force companies into a dangerous corner. They must either pay ransom-like fees or deliberately blind their own security systems to save money. When a company throttles its own data to avoid overages, it blindfolds the very analysts hired to protect it.</p><h2>The Blind Spots Left Behind</h2><p>To keep bills manageable, desperate IT teams start filtering out high-volume data sources before they ever leave the local network. This coping mechanism introduces severe security gaps. Teams turn off telemetry for Domain Name System queries, directory authentication events, and command-line activity. They tell themselves these logs rarely hold signs of trouble.</p><p>History tells a different story. Clever intruders rely on these high-volume paths to move sideways through a network, establish outside connections, and steal administrative access. Blocking these logs leaves security analysts completely blind to data theft. When directory logs are skipped to save pennies, the monitoring center cannot spot credential theft or unauthorized privilege shifts. A cheap monthly subscription buys a service that is completely blind to real intrusions because the proof was deleted at the gate.</p><p>Consider a typical intrusion. A hacker gains access through a trick email, runs a script, queries the directory to find high-value targets, and connects back to a home server. If the provider only watches basic computer alerts while ignoring broader network traffic to save on fees, they see only an isolated glitch rather than a coordinated invasion. The true price of a stripped-down plan is measured in rebuilding costs, not cheap monthly fees.</p><h2>The Trap of Short-Term Memory</h2><p>Storage limits represent another financial trap. Low-cost providers often purge or lock active logs after seven or fourteen days. This brief window is a security disaster. While modern security measures have reduced median dwell times to under 10 to 15 days, sophisticated attackers can still remain undetected within corporate networks for weeks or months before executing their final payload. When an alarm finally sounds, investigators must look back months to trace the breach.</p><p>Reconstructing an attack path is impossible if the logs are gone or buried in cold storage. Furthermore, regulations like medical privacy laws and payment card standards demand searchable records for a full year. To meet these rules, businesses using cheap security contracts must buy expensive storage add-ons or construct their own auxiliary logging systems.</p><p>Building an internal storage pipeline demands massive engineering hours, hardware, and endless troubleshooting. When you calculate the payroll spent managing these secondary tools, the cheap contract loses its luster. The short storage window serves as a trap, forcing clients to pay heavy retrieval fees whenever they need to investigate an incident or pass an audit.</p><h2>Predictable Subscriptions Versus Volatile Surges</h2><p>To understand the financial reality, security leaders must look past the initial quote and calculate the total cost over several years. A typical company with five hundred staff members can easily generate over one hundred gigabytes of telemetry daily across endpoints, network firewalls, and cloud environments. This volume grows by about twenty percent each year as operations expand.</p><p>A flat-rate model offers predictable budgeting regardless of data spikes. A variable pricing model behaves like a volatile stock market. When an incident occurs, systems generate massive amounts of diagnostic data. This means that during a crisis, when a business is already struggling with downtime, security bills skyrocket.</p><p>A company recovering from a cyberattack might generate terabytes of logs during the cleanup. If their contract charges by volume, they receive a massive bill for data storage precisely when their revenue is suffering. This setup aligns the provider's profits with the client's misfortune.</p><h2>A Straightforward Guide to Vendor Selection</h2><p>Navigating the market requires a cold, analytical eye. Security leaders can protect both their networks and their budgets by taking three clear steps during vendor negotiations.</p><p>First, demand absolute clarity on what free really means. Get a written guarantee that there are no soft caps or sudden penalties for standard security data. If the vendor insists on tier-based pricing, make sure the limits can handle a three-fold increase in daily volume without triggering extra fees.</p><p>Second, check the default retention window. The contract must include at least ninety days of active, easily searchable storage, with affordable options for long-term archiving that do not charge search fees during an investigation. This makes sure your team can run full investigations without facing surprise charges.</p><p>Third, test the system before signing. Measure actual daily log volume across cloud environments, identity systems, and network boundaries. Use this data to project costs over three years, factoring in a twenty percent annual growth rate. This mathematical projection reveals the true financial commitment before you sign a binding contract.</p><p>Choosing a security provider based on the promise of free data intake leads to blind spots, weak defenses, and unpredictable bills. True security requires transparent pricing where the provider is motivated to examine all data to keep you safe, rather than forcing you to limit what you can see to save money. By focusing on complete coverage and predictable costs, organizations can defend their assets while keeping their budgets secure.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                                <div class="author-card">
+                    <div class="author-avatar">BS</div>
+                    <div class="author-info">
+                        <h4>Bal Singh</h4>
+                        <div class="author-title">Co-founder &amp; CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

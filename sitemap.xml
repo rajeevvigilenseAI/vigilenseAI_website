@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vigilense.ai/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vigilense.ai/blog/</loc><lastmod>2026-06-23</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/blog/</loc><lastmod>2026-07-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://vigilense.ai/blog/adaptive-threat-fusion/</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/ai-powered-threat-hunting/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/ai-threat-investigation-guide/</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -42,7 +42,7 @@
   <url><loc>https://vigilense.ai/platform/integrations/</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/pricing/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/privacy/</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vigilense.ai/resources/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/ai-soc-analyst-software-reviews/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/ai-soc-analyst-support/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/best-247-threat-monitoring-services/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -68,4 +68,21 @@
   <url><loc>https://vigilense.ai/terms/</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/trust/</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/why-now/</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/blog/ai-soc-features-smb-platform/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/snowflake-security-monitoring/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/traditional-soc-vs-ai-soc-cost-benefit-smb/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/what-is-an-ai-soc-smb/</loc><lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/database-agnostic-security-tools/</loc><lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/security-data-lakehouse-no-ingestion-mdr/</loc><lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/what-is-automated-incident-response/</loc><lastmod>2026-07-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/ai-soc-for-smb-buyers-guide/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/what-is-detection-as-code/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/hidden-costs-free-ingestion-mdr/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/how-ai-reduces-false-positive-security-alerts/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/reduce-siem-costs-guide/</loc><lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/bigquery-threat-detection/</loc><lastmod>2026-06-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/resources/automated-threat-containment-software-reviews/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/how-to-choose-mdr-provider/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/best-ai-security-solutions-for-mssps/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/security-monitoring-vs-data-sovereignty-laws/</loc><lastmod>2026-07-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

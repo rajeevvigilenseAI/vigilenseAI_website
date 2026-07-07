@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="What is an AI SOC and Why Does Your SMB Need One?" />
+    <meta property="og:description" content="Discover what is an AI SOC and how an AI security operations center protects small and mid-sized businesses from cyber threats with rapid, automated detection." />
+    <meta property="og:url" content="https://vigilense.ai/blog/what-is-an-ai-soc-smb/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="What is an AI SOC and Why Does Your SMB Need One?" />
+    <meta name="twitter:description" content="Discover what is an AI SOC and how an AI security operations center protects small and mid-sized businesses from cyber threats with rapid, automated detection." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Discover what is an AI SOC and how an AI security operations center protects small and mid-sized businesses from cyber threats with rapid, automated detection." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/what-is-an-ai-soc-smb/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>What is an AI SOC and Why Does Your SMB Need One? - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ============================
+           BLOG POST LAYOUT
+           ============================ */
+        .blog-post {
+            padding: 140px 0 100px;
+        }
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            color: #0A1628;
+        }
+        .post-category {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #00D4AA;
+            border: 1px solid #00D4AA;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+            background: rgba(0, 212, 170, 0.06);
+        }
+        .post-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+        }
+        .post-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            margin-bottom: 32px;
+        }
+        .post-meta span {
+            margin: 0 8px;
+        }
+        .post-divider {
+            height: 1px;
+            background: #E2E8F0;
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* ============================
+           POST BODY TYPOGRAPHY
+           ============================ */
+        .post-body {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+        .post-body p {
+            margin-bottom: 24px;
+        }
+        .post-body h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 24px;
+        }
+        .post-body h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 36px;
+            margin-bottom: 20px;
+        }
+        .post-body ul,
+        .post-body ol {
+            margin: 24px 0;
+            padding-left: 32px;
+        }
+        .post-body li {
+            margin-bottom: 12px;
+            color: #475569;
+        }
+        .post-body code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            background: #F2F5F7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #0A1628;
+        }
+        .post-body pre {
+            background: #F2F5F7;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+        .post-body pre code {
+            background: transparent;
+            padding: 0;
+            color: #0A1628;
+            font-size: 0.9rem;
+        }
+        .post-body blockquote {
+            border-left: 3px solid #0A1628;
+            padding-left: 24px;
+            margin: 32px 0;
+            font-style: italic;
+            color: #475569;
+        }
+        .post-body img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 32px 0;
+            border: 1px solid #E2E8F0;
+        }
+        .post-body a {
+            color: #00B892;
+            text-decoration: underline;
+        }
+        .post-body a:hover {
+            color: #00D4AA;
+        }
+        .post-body strong {
+            color: #0A1628;
+        }
+
+        /* ============================
+           POST CTA
+           ============================ */
+        .post-cta {
+            margin-top: 64px;
+            padding: 32px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            color: #0A1628;
+            margin-bottom: 16px;
+        }
+        .post-cta .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            background: #0A1628;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .post-cta .btn:hover {
+            background: #0F1E36;
+            box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3);
+        }
+
+        /* ============================
+           AUTHOR CARD
+           ============================ */
+        .author-card {
+            margin-top: 48px;
+            padding: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #0A1628;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+        .author-info .author-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 8px;
+        }
+        .author-info .author-bio {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .blog-post { padding: 120px 0 60px; }
+            .post-content { max-width: 100%; }
+            .post-body { font-size: 1rem; }
+            .post-body h2 { font-size: 1.5rem; }
+            .post-body h3 { font-size: 1.2rem; }
+            .author-card { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .post-cta { padding: 24px 16px; }
+            .author-card { padding: 20px; }
+        }
+    
+        .post-related {
+            margin: 48px 0 32px;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .post-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .post-related ul {
+            margin: 0 0 16px;
+            padding-left: 20px;
+        }
+        .post-related li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .post-related a {
+            color: #0D9488;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products {
+            font-size: 0.95rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .post-related-products a {
+            color: #0D9488;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .post-related-products a:hover { text-decoration: underline; }
+        .lp-related {
+            margin: 48px 0;
+            padding: 28px 24px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+        }
+        .lp-related h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin: 0 0 16px;
+        }
+        .lp-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .lp-related li { margin-bottom: 8px; }
+        .lp-related a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related a:hover { text-decoration: underline; }
+        .lp-related-cta { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .lp-related-cta a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .lp-related-cta a:hover { text-decoration: underline; }
+
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What is an AI SOC and Why Does Your SMB Need One?",
+  "description": "Discover what is an AI SOC and how an AI security operations center protects small and mid-sized businesses from cyber threats with rapid, automated detection.",
+  "datePublished": "2026-07-02",
+  "dateModified": "2026-07-02",
+  "url": "https://vigilense.ai/blog/what-is-an-ai-soc-smb/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vigilense.ai/blog/what-is-an-ai-soc-smb/"
+  },
+  "image": "https://vigilense.ai/images/og-preview_new.png",
+  "author": {
+    "@type": "Person",
+    "name": "Bal Singh"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vigilense AI",
+    "url": "https://vigilense.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vigilense.ai/vigilense-logo.png"
+    }
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://vigilense.ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://vigilense.ai/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "What is an AI SOC and Why Does Your SMB Need One?",
+      "item": "https://vigilense.ai/blog/what-is-an-ai-soc-smb/"
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         BLOG POST CONTENT
+         ======================================== -->
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Product</span>
+                    <h1>What is an AI SOC and Why Does Your SMB Need One?</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-07-02">Jul 2, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By Bal Singh</span>
+                    </div>
+                </header>
+
+                
+                                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/ai-soc-features-smb-platform/">AI SOC features for SMB platforms</a></li>
+                        <li><a href="/blog/ai-soc-for-smb-buyers-guide/">AI SOC buyer guide for SMBs</a></li>
+                        <li><a href="/resources/what-is-ai-soc-analyst/">what is an AI SOC Analyst</a></li>
+                        <li><a href="/blog/traditional-soc-vs-ai-soc-cost-benefit-smb/">traditional SOC vs AI SOC cost comparison</a></li>
+                        <li><a href="/blog/how-ai-reduces-false-positive-security-alerts/">how AI reduces false positives</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>, <a href="/demo/">Book a demo</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+                    <p>The clock struck three on a damp, quiet Tuesday morning. Inside a mid-sized logistics office, a silent digital intruder slipped past the outer firewall unnoticed. It immediately began running a malicious locking sequence, aiming to freeze the company's vital databases. To protect your business against these threats, you must first understand what is an AI SOC and how it shields growing enterprises. This scenario illustrates the exact exposure that modern mid-sized businesses face daily, where threats move at machine speed but defenses still drag along at a human pace. This guide details how emerging technology solves this severe gap, specifically explaining how an AI security operations center protects digital assets.</p><p>To understand the path forward, we can look at the experience of Sarah, an IT director at a rapidly growing e-commerce brand called Apex Retail. For months, Sarah lived in a state of constant anxiety, managing a sprawling network of cloud databases, remote employee laptops, and payment gateways. Her small team of two analysts was bombarded with over five thousand security alerts every single day from their traditional alert manager. The sheer volume of data made it impossible to distinguish between a harmless developer login and a credential-stuffing attack. Sarah knew she was playing a dangerous game of chance, waiting for a devastating breach to slip through the cracks. Her search for a durable shield led her to discover the power of an AI security operations center.</p><h2>Understanding what is an AI SOC and how it protects digital assets</h2><p>To grasp the significance of this technology, we must first define what is an AI SOC in concrete terms. A traditional Security Operations Center is a centralized team of human security analysts who monitor an organization's IT infrastructure round-the-clock to detect, assess, and respond to cybersecurity incidents. When we inject artificial intelligence into this model, the entire paradigm shifts from retrospective analysis to preemptive, automated containment.</p><p>An AI-driven security operations center uses advanced machine learning algorithms, natural language processing, and automated playbooks to ingest, evaluate, and neutralize threats in real-time. Instead of relying solely on human eyes to spot anomalies in endless logs of network traffic, the artificial intelligence engine acts as a tireless, hyper-intelligent digital sentry. This system processes vast amounts of telemetry data in real-time, identifying patterns that would take a human analyst days to uncover. For Apex Retail, deploying this technology meant that those five thousand daily alerts were instantly triaged by the AI, reducing the actual workload for Sarah's team to just three or four high-priority incidents that required human intervention.</p><h2>How what is an AI SOC addresses the reality of SMB cyber threats</h2><p>Many small and medium-sized businesses operate under the dangerous assumption that they are too small to attract the attention of global cybercriminal networks. The reality is quite the opposite, as malicious actors actively target smaller enterprises precisely because their defenses are often outdated and understaffed. These SMB cyber threats are no longer simple phishing emails or basic malware scripts; they are highly coordinated, automated campaigns that exploit zero-day vulnerabilities and employ sophisticated evasion techniques.</p><p>According to the 2023 IBM Cost of a Data Breach Report, the average cost of a data breach for businesses with fewer than five hundred employees reached 3.31 million dollars. For a growing business, a financial blow of this magnitude is often devastating, threatening long-term viability and causing severe operational disruption. Traditional manual defense mechanisms fail because they rely on static rules and signature-based detection. If a hacker alters a single line of code in a known malware strain, traditional antivirus software will fail to recognize it. Humans cannot work twenty-four hours a day, seven days a week, leaving massive windows of vulnerability during weekends, holidays, and overnight shifts.</p><h2>How automated threat detection underpins what is an AI SOC</h2><p>The core engine driving this modern defensive shield is automated threat detection. This technology does not merely look for known bad files; it focuses on behavior. By establishing a baseline of normal activity across the entire corporate network, the artificial intelligence learns the unique habits of every user, device, and application.</p><p>When an employee who normally logs in from Chicago suddenly attempts to access a sensitive database from an IP address in Eastern Europe at three in the morning, the system immediately flags this behavior. The automated threat detection capabilities of the system do not simply generate an alert for a human to read the next morning. Instead, the AI instantly initiates an automated playbook: it revokes the user's active session, isolates the compromised laptop from the rest of the network, and alerts the security team. This entire sequence occurs in less than three seconds, stopping a potential network-wide lateral movement before it can even begin. This level of speed is impossible to achieve through manual processes, demonstrating why automated response is the bedrock of modern digital protection.</p><h2>Building your defense: Setting up what is an AI SOC</h2><p>Transitioning from a chaotic, retrospective security posture to an organized, AI-driven defense requires a deliberate approach. SMBs do not need to build a multimillion-dollar facility or hire a team of highly paid data scientists to reach this level of security. The most viable path for growing businesses is partnering with a managed security service provider that offers a co-managed or fully managed AI security operations center.</p><p>The integration process begins by deploying lightweight software agents across all endpoints, cloud environments, and network gateways. These agents feed telemetry data back into the central AI engine, which begins mapping the digital footprint of the business. Within days, the machine learning models adapt to the specific operational workflows of the company, distinguishing between legitimate developer testing and actual malicious exploits. For Sarah at Apex Retail, this deployment took less than two weeks, immediately elevating their security posture to an enterprise grade without requiring her to hire a single additional employee.</p><h2>The financial impact of adopting what is an AI SOC for growing businesses</h2><p>Investing in cybersecurity is often viewed as a pure cost center, but deploying an AI-driven security operations center provides a clear, measurable return on investment. Building an equivalent in-house, non-AI security team requires hiring at least five dedicated analysts to cover a round-the-clock rotation, purchasing expensive software licenses, and maintaining complex server infrastructure. The annual cost of such an undertaking easily surpasses seven hundred thousand dollars, which is far beyond the reach of most mid-sized budgets.</p><p>In contrast, using a managed AI security operations center model reduces these operational costs by up to seventy percent. The artificial intelligence handles the bulk of the initial data analysis, which allows a single security partner to protect dozens of businesses simultaneously and pass those efficiency savings on to the customer. Furthermore, the rapid mitigation of threats prevents the catastrophic downtime, legal liabilities, and reputational damage associated with a successful cyber attack, proving that preemptive defense is infinitely more affordable than retrospective recovery.</p><h2>Crucial takeaways for securing your business future</h2><p>Protecting a growing business in today's hostile digital environment requires a fundamental shift in how we approach security. The journey of Apex Retail proves that relying on manual monitoring and basic firewalls is no longer sufficient to combat automated, round-the-clock cyber threats.</p><p>To secure your enterprise effectively, focus on these vital operational steps:</p><ul><li>Replace static, signature-based antivirus software with active endpoint detection and response solutions that feed data directly into an AI engine.</li><li>Implement automated response playbooks that can isolate compromised devices and revoke credentials in seconds, preventing lateral movement across your network.</li><li>Partner with a managed security provider to gain access to a fully staffed, twenty-four-seven AI security operations center without the immense overhead of building one in-house.</li><li>Continuously train your internal staff to work alongside artificial intelligence, focusing their human expertise on high-level strategy and system refinement rather than chasing false positive alerts.</li></ul><p>By adopting these modern defense mechanisms, business leaders can confidently pursue growth, knowing their digital assets, employee credentials, and customer data are guarded by a system that never sleeps, never tires, and continuously adapts to the threat environment. The age of manual cybersecurity is over, and the era of intelligent, automated defense is now a necessity for survival.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                                <div class="author-card">
+                    <div class="author-avatar">BS</div>
+                    <div class="author-info">
+                        <h4>Bal Singh</h4>
+                        <div class="author-title">Co-founder &amp; CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>
