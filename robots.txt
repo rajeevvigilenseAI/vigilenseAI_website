@@ -30,4 +30,12 @@ Disallow: /terms.html
 Disallow: /trust.html
 Disallow: /blog-post-template.html
 
+Disallow: /blog/Blogs_07_21_2026/
+Disallow: /blog/Blogs_07_23_2026/
+Disallow: /blog/Blogs_07_28_2026/
+Disallow: /blog/Blogs_07_30_2026/
+Disallow: /blog/Blogs_08_04_2026/
+Disallow: /blog/Blogs_08_06_2026/
+Disallow: /blog/Landing Pages_07_28_2026/
+Disallow: /blog/Landing Pages_08_04_2026/
 Sitemap: https://vigilense.ai/sitemap.xml
