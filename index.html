@@ -461,17 +461,16 @@
            SOCIAL PROOF STRIP
            ========================= */
         .mdr-social {
-            padding: 36px 0;
+            padding: 48px 0 40px;
             background: #FFFFFF;
             border-top: 1px solid var(--mdr-border);
             border-bottom: 1px solid var(--mdr-border);
         }
         .mdr-social-inner {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             gap: 22px;
-            flex-wrap: wrap;
             text-align: center;
         }
         .mdr-social-label {
@@ -482,21 +481,138 @@
             text-transform: uppercase;
             letter-spacing: 0.12em;
         }
+        .mdr-customer-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .mdr-customer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.88;
+            transition: opacity 0.2s ease;
+        }
+        .mdr-customer-logo:hover { opacity: 1; }
+        .mdr-customer-logo img {
+            height: 36px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+        }
+        .mdr-customer-logo:hover img { filter: grayscale(0%); }
+        .mdr-customer-logo .industry {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--mdr-faint, #94A3B8);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
         .mdr-social-badges {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top: 4px;
         }
         .mdr-social-badges span {
             font-family: var(--font-body);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--mdr-muted);
+            padding: 5px 12px;
+            background: transparent;
+            border: none;
+        }
+        .mdr-social-badges span::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--mdr-teal);
+            margin-right: 8px;
+            vertical-align: middle;
+            opacity: 0.7;
+        }
+
+        /* =========================
+           CUSTOMER SPOTLIGHTS
+           ========================= */
+        .mdr-customers {
+            padding: 72px 0;
+            background: var(--mdr-bg);
+        }
+        .mdr-customers .mdr-section-header {
+            margin-bottom: 40px;
+        }
+        .mdr-customer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .mdr-customer-item {
+            padding-top: 8px;
+            border-top: 2px solid var(--mdr-navy);
+        }
+        .mdr-customer-item .logo-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 20px 0 14px;
+            min-height: 40px;
+        }
+        .mdr-customer-item .logo-row img {
+            height: 32px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        .mdr-customer-item .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--mdr-teal);
+        }
+        .mdr-customer-item h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--mdr-navy);
-            padding: 6px 14px;
-            background: var(--mdr-bg-2);
-            border: 1px solid var(--mdr-border);
-            border-radius: 999px;
+            margin: 0 0 10px;
+            letter-spacing: -0.02em;
+        }
+        .mdr-customer-item p {
+            font-size: 1rem;
+            color: var(--mdr-muted);
+            line-height: 1.65;
+            margin: 0;
+        }
+        .mdr-customer-item a.ext {
+            display: inline-block;
+            margin-top: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--mdr-teal);
+            text-decoration: none;
+        }
+        .mdr-customer-item a.ext:hover { text-decoration: underline; }
+        @media (max-width: 700px) {
+            .mdr-customer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .mdr-customer-logos { gap: 28px; }
         }
 
         /* =========================
@@ -1566,16 +1682,58 @@
     <!-- ========================================
          SOCIAL PROOF STRIP
          ======================================== -->
-    <section class="mdr-social" aria-label="Industries we serve">
+    <section class="mdr-social" aria-label="Customers and industries">
         <div class="container">
             <div class="mdr-social-inner">
-                <span class="mdr-social-label">Trusted by security teams across</span>
-                <div class="mdr-social-badges">
+                <span class="mdr-social-label">Trusted by midsize organizations</span>
+                <div class="mdr-customer-logos">
+                    <a class="mdr-customer-logo" href="https://www.ecomed.com.au/" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/customers/ecomed.svg" alt="Ecomed" width="160" height="36" loading="lazy">
+                        <span class="industry">Healthcare</span>
+                    </a>
+                    <a class="mdr-customer-logo" href="https://gwccservices.org/" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/customers/gwc.svg" alt="GWC Community Services" width="220" height="36" loading="lazy">
+                        <span class="industry">Community Services</span>
+                    </a>
+                </div>
+                <div class="mdr-social-badges" aria-label="Industries we also serve">
                     <span>Technology</span>
                     <span>Financial Services</span>
                     <span>Healthcare</span>
                     <span>Government</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CUSTOMER SPOTLIGHTS
+         ======================================== -->
+    <section class="mdr-customers mdr-reveal" id="customers" aria-label="Customer spotlights">
+        <div class="container">
+            <div class="mdr-section-header">
+                <h2 class="mdr-display">Customers who trust Vigilense</h2>
+                <p>Real midsize organizations running AI-powered detection and response without a large in-house SOC.</p>
+            </div>
+            <div class="mdr-customer-grid">
+                <article class="mdr-customer-item">
+                    <span class="tag">Healthcare distribution · Australia &amp; NZ</span>
+                    <div class="logo-row">
+                        <img src="/images/customers/ecomed.svg" alt="Ecomed" width="160" height="32" loading="lazy">
+                    </div>
+                    <h3>Ecomed</h3>
+                    <p>Medical device supplier protecting operations across Australia, New Zealand, and the Pacific with 24/7 AI-powered monitoring - without building a traditional SOC team.</p>
+                    <a class="ext" href="https://www.ecomed.com.au/" target="_blank" rel="noopener noreferrer">ecomed.com.au &rarr;</a>
+                </article>
+                <article class="mdr-customer-item">
+                    <span class="tag">Aged care &amp; NDIS · Australia</span>
+                    <div class="logo-row">
+                        <img src="/images/customers/gwc.svg" alt="GWC Community Services" width="220" height="32" loading="lazy">
+                    </div>
+                    <h3>GWC Community Services</h3>
+                    <p>Community and social welfare organization safeguarding sensitive client data with continuous detection, investigation, and response while keeping data under their control.</p>
+                    <a class="ext" href="https://gwccservices.org/" target="_blank" rel="noopener noreferrer">gwccservices.org &rarr;</a>
+                </article>
             </div>
         </div>
     </section>
