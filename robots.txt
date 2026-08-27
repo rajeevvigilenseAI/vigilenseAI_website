@@ -19,7 +19,6 @@ Disallow: /blog/Landing Pages_06_23_2026/
 Disallow: /_archive/
 Disallow: /blog.html
 Disallow: /blog/what-is-byodb-siem/
-Disallow: /blog-*.html
 Disallow: /pricing.html
 Disallow: /careers.html
 Disallow: /demo.html
