@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="Delegated Email Detection Is Not A Field Comparison" />
+    <meta property="og:description" content="The standard SendAs rule misses delegated sends, and fixing the field comparison reveals a bigger problem underneath it." />
+    <meta property="og:url" content="https://vigilense.ai/blog/delegated-email-detection/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Delegated Email Detection Is Not A Field Comparison" />
+    <meta name="twitter:description" content="The standard SendAs rule misses delegated sends, and fixing the field comparison reveals a bigger problem underneath it." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="The standard SendAs rule misses delegated sends, and fixing the field comparison reveals a bigger problem underneath it." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/delegated-email-detection/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Delegated Email Detection Is Not A Field Comparison - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Delegated Email Detection Is Not A Field Comparison", "item": "https://vigilense.ai/blog/delegated-email-detection/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>Delegated Email Detection Is Not A Field Comparison</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-26">Aug 26, 2026</time>
+                        <span>&middot;</span>
+                        <span>6 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#raj-choudhary">Raj Choudhary</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/detection-rules-eight-databases/">Detection rules across eight databases</a></li>
+                        <li><a href="/blog/alert-fatigue/">Alert fatigue is a design problem</a></li>
+                        <li><a href="/blog/zero-to-detection/">Zero to detection in 14 seconds</a></li>
+                        <li><a href="/blog/adaptive-threat-fusion/">Adaptive threat fusion</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>Almost every detection library contains a rule for mail sent under another identity. The logic is the same everywhere. Look for SendAs and SendOnBehalf events in the Exchange audit log, compare the acting account against the mailbox owner, and alert when they differ.</p>
+
+<pre><code>WHERE Operation IN ('SendAs','SendOnBehalf')
+  AND UserId != MailboxOwnerUPN</code></pre>
+
+<p>It is a reasonable rule. There are two problems with it. The first is a schema issue that is already documented and still widely missed. The second is more fundamental, and it is the reason this rule tends to get disabled a few weeks after deployment.</p>
+
+<h2>The Fields Do Not Mean What the Rule Assumes</h2>
+
+<p>Microsoft defines the relevant fields clearly. UserId is the account that performed the action. MailboxOwnerUPN is the owner of the mailbox that was accessed. SendAsUserSmtp is the address being impersonated. SendOnBehalfOfUserSmtp is the address on whose behalf the message was sent.</p>
+
+<p>The difficulty is that MailboxOwnerUPN does not reliably carry the delegated identity.</p>
+
+<p>Tony Redmond documented this in 2022. He found SendAs audit records in which the delegate appeared in both UserId and MailboxOwnerUPN, with the impersonated identity captured only in SendAsUserSmtp, and noted that relying on the first two fields produces misleading results. AdminDroid's published non-owner mailbox access script accounts for the same behaviour, treating SendAsUserSmtp and SendOnBehalfOfUserSmtp as the accessed mailbox rather than MailboxOwnerUPN.</p>
+
+<p>So this is not a discovery. It is a known characteristic of the schema that continues to ship in detection content anyway.</p>
+
+<p>We encountered it while baselining delegated sending in a Microsoft 365 tenant. A member of staff held delegated access to two shared mailboxes and used it throughout the working day: opening a message in a colleague's mailbox, composing a reply, sending on that colleague's behalf. The rule caught almost none of it, because UserId and MailboxOwnerUPN held the same value on most of those events.</p>
+
+<p>In our testing this occurred consistently when the reply was composed in Outlook on the web from a message opened in the delegated mailbox. We have not found documentation attributing the behaviour to that specific client path, and our sample covers a small number of tenants, so that attribution is an observation rather than an established mechanism. It is worth testing in your own environment.</p>
+
+<p>What is not in doubt is the effect. The same person performing the same action was reported on some occasions and not others. That is the least useful kind of gap, because it is not consistent enough to be noticed and not random enough to be dismissed.</p>
+
+<h2>Why This Matters</h2>
+
+<p>Mail sent under a colleague's identity is one of the more consequential things an attacker does with a compromised mailbox. It is the mechanism behind invoice fraud, payment redirection and internal phishing, because a message that appears to come from a trusted colleague clears the recipient's judgement in a way an external message never does.</p>
+
+<p>A rule that catches this behaviour only on certain client paths is not a control. It is a source of false confidence.</p>
+
+<h2>The Correction</h2>
+
+<p>Read the operation-specific field rather than the mailbox owner, and branch on the operation rather than guessing between the two fields:</p>
+
+<pre><code>Operation = 'SendAs'        -&gt;  delegated identity = SendAsUserSmtp
+Operation = 'SendOnBehalf'  -&gt;  delegated identity = SendOnBehalfOfUserSmtp</code></pre>
+
+<p>Then compare the acting account against that value.</p>
+
+<p>Two caveats belong with this.</p>
+
+<p>Microsoft marks both SendAsUserSmtp and SendOnBehalfOfUserSmtp as optional in the Office 365 Management Activity API schema. They are not guaranteed to be present on every event, so the null case needs handling explicitly rather than assumed away.</p>
+
+<p>Redmond also documented a false positive worth anticipating. He found SendAs events in which all three properties held the same value and the mailbox owner had in fact sent the message themselves, mostly originating from Outlook mobile and addressed to external recipients. A rule reading the delegation field will therefore pick up ordinary users sending their own mail from a phone. Exclude events where the delegated identity matches the actor.</p>
+
+<h2>The More Important Problem</h2>
+
+<p>Correcting the field comparison produces a rule that catches everything it should, and immediately reveals why the original design was flawed.</p>
+
+<p>In service organizations, delegated sending is not an anomaly. It is the operating model. Reception sends for the practice. An intake mailbox sends for a coordinator. A brokerage account handles supplier correspondence. Shared mailboxes with delegated access are how the work gets done.</p>
+
+<p>A rule alerting on every delegated send in that environment produces a case per message. The analyst closes them without reading, and shortly afterwards the rule is disabled or ignored, which is the same outcome as never having built it.</p>
+
+<p>Actor is not equal to target is a schema comparison. It is not a detection.</p>
+
+<h2>Detect Novelty, Not Delegation</h2>
+
+<p>The discriminator is not the act. It is whether the relationship is new.</p>
+
+<p>Baseline the pairing over thirty days:</p>
+
+<pre><code>actor  -&gt;  delegated identity  -&gt;  operation</code></pre>
+
+<p>An account sending under an identity it has used for months is business as usual and needs no report. An account sending under an identity it has never used before is worth precisely one question: has this person been given delegated access, or is this an account under somebody else's control writing as a colleague?</p>
+
+<p>That reduces a rule which would otherwise fire many times a day to one that fires when a new delegation appears and then goes quiet. A genuine new delegation firing once is correct behaviour rather than a false positive, and it will not report again.</p>
+
+<p>Where the pairing is novel, the surrounding context determines urgency:</p>
+
+<ul>
+<li>Was a mailbox permission granted recently, and by whom?</li>
+<li>Is the actor authenticating from an unfamiliar address?</li>
+<li>Did the message reach recipients outside the organization?</li>
+<li>Does the sending account show recent authentication failures or legacy protocol use?</li>
+<li>Is the sending volume materially above that actor's normal?</li>
+</ul>
+
+<p>A novel pairing to an internal recipient during business hours from a familiar address is almost always a new delegation. The same pairing to an external recipient from an account that has been failing authentication all week is a different matter entirely.</p>
+
+<h2>What To Check In Your Own Tenant</h2>
+
+<p>Run two aggregations over thirty days and compare them.</p>
+
+<ul>
+<li>Group the first by actor and MailboxOwnerUPN.</li>
+<li>Group the second by actor and the operation-specific delegation field.</li>
+</ul>
+
+<p>Anything present in the second set and absent from the first is currently invisible to your detection.</p>
+
+<p>The check takes a few minutes and the result is unambiguous. We would encourage running it rather than taking our word for any of the above, since audit schema behaviour varies between tenants and between client versions.</p>
+
+<h2>References</h2>
+
+<ul>
+<li>Redmond, T. <a href="https://office365itpros.com/2022/05/20/exchange-sendas-problems/" target="_blank" rel="noopener noreferrer">"Problems with Exchange SendAs Events in Audit Log."</a> Office 365 for IT Pros, May 2022.</li>
+<li>Microsoft. <a href="https://learn.microsoft.com/en-us/purview/audit-log-detailed-properties" target="_blank" rel="noopener noreferrer">"Detailed activity properties in the audit log."</a></li>
+<li>Microsoft. <a href="https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema" target="_blank" rel="noopener noreferrer">"Office 365 Management Activity API schema."</a></li>
+</ul>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#raj-choudhary">Raj Choudhary</a></h4>
+                        <div class="author-title">Founder &amp; CEO</div>
+                        <div class="author-bio">Technical deep-dives on BYODb architecture, detection engineering, and AI SOC automation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

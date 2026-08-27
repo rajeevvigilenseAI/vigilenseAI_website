@@ -1,0 +1,207 @@
+================================================================================
+CORRECTED BLOG PAGE
+Replaces the live version at /blog/delegated-email-detection
+Structure and headings match the published page so it can be swapped directly.
+
+CHANGES FROM LIVE VERSION
+  1. Redmond and AdminDroid cited. No longer reads as original discovery.
+  2. "populated whenever a delegated send occurs" removed. Microsoft marks
+     both fields optional in the Management Activity API schema.
+  3. coalesce() replaced with branching on Operation.
+  4. Redmond's false positive added (owner sending own mail, Outlook mobile).
+  5. OWA path presented as observation from first mention, not as mechanism.
+  6. "in a large proportion of cases" removed. Not measured.
+  7. Novel pairing section expanded. It is the strongest part.
+================================================================================
+
+
+TITLE
+Delegated Email Detection Is Not A Field Comparison
+
+SUGGESTED SUBTITLE / META DESCRIPTION
+The standard SendAs rule misses delegated sends, and fixing the field comparison
+reveals a bigger problem underneath it.
+
+CATEGORY: Engineering
+READ TIME: 6 min
+
+
+--------------------------------------------------------------------------------
+BODY
+--------------------------------------------------------------------------------
+
+Almost every detection library contains a rule for mail sent under another
+identity. The logic is the same everywhere. Look for SendAs and SendOnBehalf
+events in the Exchange audit log, compare the acting account against the mailbox
+owner, and alert when they differ.
+
+    WHERE Operation IN ('SendAs','SendOnBehalf')
+      AND UserId != MailboxOwnerUPN
+
+It is a reasonable rule. There are two problems with it. The first is a schema
+issue that is already documented and still widely missed. The second is more
+fundamental, and it is the reason this rule tends to get disabled a few weeks
+after deployment.
+
+
+THE FIELDS DO NOT MEAN WHAT THE RULE ASSUMES
+
+Microsoft defines the relevant fields clearly. UserId is the account that
+performed the action. MailboxOwnerUPN is the owner of the mailbox that was
+accessed. SendAsUserSmtp is the address being impersonated. SendOnBehalfOfUserSmtp
+is the address on whose behalf the message was sent.
+
+The difficulty is that MailboxOwnerUPN does not reliably carry the delegated
+identity.
+
+Tony Redmond documented this in 2022. He found SendAs audit records in which the
+delegate appeared in both UserId and MailboxOwnerUPN, with the impersonated
+identity captured only in SendAsUserSmtp, and noted that relying on the first two
+fields produces misleading results. AdminDroid's published non-owner mailbox
+access script accounts for the same behaviour, treating SendAsUserSmtp and
+SendOnBehalfOfUserSmtp as the accessed mailbox rather than MailboxOwnerUPN.
+
+So this is not a discovery. It is a known characteristic of the schema that
+continues to ship in detection content anyway.
+
+We encountered it while baselining delegated sending in a Microsoft 365 tenant.
+A member of staff held delegated access to two shared mailboxes and used it
+throughout the working day: opening a message in a colleague's mailbox,
+composing a reply, sending on that colleague's behalf. The rule caught almost
+none of it, because UserId and MailboxOwnerUPN held the same value on most of
+those events.
+
+In our testing this occurred consistently when the reply was composed in Outlook
+on the web from a message opened in the delegated mailbox. We have not found
+documentation attributing the behaviour to that specific client path, and our
+sample covers a small number of tenants, so that attribution is an observation
+rather than an established mechanism. It is worth testing in your own
+environment.
+
+What is not in doubt is the effect. The same person performing the same action
+was reported on some occasions and not others. That is the least useful kind of
+gap, because it is not consistent enough to be noticed and not random enough to
+be dismissed.
+
+
+WHY THIS MATTERS
+
+Mail sent under a colleague's identity is one of the more consequential things an
+attacker does with a compromised mailbox. It is the mechanism behind invoice
+fraud, payment redirection and internal phishing, because a message that appears
+to come from a trusted colleague clears the recipient's judgement in a way an
+external message never does.
+
+A rule that catches this behaviour only on certain client paths is not a control.
+It is a source of false confidence.
+
+
+THE CORRECTION
+
+Read the operation-specific field rather than the mailbox owner, and branch on
+the operation rather than guessing between the two fields:
+
+    Operation = 'SendAs'        ->  delegated identity = SendAsUserSmtp
+    Operation = 'SendOnBehalf'  ->  delegated identity = SendOnBehalfOfUserSmtp
+
+Then compare the acting account against that value.
+
+Two caveats belong with this.
+
+Microsoft marks both SendAsUserSmtp and SendOnBehalfOfUserSmtp as optional in
+the Office 365 Management Activity API schema. They are not guaranteed to be
+present on every event, so the null case needs handling explicitly rather than
+assumed away.
+
+Redmond also documented a false positive worth anticipating. He found SendAs
+events in which all three properties held the same value and the mailbox owner
+had in fact sent the message themselves, mostly originating from Outlook mobile
+and addressed to external recipients. A rule reading the delegation field will
+therefore pick up ordinary users sending their own mail from a phone. Exclude
+events where the delegated identity matches the actor.
+
+
+THE MORE IMPORTANT PROBLEM
+
+Correcting the field comparison produces a rule that catches everything it
+should, and immediately reveals why the original design was flawed.
+
+In service organizations, delegated sending is not an anomaly. It is the
+operating model. Reception sends for the practice. An intake mailbox sends for a
+coordinator. A brokerage account handles supplier correspondence. Shared
+mailboxes with delegated access are how the work gets done.
+
+A rule alerting on every delegated send in that environment produces a case per
+message. The analyst closes them without reading, and shortly afterwards the
+rule is disabled or ignored, which is the same outcome as never having built it.
+
+Actor is not equal to target is a schema comparison. It is not a detection.
+
+
+DETECT NOVELTY, NOT DELEGATION
+
+The discriminator is not the act. It is whether the relationship is new.
+
+Baseline the pairing over thirty days:
+
+    actor  ->  delegated identity  ->  operation
+
+An account sending under an identity it has used for months is business as usual
+and needs no report. An account sending under an identity it has never used
+before is worth precisely one question: has this person been given delegated
+access, or is this an account under somebody else's control writing as a
+colleague?
+
+That reduces a rule which would otherwise fire many times a day to one that fires
+when a new delegation appears and then goes quiet. A genuine new delegation
+firing once is correct behaviour rather than a false positive, and it will not
+report again.
+
+Where the pairing is novel, the surrounding context determines urgency:
+
+    Was a mailbox permission granted recently, and by whom?
+    Is the actor authenticating from an unfamiliar address?
+    Did the message reach recipients outside the organization?
+    Does the sending account show recent authentication failures or legacy
+      protocol use?
+    Is the sending volume materially above that actor's normal?
+
+A novel pairing to an internal recipient during business hours from a familiar
+address is almost always a new delegation. The same pairing to an external
+recipient from an account that has been failing authentication all week is a
+different matter entirely.
+
+
+WHAT TO CHECK IN YOUR OWN TENANT
+
+Run two aggregations over thirty days and compare them.
+
+    Group the first by actor and MailboxOwnerUPN.
+    Group the second by actor and the operation-specific delegation field.
+
+Anything present in the second set and absent from the first is currently
+invisible to your detection.
+
+The check takes a few minutes and the result is unambiguous. We would encourage
+running it rather than taking our word for any of the above, since audit schema
+behaviour varies between tenants and between client versions.
+
+
+--------------------------------------------------------------------------------
+REFERENCES  (render as a short list at the foot of the article)
+--------------------------------------------------------------------------------
+
+Redmond, T. "Problems with Exchange SendAs Events in Audit Log."
+Office 365 for IT Pros, May 2022.
+https://office365itpros.com/2022/05/20/exchange-sendas-problems/
+
+Microsoft. "Detailed activity properties in the audit log."
+https://learn.microsoft.com/en-us/purview/audit-log-detailed-properties
+
+Microsoft. "Office 365 Management Activity API schema."
+https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema
+
+
+================================================================================
+END
+================================================================================
