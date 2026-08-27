@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="How 24/7 Monitoring Dramatically Reduces Mean Time to Detect (MTTD)" />
+    <meta property="og:description" content="Discover the impact of 24/7 monitoring on reducing mean time to detect. Learn how continuous AI-powered oversight slashes breach discovery from months to min..." />
+    <meta property="og:url" content="https://vigilense.ai/blog/mttd-reduction-continuous-monitoring/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How 24/7 Monitoring Dramatically Reduces Mean Time to Detect (MTTD)" />
+    <meta name="twitter:description" content="Discover the impact of 24/7 monitoring on reducing mean time to detect. Learn how continuous AI-powered oversight slashes breach discovery from months to min..." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Discover the impact of 24/7 monitoring on reducing mean time to detect. Learn how continuous AI-powered oversight slashes breach discovery from months to min..." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/mttd-reduction-continuous-monitoring/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>How 24/7 Monitoring Dramatically Reduces Mean Time to Detect (MTTD) - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "How 24/7 Monitoring Dramatically Reduces Mean Time to Detect (MTTD)", "item": "https://vigilense.ai/blog/mttd-reduction-continuous-monitoring/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>How 24/7 Monitoring Dramatically Reduces Mean Time to Detect (MTTD)</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-20">Aug 20, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#bal-singh">Bal Singh</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/24-7-threat-monitoring-cost/">24/7 threat monitoring cost guide</a></li>
+                        <li><a href="/blog/what-is-a-virtual-soc/">What is a virtual SOC?</a></li>
+                        <li><a href="/blog/ai-soc-alert-fatigue-false-positives/">AI SOC and alert fatigue</a></li>
+                        <li><a href="/blog/can-ai-soc-analyst-replace-human-analysts/">Can AI SOC analysts replace humans?</a></li>
+                        <li><a href="/demo/">Book a demo</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>In the modern threat landscape, the gap between a security breach and its discovery is the most critical window for any organization. Most midsize businesses operate under the dangerous assumption that their existing tools are enough, only to discover a breach months after initial entry.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we see firsthand how the transition from reactive, business-hours security to continuous, AI-powered oversight transforms the entire defense posture. By eliminating the blind spots that occur outside the traditional 9-to-5, organizations can slash their Mean Time to Detect (MTTD) from months to minutes.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>MTTD is the average time it takes for a security team to identify a potential threat or breach.</li>
+<li>24/7 monitoring eliminates the "after-hours" vulnerability window where most attackers strike.</li>
+<li>AI-powered detection automates the noise, allowing human teams to focus on actual threats rather than false positives.</li>
+<li>Reducing MTTD directly correlates with lower remediation costs and minimized data exposure.</li>
+<li>Vigilense AI provides continuous detection and response without requiring massive in-house security teams.</li>
+</ul>
+</div>
+
+<h2>What is impact of 24/7 monitoring on reducing mean time to detect?</h2>
+<p>The impact of 24/7 monitoring on reducing Mean Time to Detect (MTTD) is the immediate transition from static, periodic scanning to a continuous state of alertness that identifies indicators of compromise the moment they emerge. By removing the time-lag inherent in manual oversight, organizations can identify unauthorized access or anomalous behavior in real-time, preventing minor incidents from escalating into full-scale data breaches.</p>
+
+<p>When security monitoring is limited to standard business hours, attackers exploit the "dark hours" - evenings, weekends, and holidays. According to <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">IBM's 2024 Cost of a Data Breach Report</a>, the average time to identify a breach remains over 200 days for many organizations. Continuous monitoring forces this number down by ensuring that every log, alert, and network anomaly is analyzed as it occurs, not when a human analyst logs in the next morning.</p>
+
+<div style="margin-top: 20px;">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#why-important">Why is 24/7 monitoring important for reducing MTTD?</a></li>
+<li><a href="#how-it-works">How does 24/7 monitoring reduce MTTD?</a></li>
+<li><a href="#benefits">What are the benefits of reducing MTTD?</a></li>
+<li><a href="#implementation">How do you implement 24/7 monitoring for your SOC?</a></li>
+<li><a href="#mistakes">What are common mistakes in monitoring strategy?</a></li>
+<li><a href="#statistics">Key statistics about MTTD and cybersecurity</a></li>
+<li><a href="#case-study">Case Study: Transforming Response Times</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+
+<div id="definition-mttd">
+<h3>What is Mean Time to Detect (MTTD)?</h3>
+<p>MTTD is a key performance indicator that measures the average time elapsed between the initial moment of a security compromise and the moment the organization identifies the threat.</p>
+</div>
+
+<h2 id="why-important">Why is 24/7 monitoring important for reducing MTTD?</h2>
+<p>Cybersecurity threats do not follow a 9-to-5 schedule. Attackers often time their most intrusive actions for periods when they expect security teams to be away from their desks. Without 24/7 coverage, an organization essentially grants attackers an "unmonitored window" to move laterally across the network, escalate privileges, and exfiltrate data.</p>
+
+<p>For midsize businesses, the challenge is often resource constraints. Building an internal team capable of 24/7 vigilance is prohibitively expensive. However, as noted by <a href="https://www.gartner.com/en" target="_blank" rel="noopener noreferrer">Gartner research</a>, organizations that implement managed detection services consistently report higher resilience against ransomware and sophisticated persistent threats compared to those relying on legacy, manual, or periodic review processes.</p>
+
+<h2 id="how-it-works">How does 24/7 monitoring reduce MTTD?</h2>
+<p>24/7 monitoring works by creating a constant feedback loop between data ingestion, AI-driven correlation, and human-in-the-loop validation. Unlike traditional systems that generate thousands of alerts, modern AI-powered platforms like <a href="/">Vigilense AI</a> filter through the noise to prioritize high-fidelity threats.</p>
+
+<div>
+<h3>What is AI-Powered Managed Detection?</h3>
+<p>AI-powered managed detection uses machine learning algorithms to analyze infrastructure logs and network traffic in real-time, automatically distinguishing between routine system noise and genuine malicious activity.</p>
+</div>
+
+<p>By automating the detection phase, the system identifies anomalies that would otherwise go unnoticed until a catastrophic event occurs. Because the system is "always on," the time from the first malicious ping to the first defensive alert is reduced to mere minutes, effectively resetting the attacker's clock and forcing them to abandon their efforts.</p>
+
+<h2 id="benefits">What are the benefits of reducing MTTD?</h2>
+<ul>
+<li><strong>Reduced Financial Impact:</strong> Rapid detection significantly lowers the average cost of a data breach.</li>
+<li><strong>Minimized Data Loss:</strong> Stopping an attacker early prevents the theft of sensitive client or proprietary data.</li>
+<li><strong>Operational Continuity:</strong> Fewer successful breaches mean less downtime for critical business systems.</li>
+<li><strong>Regulatory Compliance:</strong> Many industry standards (such as HIPAA or GDPR) mandate timely notification of breaches, which is impossible without low MTTD.</li>
+<li><strong>Improved Trust:</strong> Clients and partners feel more secure knowing that their data is protected by continuous, professional-grade monitoring.</li>
+<li><strong>Lower Stress on Staff:</strong> Automated, intelligent alerts prevent the burnout common in teams drowning in manual "false positive" noise.</li>
+</ul>
+
+<h2 id="implementation">How to implement 24/7 monitoring for your SOC</h2>
+<h3>Step 1: Audit your existing data sources</h3>
+<p>Identify which parts of your infrastructure generate logs that could signal a breach, such as firewalls, endpoints, and cloud identity providers. Ensure these are consistently forwarded to a centralized platform.</p>
+
+<h3>Step 2: Deploy AI-driven detection layers</h3>
+<p>Move away from static rules that trigger alerts for everything. Implement AI-powered tools that learn your "normal" network behavior to reduce the volume of false positives.</p>
+
+<h3>Step 3: Establish clear response playbooks</h3>
+<p>Even with 24/7 monitoring, human intervention is often needed for complex threats. Develop clear, documented response steps for your team to execute when an alert is raised.</p>
+
+<h3>Step 4: Integrate managed support</h3>
+<p>If you lack a 24/7 in-house SOC, partner with a managed service provider. At <a href="/">Vigilense AI</a>, we specialize in providing this layer without requiring you to build a massive internal team.</p>
+
+<h3>Step 5: Continuously refine and test</h3>
+<p>Use periodic penetration testing or "red team" exercises to see how quickly your systems detect simulated attacks. Use these results to tune your detection parameters.</p>
+
+<h2 id="mistakes">What are common mistakes in monitoring strategy?</h2>
+<ul>
+<li><strong>Ignoring "Low-Priority" Alerts:</strong> Many breaches start with small, seemingly insignificant anomalies that are ignored due to alert fatigue.</li>
+<li><strong>Data Silos:</strong> Failing to connect data from different departments or cloud environments creates blind spots.</li>
+<li><strong>Over-reliance on Manual Review:</strong> Expecting human analysts to scan thousands of logs manually is a recipe for failure.</li>
+<li><strong>Lack of Infrastructure Context:</strong> Deploying generic security rules that don't understand the specific, unique architecture of your business.</li>
+</ul>
+
+<h2 id="statistics">Key statistics about MTTD and cybersecurity</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Industry Standard / Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average breach detection time</td>
+<td>Over 200 days for many firms (<a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">IBM, 2024</a>)</td>
+</tr>
+<tr>
+<td>Impact of rapid response</td>
+<td>Organizations with &lt; 200 days MTTD save $1M+ per incident</td>
+</tr>
+<tr>
+<td>SMB vulnerability rate</td>
+<td>80%+ of breaches impact companies with &lt; 1,000 employees</td>
+</tr>
+<tr>
+<td>AI effectiveness</td>
+<td>AI-driven tools reduce manual investigation time by 60%</td>
+</tr>
+<tr>
+<td>Alert fatigue</td>
+<td>Over 50% of security teams report ignoring alerts due to volume</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="case-study">Case study: How midsize organizations achieve 24/7 protection</h2>
+<h3>Challenge</h3>
+<p>A medical device supplier with operations across Australia and New Zealand struggled to maintain a 24/7 security posture. They lacked the budget to hire a full-time SOC team and were concerned about the complexity of integrating a new security platform with their existing infrastructure.</p>
+<h3>Solution</h3>
+<p>The company partnered with <a href="/">Vigilense AI</a> to implement an AI-powered detection and response system. By leveraging their existing logs, the platform was able to provide continuous, 24/7 monitoring without the need for additional headcount.</p>
+<h3>Results</h3>
+<ul>
+<li>Reduced MTTD from weeks to minutes.</li>
+<li>Eliminated the need for a costly, manual in-house SOC.</li>
+<li>Provided 24/7 peace of mind across all time zones.</li>
+<li>Maintained data sovereignty by keeping all logs within their own infrastructure.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>Does 24/7 monitoring replace the need for an IT team?</h3>
+<p>No, it augments your existing IT team. It provides the specialized security oversight that allows your IT staff to focus on business operations rather than chasing alerts.</p>
+
+<h3>How does Vigilense AI handle data privacy?</h3>
+<p>Our philosophy is that your data stays yours. Our platform is designed so that your sensitive data remains within your infrastructure, respecting strict privacy and sovereignty requirements.</p>
+
+<h3>Is 24/7 monitoring too expensive for midsize businesses?</h3>
+<p>Traditional SOC models are expensive, but modern, AI-powered managed detection services like <a href="/">Vigilense AI</a> are specifically built to be cost-effective for midsize organizations.</p>
+
+<h3>What is the difference between MTTD and MTTR?</h3>
+<p>MTTD (Mean Time to Detect) is how long it takes to find a problem. MTTR (Mean Time to Respond) is how long it takes to fix it after it has been found.</p>
+
+<h3>Can AI really detect sophisticated threats?</h3>
+<p>Yes. Modern AI models are trained on vast datasets of attack patterns, allowing them to detect subtle "low and slow" attacks that would bypass traditional signature-based security tools.</p>
+
+<h3>How long does it take to deploy Vigilense AI?</h3>
+<p>We focus on speed. Our goal is to have you live in days, not months, by working with your existing data sources.</p>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ Continuous, 24/7 monitoring is the single most effective way to reduce MTTD.</li>
+<li>✓ AI-powered detection filters out noise, ensuring your team only acts on high-fidelity threats.</li>
+<li>✓ Midsize organizations are the primary target for cyberattacks due to perceived security gaps.</li>
+<li>✓ Reducing your detection time significantly lowers the overall cost and damage of a potential breach.</li>
+<li>✓ You do not need to build a massive in-house SOC to achieve enterprise-grade security.</li>
+<li>✓ Vigilense AI offers a path to 24/7 protection that respects your infrastructure and data ownership.</li>
+</ul>
+</div>
+
+<p>The decision to move toward 24/7 monitoring is not just an IT upgrade; it is a strategic business decision to protect your brand and your bottom line. By leveraging AI to bridge the gaps in your security coverage, you can ensure that your business remains protected around the clock, regardless of your team size.</p>
+
+<p>Ready to see how <a href="/">Vigilense AI</a> can transform your security operations? Visit our <a href="/platform/">Platform page</a> to learn how we help midsize organizations detect, investigate, and respond in their sleep.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">BS</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#bal-singh">Bal Singh</a></h4>
+                        <div class="author-title">Co-founder &amp; CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

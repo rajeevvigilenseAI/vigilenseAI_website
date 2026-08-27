@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="Every Threshold You Guessed Is Wrong in One Direction or the Other" />
+    <meta property="og:description" content="Why static detection thresholds create false positives and false negatives, and what to use instead of guessing a number." />
+    <meta property="og:url" content="https://vigilense.ai/blog/static-threshold-detection-problem/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Every Threshold You Guessed Is Wrong in One Direction or the Other" />
+    <meta name="twitter:description" content="Why static detection thresholds create false positives and false negatives, and what to use instead of guessing a number." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Why static detection thresholds create false positives and false negatives, and what to use instead of guessing a number." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/static-threshold-detection-problem/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Every Threshold You Guessed Is Wrong in One Direction or the Other - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Every Threshold You Guessed Is Wrong in One Direction or the Other", "item": "https://vigilense.ai/blog/static-threshold-detection-problem/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>Every Threshold You Guessed Is Wrong in One Direction or the Other</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-26">Aug 26, 2026</time>
+                        <span>&middot;</span>
+                        <span>4 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#raj-choudhary">Raj Choudhary</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/detection-rules-eight-databases/">Detection rules across eight databases</a></li>
+                        <li><a href="/blog/alert-fatigue/">Alert fatigue is a design problem</a></li>
+                        <li><a href="/blog/zero-to-detection/">Zero to detection in 14 seconds</a></li>
+                        <li><a href="/blog/adaptive-threat-fusion/">Adaptive threat fusion</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>Detection thresholds fail in two directions, and both come from the same cause: somebody chose a number before looking at the data.</p>
+
+<h2>Too Low</h2>
+
+<p>We wrote a rule for permanent deletion of mail in a mailbox belonging to another account. Delegated deletion. The reasoning seemed sound: destroying mail in somebody else's mailbox is not something people do casually, so any occurrence is worth reporting.</p>
+
+<p>The threshold was set at one.</p>
+
+<p>It fired on every result in the backtest, all of them plainly legitimate. The organization ran on shared mailboxes. Staff with delegated access routinely cleared marketing mail and newsletters from the mailboxes they helped manage. The observed maximum was two deletions in an hour, and the observed normal was one.</p>
+
+<p>A threshold of one on a behaviour whose normal is one is not a detection. It is a report of everyday work with a severity label attached.</p>
+
+<p>Corrected to five, the rule stayed silent through the entire backtest and would still catch somebody clearing out a colleague's mailbox in volume.</p>
+
+<h2>Too High</h2>
+
+<p>The opposite error is less visible and more dangerous, because a rule that never fires looks like a rule with nothing to report.</p>
+
+<p>A bulk file modification rule was set at forty distinct files within thirty minutes, aimed at ransomware. The reasoning was that encryption moves in hundreds, so forty is conservative.</p>
+
+<p>The measured ceiling for legitimate bulk modification in that tenant was fourteen files in an hour, and the second busiest hour was ten.</p>
+
+<p>Forty is not conservative against fourteen. It is nearly three times the observed maximum, which means the rule has no chance of detecting a slow or partial encryption event, and no chance of detecting an attacker who has read the same public guidance about typical thresholds.</p>
+
+<p>Twenty would have been defensible. Forty was a number chosen by intuition and never checked.</p>
+
+<h2>The Story Text Was Wrong Too</h2>
+
+<p>The alert narrative for that rule stated that the observed maximum for a single account over the reviewed period was twenty files. The actual measured maximum was fourteen.</p>
+
+<p>Nobody had invented twenty maliciously. It was an approximate recollection that went into the text and was never verified against the query that produced it.</p>
+
+<p>This matters more than it appears. Alert narrative is what an analyst reads at two in the morning, and it is where they get their sense of whether the number in front of them is unusual. A narrative containing a figure that is not in the data is worse than no narrative, because it is confidently wrong.</p>
+
+<p>Every number in an alert should come from a query someone can re-run.</p>
+
+<h2>The Method</h2>
+
+<p>Before setting any threshold, run the aggregation the rule will run, over a period long enough to include a full business cycle, with no threshold at all. Order by the metric descending and look at the top twenty rows.</p>
+
+<p>That gives three things:</p>
+
+<ul>
+
+<li>The ceiling. The busiest legitimate occurrence.</li>
+
+</ul>
+
+<ul>
+
+<li>The shape. Whether the distribution has a long tail or a hard edge, which</li>
+
+<li>tells you how much headroom the threshold needs.</li>
+
+</ul>
+
+<ul>
+
+<li>The population. Who does this, how often, and whether the busiest account is</li>
+
+<li>a person, a service account or a synchronisation client that should have been</li>
+
+<li>excluded entirely.</li>
+
+</ul>
+
+<p>Set the threshold above the ceiling with enough headroom to absorb a busy week, and no more. Then record the ceiling in the rule documentation, so the next person to review it knows what the number was based on and can see whether it still holds.</p>
+
+<h2>Headroom Is A Judgement, Not A Formula</h2>
+
+<p>There is no correct multiplier. What there is, is an obligation to be able to answer two questions about any threshold in production:</p>
+
+<ul>
+
+<li>What is the observed normal, and when did you last measure it?</li>
+
+</ul>
+
+<ul>
+
+<li>What would an attacker have to do to stay below this number, and would that</li>
+
+<li>still be worth their while?</li>
+
+</ul>
+
+<p>If the answer to the second is that they could comfortably operate underneath it, the threshold is decoration.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#raj-choudhary">Raj Choudhary</a></h4>
+                        <div class="author-title">Founder &amp; CEO</div>
+                        <div class="author-bio">Technical deep-dives on BYODb architecture, detection engineering, and AI SOC automation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

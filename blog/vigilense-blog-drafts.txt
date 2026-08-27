@@ -1,0 +1,872 @@
+================================================================================
+VIGILENSE AI  |  BLOG DRAFTS
+Eight posts for the website, ordered by strength.
+All client detail removed. Figures generalised deliberately.
+================================================================================
+
+
+--------------------------------------------------------------------------------
+1. DELEGATED SENDS HIDE FROM THE OBVIOUS DETECTION
+--------------------------------------------------------------------------------
+Suggested title: The delegated email detection that misses most delegated email
+Length: ~850 words
+
+
+Almost every detection library contains a rule for mail sent under another
+identity. The logic is the same everywhere. Look for SendAs and SendOnBehalf
+events in the Exchange audit log, compare the acting account against the mailbox
+owner, and alert when they differ.
+
+    WHERE Operation IN ('SendAs','SendOnBehalf')
+      AND UserId != MailboxOwnerUPN
+
+It is a reasonable rule. It is also, in a large proportion of cases, blind to the
+behaviour it was written to catch.
+
+While baselining delegated sending in a Microsoft 365 tenant, we traced a member
+of staff through several hours of ordinary casework. She held delegated access to
+two shared mailboxes and used it constantly. She opened a message in a colleague's
+mailbox, composed a reply, and sent it on that colleague's behalf. That is exactly
+what the rule exists to see.
+
+The rule saw none of it.
+
+The reason is in how Exchange records the event. When the reply is composed in
+Outlook on the web from a message opened in a delegated mailbox, the SendOnBehalf
+event is written with the acting user as both the actor and the mailbox owner.
+UserId and MailboxOwnerUPN are identical. The delegated relationship is recorded
+elsewhere in the event, in SendOnBehalfOfUserSmtp, but the two fields the rule
+compares are the same value, so the comparison fails and nothing is reported.
+
+The same person's sends were captured on some occasions and missed on others,
+depending on where the message was composed rather than on what she was doing.
+That is the worst kind of detection gap, because it is not consistent enough to
+be noticed and not random enough to be dismissed.
+
+
+WHY THIS MATTERS
+
+Mail sent under a colleague's identity is one of the more consequential things an
+attacker does with a compromised mailbox. It is the mechanism behind invoice
+fraud, payment redirection and internal phishing, because a message that appears
+to come from a trusted colleague clears the recipient's judgement in a way an
+external message never does.
+
+A rule that catches this behaviour only in certain client paths is not a control.
+It is a source of false confidence.
+
+
+THE FIX
+
+Do not compare the actor to the mailbox owner. Read the delegation field directly.
+
+    SendAsUserSmtp
+    SendOnBehalfOfUserSmtp
+
+These are populated on the event whenever a delegated send occurs, regardless of
+which client composed it. Compare the acting account against that value instead:
+
+    WHERE Operation IN ('SendAs','SendOnBehalf')
+      AND lower(UserId) != lower(coalesce(
+              nullIf(SendAsUserSmtp,''), SendOnBehalfOfUserSmtp))
+
+That covers both paths. It also removes a class of false negative that is
+extremely difficult to find by inspection, because the rule appears to work: it
+returns results, the results are correct, and nothing indicates that a larger set
+of equally valid results never appeared.
+
+
+A SECOND PROBLEM WORTH ANTICIPATING
+
+Once the rule catches everything it should, a new difficulty appears in
+organisations that operate shared mailboxes. Delegated sending is not an anomaly
+in a service organisation. It is the operating model. Reception sends for the
+practice, an intake mailbox sends for a coordinator, an account handles brokerage
+correspondence. Alerting on every instance produces a case per message and
+teaches the analyst to close them without reading.
+
+The discriminator is not the act. It is novelty.
+
+An account sending under an identity it has used for months is business as usual.
+An account sending under an identity it has never used before is the event worth
+one question: has this person been given delegated access, or is this an account
+under somebody else's control writing as a colleague?
+
+That reduces a rule which would otherwise fire many times a day to one that fires
+when a new delegation appears, and then stays quiet.
+
+
+WHAT TO CHECK IN YOUR OWN TENANT
+
+Run a thirty day aggregation of SendAs and SendOnBehalf grouped by actor and by
+the delegation field, then run the same aggregation grouped by actor and mailbox
+owner. If the two sets differ, your detection is missing the difference.
+
+We would encourage verifying this in your own environment rather than taking our
+word for it. Audit schema behaviour varies between tenants and between client
+versions, and the observation above comes from a limited number of tenants rather
+than from documented Microsoft behaviour. The check takes a few minutes and the
+answer is unambiguous.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+2. STAYING UNDER THE THRESHOLD IS THE WHOLE TECHNIQUE
+--------------------------------------------------------------------------------
+Suggested title: The password attack designed not to trigger your lockout
+Length: ~800 words
+
+
+There is a form of credential attack that is easy to describe and difficult to
+detect, and the reason it is difficult is that it was designed that way.
+
+The pattern looks like this. A single account is targeted. Attempts arrive from a
+large number of separate addresses, each used once or twice and then abandoned.
+The attempts are spaced across hours. The campaign pauses for half a day and
+resumes. Volume in any single hour is trivial. Volume across a week is
+substantial.
+
+Every element of that shape is a response to a specific control.
+
+
+ONE ATTEMPT PER ADDRESS
+
+Cloud identity platforms apply rate limiting per source address. An attacker
+making a hundred attempts from one address is throttled and eventually blocked
+outright. An attacker making one attempt from a hundred addresses is not, because
+no individual address does anything unusual.
+
+Distributed infrastructure is inexpensive and disposable. Residential proxy
+networks, compromised devices and cheap cloud instances all provide addresses
+that are used once and discarded. There is no meaningful cost to rotation.
+
+
+PACING BELOW THE LOCKOUT THRESHOLD
+
+Smart lockout triggers on a number of failures within a window. An attacker who
+knows roughly where that threshold sits will stay under it, which limits the
+attempts per account per hour but does not limit the campaign, because time is
+free.
+
+There is a secondary benefit for the attacker. An account that locks out
+repeatedly generates complaints, and complaints generate attention. An attack
+that never locks the account never announces itself to the person who owns it.
+
+
+PAUSING
+
+The most effective element is also the simplest. Sustained activity is easier to
+notice than intermittent activity, because sustained activity is present whenever
+anyone looks. A campaign that runs for two hours and stops for ten is invisible
+to anyone checking a dashboard at the wrong moment, and it produces a plausible
+appearance of having ended.
+
+
+WHY THE SHAPE DEFEATS ORDINARY DETECTION
+
+Consider the same activity viewed through two different windows.
+
+Over one day: two attempts from two addresses. That is indistinguishable from a
+phone with a stale password in the mail client, and most analysts would treat it
+as exactly that.
+
+Over one week: fifteen attempts from fourteen addresses. One attempt per address
+is not a device with a stale password. A device reuses its address. Fourteen
+addresses making one attempt each is rotation, and rotation is deliberate.
+
+Same activity. Same data. The window decides the conclusion.
+
+This is the practical failure mode. A detection that aggregates over an hour or a
+day will describe a distributed attack as a minor configuration problem, and will
+do so consistently and confidently.
+
+
+WHAT TO ACTUALLY DETECT
+
+Volume is the wrong signal. The useful signals are:
+
+    Source cardinality relative to attempt count. Where distinct addresses
+    approach total attempts, the ratio itself is the finding.
+
+    Persistence across days. A misconfigured client repeats indefinitely from one
+    address. A campaign persists from many.
+
+    The protocol in use. Legacy authentication endpoints cannot present a
+    multi-factor challenge, which is precisely why they are chosen.
+
+    Any evidence the password was accepted, whether or not the sign-in completed.
+    A challenge satisfied at the password stage and blocked only by a second
+    factor means the credential is known to somebody, and that is true regardless
+    of whether they got in.
+
+Build the aggregation over a week and grade on the ratio rather than the count.
+The attack that is designed to look small in every window will still look small,
+but the ratio will not.
+
+
+THE UNCOMFORTABLE PART
+
+This technique works because defensive thresholds are published. Rate limits and
+lockout behaviour are documented so that administrators can plan around them, and
+that documentation is available to everyone.
+
+The answer is not to hide the thresholds. It is to stop treating a single
+threshold as the detection. An attacker optimising against one number will always
+beat it. An attacker cannot optimise against shape, persistence and ratio
+simultaneously without abandoning the economics that made the attack worthwhile.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+3. A RULE THAT REPEATS ITSELF IS A RULE NOBODY READS
+--------------------------------------------------------------------------------
+Suggested title: Your detection fired twenty nine times. It found one thing.
+Length: ~750 words
+
+
+During a tuning cycle we reviewed the cases a rule set had produced over several
+days. One rule accounted for nearly half of them.
+
+It had not malfunctioned. It had correctly identified an ongoing credential
+attack, and then correctly identified the same ongoing credential attack every
+hour for the rest of the week.
+
+Every case was accurate. Every case was actionable in the sense that the
+underlying problem was real and unresolved. And every case after the first was
+worthless, because the analyst already knew.
+
+
+THE FAILURE IS IN THE DESIGN, NOT THE LOGIC
+
+Scheduled detections are usually built to answer a question about a window: did
+this behaviour occur in the last hour? For behaviour that starts and stops, that
+is the right question.
+
+For behaviour that persists, it is the wrong one. A campaign running for a week
+is not a hundred and sixty eight separate events. It is one event with duration,
+and reporting it as though it were new each hour buries the genuinely new events
+underneath it.
+
+The damage is not the volume itself. It is what volume does to attention. An
+analyst who opens nine identical cases learns that this rule does not require
+reading, and applies that lesson to the tenth, which is the one that differs.
+
+
+THREE QUESTIONS, NOT ONE
+
+A rule watching persistent behaviour should be answering three separate
+questions, each with its own reporting cadence.
+
+Has this appeared somewhere new? A new account, a new source range, a new system.
+That is a genuine event and should report immediately, once.
+
+Has it escalated? A password accepted where previously all attempts failed. A
+successful sign-in. A control removed. That is a change in state and should
+report immediately, every time it happens.
+
+Is it still happening? Yes, it is, and it was yesterday too. That is a status
+update and belongs in a daily summary, not an alert.
+
+Most detection platforms give you one schedule and one condition, so all three
+questions get the same answer. The fix is to put the distinction inside the query
+rather than in the schedule.
+
+
+IMPLEMENTATION
+
+Run hourly, and gate the output.
+
+    WHERE escalation_in_last_hour > 0
+       OR first_observed > now() - INTERVAL 61 MINUTE
+       OR toHour(toTimeZone(now(), 'Australia/Sydney')) = 7
+
+The first condition catches state change. The second catches novelty, and it
+fires exactly once because it compares against a longer history. The third is the
+daily digest, and it should be expressed in the timezone the analysts work in
+rather than the timezone the database runs in.
+
+Analysis window and alerting window are different things. Analyse over
+twenty four hours so a paused campaign still appears in the digest. Scope the
+immediate triggers to the last hour so a state change alerts once rather than for
+a full day afterwards.
+
+
+SAY WHICH ONE IT IS
+
+The alert text should tell the reader what kind of alert it is. A daily summary
+that reads like breaking news wastes the reader's time twice: once when they
+respond urgently, and again when they learn not to.
+
+Language that works:
+
+    This account has been seen using this protocol since [date], totalling [n]
+    attempts from [n] addresses. This alert is a daily summary of activity that is
+    already known and unresolved, not a new event.
+
+And where the activity has paused:
+
+    The most recent attempt was [n] hours ago, so the activity has paused rather
+    than stopped. Campaigns of this kind commonly resume.
+
+Neither sentence adds detection capability. Both change what the analyst does in
+the first ten seconds.
+
+
+THE MEASURE THAT MATTERS
+
+Cases produced is not a measure of coverage. It is a measure of how much reading
+you have asked somebody to do.
+
+The rule described above went from reporting hourly to reporting roughly once a
+day per affected account, with immediate alerting preserved for escalation. It
+detects exactly the same thing. It is now something a person will read.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+4. SET THRESHOLDS AGAINST WHAT YOU MEASURED
+--------------------------------------------------------------------------------
+Suggested title: Every threshold you guessed is wrong in one direction or the other
+Length: ~800 words
+
+
+Detection thresholds fail in two directions, and both come from the same cause:
+somebody chose a number before looking at the data.
+
+
+TOO LOW
+
+We wrote a rule for permanent deletion of mail in a mailbox belonging to another
+account. Delegated deletion. The reasoning seemed sound: destroying mail in
+somebody else's mailbox is not something people do casually, so any occurrence is
+worth reporting.
+
+The threshold was set at one.
+
+It fired on every result in the backtest, all of them plainly legitimate. The
+organisation ran on shared mailboxes. Staff with delegated access routinely
+cleared marketing mail and newsletters from the mailboxes they helped manage. The
+observed maximum was two deletions in an hour, and the observed normal was one.
+
+A threshold of one on a behaviour whose normal is one is not a detection. It is a
+report of everyday work with a severity label attached.
+
+Corrected to five, the rule stayed silent through the entire backtest and would
+still catch somebody clearing out a colleague's mailbox in volume.
+
+
+TOO HIGH
+
+The opposite error is less visible and more dangerous, because a rule that never
+fires looks like a rule with nothing to report.
+
+A bulk file modification rule was set at forty distinct files within thirty
+minutes, aimed at ransomware. The reasoning was that encryption moves in
+hundreds, so forty is conservative.
+
+The measured ceiling for legitimate bulk modification in that tenant was fourteen
+files in an hour, and the second busiest hour was ten.
+
+Forty is not conservative against fourteen. It is nearly three times the observed
+maximum, which means the rule has no chance of detecting a slow or partial
+encryption event, and no chance of detecting an attacker who has read the same
+public guidance about typical thresholds.
+
+Twenty would have been defensible. Forty was a number chosen by intuition and
+never checked.
+
+
+THE STORY TEXT WAS WRONG TOO
+
+The alert narrative for that rule stated that the observed maximum for a single
+account over the reviewed period was twenty files. The actual measured maximum
+was fourteen.
+
+Nobody had invented twenty maliciously. It was an approximate recollection that
+went into the text and was never verified against the query that produced it.
+
+This matters more than it appears. Alert narrative is what an analyst reads at
+two in the morning, and it is where they get their sense of whether the number in
+front of them is unusual. A narrative containing a figure that is not in the data
+is worse than no narrative, because it is confidently wrong.
+
+Every number in an alert should come from a query someone can re-run.
+
+
+THE METHOD
+
+Before setting any threshold, run the aggregation the rule will run, over a
+period long enough to include a full business cycle, with no threshold at all.
+Order by the metric descending and look at the top twenty rows.
+
+That gives three things:
+
+    The ceiling. The busiest legitimate occurrence.
+
+    The shape. Whether the distribution has a long tail or a hard edge, which
+    tells you how much headroom the threshold needs.
+
+    The population. Who does this, how often, and whether the busiest account is
+    a person, a service account or a synchronisation client that should have been
+    excluded entirely.
+
+Set the threshold above the ceiling with enough headroom to absorb a busy week,
+and no more. Then record the ceiling in the rule documentation, so the next
+person to review it knows what the number was based on and can see whether it
+still holds.
+
+
+HEADROOM IS A JUDGEMENT, NOT A FORMULA
+
+There is no correct multiplier. What there is, is an obligation to be able to
+answer two questions about any threshold in production:
+
+    What is the observed normal, and when did you last measure it?
+
+    What would an attacker have to do to stay below this number, and would that
+    still be worth their while?
+
+If the answer to the second is that they could comfortably operate underneath it,
+the threshold is decoration.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+5. WHAT AN MFA ERROR CODE ACTUALLY TELLS YOU
+--------------------------------------------------------------------------------
+Suggested title: We read an MFA prompt as evidence of a stolen password
+Length: ~750 words
+
+
+Microsoft sign-in logs carry an error code on every failed authentication. Those
+codes are one of the more useful things in the dataset, and one of the easier
+things to misread.
+
+We misread one, and the way we misread it is worth describing because the
+reasoning that led there was not obviously wrong.
+
+
+THE REASONING
+
+Among the failure codes are several indicating that authentication proceeded past
+the password stage and failed at multi-factor authentication. The user, or
+whoever was authenticating, supplied a correct password and was then challenged.
+
+The security implication looked clear. If the password was accepted, the password
+is known. The sign-in did not complete, but that is a detail. The credential is
+compromised and should be reset regardless.
+
+We built that into a rule. Any occurrence of those codes was graded critical,
+with narrative explaining that the password was known to a third party.
+
+
+WHAT WENT WRONG
+
+The rule fired on ordinary staff signing in normally.
+
+Those codes do not exclusively mean that an attacker got the password right. They
+also appear when a legitimate user enters their own correct password and then
+does not complete the second factor, which happens constantly. The phone is in
+another room. The prompt is dismissed by accident. The notification arrives after
+the session times out. The user is mid-enrolment and has not finished setting the
+method up.
+
+From the log, a member of staff fumbling their own authenticator prompt and an
+attacker who has guessed a password and been stopped by MFA look identical,
+because at the protocol level they are identical. The password was accepted and
+the second factor was not satisfied. Nothing in the event distinguishes intent.
+
+During an active MFA rollout the rule was firing on nearly every enrolled user.
+
+
+THE CORRECTION
+
+The code alone carries no verdict. It carries a verdict only in combination with
+context that the code does not contain.
+
+The context that mattered in our case was the client. A legitimate user
+authenticates through a modern client that can present an MFA challenge. Legacy
+authentication protocols cannot present a challenge at all, which is why
+attackers prefer them.
+
+So the corrected rule requires both. The password stage was passed, and the
+attempt arrived over a protocol associated with credential attacks. A staff
+member's own MFA prompt through a modern client no longer qualifies.
+
+Other context that would serve the same purpose:
+
+    Source. An address the account has never authenticated from.
+
+    Pattern. The same code across many addresses in a short period.
+
+    Sequence. The code arriving amid a run of password failures rather than in
+    isolation.
+
+
+THE GENERAL POINT
+
+An error code describes a protocol outcome. It does not describe an intention,
+and it cannot, because the protocol does not know.
+
+This applies well beyond authentication. A file was deleted. A message was sent
+under another identity. A permission was granted. Every one of those is a fact
+about a system state, and none is a fact about whether anybody did anything
+wrong. The determination lives in the surrounding context: who, from where, how
+often, and whether it fits what that account has done before.
+
+Detections built on a single field are fast to write and produce cases nobody can
+action, because the case contains a fact rather than a judgement.
+
+
+HOW WE FOUND IT
+
+Not by review. By backtesting against real activity and reading every row.
+
+The logic was defensible on paper and would have survived a code review, because
+the misunderstanding was in the premise rather than the implementation. The only
+thing that surfaced it was running the rule against a tenant where people were
+enrolling in MFA, and noticing that the accounts it flagged were the ones doing
+what we had asked them to do.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+6. YOUR BASELINE WINDOW DECIDES YOUR CONCLUSION
+--------------------------------------------------------------------------------
+Suggested title: The same data, two windows, opposite answers
+Length: ~700 words
+
+
+Here is an alert. An account recorded two failed authentication attempts in
+twenty four hours, from two separate addresses, using a legacy protocol.
+
+What is your assessment?
+
+Most analysts would say a stale password. A phone, a copier, a mail client
+somewhere with credentials that no longer work, retrying occasionally. Two
+attempts is nothing. It is the sort of thing you note and move on from.
+
+That was our rule's assessment too. It graded the case medium and the narrative
+said, in as many words, that a small number of source addresses more often
+indicates a device holding an outdated password than an attack.
+
+
+THE SAME ACCOUNT, SEVEN DAYS
+
+Fifteen attempts. Fourteen distinct addresses.
+
+That is not a device. A device has an address and keeps it. Fourteen addresses
+producing one attempt each is rotation, and rotation is deliberate: it is how a
+credential attack stays below per-address rate limits and per-account lockout
+thresholds.
+
+The account was under a distributed password attack. The rule had described it as
+probably a misconfigured phone, in an alert narrative written to be persuasive.
+
+
+NOTHING WAS BROKEN
+
+The query was correct. The grading logic was correct. The narrative was
+well-written and matched the data it was given.
+
+The window was wrong, and everything downstream inherited the error.
+
+This is worth sitting with, because it is not a bug anybody would find by reading
+the code. The rule did exactly what it was built to do. It was built to look at
+the wrong span of time.
+
+
+ANALYSIS WINDOW AND ALERTING WINDOW ARE DIFFERENT
+
+The confusion comes from using one window for two jobs.
+
+The alerting window answers: has something happened that I should report now? It
+should be short, because latency matters.
+
+The analysis window answers: what does this mean? It should be as long as the
+behaviour it describes, which for a slow campaign is weeks.
+
+Collapsing them into one number forces a choice between fast alerting and correct
+interpretation. Separating them costs one additional aggregation.
+
+    history AS (
+        SELECT account, min(ts) AS first_seen,
+               count() AS events_30d,
+               uniqExact(source) AS sources_30d
+        FROM events
+        WHERE ts > now() - INTERVAL 30 DAY
+        GROUP BY account
+    )
+
+Join that against the recent window. Alert on the recent. Grade on the history.
+Put both figures in the narrative so the reader can see the difference for
+themselves.
+
+
+THE CORRECTED NARRATIVE
+
+Once the rule read the longer history, the text changed to something that
+actually helped:
+
+    Across the seven day history this account has been reached from fourteen
+    distinct addresses for fifteen attempts, which is roughly one attempt per
+    address. That is deliberate rotation to remain below per-address rate limits
+    and per-account lockout thresholds, not a misconfigured client repeating a
+    stored password. Note that the volume within any single day may look small;
+    the pattern is only visible across the whole period, which is why the seven
+    day figures are given here.
+
+The last sentence is the important one. It tells the analyst why the number in
+front of them looks unremarkable, which stops them from reaching the conclusion
+the rule reached before it was fixed.
+
+
+WHAT TO CHECK
+
+For every rule you run that aggregates, ask what the shortest campaign is that
+would be invisible in its window. If the answer is anything a real adversary
+would run, the window is too short.
+
+Slow is not the same as harmless. Frequently it is the opposite, because slow is
+what somebody chooses when they expect to be watched.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+7. SECURITY DEFAULTS VERSUS CONDITIONAL ACCESS
+--------------------------------------------------------------------------------
+Suggested title: The free control that closes most of what a small organisation gets wrong
+Length: ~800 words
+
+
+A recurring situation in small organisation security: the two most damaging gaps
+are usually multi-factor authentication coverage and legacy authentication, and
+the recommended fix is usually Conditional Access, which the organisation does
+not have licensed.
+
+The conversation then becomes a procurement conversation, and the gaps stay open
+for however long procurement takes.
+
+There is a control that closes both, costs nothing, and is available on every
+Microsoft 365 subscription. It is frequently overlooked because it is not
+configurable, and security guidance tends to favour things you can configure.
+
+
+WHAT SECURITY DEFAULTS DO
+
+Security Defaults is a single tenant-wide toggle. Switched on, it:
+
+    Requires multi-factor authentication registration for all users
+    Requires multi-factor authentication for administrative roles
+    Blocks legacy authentication protocols
+    Requires re-authentication when risk is detected
+
+That is most of the baseline. It is available on every subscription tier,
+including the entry-level plans small organisations actually buy.
+
+
+THE TRADE-OFF
+
+It cannot be customised. No exclusions, no named locations, no per-application
+scoping, no report-only mode. It is on or it is off.
+
+That is a genuine cost and it should not be minimised. In practice it means:
+
+    Legacy authentication breaks immediately for anything using it. A
+    multi-function printer scanning to email, a line of business application
+    sending notifications, a member of staff using a third-party mail client. All
+    of these stop working at the moment the toggle is set, with no grace period
+    and no exclusion available.
+
+    There is no phased rollout. Everyone is enrolled, and support handles the
+    consequences.
+
+For an organisation with genuine legacy dependencies and no capacity to migrate
+them quickly, that is disruptive enough to matter.
+
+
+WHY IT USUALLY WINS ANYWAY
+
+Compare it against the realistic alternative, which is not Conditional Access. It
+is nothing, for another six months, while the licensing question works its way
+through a budget cycle.
+
+An imperfect control that is active today protects more than a well-designed
+control that is scheduled.
+
+There is also a licensing subtlety worth understanding. Conditional Access
+requires a premium licence for every user a policy applies to. Organisations
+sometimes hold a single premium licence, typically on the administrator account,
+which makes the capability visible in the portal. A policy created in that state
+will function, because enforcement is not gated on licence state in code, but
+using it beyond entitlement is a licensing breach, and Microsoft now surfaces
+usage against entitlement in reporting.
+
+So the choice for a small organisation is frequently between Security Defaults
+today at no cost, and Conditional Access after a purchase covering every user.
+Not between Security Defaults and a free Conditional Access policy.
+
+
+DOING IT PROPERLY
+
+Before switching it on, one query. Find everything using legacy authentication in
+the last thirty days:
+
+    Group sign-in events by account and client, filtered to legacy protocol
+    identifiers, and look at which accounts appear and what software they are
+    running.
+
+That list is the disruption. Usually it is short, and usually it is a printer, a
+scan-to-email function and one or two people using a third-party mail client.
+Each has a modern equivalent and the migration is measured in hours.
+
+Do that first. Then switch on Security Defaults, and you have closed the two
+largest gaps in an afternoon rather than a quarter.
+
+
+WHEN CONDITIONAL ACCESS IS GENUINELY REQUIRED
+
+It is the right answer when you need conditions rather than a baseline:
+
+    Exempting a service account that cannot support a second factor
+    Restricting access by location or by device compliance
+    Applying different requirements to different applications
+    Testing a policy in report-only mode before enforcement
+    Session controls such as sign-in frequency
+
+Those are real requirements and Security Defaults cannot meet them. But they are
+requirements of organisations with the operational maturity to use them, and an
+organisation that has not yet enrolled its staff in multi-factor authentication
+is not that organisation yet.
+
+Get the baseline in place. Buy the flexibility when you have something to be
+flexible about.
+
+
+================================================================================
+
+
+--------------------------------------------------------------------------------
+8. INVESTIGATION QUERIES THAT CANNOT SEE THE ALERT
+--------------------------------------------------------------------------------
+Suggested title: Writing investigation queries with no parameters
+Length: ~750 words
+
+
+A useful feature in a detection platform: attach queries to a rule that run
+automatically after it fires, gathering context so the analyst opens a case that
+already contains the surrounding picture.
+
+A constraint that frequently comes with it: the queries cannot receive the values
+from the alert. No parameter substitution, no entity binding. The query runs as
+written.
+
+That constraint shapes everything about how the queries should be built, and it
+is worth thinking through properly rather than working around.
+
+
+THE TWO OPTIONS
+
+Hardcode the entity. Write the query with a specific account, address or
+application in the filter.
+
+This produces precisely the result the analyst wants, for exactly one alert. When
+the rule next fires on a different entity, the query returns context about the
+wrong thing, which is worse than returning nothing because it looks correct. In
+any environment where the rule fires on more than one entity, this is unworkable.
+
+Scan the behaviour. Write the query to return the recent population exhibiting
+the behaviour, filtered by time and bounded by a row limit, and let the analyst
+locate their entity within it.
+
+This never breaks, works for every alert the rule produces, and costs the analyst
+a scan across the results.
+
+
+WHY THE SECOND IS USUALLY RIGHT
+
+The obvious objection is that scanning is less precise. In practice, for most
+detections, the surrounding population is context worth having.
+
+If a rule fires on one account creating an anonymous sharing link, a query
+returning every account that created one in the last twenty four hours answers a
+question the alert does not: is this person unusual, or is this how the
+organisation works? That is frequently the determining question, and an
+entity-scoped query would never surface it.
+
+Where the population is genuinely large the approach weakens, but the fix is a
+tighter behavioural filter rather than an entity filter.
+
+
+WHAT TO WRITE
+
+Four categories cover most needs.
+
+Entity enrichment. What else do we know about the accounts involved? Longer
+history, other systems, prior activity. The population is those appearing in the
+detection's behaviour over the recent window.
+
+Behavioural baseline. What is normal for this behaviour across the organisation?
+Aggregate over ninety days grouped by actor. This is the query that most often
+resolves the case, because it answers whether the alert describes something
+unusual or something routine.
+
+Time expansion. What else happened around it? All activity in a wider window,
+grouped by hour and actor. A single action in isolation reads differently from
+the same action inside a sequence.
+
+Correlation. What does this connect to? Deliberately cross-source: an
+authentication finding against mailbox activity, a file finding against sharing
+activity. This is where the answer usually is, and it is the one most often
+omitted.
+
+
+PRACTICAL CONSTRAINTS WORTH BUILDING IN
+
+Every query needs a time predicate and a row limit. Most platforms enforce the
+first and treat the second as advisory. Include both regardless: an investigation
+query without a bound will eventually be run against a table where it matters.
+
+Match the analysis window to the behaviour. A six hour window on a rule watching
+intermittent activity returns nothing when the activity paused four hours ago,
+and an empty investigation query is indistinguishable from a broken one.
+
+Exclude platform noise explicitly. Service principals, synchronisation clients,
+link preview scanners and first-party application identifiers will otherwise
+dominate the output. Keep the exclusion list in a comment or in the description,
+because it is tenant-specific and the next person will not know why those
+identifiers are there.
+
+Write descriptions for a reader who did not build the rule. State what the query
+checks, when it helps, and what a nil return means. Empty is a finding when the
+reader knows what was asked.
+
+
+THE HONEST CONCLUSION
+
+Parameter binding would make these better. Entity-scoped queries answer the
+specific question directly and would remove the scanning cost.
+
+But behaviour-scoped queries answer a question that entity-scoped ones cannot,
+and it is often the more useful question. If the platform adds binding later,
+the same templates accept a parameter with a one-line change. If it does not,
+nothing needs rewriting.
+
+Build for the constraint rather than around it.
+
+
+================================================================================
+END
+================================================================================

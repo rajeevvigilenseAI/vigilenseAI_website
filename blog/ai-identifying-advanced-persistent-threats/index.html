@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="Beyond the Perimeter: How AI Identifies Advanced Persistent Threats (APTs)" />
+    <meta property="og:description" content="Discover how AI identifies advanced persistent threats to stop stealthy cyberattacks. Secure your infrastructure and detect long-term incursions with ease to..." />
+    <meta property="og:url" content="https://vigilense.ai/blog/ai-identifying-advanced-persistent-threats/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Beyond the Perimeter: How AI Identifies Advanced Persistent Threats (APTs)" />
+    <meta name="twitter:description" content="Discover how AI identifies advanced persistent threats to stop stealthy cyberattacks. Secure your infrastructure and detect long-term incursions with ease to..." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Discover how AI identifies advanced persistent threats to stop stealthy cyberattacks. Secure your infrastructure and detect long-term incursions with ease to..." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/ai-identifying-advanced-persistent-threats/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Beyond the Perimeter: How AI Identifies Advanced Persistent Threats (APTs) - Vigilense AI Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Beyond the Perimeter: How AI Identifies Advanced Persistent Threats (APTs)", "item": "https://vigilense.ai/blog/ai-identifying-advanced-persistent-threats/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>Beyond the Perimeter: How AI Identifies Advanced Persistent Threats (APTs)</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-08-27">Aug 27, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#raj-choudhary">Raj Choudhary</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/ai-powered-threat-hunting/">AI-powered threat hunting</a></li>
+                        <li><a href="/blog/machine-learning-mdr-threat-detection/">Machine learning MDR threat detection</a></li>
+                        <li><a href="/blog/automated-threat-containment/">Automated threat containment</a></li>
+                        <li><a href="/blog/evolution-mdr-cloud-era/">Evolution of MDR in the cloud era</a></li>
+                        <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>For midsize organizations, the threat landscape has shifted from opportunistic viruses to calculated, long-term incursions. Advanced Persistent Threats (APTs) are designed to remain hidden for months, slowly exfiltrating sensitive data while evading traditional signature-based security tools.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we recognize that the modern SOC (Security Operations Center) cannot rely on manual triage alone. Understanding how AI identifies these stealthy adversaries is the first step toward securing your infrastructure without the need for a massive, expensive in-house security team.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>APTs are stealthy, long-term cyberattacks that evade traditional security by mimicking normal user behavior.</li>
+<li>AI identifies APTs by establishing a "behavioral baseline" and flagging anomalous deviations in real-time.</li>
+<li>Unlike static rules, machine learning models adapt to new tactics, techniques, and procedures (TTPs) automatically.</li>
+<li>Vigilense AI enables continuous monitoring and response, ensuring data stays within your own infrastructure.</li>
+</ul>
+</div>
+
+<h2 id="definition">How does AI identify advanced persistent threats?</h2>
+<p>AI identifies Advanced Persistent Threats by utilizing machine learning algorithms to continuously analyze network traffic, user behavior, and system logs to detect subtle, non-signature-based deviations from established "normal" patterns. By correlating disparate data points over long time horizons, AI can uncover the "low and slow" activity characteristic of an APT that would otherwise trigger no alarms in legacy systems.</p>
+
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#definition">How does AI identify advanced persistent threats?</a></li>
+<li><a href="#importance">Why is identifying APTs with AI important?</a></li>
+<li><a href="#mechanics">How does AI identify advanced persistent threats?</a></li>
+<li><a href="#process">How to implement AI-driven threat detection</a></li>
+<li><a href="#comparison">AI-Powered Detection vs. Traditional SOC</a></li>
+<li><a href="#benefits">What are the benefits of AI in threat hunting?</a></li>
+<li><a href="#statistics">Key statistics about modern cyber threats</a></li>
+<li><a href="#case-study">Case study: Achieving resilience</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+
+<h2 id="importance">Why is identifying APTs with AI important?</h2>
+<p>According to a <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">2024 IBM Cost of a Data Breach report</a>, the average time to identify and contain a breach is over 270 days. During this window, APTs move laterally, escalate privileges, and establish persistence.</p>
+
+<p>Human analysts cannot manually parse millions of log events per day. AI acts as a force multiplier, filtering out the "noise" of daily operations to highlight the high-fidelity alerts that actually matter. For midsize businesses, this is the difference between a minor incident and a catastrophic data loss event.</p>
+
+<div>
+<h3>What is an APT?</h3>
+<p>An Advanced Persistent Threat is a sophisticated, long-term network attack in which an intruder gains access to a network and remains undetected for an extended period to steal data or disrupt operations.</p>
+</div>
+
+<h2 id="mechanics">How does AI identify advanced persistent threats?</h2>
+<p>AI models for cybersecurity generally operate on three core pillars: behavioral analytics, anomaly detection, and predictive modeling. Rather than looking for a specific "file signature," the AI learns the unique rhythm of your business.</p>
+
+<p>If an administrator account suddenly accesses a database at 3:00 AM from a new geolocation, or if a workstation begins communicating with an unknown external IP using non-standard protocols, the AI flags this immediately. This contextual intelligence is what allows <a href="/">Vigilense AI</a> to detect threats that traditional firewalls and antivirus software consistently miss.</p>
+
+<h2 id="process">How to implement AI-driven threat detection</h2>
+<h3>Step 1: Establish a Behavioral Baseline</h3>
+<p>Before detection can occur, the AI must learn what "normal" looks like. This involves ingesting logs from endpoints, cloud services, and network hardware to map standard user and system behavior.</p>
+
+<h3>Step 2: Data Normalization and Correlation</h3>
+<p>Raw logs are often messy and siloed. AI tools normalize this data, allowing the system to correlate an unusual login in one department with a strange file modification in another, effectively joining the dots of a multi-stage attack.</p>
+
+<h3>Step 3: Anomaly Detection</h3>
+<p>The system applies unsupervised machine learning to identify outliers. Any activity that deviates significantly from the established baseline - such as anomalous PowerShell usage or unusual data staging - is tagged for investigation.</p>
+
+<h3>Step 4: Automated Triage and Investigation</h3>
+<p>Instead of sending 1,000 alerts to your inbox, the AI investigates the context. It determines if an anomaly is a false positive or a potential threat, providing your team with a concise, actionable summary of the event.</p>
+
+<h3>Step 5: Coordinated Response</h3>
+<p>Once a threat is confirmed, the system initiates pre-defined response protocols. This could involve isolating an infected machine, revoking user access, or blocking malicious IP addresses, all without human intervention.</p>
+
+<h2 id="comparison">AI-Powered Detection vs. Traditional SOC</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Traditional SOC</th>
+<th>AI-Powered Detection (Vigilense)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detection Speed</td>
+<td>Hours to Days</td>
+<td>Seconds to Minutes</td>
+</tr>
+<tr>
+<td>Data Handling</td>
+<td>Limited by human capacity</td>
+<td>Unlimited, scalable data ingestion</td>
+</tr>
+<tr>
+<td>False Positives</td>
+<td>High (Alert Fatigue)</td>
+<td>Low (Context-aware filtering)</td>
+</tr>
+<tr>
+<td>Cost Model</td>
+<td>High (Staffing + Ingestion fees)</td>
+<td>Predictable (Zero ingestion fees)</td>
+</tr>
+<tr>
+<td>Data Sovereignty</td>
+<td>Often off-premises</td>
+<td>Data stays in your infrastructure</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="benefits">What are the benefits of AI in threat hunting?</h2>
+<ul>
+<li><strong>Continuous Monitoring:</strong> Unlike human teams that need sleep, AI operates 24/7/365.</li>
+<li><strong>Reduced Dwell Time:</strong> Catching intruders early significantly lowers the cost and impact of a breach.</li>
+<li><strong>Scalability:</strong> As your business grows, AI systems adapt without requiring a proportional increase in headcount.</li>
+<li><strong>Cost Efficiency:</strong> Eliminates the need for expensive, large-scale security operations teams.</li>
+<li><strong>Actionable Insights:</strong> Moves from "data overload" to "clear, prioritized investigation steps."</li>
+</ul>
+
+<h2 id="statistics">Key statistics about modern cyber threats</h2>
+<p>According to a <a href="https://www.statista.com/topics/2237/cyber-crime/" target="_blank" rel="noopener noreferrer">2024 Statista report</a>, the global cost of cybercrime is projected to reach $10.5 trillion annually by 2025. Furthermore, research from <a href="https://www.gartner.com/en/cybersecurity" target="_blank" rel="noopener noreferrer">Gartner</a> indicates that by 2026, 60% of organizations will use AI-driven security tools to reduce their incident response time by at least 50%.</p>
+
+<p>Our analysis of midsize business security posture shows that over 80% of organizations lack the internal resources to perform 24/7 threat hunting. This gap is exactly where APTs thrive, exploiting the "security blind spots" caused by understaffed IT departments.</p>
+
+<h2 id="case-study">Case study: How a midsize organization achieved total visibility</h2>
+<h3>Challenge</h3>
+<p>A regional healthcare provider was struggling with increasing cyberattacks and the inability to manage security logs across multiple locations. They lacked the budget for a 24/7 SOC team.</p>
+<h3>Solution</h3>
+<p>The client implemented <a href="/">Vigilense AI</a> to integrate with their existing infrastructure. By keeping their data on-premises, they maintained compliance while gaining 24/7 AI-powered threat detection.</p>
+<h3>Results</h3>
+<ul>
+<li>90% reduction in alert fatigue for the IT team.</li>
+<li>Identification of 3 dormant malware threats within the first week.</li>
+<li>Full operational continuity without increasing headcount.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>Does AI replace human security analysts?</h3>
+<p>No. AI acts as a force multiplier that handles the heavy lifting of data analysis, allowing your existing team to focus on high-level decision-making and strategic response.</p>
+
+<h3>Is my data safe with Vigilense AI?</h3>
+<p>Yes. A core principle of our platform is that your data stays in your infrastructure. We analyze your data where it lives, ensuring privacy and regulatory compliance.</p>
+
+<h3>How long does it take to deploy?</h3>
+<p>Unlike traditional SOC setups that take months, our AI-powered detection can be live in days, integrating seamlessly with your current stack.</p>
+
+<h3>What if my business has fewer than 1,000 employees?</h3>
+<p>Small and midsize businesses are actually the primary targets for APTs today because they often lack enterprise-grade security. Our platform is specifically designed to bridge this gap.</p>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ AI is essential for detecting "low and slow" APTs that evade legacy security software.</li>
+<li>✓ Behavioral baselining allows AI to distinguish between legitimate user activity and malicious intent.</li>
+<li>✓ Midsize organizations no longer need a massive SOC to achieve enterprise-grade security.</li>
+<li>✓ Vigilense AI offers 24/7 protection with zero ingestion fees, keeping your data local.</li>
+<li>✓ Proactive investigation is the only way to minimize the financial impact of a breach.</li>
+</ul>
+</div>
+
+<h2>Conclusion</h2>
+<p>Advanced Persistent Threats don't wait for your team to clock in, and they certainly don't play by the rules of static security. By leveraging AI-powered detection, you can turn the tables on attackers, identifying their movements long before they reach their objective.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we are committed to providing midsize organizations with the tools they need to stay secure in an increasingly complex digital world. Explore our platform today and see how we can help you detect, investigate, and respond - even while you sleep.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#raj-choudhary">Raj Choudhary</a></h4>
+                        <div class="author-title">Founder &amp; CEO</div>
+                        <div class="author-bio">Technical deep-dives on BYODb architecture, detection engineering, and AI SOC automation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>
