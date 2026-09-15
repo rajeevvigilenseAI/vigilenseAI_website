@@ -6746,3 +6746,83 @@ ul {
 @media (max-width: 768px) {
     .mdr-section { padding: 64px 0; }
 }
+
+/* Featured snippet / AI Overview answer block (light content pages) */
+.snippet-answer {
+    background: #F8FAFC;
+    border-left: 3px solid var(--accent, #00D4AA);
+    padding: 20px 24px;
+    margin: 24px 0 32px;
+    border-radius: 0 8px 8px 0;
+}
+.snippet-answer p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0;
+}
+.snippet-answer strong {
+    color: #0A1628;
+}
+
+/* 3-layer blast radius investigation steps */
+.blast-radius-steps {
+    display: grid;
+    gap: 16px;
+    margin: 24px 0 28px;
+}
+.blast-step {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-left: 3px solid var(--accent, #00D4AA);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+}
+.blast-step h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0A1628;
+    margin: 0 0 10px;
+}
+.blast-step p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* Cost comparison tables inside article bodies */
+.post-body table.comparison-table,
+.legal-content table.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 0.95rem;
+}
+.post-body table.comparison-table th,
+.post-body table.comparison-table td,
+.legal-content table.comparison-table th,
+.legal-content table.comparison-table td {
+    border: 1px solid #E2E8F0;
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+.post-body table.comparison-table th,
+.legal-content table.comparison-table th {
+    background: #0A1628;
+    color: #FFFFFF;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+.post-body table.comparison-table tr:nth-child(even) td,
+.legal-content table.comparison-table tr:nth-child(even) td {
+    background: #F8FAFC;
+}
+.post-body table.comparison-table tr.total-row td,
+.legal-content table.comparison-table tr.total-row td {
+    background: #F1F5F9;
+    font-weight: 600;
+}

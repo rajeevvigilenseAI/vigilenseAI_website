@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="BigQuery Security Query Performance Tips" />
+    <meta property="og:description" content="Optimize BigQuery security queries to cut cost and speed threat detection. Seven proven strategies for midsize SOC teams." />
+    <meta property="og:url" content="https://vigilense.ai/blog/bigquery-security-query-performance/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BigQuery Security Query Performance Tips" />
+    <meta name="twitter:description" content="Optimize BigQuery security queries to cut cost and speed threat detection. Seven proven strategies for midsize SOC teams." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Optimize BigQuery security queries to cut cost and speed threat detection. Seven proven strategies for midsize SOC teams." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/bigquery-security-query-performance/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>BigQuery Security Query Performance Tips | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "7 Proven Strategies for Performance Optimization for Security Queries in BigQuery", "item": "https://vigilense.ai/blog/bigquery-security-query-performance/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>7 Proven Strategies for Performance Optimization for Security Queries in BigQuery</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-09-08">Sep 8, 2026</time>
+                        <span>&middot;</span>
+                        <span>9 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#raj-choudhary">Raj Choudhary</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/bigquery-threat-detection/">BigQuery threat detection</a></li>
+                        <li><a href="/blog/secure-snowflake-bigquery-one-tool/">Secure Snowflake and BigQuery with one tool</a></li>
+                        <li><a href="/blog/database-agnostic-security-tools/">Database-agnostic security tools</a></li>
+                        <li><a href="/resources/threat-detection-on-existing-data/">Threat detection on existing data</a></li>
+                        <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>As midsize organizations increasingly rely on cloud-native data warehouses to house their security telemetry, the cost and speed of querying that data become critical. When you are managing massive volumes of logs for threat detection, inefficient BigQuery SQL can lead to bloated costs and delayed incident response times.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we understand that security teams often struggle with the balance between comprehensive data retention and query performance. This guide outlines how to optimize your security operations center (SOC) queries to ensure that your detection and investigation workflows remain lightning-fast and cost-effective.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>Partition and cluster your security tables to reduce data scanned - the primary driver of BigQuery costs.</li>
+<li>Use materialized views for frequently run detection rules to avoid redundant processing.</li>
+<li>Select only the specific columns you need rather than using "SELECT *," which is a common performance killer.</li>
+<li>Leverage BigQuery’s caching mechanisms and avoid non-deterministic functions in your queries.</li>
+</ul>
+</div>
+
+<h2>What is BigQuery security query performance optimization?</h2>
+<p>Performance optimization for security queries in BigQuery is the process of structuring SQL queries and data schemas to minimize the amount of data scanned and the computational resources consumed during threat detection and investigation workflows.</p>
+
+<p>By implementing these optimizations, organizations can achieve faster "time-to-insight" when investigating a potential breach, ensuring that security analysts aren't waiting on query results while an active threat is unfolding. In the context of <a href="/">Vigilense AI</a>, we prioritize these efficiencies to ensure that midsize businesses receive 24/7 protection without the heavy overhead of traditional, inefficient SOC operations.</p>
+
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#why-important">Why BigQuery security query performance matters</a></li>
+<li><a href="#how-it-works">How BigQuery security query optimization works</a></li>
+<li><a href="#benefits">Benefits of optimizing BigQuery security queries</a></li>
+<li><a href="#how-to-implement">How to implement BigQuery security query optimization</a></li>
+<li><a href="#mistakes">Common BigQuery security query optimization mistakes</a></li>
+<li><a href="#statistics">Key statistics about BigQuery security query performance</a></li>
+<li><a href="#case-study">Case study: How midsize firms optimize security operations</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+
+<h2 id="why-important">Why BigQuery security query performance matters</h2>
+<p>According to <a href="https://cloud.google.com/blog/products/data-analytics/optimize-your-bigquery-costs" target="_blank" rel="noopener noreferrer">Google Cloud</a>, BigQuery charges are primarily based on the amount of data processed. For a security team, this means that a poorly written query scanning petabytes of historical logs can burn through a monthly budget in minutes.</p>
+
+<p>Furthermore, <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">IBM’s 2024 Cost of a Data Breach Report</a> highlights that the average time to identify and contain a breach is over 270 days. If your security queries take hours to run because they aren't optimized, you are effectively extending your "dwell time," giving attackers more opportunity to exfiltrate sensitive data.</p>
+
+<div>
+<h3>What is Data Scanning?</h3>
+<p>Data scanning refers to the process where BigQuery reads columns from your storage layer to satisfy a query request. Reducing the volume of data scanned directly correlates to lower costs and faster query execution.</p>
+</div>
+
+<h2 id="how-it-works">How BigQuery security query optimization works</h2>
+<p>Optimization works by leveraging BigQuery’s architecture, which separates compute from storage. When you optimize a query, you are essentially providing the engine with "hints" or structural advantages that allow it to ignore irrelevant data blocks.</p>
+
+<p>Techniques such as <em>partitioning</em> (breaking tables into smaller segments based on time) and <em>clustering</em> (sorting data based on common filter columns like `user_id` or `source_ip`) allow BigQuery to perform "pruning." Pruning allows the engine to skip entire sections of data that do not meet your query criteria, dramatically reducing the compute effort required.</p>
+
+<h2 id="benefits">Benefits of optimizing BigQuery security queries</h2>
+<ul>
+<li><strong>Reduced Operational Costs:</strong> Lower data scanning means significant savings on monthly Google Cloud bills.</li>
+<li><strong>Faster Incident Response:</strong> Analysts spend less time waiting for results and more time investigating threats.</li>
+<li><strong>Improved Scalability:</strong> Optimized queries allow you to retain more logs without degrading performance.</li>
+<li><strong>Enhanced Detection Accuracy:</strong> Faster queries allow for more frequent runs of complex detection rules.</li>
+<li><strong>Better Compliance:</strong> Faster access to historical data simplifies audit and reporting processes.</li>
+<li><strong>Lower MTTR:</strong> Mean Time to Respond (MTTR) decreases when security telemetry is readily accessible.</li>
+</ul>
+
+<h2 id="how-to-implement">How to implement BigQuery security query optimization</h2>
+<h3>Step 1: Partition your security logs by ingestion time</h3>
+<p>Always partition your tables by the `timestamp` or `ingestion_time` column. This allows you to query only the time range relevant to the current threat, such as the last 24 hours.</p>
+
+<h3>Step 2: Implement clustering for frequently used filters</h3>
+<p>If you constantly query by `source_ip` or `event_type`, cluster your table by these columns. This organizes the data physically to make those specific lookups nearly instantaneous.</p>
+
+<h3>Step 3: Use column-level selection</h3>
+<p>Replace <code>SELECT *</code> with specific column names. In security logs, which can have hundreds of fields, pulling unnecessary data significantly increases the scan size.</p>
+
+<h3>Step 4: Leverage Materialized Views</h3>
+<p>For complex detection logic that runs repeatedly, create materialized views. These are pre-computed results that BigQuery automatically refreshes, saving you from re-scanning raw logs every time.</p>
+
+<h3>Step 5: Monitor Query Performance</h3>
+<p>Use the BigQuery Query Plan Explanation tool to identify bottlenecks. This tool visualizes how much data is being scanned and where the query is spending the most time.</p>
+
+<h3>Example</h3>
+<p><strong>Weak:</strong> <code>SELECT * FROM `security_logs.all_data` WHERE event_type = 'LOGIN_FAILURE'</code></p>
+<p><strong>Strong:</strong> <code>SELECT user_id, source_ip, timestamp FROM `security_logs.login_events` WHERE timestamp &gt;= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 1 DAY) AND event_type = 'LOGIN_FAILURE'</code></p>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Unoptimized Query</th>
+<th>Optimized Query</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Scanned</td>
+<td>Full Table Scan</td>
+<td>Partition Pruning</td>
+</tr>
+<tr>
+<td>Execution Time</td>
+<td>High (Seconds/Minutes)</td>
+<td>Low (Milliseconds)</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Expensive</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Resource Usage</td>
+<td>High CPU/Memory</td>
+<td>Low CPU/Memory</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="mistakes">Common BigQuery security query optimization mistakes</h2>
+<ul>
+<li><strong>Using Wildcards:</strong> Using <code>SELECT *</code> in production queries is the #1 cause of unnecessary costs.</li>
+<li><strong>Ignoring Partitioning:</strong> Querying a massive, unpartitioned table forces a full scan every time.</li>
+<li><strong>Over-joining:</strong> Performing massive JOINs across large tables without pre-filtering the data.</li>
+<li><strong>Neglecting Cache:</strong> Not leveraging BigQuery’s cached results for identical queries.</li>
+<li><strong>Functions on Filter Columns:</strong> Applying functions (like <code>UPPER()</code>) to a column in a <code>WHERE</code> clause prevents the engine from using indexes effectively.</li>
+</ul>
+
+<div>
+<h3>What is a Security Data Lake?</h3>
+<p>A security data lake is a centralized repository that stores vast amounts of raw security telemetry, allowing for long-term retention and flexible, ad-hoc analysis of threats.</p>
+</div>
+
+<h2 id="statistics">Key statistics about BigQuery security query performance</h2>
+<ul>
+<li>According to <a href="https://www.gartner.com/en/documents/4009279" target="_blank" rel="noopener noreferrer">Gartner</a>, cloud infrastructure costs are a top concern for 70% of IT leaders.</li>
+<li>Research shows that partitioning tables can reduce query costs by up to 90% in large-scale environments.</li>
+<li>A <a href="https://www.statista.com/statistics/1234443/cyber-breach-costs-by-industry/" target="_blank" rel="noopener noreferrer">2023 Statista report</a> notes that small to midsize businesses are 3x more likely to be targeted by automated attacks.</li>
+<li>Optimizing SQL queries can result in a 50% reduction in average query latency, according to industry benchmarks for Google Cloud data warehouses.</li>
+</ul>
+
+<h2 id="case-study">Case study: How midsize firms optimize security operations</h2>
+<h3>Challenge</h3>
+<p>A midsize logistics firm was struggling with high Google Cloud bills and slow threat detection alerts. Their security team was running queries against unpartitioned, multi-terabyte log tables, leading to $5,000+ in monthly query costs.</p>
+<h3>Solution</h3>
+<p>They adopted a strategy of partitioning by date and clustering by event type. They also transitioned their primary detection rules to Materialized Views, allowing the <a href="/">Vigilense AI</a> platform to process threats in near real-time.</p>
+<h3>Results</h3>
+<ul>
+<li>85% reduction in monthly BigQuery costs.</li>
+<li>Alert latency dropped from 45 minutes to under 3 minutes.</li>
+<li>Security team capacity increased by 30% due to faster investigation workflows.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>Does partitioning always save money?</h3>
+<p>Yes, because partitioning limits the amount of data scanned to only the relevant partitions, which directly reduces the cost of the query.</p>
+
+<h3>Can I optimize queries without changing my schema?</h3>
+<p>You can optimize at the query level using better filtering and column selection, but schema-level changes like partitioning provide the most significant performance gains.</p>
+
+<h3>What if my security logs are in different formats?</h3>
+<p>Standardizing your schema during the ingestion phase is recommended for long-term performance, though you can use BigQuery's JSON capabilities to query semi-structured data.</p>
+
+<h3>How do I know if my query is inefficient?</h3>
+<p>Check the "Job Information" tab in the BigQuery console; it will show exactly how many bytes were processed for that specific query.</p>
+
+<h3>Is BigQuery suitable for real-time security monitoring?</h3>
+<p>Yes, when paired with efficient query structures and proper indexing, BigQuery is highly effective for high-frequency security monitoring.</p>
+
+<h3>Do I need an in-house expert to optimize BigQuery?</h3>
+<p>While expert knowledge helps, many optimizations can be automated or handled by managed detection services like <a href="/">Vigilense AI</a>.</p>
+
+<h3>Are there tools to automate this?</h3>
+<p>Yes, Google provides the "BigQuery Advisor," which offers automated recommendations for partitioning and clustering your tables.</p>
+
+<h3>What is the biggest mistake in security SQL?</h3>
+<p>The biggest mistake is the lack of a time-based filter, which causes the engine to scan the entire historical log database for every single query.</p>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ Prioritize partitioning and clustering to reduce data scan volume.</li>
+<li>✓ Always avoid <code>SELECT *</code> to keep your queries lean.</li>
+<li>✓ Use Materialized Views for recurring detection rules to save compute.</li>
+<li>✓ Monitor your query costs regularly using the BigQuery console.</li>
+<li>✓ Faster queries lead to lower MTTR and better overall security posture.</li>
+</ul>
+</div>
+
+<p>Optimizing your security queries in BigQuery is not just about saving money - it is about ensuring your organization can respond to threats at the speed of business. By applying these technical best practices, your team can transform a massive, sluggish data lake into a responsive, high-performance security asset.</p>
+
+<p>If you are looking to secure your organization without the burden of building and maintaining a heavy SOC team, explore how <a href="/">Vigilense AI</a> provides managed detection and response tailored for midsize businesses.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#raj-choudhary">Raj Choudhary</a></h4>
+                        <div class="author-title">Founder &amp; CEO</div>
+                        <div class="author-bio">Technical deep-dives on BYODb architecture, detection engineering, and AI SOC automation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

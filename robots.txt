@@ -45,4 +45,9 @@ Disallow: /blog/Blogs_08_25_2026/
 Disallow: /blog/Blogs_08_27_2026/
 Disallow: /blog/vigilense-blog-drafts.txt
 Disallow: /blog/blog-page-corrected.txt
+Disallow: /blog/Blogs_09_01_2026/
+Disallow: /blog/Blogs_09_03_2026/
+Disallow: /blog/Blogs_09_08_2026/
+Disallow: /blog/Landing Pages_09_01_2026/
+Disallow: /blog/Landing Pages_09_08_2026/
 Sitemap: https://vigilense.ai/sitemap.xml
