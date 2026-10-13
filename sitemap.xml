@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vigilense.ai/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://vigilense.ai/blog/</loc><lastmod>2026-09-08</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://vigilense.ai/blog/</loc><lastmod>2026-10-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://vigilense.ai/blog/adaptive-threat-fusion/</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/ai-powered-threat-hunting/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://vigilense.ai/blog/ai-threat-investigation-guide/</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -42,7 +42,7 @@
   <url><loc>https://vigilense.ai/platform/integrations/</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/pricing/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/privacy/</loc><lastmod>2026-02-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://vigilense.ai/resources/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/ai-soc-analyst-software-reviews/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/ai-soc-analyst-support/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/best-247-threat-monitoring-services/</loc><lastmod>2026-06-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -146,4 +146,24 @@
   <url><loc>https://vigilense.ai/resources/best-alternatives-high-cost-siem/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/best-ai-tools-security-incident-investigation/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vigilense.ai/resources/best-tools-real-time-alert-triage-soc/</loc><lastmod>2026-09-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/blog/manage-mssp-relationship/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/enterprise-threat-protection-hybrid-cloud/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/neural-networks-ai-cyber-defense/</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/mdr-business-case-midsize-board/</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/ai-tune-siem-correlation-rules/</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/agentless-security-iot-devices/</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/roi-switching-siem-providers/</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/low-cost-mdr-tradeoffs/</loc><lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/monitor-aws-azure-security/</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/common-cyber-threats-midsize-businesses/</loc><lastmod>2026-09-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/enterprise-security-frameworks-midsize-business/</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/byodb-siem-security-implications/</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/enterprise-protection-remote-workforce/</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/blog/ai-multi-tenant-security-operations-mssps/</loc><lastmod>2026-09-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://vigilense.ai/resources/white-label-ai-mdr-mssps/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/security-vendors-data-centers-canada/</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/managed-247-ai-soc-services-enterprise/</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/best-managed-security-services-small-business/</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/managed-detection-bigquery-environments/</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vigilense.ai/resources/average-cybersecurity-budget-midsize/</loc><lastmod>2026-09-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

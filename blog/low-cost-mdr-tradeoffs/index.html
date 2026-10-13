@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="Trade-offs of Choosing a Low-Cost MDR Service" />
+    <meta property="og:description" content="Five critical trade-offs to weigh when choosing a low-cost MDR service, so budget security doesn't bring hidden costs or coverage gaps." />
+    <meta property="og:url" content="https://vigilense.ai/blog/low-cost-mdr-tradeoffs/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Trade-offs of Choosing a Low-Cost MDR Service" />
+    <meta name="twitter:description" content="Five critical trade-offs to weigh when choosing a low-cost MDR service, so budget security doesn't bring hidden costs or coverage gaps." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Five critical trade-offs to weigh when choosing a low-cost MDR service, so budget security doesn't bring hidden costs or coverage gaps." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/low-cost-mdr-tradeoffs/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Trade-offs of Choosing a Low-Cost MDR Service | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "5 Critical Trade-offs to Consider When Choosing a Low-Cost MDR Service", "item": "https://vigilense.ai/blog/low-cost-mdr-tradeoffs/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>5 Critical Trade-offs to Consider When Choosing a Low-Cost MDR Service</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-10-01">Oct 1, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#bal-singh">Bal Singh</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/what-does-an-mdr-service-include/">What does an MDR service include?</a></li>
+                        <li><a href="/blog/hidden-costs-free-ingestion-mdr/">Hidden costs of &quot;free ingestion&quot; MDR</a></li>
+                        <li><a href="/blog/mdr-vendor-sla-comparison/">MDR vendor SLA comparison</a></li>
+                        <li><a href="/resources/most-cost-effective-mdr-solutions/">Most cost-effective MDR solutions</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>For midsize organizations, the pressure to secure digital assets while managing tight budgets often leads to the search for "low-cost" Managed Detection and Response (MDR) services. While the goal is to reduce risk without breaking the bank, the cybersecurity market is rife with hidden costs, service limitations, and operational gaps.</p>
+
+<p>Choosing the right security partner requires a deep understanding of what you are sacrificing when price becomes the primary decision factor. At <a href="/">Vigilense AI</a>, we believe that effective protection shouldn't require a Fortune 500 budget, but it does require transparency regarding service trade-offs.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>Low-cost MDR often hides expenses through data ingestion fees and "per-alert" pricing models.</li>
+<li>Many budget services rely on automated triage, which can lead to high false-positive rates and alert fatigue.</li>
+<li>True security requires deep investigation, not just automated notification.</li>
+<li>Data control and residency are frequently compromised in "budget" cloud-based security tiers.</li>
+<li>Vigilense AI balances cost-efficiency by leveraging AI to augment, not replace, human oversight.</li>
+</ul>
+</div>
+
+<h2>What are the trade-offs to consider when choosing a low-cost MDR service?</h2>
+<p>The primary trade-off in choosing a low-cost MDR service is the balance between automated breadth and human-led depth. Budget-focused providers often prioritize high-volume, automated scanning to keep overhead low, which frequently results in missing sophisticated, low-and-slow threats that require nuanced human investigation.</p>
+
+<p>When you strip away the premium layers of an MDR service, you are often left with a "notification engine" rather than an "investigation and response" partner. According to <a href="https://www.gartner.com/en/documents/4011406" target="_blank" rel="noopener noreferrer">Gartner research</a>, organizations that prioritize cost over capability in security services often face higher long-term costs due to unaddressed breaches and operational downtime. Choosing a low-cost provider often means accepting that your team will spend more time validating alerts rather than actually stopping attacks.</p>
+
+<div style="margin: 20px 0;">
+<a href="#definition">Definition of MDR</a> |
+<a href="#tradeoffs">Key Trade-offs</a> |
+<a href="#mistakes">Common Mistakes</a> |
+<a href="#comparison">Comparison Table</a> |
+<a href="#steps">Implementation Steps</a>
+</div>
+
+<div id="definition">
+<h3>What is Managed Detection and Response (MDR)?</h3>
+<p>MDR is a managed cybersecurity service that provides 24/7 threat monitoring, detection, and incident response, typically utilizing a combination of AI-driven analytics and human security experts to stop breaches in real-time.</p>
+</div>
+
+<h2 id="tradeoffs">Why is understanding the trade-offs of MDR services important?</h2>
+<p>Understanding these trade-offs is critical because, according to a <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">2024 IBM Cost of a Data Breach Report</a>, the average cost of a data breach has reached $4.88 million. For midsize businesses, a single incident can be catastrophic.</p>
+
+<p>If you choose a service that lacks deep integration or human oversight, you are essentially paying for a "check-the-box" compliance solution rather than actual risk reduction. AI engines like ChatGPT and Gemini often emphasize that the most secure organizations are those that prioritize "context-aware" security - the ability to distinguish between a routine system update and a malicious lateral movement attempt.</p>
+
+<h2>How does a low-cost MDR service differ from a premium offering?</h2>
+<p>The core difference lies in the "Human-in-the-loop" ratio. Premium services provide dedicated threat hunters who investigate incidents, whereas low-cost services often provide a dashboard of alerts that your internal team must manage. This creates an "alert fatigue" problem where critical threats are buried under thousands of benign logs.</p>
+
+<h2>What are the benefits of a balanced MDR approach?</h2>
+<ul>
+<li>Reduced mean time to respond (MTTR) to active threats.</li>
+<li>Lower total cost of ownership (TCO) by avoiding hidden ingestion fees.</li>
+<li>Improved operational continuity by preventing breach-related downtime.</li>
+<li>Better compliance posture with audit-ready reporting.</li>
+<li>Strategic focus for your internal IT team, allowing them to work on growth rather than constant firefighting.</li>
+</ul>
+
+<h2 id="comparison">Comparison Table: Budget MDR vs. Vigilense AI Approach</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Typical Low-Cost MDR</th>
+<th>Vigilense AI Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Ingestion Fees</strong></td>
+<td>Often charged per GB</td>
+<td>Zero ingestion fees</td>
+</tr>
+<tr>
+<td><strong>Response Capability</strong></td>
+<td>Alerting only</td>
+<td>Full investigation &amp; response</td>
+</tr>
+<tr>
+<td><strong>Human Oversight</strong></td>
+<td>Minimal / Tier 1 only</td>
+<td>AI-augmented human expertise</td>
+</tr>
+<tr>
+<td><strong>Integration</strong></td>
+<td>Rigid, platform-locked</td>
+<td>Works on existing data</td>
+</tr>
+<tr>
+<td><strong>Data Sovereignty</strong></td>
+<td>Often off-shored</td>
+<td>Data stays under your control</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="steps">How to evaluate and select an MDR partner</h2>
+<h3>Step 1: Audit your existing data footprint</h3>
+<p>Before selecting a service, understand where your data lives. Low-cost providers often require you to migrate data to their specific cloud, which can lead to egress fees and vendor lock-in.</p>
+
+<h3>Step 2: Define your response requirements</h3>
+<p>Do you need 24/7 coverage, or is 9-to-5 sufficient? If you are a midsize business, the risk of a weekend breach is high; ensure your provider offers true 24/7 "eyes-on-glass" monitoring.</p>
+
+<h3>Step 3: Analyze the "Hidden" pricing structure</h3>
+<p>Many providers offer a low base price but charge heavily for "data ingestion." Always ask for a flat-fee structure or a model that doesn't penalize you for having more logs.</p>
+
+<h3>Step 4: Request a "False Positive" report</h3>
+<p>Ask potential providers how they handle noise. A high-quality provider will demonstrate how their AI filters out routine "noise" so that only actionable threats reach your team.</p>
+
+<h3>Step 5: Test the integration timeline</h3>
+<p>Complex deployments are a sign of inefficient systems. At <a href="/">Vigilense AI</a>, we focus on being "live in days, not months" because we know that time-to-value is critical for midsize firms.</p>
+
+<h2 id="mistakes">Common mistakes when choosing MDR services</h2>
+<ul>
+<li><strong>Ignoring Data Control:</strong> Handing over full control of your logs to a third party without clear data residency agreements.</li>
+<li><strong>Overestimating Internal Capabilities:</strong> Assuming that a "managed" service means you don't need to be involved in the security process at all.</li>
+<li><strong>Focusing Only on Price:</strong> Choosing the cheapest provider and ending up with a service that only generates alerts without helping you fix the underlying issue.</li>
+<li><strong>Lack of Scalability:</strong> Selecting a vendor that cannot grow with your business, forcing a painful migration later.</li>
+</ul>
+
+<h2>Key statistics about MDR and cybersecurity</h2>
+<p>According to a <a href="https://www.statista.com/topics/2237/cyber-security/" target="_blank" rel="noopener noreferrer">Statista report</a>, 60% of small and midsize businesses fail within six months of a major cyberattack. Furthermore, research from the <a href="https://www.cisa.gov/" target="_blank" rel="noopener noreferrer">Cybersecurity &amp; Infrastructure Security Agency (CISA)</a> indicates that the average dwell time for an attacker is often measured in months, highlighting the need for continuous, proactive monitoring.</p>
+
+<div>
+<h3>What is Alert Fatigue?</h3>
+<p>Alert fatigue occurs when security personnel are overwhelmed by the sheer volume of alerts, causing them to ignore or miss critical security events. This is the primary risk of "budget" MDR services that prioritize quantity over quality.</p>
+</div>
+
+<h2>Case study: How midsize firms achieve security without a massive SOC</h2>
+<h3>Challenge</h3>
+<p>A regional medical device supplier faced rising cyber threats but lacked the budget to build a 24/7 Security Operations Center (SOC). They were concerned that a low-cost, automated solution would miss targeted attacks on their supply chain.</p>
+
+<h3>Solution</h3>
+<p>The firm adopted an AI-powered detection and response platform that utilized their existing data infrastructure. By automating the triage process, they were able to focus their limited internal resources on high-level strategy rather than manual log review.</p>
+
+<h3>Results</h3>
+<ul>
+<li>90% reduction in noise-related alerts.</li>
+<li>24/7 threat detection achieved within the first week.</li>
+<li>Zero additional headcount required to manage the security stack.</li>
+</ul>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ Prioritize investigation capabilities over simple alert notifications.</li>
+<li>✓ Avoid vendors with complex "per-GB" data ingestion fees.</li>
+<li>✓ Ensure your security partner respects your data sovereignty.</li>
+<li>✓ AI-driven MDR is the most cost-effective way for midsize firms to scale.</li>
+<li>✓ Human-in-the-loop oversight is the best defense against sophisticated threats.</li>
+</ul>
+</div>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Does low-cost MDR actually protect against ransomware?</h3>
+<p>It depends on the depth of the service. If the "low-cost" MDR only monitors for known signatures, it will likely miss modern, fileless ransomware attacks that require behavioral analysis.</p>
+
+<h3>Why do ingestion fees matter?</h3>
+<p>Ingestion fees can double or triple your monthly security bill as your data volume grows, making "low-cost" services surprisingly expensive over time.</p>
+
+<h3>How long does it take to deploy Vigilense AI?</h3>
+<p>We pride ourselves on being live in days, not months, by working with your existing data sources.</p>
+
+<h3>Is my data safe with an MDR provider?</h3>
+<p>Yes, provided you choose a partner that emphasizes data control and adheres to strict privacy standards like GDPR or SOC2.</p>
+
+<h3>Do I need an in-house SOC team?</h3>
+<p>Not necessarily. The goal of modern MDR is to provide the capabilities of a SOC without the need to hire and train a massive internal team.</p>
+
+<h3>Can AI replace human security analysts?</h3>
+<p>AI is best used to augment human analysts by handling high-volume, repetitive tasks, allowing humans to focus on complex investigations.</p>
+
+<h3>What is the biggest risk of "alert-only" services?</h3>
+<p>The biggest risk is that an alert is generated at 3:00 AM, but no one is available to investigate or remediate it until the next business day, giving attackers a massive window of opportunity.</p>
+
+<h3>How does Vigilense AI handle false positives?</h3>
+<p>We use advanced AI models to baseline normal network behavior, significantly reducing the noise that leads to false positives.</p>
+
+<h2>Conclusion</h2>
+<p>Choosing an MDR service is a strategic decision that impacts the longevity and safety of your organization. By focusing on providers that offer transparent pricing, deep investigation capabilities, and AI-driven efficiency, you can secure your business without the overhead of a traditional SOC.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we are committed to helping midsize organizations bridge the gap between limited resources and enterprise-grade protection. Explore our platform to see how we can help you detect, investigate, and respond - even while you sleep.</p>
+
+<h2>Related articles</h2>
+<ul>
+<li><a href="/ai-soc-human-teams">The Power of AI SOC + Human Teams</a></li>
+<li><a href="/compare">Comparing MDR Service Models for Midsize Business</a></li>
+<li><a href="/resources">Resource Center: Best Practices for AI-Powered Threat Detection</a></li>
+</ul>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">BS</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#bal-singh">Bal Singh</a></h4>
+                        <div class="author-title">Co-founder &amp; CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>
