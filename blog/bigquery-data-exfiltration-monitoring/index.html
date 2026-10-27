@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="Monitoring BigQuery for Data Exfiltration" />
+    <meta property="og:description" content="Monitor BigQuery for data exfiltration: detect unauthorized access and unusual exports, and secure your data pipelines with practical strategies." />
+    <meta property="og:url" content="https://vigilense.ai/blog/bigquery-data-exfiltration-monitoring/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Monitoring BigQuery for Data Exfiltration" />
+    <meta name="twitter:description" content="Monitor BigQuery for data exfiltration: detect unauthorized access and unusual exports, and secure your data pipelines with practical strategies." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Monitor BigQuery for data exfiltration: detect unauthorized access and unusual exports, and secure your data pipelines with practical strategies." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/bigquery-data-exfiltration-monitoring/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Monitoring BigQuery for Data Exfiltration | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "How to Master Monitoring BigQuery for Data Exfiltration: A Guide for Midsize Organizations", "item": "https://vigilense.ai/blog/bigquery-data-exfiltration-monitoring/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Engineering</span>
+                    <h1>How to Master Monitoring BigQuery for Data Exfiltration: A Guide for Midsize Organizations</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-10-22">Oct 22, 2026</time>
+                        <span>&middot;</span>
+                        <span>8 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#raj-choudhary">Raj Choudhary</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/blog/bigquery-threat-detection/">BigQuery threat detection</a></li>
+                        <li><a href="/blog/bigquery-security-query-performance/">BigQuery security query performance</a></li>
+                        <li><a href="/resources/managed-detection-bigquery-environments/">Managed detection for BigQuery</a></li>
+                        <li><a href="/blog/secure-snowflake-bigquery-one-tool/">Secure Snowflake and BigQuery with one tool</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>For many midsize organizations, Google BigQuery serves as the backbone of their data strategy. However, as data volumes grow, so does the risk of unauthorized access or internal misuse, making it a prime target for data exfiltration. If you aren't actively monitoring your BigQuery environment, you are essentially leaving the vault door unlocked.</p>
+
+<p>At Vigilense AI, we help teams secure their cloud environments by focusing on actionable detection and rapid response. In this guide, we break down how to secure your data pipeline, identify suspicious activity, and ensure your organization stays protected against modern cyber threats.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>Monitoring BigQuery for data exfiltration involves tracking audit logs for unusual query patterns, unauthorized exports, and access from unknown IPs.</li>
+<li>Midsize businesses are increasingly targeted because they often lack the 24/7 security operations centers (SOC) found in larger enterprises.</li>
+<li>Effective protection requires a combination of IAM (Identity and Access Management) auditing and automated threat detection.</li>
+<li>Proactive monitoring reduces the "dwell time" of attackers, preventing significant financial and reputational damage.</li>
+</ul>
+</div>
+
+<h2 id="what-is-monitoring-bigquery">What is BigQuery data exfiltration monitoring?</h2>
+<p>Monitoring BigQuery for data exfiltration is the process of continuously auditing, analyzing, and alerting on query activity and data access patterns to detect unauthorized attempts to move sensitive information outside of your secure cloud perimeter. It involves scrutinizing Data Access logs to identify anomalies, such as bulk data exports or queries by compromised service accounts, that deviate from established business baselines.</p>
+
+<p>When we talk about exfiltration in the context of cloud data warehouses, we aren't just looking for external hackers. It often involves insider threats - employees or contractors - or misconfigured service accounts that allow data to be piped to unauthorized external buckets or API endpoints. According to <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">IBM’s 2024 Cost of a Data Breach Report</a>, the average cost of a data breach has reached $4.88 million, making early detection a critical financial imperative for midsize firms.</p>
+
+<h2 id="toc">Table of Contents</h2>
+<ul>
+<li><a href="#why-important">Why BigQuery exfiltration monitoring matters</a></li>
+<li><a href="#how-it-works">How BigQuery exfiltration monitoring works</a></li>
+<li><a href="#benefits">Benefits of BigQuery exfiltration monitoring</a></li>
+<li><a href="#implementation">How do you implement monitoring for BigQuery?</a></li>
+<li><a href="#mistakes">What are common monitoring mistakes?</a></li>
+<li><a href="#who-needs">Who needs to prioritize this monitoring?</a></li>
+<li><a href="#stats">Key statistics about data exfiltration</a></li>
+<li><a href="#case-study">Case study: Stopping exfiltration at scale</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+
+<h2 id="why-important">Why BigQuery exfiltration monitoring matters</h2>
+<p>BigQuery is often the "crown jewel" of a business's technical infrastructure. It contains customer PII (Personally Identifiable Information), financial records, and proprietary analytics. If an attacker gains access to a service account with "BigQuery Data Viewer" permissions, they can export massive datasets in seconds.</p>
+
+<p>Most midsize organizations operate under the false assumption that Google’s default security is sufficient. While Google provides a secure platform, the responsibility for configuring access and monitoring for abuse - the "Shared Responsibility Model" - lies with the customer. Without active oversight, you are vulnerable to automated scanners that look for open buckets or over-privileged service accounts.</p>
+
+<div>
+<h3>What is Data Exfiltration?</h3>
+<p>Data exfiltration is the unauthorized transfer of data from a computer or other device. It can be performed by malicious actors or through accidental exposure by internal users.</p>
+</div>
+
+<h2 id="how-it-works">How BigQuery exfiltration monitoring works</h2>
+<p>Monitoring operates by ingesting Google Cloud Platform (GCP) Audit Logs into a centralized detection engine. These logs contain metadata about every request made to the BigQuery API, including the user identity, the time of the request, the IP address, and the specific query executed.</p>
+
+<p>At <a href="/">Vigilense AI</a>, we leverage AI-powered detection to baseline "normal" behavior. If a service account that typically queries 500 rows a day suddenly pulls 5 million rows to an external location, our system flags it immediately. This allows for investigation before the data is fully compromised.</p>
+
+<h2 id="benefits">Benefits of BigQuery exfiltration monitoring</h2>
+<ul>
+<li><strong>Reduced Dwell Time:</strong> Catching an attacker in minutes rather than months.</li>
+<li><strong>Regulatory Compliance:</strong> Meeting requirements for GDPR, HIPAA, and SOC2 regarding data access transparency.</li>
+<li><strong>Cost Optimization:</strong> Identifying inefficient or "rogue" queries that spike your BigQuery billing.</li>
+<li><strong>Enhanced Trust:</strong> Proving to your customers that their data is being guarded by 24/7 monitoring.</li>
+<li><strong>Operational Continuity:</strong> Preventing unauthorized changes to your data schemas that could break production apps.</li>
+</ul>
+
+<h2 id="implementation">How do you implement monitoring for BigQuery?</h2>
+<p>Implementing a robust monitoring strategy requires moving beyond manual checks. Follow these steps to secure your environment:</p>
+<h3>Step 1: Enable Data Access Logs</h3>
+<p>Ensure that "Data Access" audit logs are enabled in your GCP project settings. By default, these are often disabled to save on logging costs, but they are essential for forensic visibility.</p>
+<h3>Step 2: Centralize Log Storage</h3>
+<p>Route your logs to a dedicated project or a security information and event management (SIEM) tool. Keeping logs in the same project as your data is a security risk if that project is compromised.</p>
+<h3>Step 3: Establish a Baseline</h3>
+<p>Analyze 30 days of query history to understand which users and service accounts are accessing which datasets. This helps in identifying "normal" vs "abnormal" behavior.</p>
+<h3>Step 4: Configure Real-time Alerts</h3>
+<p>Set up alerts for high-risk actions, such as exporting data to a Cloud Storage bucket, changing IAM permissions, or executing queries from unusual geographic locations.</p>
+<h3>Step 5: Automate Response</h3>
+<p>Integrate your alerts with a response platform. When a suspicious query is detected, your system should automatically disable the offending service account or revoke access until a human can investigate.</p>
+
+<h2 id="mistakes">Common BigQuery exfiltration monitoring mistakes</h2>
+<ul>
+<li><strong>Ignoring Service Accounts:</strong> Many teams focus on human users but forget that service accounts are the most common vector for automated exfiltration.</li>
+<li><strong>Over-Logging:</strong> Logging everything without a filter leads to "alert fatigue," where your team starts ignoring all security notifications.</li>
+<li><strong>Lack of Incident Response:</strong> Having logs is useless if you don't have a playbook for what to do when a breach is detected.</li>
+<li><strong>Static Thresholds:</strong> Relying on simple rules (e.g., "alert if query &gt; 1GB") instead of AI-driven behavioral analysis.</li>
+</ul>
+
+<h2 id="stats">Key statistics about data exfiltration</h2>
+<p>According to a <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer">2024 Verizon Data Breach Investigations Report</a>, 68% of breaches involve a human element, including errors or credential misuse. Furthermore, <a href="https://www.gartner.com" target="_blank" rel="noopener noreferrer">Gartner research</a> indicates that by 2025, 60% of organizations will have implemented some form of AI-powered security monitoring to combat the rise in automated threats.</p>
+
+<div>
+<h3>What is an AI SOC?</h3>
+<p>An AI SOC (Security Operations Center) uses machine learning to automate the detection, investigation, and response phases of cybersecurity, allowing midsize teams to achieve enterprise-grade protection.</p>
+</div>
+
+<h2 id="case-study">Case study: How Vigilense AI achieved 24/7 protection</h2>
+<h3>Challenge</h3>
+<p>A midsize social welfare organization was struggling to protect sensitive client data within BigQuery while lacking the budget for a 24/7 in-house security team.</p>
+<h3>Solution</h3>
+<p>By deploying Vigilense AI, the organization automated their threat monitoring, specifically targeting anomalous data egress patterns from their BigQuery environment.</p>
+<h3>Results</h3>
+<ul>
+<li>Reduced incident response time from days to minutes.</li>
+<li>Successfully identified and blocked three unauthorized data export attempts in the first quarter.</li>
+<li>Maintained full data sovereignty with zero ingestion fees.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>Does Google automatically block BigQuery exfiltration?</h3>
+<p>Google provides the tools to secure data, but it does not proactively monitor your specific query behavior for exfiltration. You are responsible for configuring your own detection rules.</p>
+<h3>Is BigQuery inherently insecure?</h3>
+<p>No, BigQuery is highly secure, but it is a complex environment. Most breaches occur due to misconfigured permissions or compromised credentials, not flaws in the platform itself.</p>
+<h3>What is the difference between logging and monitoring?</h3>
+<p>Logging is the recording of events; monitoring is the active analysis of those logs to detect and respond to threats in real-time.</p>
+<h3>Can AI really detect exfiltration better than humans?</h3>
+<p>Yes, because AI can process millions of log lines per second to identify subtle patterns that a human analyst would never notice in a manual review.</p>
+<h3>How much does BigQuery monitoring cost?</h3>
+<p>Costs vary depending on your log volume. Vigilense AI offers a model that avoids heavy ingestion fees, making it accessible for midsize organizations.</p>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ Enable Data Access logs immediately to gain visibility.</li>
+<li>✓ Focus on securing service accounts, as they are high-value targets.</li>
+<li>✓ Use AI-driven behavioral analysis to reduce false positives.</li>
+<li>✓ Ensure your team has a clear response playbook for detected anomalies.</li>
+<li>✓ Partner with experts like Vigilense AI to bridge the "SOC gap."</li>
+</ul>
+</div>
+
+<p>Securing your BigQuery environment is not a one-time project; it is a continuous process of detection and response. As the threat landscape evolves, midsize organizations must leverage AI to stay ahead of attackers who move faster than traditional human-only teams.</p>
+<p>If you are ready to secure your data without the heavy security bill, explore how <a href="/">Vigilense AI</a> can help you detect, investigate, and respond - all while you sleep.</p>
+
+<h2 id="related">Related articles</h2>
+<ul>
+<li><a href="/blog/traditional-soc-vs-ai-soc-cost-benefit-smb/">AI SOC vs. Traditional SOC: What midsize businesses need to know</a></li>
+<li><a href="/mdr/">How 24/7 threat monitoring protects your cloud data</a></li>
+<li><a href="/blog/reduce-siem-costs-guide/">Reducing the cost of cloud security for growing organizations</a></li>
+</ul>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#raj-choudhary">Raj Choudhary</a></h4>
+                        <div class="author-title">Founder &amp; CEO</div>
+                        <div class="author-bio">Technical deep-dives on BYODb architecture, detection engineering, and AI SOC automation.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

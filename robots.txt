@@ -60,4 +60,11 @@ Disallow: /blog/Blogs_10_13_2026/
 Disallow: /blog/Landing Pages_09_22_2026/
 Disallow: /blog/Landing Pages_10_06_2026/
 Disallow: /blog/Landing Pages_10_13_2026/
+Disallow: /blog/Blogs_10_15_2026/
+Disallow: /blog/Blogs_10_26_2026/
+Disallow: /blog/Blogs_10_20_2026/
+Disallow: /blog/Blogs_10_22_2026/
+Disallow: /blog/Blogs_10_27_2026/
+Disallow: /blog/Landing Pages_10_20_2026/
+Disallow: /blog/Landing Pages_10_27_2026/
 Sitemap: https://vigilense.ai/sitemap.xml

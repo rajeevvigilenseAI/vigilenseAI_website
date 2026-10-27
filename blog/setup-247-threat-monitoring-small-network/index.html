@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(){try{var p=new URLSearchParams(location.search);if(p.has('lvv')){sessionStorage.removeItem('lapi_called_K1WqUfBv0O6DTWEW1NEg');sessionStorage.removeItem('lapi_left_K1WqUfBv0O6DTWEW1NEg');}}catch(e){}})();</script>
+    <!-- Leadsourcing Pixel Code -->
+    <script>!function(e,t,n,r){(n=e.createElement("script")).src="https://visitor.leadsourcing.co/n?tid="+t,(r=e.getElementsByTagName("script")[0]).parentNode.insertBefore(n,r)}(document,"K1WqUfBv0O6DTWEW1NEg");</script>
+    <!-- End Leadsourcing Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Vigilense AI" />
+    <meta property="og:title" content="How to Set Up 24/7 Threat Monitoring for a Small Network" />
+    <meta property="og:description" content="Set up 24/7 threat monitoring for a small network without a full SOC. A step-by-step guide to AI-powered coverage for small businesses." />
+    <meta property="og:url" content="https://vigilense.ai/blog/setup-247-threat-monitoring-small-network/" />
+    <meta property="og:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta property="og:image:width" content="1424" />
+    <meta property="og:image:height" content="752" />
+    <meta property="og:image:alt" content="Vigilense AI - The Sovereign SOC. BYODb SIEM + Autonomous AI SOC Analyst." />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Set Up 24/7 Threat Monitoring for a Small Network" />
+    <meta name="twitter:description" content="Set up 24/7 threat monitoring for a small network without a full SOC. A step-by-step guide to AI-powered coverage for small businesses." />
+    <meta name="twitter:image" content="https://vigilense.ai/images/og-preview_new.png" />
+    <meta name="twitter:image:alt" content="Vigilense AI dashboard showing autonomous SOC operations" />
+    <!-- Standard -->
+    <meta name="description" content="Set up 24/7 threat monitoring for a small network without a full SOC. A step-by-step guide to AI-powered coverage for small businesses." />
+    <meta name="author" content="Vigilense AI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vigilense.ai/blog/setup-247-threat-monitoring-small-network/" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>How to Set Up 24/7 Threat Monitoring for a Small Network | Vigilense AI</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-post { padding: 140px 0 100px; }
+        .post-content { max-width: 720px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; transition: color 0.2s; text-decoration: none; }
+        .back-link:hover { color: #0A1628; }
+        .post-category { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: #00D4AA; border: 1px solid #00D4AA; padding: 4px 10px; margin-bottom: 16px; background: rgba(0, 212, 170, 0.06); }
+        .post-header h1 { font-family: 'JetBrains Mono', monospace; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; color: #0A1628; margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.15; }
+        .post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94A3B8; margin-bottom: 32px; }
+        .post-meta span { margin: 0 8px; }
+        .post-divider { height: 1px; background: #E2E8F0; margin: 40px 0; border: none; }
+        .post-body { font-family: 'Outfit', sans-serif; font-size: 1.1rem; line-height: 1.8; color: #475569; }
+        .post-body p { margin-bottom: 24px; }
+        .post-body h2 { font-family: 'JetBrains Mono', monospace; font-size: 1.8rem; font-weight: 700; color: #0A1628; margin-top: 48px; margin-bottom: 24px; }
+        .post-body h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #0A1628; margin-top: 36px; margin-bottom: 20px; }
+        .post-body ul, .post-body ol { margin: 24px 0; padding-left: 32px; }
+        .post-body li { margin-bottom: 12px; color: #475569; }
+        .post-body code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: #F2F5F7; padding: 2px 6px; border-radius: 4px; color: #0A1628; }
+        .post-body pre { background: #F2F5F7; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; overflow-x: auto; margin: 32px 0; }
+        .post-body pre code { background: transparent; padding: 0; color: #0A1628; font-size: 0.9rem; }
+        .post-body blockquote { border-left: 3px solid #0A1628; padding-left: 24px; margin: 32px 0; font-style: italic; color: #475569; }
+        .post-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.98rem; }
+        .post-body th, .post-body td { border: 1px solid #E2E8F0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .post-body th { background: #F2F5F7; color: #0A1628; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+        .post-body img { width: 100%; border-radius: 8px; margin: 32px 0; border: 1px solid #E2E8F0; }
+        .post-body a { color: #00B892; text-decoration: underline; }
+        .post-body a:hover { color: #00D4AA; }
+        .post-body strong { color: #0A1628; }
+        .post-cta { margin-top: 64px; padding: 32px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; text-align: center; }
+        .post-cta h3 { font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; color: #0A1628; margin-bottom: 16px; }
+        .post-cta .btn { display: inline-block; padding: 12px 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; background: #0A1628; color: #FFFFFF; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+        .post-cta .btn:hover { background: #0F1E36; box-shadow: 0 4px 20px rgba(10, 22, 40, 0.3); }
+        .author-card { margin-top: 48px; padding: 24px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; display: flex; gap: 20px; align-items: center; }
+        .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: #0A1628; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #FFFFFF; flex-shrink: 0; }
+        .author-info h4 { font-family: 'JetBrains Mono', monospace; font-size: 1rem; color: #0A1628; margin-bottom: 4px; }
+        .author-info h4 a { color: inherit; text-decoration: none; }
+        .author-info .author-title { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #94A3B8; margin-bottom: 8px; }
+        .author-info .author-bio { font-family: 'Outfit', sans-serif; font-size: 0.9rem; color: #475569; line-height: 1.6; }
+        @media (max-width: 768px) { .blog-post { padding: 120px 0 60px; } .post-content { max-width: 100%; } .post-body { font-size: 1rem; } .post-body h2 { font-size: 1.5rem; } .post-body h3 { font-size: 1.2rem; } .author-card { flex-direction: column; text-align: center; } .post-body table { display: block; overflow-x: auto; } }
+        @media (max-width: 480px) { .post-cta { padding: 24px 16px; } .author-card { padding: 20px; } }
+        .post-related { margin: 48px 0 32px; padding: 28px 24px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; }
+        .post-related h2 { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; color: #0A1628; margin: 0 0 16px; }
+        .post-related ul { margin: 0 0 16px; padding-left: 20px; }
+        .post-related li { margin-bottom: 8px; line-height: 1.5; }
+        .post-related a { color: #0D9488; text-decoration: none; font-weight: 500; }
+        .post-related a:hover { text-decoration: underline; }
+        .post-related-products { font-size: 0.95rem; color: #475569; margin: 0; line-height: 1.6; }
+        .post-related-products a { color: #0D9488; font-weight: 500; text-decoration: none; }
+        .post-related-products a:hover { text-decoration: underline; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vigilense.ai/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vigilense.ai/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "How to Set Up 24/7 Threat Monitoring for a Small Network Without a Full SOC", "item": "https://vigilense.ai/blog/setup-247-threat-monitoring-small-network/" }
+  ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">
+                <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon">
+                <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/for-businesses/">For Businesses</a></li>
+                <li><a href="/mssp/">For MSSPs/Partners</a></li>
+                <li><a href="/platform/">Platform</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/compare/">Compare</a></li>
+                <li>
+                    <a href="/resources/">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/resources/">Resource Center</a></li>
+                        <li><a href="/resources/team/">Team</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="cta-nav"><a href="/demo/">Book a Demo</a></li>
+            </ul>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <div class="post-content">
+                <a href="/blog/" class="back-link">
+                    <span>&larr;</span>
+                    <span>Back to Blog</span>
+                </a>
+
+                <header class="post-header">
+                    <span class="post-category">Industry</span>
+                    <h1>How to Set Up 24/7 Threat Monitoring for a Small Network Without a Full SOC</h1>
+                    <div class="post-meta">
+                        <time datetime="2026-10-20">Oct 20, 2026</time>
+                        <span>&middot;</span>
+                        <span>7 min read</span>
+                        <span>&middot;</span>
+                        <span>By <a href="/resources/team/#bal-singh">Bal Singh</a></span>
+                    </div>
+                </header>
+
+                <div class="post-related">
+                    <h2>Related articles</h2>
+                    <ul>
+                        <li><a href="/resources/best-247-threat-monitoring-services/">Best 24/7 threat monitoring services</a></li>
+                        <li><a href="/blog/24-7-threat-monitoring-cost/">24/7 threat monitoring cost</a></li>
+                        <li><a href="/resources/why-does-my-business-need-24-7-security-monitoring/">Why your business needs 24/7 monitoring</a></li>
+                        <li><a href="/resources/best-managed-security-services-small-business/">Best managed security services for small business</a></li>
+                    </ul>
+                    <p class="post-related-products">Explore: <a href="/platform/byodb-siem/">BYODb SIEM</a>, <a href="/platform/ai-soc-analyst/">AI SOC Analyst</a>.</p>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-body">
+<p>For many midsize organizations, the idea of maintaining a 24/7 Security Operations Center (SOC) feels like an impossible luxury. You likely have a lean IT team, a limited budget, and a growing list of assets to protect from increasingly sophisticated cyber threats. However, leaving your network unmonitored during off-hours is a gamble that most businesses can no longer afford to take.</p>
+
+<p>In this guide, we explore how to bridge the gap between "no security" and "enterprise-grade protection" using AI-powered automation. You will learn how to implement continuous monitoring that detects, investigates, and responds to threats in real-time, regardless of your team's size.</p>
+
+<div>
+<h2>TL;DR</h2>
+<ul>
+<li>Small networks are prime targets because attackers assume they lack 24/7 oversight.</li>
+<li>AI-powered MDR (Managed Detection and Response) allows small teams to achieve 24/7 coverage without hiring dozens of analysts.</li>
+<li>Focus on visibility: you cannot defend what you cannot see, so centralized logging is your first priority.</li>
+<li>Automated response is essential to stop threats before they escalate into full-scale ransomware events.</li>
+<li>Vigilense AI provides a path to enterprise-grade security with no ingestion fees, designed specifically for midsize needs.</li>
+</ul>
+</div>
+
+<h2 id="definition">What is 24/7 threat monitoring for a small network?</h2>
+<p>Setting up 24/7 threat monitoring for a small network is the process of deploying automated tools and intelligent systems to continuously track network traffic, logs, and endpoint activities for signs of malicious behavior, ensuring immediate response regardless of business hours.</p>
+
+<p>Unlike traditional security models that rely on manual oversight, this modern approach utilizes AI to filter through the "noise" of daily network activity. By identifying anomalies - such as unusual login times or massive data exfiltration - the system alerts your team or takes automated action, effectively acting as an always-on digital sentry.</p>
+
+<div style="margin-top: 20px;">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#importance">Why is 24/7 threat monitoring important?</a></li>
+<li><a href="#how-it-works">How does 24/7 threat monitoring work?</a></li>
+<li><a href="#implementation">How to implement 24/7 monitoring steps</a></li>
+<li><a href="#comparison">Manual SOC vs. AI-Powered MDR</a></li>
+<li><a href="#mistakes">Common mistakes to avoid</a></li>
+<li><a href="#statistics">Key statistics on cyber threats</a></li>
+<li><a href="#casestudy">Case study: Vigilense AI impact</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+
+<h2 id="importance">Why is 24/7 threat monitoring important?</h2>
+<p>Cyber threats do not adhere to a 9-to-5 schedule. According to <a href="https://www.ibm.com/reports/data-breach" target="_blank" rel="noopener noreferrer">IBM’s 2024 Cost of a Data Breach Report</a>, the average time to identify and contain a breach remains over 200 days, often because organizations lack the visibility to spot intruders during non-business hours.</p>
+
+<p>For small businesses, a single breach can be catastrophic. Without 24/7 monitoring, an attacker can gain persistence, move laterally through your network, and exfiltrate sensitive data while your office is empty. Implementing continuous monitoring ensures that you are alerted to suspicious activity the moment it occurs, rather than finding out months later when the damage is already done.</p>
+
+<div>
+<h3>What is MDR (Managed Detection and Response)?</h3>
+<p>MDR is a cybersecurity service that combines human expertise with AI-driven technology to provide 24/7 threat monitoring, investigation, and incident response for organizations that lack an in-house security team.</p>
+</div>
+
+<h2 id="how-it-works">How does 24/7 threat monitoring work?</h2>
+<p>Modern threat monitoring relies on the collection and correlation of telemetry data from across your environment. By aggregating logs from firewalls, endpoints, cloud applications, and identity providers, the system builds a baseline of "normal" behavior.</p>
+
+<p>When an event occurs that deviates from this baseline - such as an administrator account logging in from a foreign country at 3:00 AM - the AI triggers an alert. In advanced setups like <a href="/">Vigilense AI</a>, the system doesn't just alert you; it investigates the context of the threat to determine if it is a false positive or a legitimate attack, allowing your team to focus only on what truly matters.</p>
+
+<h2 id="implementation">How to implement 24/7 monitoring steps</h2>
+
+<h3>Step 1: Centralize your log data</h3>
+<p>You cannot monitor what you cannot see. Ensure that all your key infrastructure - servers, cloud instances, and network gateways - are exporting logs to a central repository.</p>
+
+<h3>Step 2: Establish a baseline of normal activity</h3>
+<p>Use AI tools to analyze your network traffic for at least 14 days. This helps the system understand the standard behavior of your users and devices, which is critical for reducing false positives.</p>
+
+<h3>Step 3: Deploy endpoint protection</h3>
+<p>Install agents on your workstations and servers that report back to a central management console. These agents provide the visibility needed to stop threats at the source.</p>
+
+<h3>Step 4: Configure automated alerting</h3>
+<p>Set up alerts that prioritize high-fidelity signals. Avoid "alert fatigue" by tuning the system to notify you only when specific, high-risk conditions are met.</p>
+
+<h3>Step 5: Define your incident response plan</h3>
+<p>Even with 24/7 monitoring, you need a plan for when a threat is confirmed. Document who needs to be contacted, which systems should be isolated, and how you will maintain business continuity.</p>
+
+<h2 id="comparison">Manual SOC vs. AI-Powered MDR</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Traditional Manual SOC</th>
+<th>AI-Powered MDR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Staffing</td>
+<td>Requires 8-12+ full-time analysts</td>
+<td>Automated/Lean internal team</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Hours to investigate</td>
+<td>Seconds to identify</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Very High (Opex heavy)</td>
+<td>Predictable/Lower</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Difficult to scale</td>
+<td>High (Cloud-native)</td>
+</tr>
+<tr>
+<td>Ingestion Fees</td>
+<td>Common and expensive</td>
+<td>Zero (at Vigilense)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="mistakes">Common mistakes to avoid</h2>
+<ul>
+<li><strong>Ignoring endpoint logs:</strong> Focusing only on the perimeter while ignoring internal lateral movement.</li>
+<li><strong>Over-alerting:</strong> Setting alerts for every minor event, leading to "alert fatigue" where critical warnings are ignored.</li>
+<li><strong>Underestimating the "Human" element:</strong> Believing that software alone can solve every security challenge without a strategy for response.</li>
+<li><strong>Lack of data ownership:</strong> Using platforms that lock your data away, making it difficult to perform forensic analysis after an incident.</li>
+</ul>
+
+<h2 id="statistics">Key statistics on cyber threats</h2>
+<p>Understanding the landscape is vital for securing your network. Consider these industry figures:</p>
+<ul>
+<li>According to a <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer">2024 Verizon Data Breach Report</a>, 68% of breaches involved a non-malicious human element.</li>
+<li>Research from <a href="https://www.statista.com" target="_blank" rel="noopener noreferrer">Statista</a> indicates that over 40% of cyber attacks specifically target businesses with fewer than 1,000 employees.</li>
+<li>The <a href="https://www.cisa.gov" target="_blank" rel="noopener noreferrer">Cybersecurity and Infrastructure Security Agency (CISA)</a> reports that automated attacks account for the vast majority of initial access attempts.</li>
+<li>Small businesses that implement automated monitoring see a 50% faster reduction in incident containment times.</li>
+</ul>
+
+<h2 id="casestudy">Case study: How Vigilense AI achieved 24/7 protection</h2>
+<h3>Challenge</h3>
+<p>A midsize social welfare organization needed to protect sensitive client data but lacked the budget for a 24/7 SOC team. They were struggling with blind spots during non-business hours.</p>
+<h3>Solution</h3>
+<p>By implementing <a href="/">Vigilense AI</a>, the organization integrated their existing data streams into an AI-powered detection engine. This allowed them to monitor their environment 24/7 without needing additional headcount.</p>
+<h3>Results</h3>
+<ul>
+<li>Full 24/7 visibility achieved within days.</li>
+<li>Significant reduction in manual log review.</li>
+<li>Maintained full control over sensitive data while meeting compliance requirements.</li>
+</ul>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<h3>Does my business need 24/7 monitoring?</h3>
+<p>Yes. If your business relies on digital infrastructure, you are a target. Attackers automate their scans, meaning they are probing your network 24/7, regardless of your size.</p>
+
+<h3>Is AI-powered security as good as a human team?</h3>
+<p>AI is often better at spotting anomalies in massive datasets. However, the best approach is an AI-powered MDR that leverages human expertise for complex investigation and decision-making.</p>
+
+<h3>Will 24/7 monitoring slow down my network?</h3>
+<p>Modern MDR solutions like Vigilense are designed to be lightweight. They analyze log data without interfering with your production traffic or user experience.</p>
+
+<div>
+<h2>Key Takeaways</h2>
+<ul>
+<li>✓ Small networks are major targets for automated cyber attacks.</li>
+<li>✓ 24/7 coverage is achievable for midsize businesses through AI-driven MDR.</li>
+<li>✓ Centralizing logs is the foundational step for any security strategy.</li>
+<li>✓ Automation reduces the "time-to-containment," which is the most critical metric for limiting breach damage.</li>
+<li>✓ Vigilense AI offers a secure, transparent, and scalable way to protect your infrastructure.</li>
+</ul>
+</div>
+
+<p>Implementing 24/7 threat monitoring is no longer a luxury reserved for global enterprises. By choosing the right AI-powered tools, you can ensure that your network is protected while you sleep, allowing your team to focus on growing your business rather than fighting fires.</p>
+
+<p>If you are ready to modernize your security posture, explore the <a href="/platform">Vigilense AI platform</a> to see how you can go live in days, not months.</p>
+
+<h2 id="related">Related articles</h2>
+<ul>
+<li><a href="/resources">Understanding AI-Powered SOC vs. Traditional Teams</a></li>
+<li><a href="/compare">Why Midsize Businesses are Choosing MDR over In-House Teams</a></li>
+<li><a href="/blog">The Reality of Cyber Breaches in Small Organizations</a></li>
+</ul>
+                </div>
+
+                <hr class="post-divider">
+
+                <div class="post-cta">
+                    <h3>See how Vigilense AI can help your team.</h3>
+                    <a href="/demo/" class="btn">Book a Demo</a>
+                </div>
+
+                <div class="author-card">
+                    <div class="author-avatar">BS</div>
+                    <div class="author-info">
+                        <h4><a href="/resources/team/#bal-singh">Bal Singh</a></h4>
+                        <div class="author-title">Co-founder &amp; CTO</div>
+                        <div class="author-bio">15+ years designing and operating enterprise SOC infrastructure, leading SIEM architecture and automated detection pipelines.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="nav-brand">
+                        <img src="/vigilense-logo.png?v=2" alt="Vigilense AI - Autonomous Vigilance for Security Teams" class="logo-icon" loading="lazy">
+                        <span class="logo-text"><span class="logo-vigilense">Vigilense</span><span class="logo-ai"> AI</span></span>
+                    </a>
+                    <p>The Sovereign SOC</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="/platform/ai-soc-analyst/">AI SOC Analyst</a></li>
+                            <li><a href="/platform/byodb-siem/">BYODb SIEM</a></li>
+                            <li><a href="/platform/integrations/">Integrations</a></li>
+                            <li><a href="/pricing/">Pricing</a></li>
+                            <li><a href="/#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/careers/">Careers</a></li>
+                            <li><a href="/security/">About & Security</a></li>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/demo/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/why-now/">Why Now</a></li>
+                            <li><a href="/blog/">Blog & News</a></li>
+                            <li><a href="/resources/what-is-byodb-siem/">What is BYODb SIEM?</a></li>
+                            <li><a href="/resources/what-is-sovereign-soc/">What is a Sovereign SOC?</a></li>
+                            <li><a href="/resources/what-is-ai-soc-analyst/">What is an AI SOC Analyst?</a></li>
+                            <li><a href="/resources/siem-buyers-guide/">SIEM Buyer's Guide</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal & Security</h4>
+                        <ul>
+                            <li><a href="/trust/">Trust Center</a></li>
+                            <li><a href="/security/">Security</a></li>
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li><a href="/terms/">Terms of Service</a></li>
+                            <li><a href="/disclaimer/">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 Vigilense AI. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="/privacy/">Privacy</a>
+                        <a href="/terms/">Terms</a>
+                        <a href="/disclaimer/">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-tagline">Autonomous vigilance for modern security teams.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+</body>
+</html>

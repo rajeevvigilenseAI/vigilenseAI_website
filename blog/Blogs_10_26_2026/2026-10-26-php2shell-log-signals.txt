@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PHP2Shell: 7 Log Signals That Show You've Been Hit</title>
+<meta name="description" content="PHP2Shell is under active exploitation. What happened, how to patch, a hunting query, and 7 log signals that show you've been hit.">
+</head>
+<body>
+<h1>PHP2Shell: 7 Log Signals That Show You've Been Hit</h1>
+
+<p>If your organization runs anything on PHP, patch it today and start looking for signs someone got there first. On October 21, 2026, the PHP project shipped emergency fixes for two critical remote code execution flaws now called PHP2Shell. Five days later, CISA added both to its Known Exploited Vulnerabilities catalog.</p>
+
+<p>PHP sits behind WordPress, Drupal, Joomla, Magento, and countless internal tools and appliance admin panels. That means most mid-sized companies have exposure they may not even know about. This post covers what happened, what attackers are doing, and the exact log signals your team should hunt for this week.</p>
+
+<p><em>Raj Choudhary has spent 15 years building enterprise SIEM and SOC programs. He founded Vigilense AI to give mid-sized teams the same detection and response large enterprises have.</em></p>
+
+<h2 id="what-is-php2shell">What PHP2Shell is</h2>
+<p>PHP2Shell is a pair of memory-safety bugs in the PHP engine itself, so a perfectly written app can still be vulnerable. Both are rated CVSS 9.2 and allow code execution with no login. The root cause is how PHP cleans up after an out-of-memory error: leftover internal state survives into the next request on the same worker, and an attacker can shape that memory (Wiz Research, PHP advisory).</p>
+
+<table>
+<thead>
+<tr><th>CVE</th><th>What breaks</th><th>Demonstrated impact</th></tr>
+</thead>
+<tbody>
+<tr><td>CVE-2026-109618</td><td>Session upload-progress handling leaves stale pointers after an OOM error</td><td>Leaks worker memory (passwords, tokens, API keys) and pre-auth RCE on WordPress, Drupal, Joomla</td></tr>
+<tr><td>CVE-2026-109619</td><td>Fatal-error backtrace use-after-free and an OPcache type confusion</td><td>Pre-auth RCE on Drupal and WordPress</td></tr>
+</tbody>
+</table>
+
+<p><strong>Who is affected:</strong> every PHP setup that serves web requests, including Apache mod_php (highest risk), PHP-FPM, php-cgi, FrankenPHP and LiteSpeed. The oldest affected path goes back to PHP 5.4 (SentinelOne, UK NCSC).</p>
+
+<p><strong>Fixed versions:</strong> 8.5.12, 8.4.27, 8.3.36 and 8.2.35. PHP 8.1 and older get no full fix, and 8.2 reaches end of life on December 31, 2026 (Decrypt).</p>
+
+<p>A third, narrower bug (CVE-2026-115560) was announced on October 23. It only applies to apps that switch session serializers at runtime and will be fixed in the regular release cycle (The Hacker News).</p>
+
+<h2 id="timeline">Timeline</h2>
+<p>It took 63 days from discovery to patch, and attacks started before the patch existed.</p>
+
+<table>
+<thead>
+<tr><th>Date (2026)</th><th>What happened</th></tr>
+</thead>
+<tbody>
+<tr><td>Oct 26</td><td>CISA adds both CVEs to the KEV catalog</td></tr>
+<tr><td>Oct 25</td><td>First confirmed shell commands on honeypots; suspected North Korea-linked scanning reported</td></tr>
+<tr><td>Oct 21</td><td>Patches released; governments across Europe and Asia take sites offline</td></tr>
+<tr><td>Oct 17</td><td>Amazon sees the first exploit attempt, four days before disclosure</td></tr>
+<tr><td>Aug 19</td><td>Wiz finds the first bug using AI models</td></tr>
+</tbody>
+</table>
+
+<p>The root problem was spotted in a 2024 audit, but nobody could prove it exploitable then, so the fix stalled (SentinelOne).</p>
+
+<h2 id="who-is-attacking">Who is attacking, and how</h2>
+<p>Exploitation is confirmed: CISA listed PHP2Shell as known exploited on October 26, and honeypots have caught attackers running real shell commands.</p>
+<ul>
+<li><strong>Mass scanning.</strong> Cloudflare saw thousands of attempts before disclosure and millions within a day.</li>
+<li><strong>Real shells.</strong> Honeypots caught attackers using <code>curl</code>, <code>wget</code> and <code>php -r</code> to call back to a remote server, the usual step before dropping a payload.</li>
+<li><strong>State-linked targeting.</strong> CYFIRMA tied slow, rotating scans of 216 chosen hosts (government, banks, airports, payment platforms) to a group linked with moderate confidence to Lazarus. Rate-limit alerts will miss it.</li>
+</ul>
+<p>Palo Alto Unit 42 also saw an AI-driven attacker go from a vulnerable PHP app to Domain Admin attempts in under two hours at a European agency. It later said it could not confirm PHP2Shell was the entry point, but the speed is the lesson.</p>
+
+<h2 id="why-different">Why this one is different: complexity is no longer a defense</h2>
+<p>These bugs sat in PHP for over a decade because exploiting them was too hard for almost anyone to bother. AI changed that math. Wiz says frontier models let one researcher do in a week what used to take a top team months, including adapting the exploit to each target's memory layout.</p>
+<p>The same tools work for attackers. Once a patch is public, AI can help reverse it into a working exploit in hours. That is why the gap between disclosure and mass exploitation here was measured in minutes, not weeks.</p>
+<p>For a security team, this means two things:</p>
+<ol>
+<li><strong>Patch windows are shrinking.</strong> "We'll get to it next maintenance window" is no longer safe for internet-facing systems.</li>
+<li><strong>Post-exploitation moves at machine speed.</strong> The European agency case above went from foothold to Domain Admin attempts in under two hours. A human-only SOC working tickets in the morning cannot keep up with that.</li>
+</ol>
+<p>PHP2Shell also is not a one-off. In July, AI-assisted research produced wp2shell, a pre-auth RCE chain in WordPress core (Wiz). Expect more "too complex to exploit" bugs to fall the same way.</p>
+
+<h2 id="what-to-do">What to do this week</h2>
+<p>Patching PHP itself is the only full fix. Updating WordPress or a plugin does not close this gap.</p>
+<ul>
+<li>&#9744; <strong>Inventory every PHP install.</strong> Include appliance admin panels, load balancers and vendor products that bundle PHP. NCSC-NL keeps a list of affected third-party software on GitHub.</li>
+<li>&#9744; <strong>Patch internet-facing systems first.</strong> Move to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, then restart every worker.</li>
+<li>&#9744; <strong>Verify the version from the web side.</strong> The command-line PHP often uses a different config than the web server.</li>
+<li>&#9744; <strong>Ask your host or MSP for confirmation</strong> if you don't manage the server yourself.</li>
+<li>&#9744; <strong>Running PHP 8.1 or older?</strong> There is no full fix. Upgrade, or take the system offline until you can.</li>
+<li>&#9744; <strong>Assume compromise on anything exposed before patching.</strong> Hunt for web shells and new outbound connections, then rotate secrets the PHP process could read (database passwords, API keys, tokens).</li>
+</ul>
+<p>If you truly cannot patch today, these reduce risk but do not stop every attack path (lilting.ch, Sliplane):</p>
+<ul>
+<li>Set <code>session.upload_progress.enabled = 0</code> in php.ini or the FPM pool, not via <code>ini_set()</code>, and restart workers.</li>
+<li>On PHP 8.5, turn off fatal-error backtraces.</li>
+<li>Turn on vendor WAF rules (Cloudflare, AWS, Akamai, Fastly and others shipped them) and block <code>PHP_SESSION_UPLOAD_PROGRESS</code> fields in multipart POSTs at the edge.</li>
+</ul>
+<p><strong>Switching from mod_php to PHP-FPM is not a mitigation.</strong> FPM is also affected.</p>
+
+<h2 id="log-signals">How to spot exploitation in your logs</h2>
+<p>The attack runs below the application, so app logs show little. The useful evidence is spread across web server, PHP, process and network logs, which is why correlation matters.</p>
+
+<table>
+<thead>
+<tr><th>Signal</th><th>Where to look</th><th>Why it matters</th></tr>
+</thead>
+<tbody>
+<tr><td>PHP worker (php-fpm, php-cgi, httpd, apache2) spawning sh, bash, curl, wget or php -r</td><td>EDR, Sysmon for Linux, auditd</td><td>Strongest sign of successful RCE; CISA's top recommended hunt</td></tr>
+<tr><td>POST returns 500, then PHP logs memory exhaustion or heap corruption, then the Apache worker crashes</td><td>Apache access + error logs, PHP error log, syslog</td><td>The sequence ReliaQuest reproduced in a lab</td></tr>
+<tr><td>Multipart POSTs carrying a <code>PHP_SESSION_UPLOAD_PROGRESS</code> field (for example the <code>p2s-rider</code> marker)</td><td>WAF, reverse proxy, web access logs</td><td>The confirmed attack vector and a known scanner marker</td></tr>
+<tr><td>Oversized or malformed PHPSESSID cookies in responses</td><td>Proxy or WAF response logs</td><td>Sign of the memory-leak bug returning heap data</td></tr>
+<tr><td>Unexplained PHP worker churn or repeated 500s from one source</td><td>Web server metrics, access logs</td><td>Attackers retry to line up memory</td></tr>
+<tr><td>New outbound connections from web servers to unfamiliar IPs</td><td>Firewall, DNS, cloud flow logs</td><td>Payload fetch or C2 callback after a shell</td></tr>
+<tr><td>LDAP queries or NTLM traffic from a web server to domain controllers</td><td>DC logs, network sensors</td><td>Post-exploitation move toward Active Directory</td></tr>
+</tbody>
+</table>
+
+<p>CISA has published a SIGMA rule in its GitHub repository that covers the process-level behavior. Known indicators so far include <code>204.76.203[.]7</code> (mass scanner) and <code>162.35.99[.]94</code> (callback server seen in honeypot shells).</p>
+<p>A single signal is noisy. A 500 burst followed by a PHP worker launching curl to a new IP within minutes is not.</p>
+
+<h2 id="hunting-query">A hunting query you can run today</h2>
+<p>This finds PHP workers launching shells or download tools in the last 7 days. It uses OCSF process fields, so it maps to most EDR data. Adjust table and field names to match your SIEM.</p>
+<pre><code>SELECT time, device.hostname, actor.process.name AS parent, process.name AS child, process.cmd_line
+FROM process_activity
+WHERE time &gt; now() - INTERVAL 7 DAY
+  AND actor.process.name IN ('php-fpm', 'php-cgi', 'php', 'httpd', 'apache2', 'lsphp', 'frankenphp')
+  AND process.name IN ('sh', 'bash', 'dash', 'curl', 'wget', 'nc', 'python', 'python3', 'perl')
+ORDER BY time DESC</code></pre>
+<p>Any hit on an internet-facing server is worth a full investigation. Some apps legitimately shell out (image tools, cron wrappers), so build an allowlist from what you find in the first run.</p>
+
+<h2 id="how-vigilense-helps">How Vigilense AI helps</h2>
+<p>Attackers are using AI to move from foothold to domain admin in hours. Defenders need the same speed. Vigilense AI is an AI-powered MDR platform built for teams of 50 to 500 people that don't have a 24/7 SOC.</p>
+<ul>
+<li><strong>Detections for PHP2Shell behavior.</strong> We are rolling out rules for the signals above across customer tenants: PHP workers spawning shells or download tools, the 500 to OOM to worker-crash sequence, and web servers calling out to new hosts.</li>
+<li><strong>AI investigations in minutes, not hours.</strong> When an alert fires, our investigation agent pulls the related web, process, network and identity events, links them into one story, and tells you if it is a scan or a real compromise.</li>
+<li><strong>Alert consolidation.</strong> ThreatFusion groups the flood of scan noise into a few incidents, so the real hit does not get buried under a million probes.</li>
+<li><strong>Your data stays yours.</strong> With our Bring Your Own Database design, we query logs where they already live (SQL, KQL, SPL and more). No rip-and-replace of your SIEM.</li>
+<li><strong>Humans approve the big moves.</strong> Containment actions like isolating a host or disabling an account go through analyst approval.</li>
+</ul>
+
+<h2 id="free-assessment">Not sure if you were hit?</h2>
+<p>We'll run a free PHP2Shell compromise assessment across your web servers: the 7 signals above, the hunting query, and a review of outbound traffic since October 17. You get a written result within 48 hours.</p>
+<p><a href="/demo/"><strong>Book your free assessment &rarr;</strong></a></p>
+
+<h2 id="sources">Sources</h2>
+<ul>
+<li>PHP security advisory, GHSA-w8hw-w9fx-j79w</li>
+<li>PHP security advisory, GHSA-6wmf-4rv5-p3rp</li>
+<li>Wiz Research, PHP2Shell disclosure</li>
+<li>UK NCSC, Critical security issue affecting PHP</li>
+<li>CISA, Critical Vulnerabilities in PHP Require Immediate Patching (updated Oct 26, 2026)</li>
+<li>The Hacker News, PHP2Shell Exploitation Attempts Continue Amid Suspected N. Korea Global Scanning Activity (Oct 25, 2026)</li>
+<li>SentinelOne, Stopping PHP2Shell</li>
+<li>BleepingComputer, PHP ships emergency patches</li>
+<li>Dark Reading, PHP2Shell Bugs Signal Red Alert</li>
+<li>Rapid7, PHP2Shell coverage</li>
+<li>lilting.ch, php2shell needs the PHP patch</li>
+<li>Wiz, Exploitation in the wild of wp2shell</li>
+<li>Reuters and BBC coverage, Oct 21 to 23, 2026</li>
+</ul>
+</body>
+</html>
