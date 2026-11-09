@@ -222,6 +222,10 @@
                         <input type="text" id="jobTitle" name="jobTitle">
                     </div>
                     <div class="form-group">
+                        <label for="phone">Mobile Phone</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
                         <label for="teamSize">SOC Team Size</label>
                         <select id="teamSize" name="teamSize">
                             <option value="">Select...</option>
@@ -239,6 +243,18 @@
                         <input type="checkbox" id="consent" name="consent" required>
                         <label for="consent">I agree to the <a href="/privacy/">Privacy Policy</a> and consent to being contacted about <span class="brand-name"><span class="vigilense">Vigilense</span><span class="ai"> AI</span></span>.</label>
                     </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="smsConsent" name="sms_consent" value="yes">
+                        <label for="smsConsent">Optional: I agree to receive text messages from Vigilense AI at the mobile number above, including security alerts, demo and meeting reminders, account and login codes, and marketing messages. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. See our <a href="/sms-terms/">SMS Terms</a> and <a href="/privacy/">Privacy Policy</a>.</label>
+                    </div>
+                    <script>
+                        // A mobile number is required only when the visitor opts in to texts.
+                        (function () {
+                            var box = document.getElementById('smsConsent');
+                            var phone = document.getElementById('phone');
+                            box.addEventListener('change', function () { phone.required = box.checked; });
+                        })();
+                    </script>
                     <button type="submit" id="formSubmitBtn" class="btn btn-primary btn-large btn-full">Request Demo</button>
                     <p class="form-note">We respond within 24 hours</p>
                     <div class="form-trust-badges">
